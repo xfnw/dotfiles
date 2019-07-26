@@ -113,3 +113,4 @@ if ! shopt -oq posix; then
 fi
 alias ll='ls -l'
 alias ffrec="ffmpeg -f x11grab -video_size 1024x600 -framerate 25 -i :0.0"
+alias mkdir="mkdir -p"
