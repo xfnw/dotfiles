@@ -112,5 +112,6 @@ if ! shopt -oq posix; then
   fi
 fi
 alias ll='ls -l'
-alias ffrec="ffmpeg -f x11grab -video_size 1024x600 -framerate 25 -i :0.0"
+alias ffrec="ffmpeg -f x11grab -video_size 1366x768 -framerate 25 -i :0.0 -f pulse -i default"
+alias fflive="ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1366x768 -i :0.0+0,0 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf 'format=yuv420p' -g 48 -c:a aac -b:a 128k -ar 44100 -f flv 'rtmp://live.twitch.tv/app/$TW_KEY'"
 alias mkdir="mkdir -p"
