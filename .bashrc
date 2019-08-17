@@ -114,6 +114,7 @@ fi
 
 alias ll='ls -l'
 
+alias bright="xrandr --output eDP-1 --brightness"
 
 alias ffrec="ffmpeg -f pulse -i default -f x11grab -video_size 1366x768 -framerate 24 -i :0.0"
 
