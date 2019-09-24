@@ -1,0 +1,8 @@
+{
+    "allowList": [
+        "296736767158255616", "//lickthecheese",
+        "543047770936967168", "//ultrajo07"
+    ],
+    "helpGeneralTitle": "Help",
+    "helpGeneral": "Here is a list of commands:\nhelp - get this\necho - repeat what you said\nwelcome - do the welcome message again for some reason"
+} 
