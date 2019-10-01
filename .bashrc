@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 22)\]\\$ \[$(tput sgr0)\]"
+    export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 28)\]\\$ \[$(tput sgr0)\]"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
