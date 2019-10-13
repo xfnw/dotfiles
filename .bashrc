@@ -127,3 +127,6 @@ alias fflive='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 13
 
 
 alias mkdir="mkdir -p"
+
+alias stdsize="wc -c | awk '{print $1/1000"K"}'"
+
