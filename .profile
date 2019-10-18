@@ -9,3 +9,6 @@ export PATH=$PATH:/home/ltc/bin
 [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 > /dev/null && exec startx
+
+[[ -n "$TMUX" ]] && source .bashrc
+
