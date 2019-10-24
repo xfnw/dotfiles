@@ -83,7 +83,7 @@
 ! "Pre-set filter" Set from: Default
 ! rofi.filter:                         
 ! "Separator style (none, dash, solid) *DEPRECATED*" Set from: Default
- rofi.separator-style:                solid
+ rofi.separator-style:                none
 ! "Hide scroll-bar *DEPRECATED*" Set from: Default
 ! rofi.hide-scrollbar:                 false
 ! "Fullscreen" Set from: Default
