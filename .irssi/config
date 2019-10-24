@@ -302,6 +302,7 @@ aliases = {
   97 = "WINDOW GOTO 97";
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
+  rainbow = "exec -o toilet --irc --gay -f term -- $*";
 };
 
 statusbar = {
@@ -401,6 +402,10 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "LickTheCheese"; user_name = "lickthecheese"; nick = "lickthecheese"; };
+  core = {
+    real_name = "LickTheCheese";
+    user_name = "lickthecheese";
+    nick = "lickthecheese";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
