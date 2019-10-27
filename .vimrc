@@ -10,3 +10,6 @@ command Tmome :r ~/Documents/templates/english.mom
 
 " run groff+refer on file
 :command Groff !p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf >> ${p::-4}.pdf 
+:command Grofft !p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii >> ${p::-4}.txt 
+
+
