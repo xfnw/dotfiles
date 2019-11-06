@@ -1,0 +1,3 @@
+#!/bin/bash
+zbarcam --raw -Sdisable -Sqrcode.enable | crikey -i
+
