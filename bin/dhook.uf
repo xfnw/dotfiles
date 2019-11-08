@@ -1,8 +1,0 @@
-#!/bin/bash
-
-text='{"username":"MEE6","content":"'$(</dev/stdin)'"}'
-
-
-curl -H "Content-Type: application/json" -X POST -d "$text" https://discordapp.com/api/webhooks/636944157625024565/nj11LQ0I716GR8C81WnPYYWW9lwuvJKhnyOX1UIrTaB6ldYn5mjf4qaqmdMQkII2HIRM
-
-

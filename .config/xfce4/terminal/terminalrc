@@ -32,4 +32,9 @@ ColorBackground=#000000000000
 FontName=Source Code Pro 9
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 CellWidthScale=1.050000
+DropdownPosition=75
+DropdownWidth=74
+DropdownHeight=53
+DropdownAlwaysShowTabs=FALSE
+DropdownAnimationTime=158
 
