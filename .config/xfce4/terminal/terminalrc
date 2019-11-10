@@ -37,4 +37,5 @@ DropdownWidth=74
 DropdownHeight=53
 DropdownAlwaysShowTabs=FALSE
 DropdownAnimationTime=158
+DropdownStatusIcon=FALSE
 
