@@ -126,8 +126,11 @@ alias fflive='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 13
 
 #alias fflivedev="ffmpeg -i /dev/video0 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf 'format=yuv420p' -g 48 -f flv 'rtmp://live.twitch.tv/app/$TW_KEY'"
 
+# ttm.sh aliases
+ttmfile() { curl -F"file=@$1" https://ttm.sh ; }
+ttmshort() { curl -F"shorten=$1" https://ttm.sh ; }
 
-
+# argument aliases
 alias mkdir="mkdir -p"
 
 alias stdsize='wc -c | awk '"'"'{print $1/1000"K"}'"'"' '
