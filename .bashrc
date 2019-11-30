@@ -140,3 +140,5 @@ ltcpst() { curl -F"text=<-" https://lickthecheese.tilde.site/p.php ; }
 fupic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
 fupst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
 
+export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 28)\]\\$ \[$(tput sgr0)\]"
+
