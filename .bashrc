@@ -135,10 +135,8 @@ alias mkdir="mkdir -p"
 
 alias stdsize='wc -c | awk '"'"'{print $1/1000"K"}'"'"' '
 
-ltcpic() { curl -F"file=@$1" https://lickthecheese.tilde.site/u.php ; }
-ltcpst() { curl -F"text=<-" https://lickthecheese.tilde.site/p.php ; }
-fupic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
-fupst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
+ltcpic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
+ltcpst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
 
 export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 28)\]\\$ \[$(tput sgr0)\]"
 
