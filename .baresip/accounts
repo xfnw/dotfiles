@@ -35,5 +35,5 @@
 #  <sip:user@1.2.3.4;transport=tcp>;auth_pass=secret
 #  <sip:user@[2001:df8:0:16:216:6fff:fe91:614c]:5070;transport=tcp>;auth_pass=secret
 #
-<sip:2013116:Fjec2IOOlaq1F@tilde.tel;transport=udp>;auth_pass=Fjec2IOOlaq1F
+<sip:1001004:@192.168.1.60;transport=udp>;auth_pass=
 #<sip:ltc@mcpsmd.org>;auth_pass=PASSWORD
