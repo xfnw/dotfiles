@@ -31,13 +31,13 @@ print("Select a task list:")
 listOfLists = []
 for i in os.listdir(targetDir):
     print(len(listOfLists), i[:-5])
-    listOfLists.append(i[:5])
+    listOfLists.append(i[:-5])
 inputList = input("> ")
 try:
     inputInt = int(inputList)
     targetFile = targetDir + "/" + listOfLists[inputInt] + ".json"
 except ValueError:
-    targetFile = target + "/" + inputList + ".json"
+    targetFile = targetDir + "/" + inputList + ".json"
 
 # function is used by read and write functions
 def timeGrab():
