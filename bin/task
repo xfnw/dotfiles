@@ -164,6 +164,7 @@ def userInput():
     if (choice.lower() == "help") or (choice == "?"):
         userHelp()
     elif (choice.lower() == "quit") or (choice.lower() == "exit"):
+        clearScreen()
         byebye
     elif choice.startswith(":d"):
         jsonRemove(choice[2:].strip())
