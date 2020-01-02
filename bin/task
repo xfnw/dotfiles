@@ -13,7 +13,7 @@ appName = "Task"
 dirName = "hello-task"
 homeDir = os.path.expanduser("~")
 targetDir = homeDir + "/.local/share/" + dirName
-targetFile = targetDir + "/tasks.json"
+#targetFile = targetDir + "/tasks.json"
 data = {}
 data["tasks"] = []
 data["settings"] = []
@@ -21,6 +21,23 @@ updateMsg = ""
 idCounter = 1
 unixDay = 86400
 
+# clear screen buffer
+def clearScreen():
+    os.system("cls" if os.name == "nt" else "clear")
+
+# get custom task lists
+clearScreen()
+print("Select a task list:")
+listOfLists = []
+for i in os.listdir(targetDir):
+    print(len(listOfLists), i[:-5])
+    listOfLists.append(i[:5])
+inputList = input("> ")
+try:
+    inputInt = int(inputList)
+    targetFile = targetDir + "/" + listOfLists[inputInt] + ".json"
+except ValueError:
+    targetFile = target + "/" + inputList + ".json"
 
 # function is used by read and write functions
 def timeGrab():
@@ -191,12 +208,6 @@ def userHelp():
         quit/exit - exit the application""")
     input("\nPress return to go back...")
     taskList(targetFile)
-
-
-# clear screen buffer
-def clearScreen():
-    os.system("cls" if os.name == "nt" else "clear")
-
 
 # execute program
 jsonCheck()
