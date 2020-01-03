@@ -29,7 +29,9 @@ def clearScreen():
 clearScreen()
 print("Select a task list:")
 listOfLists = []
-for i in os.listdir(targetDir):
+dirContents = os.listdir(targetDir)
+dirContents.sort()
+for i in dirContents:
     print(len(listOfLists), i[:-5])
     listOfLists.append(i[:-5])
 inputList = input("> ")
