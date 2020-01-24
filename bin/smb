@@ -1,0 +1,28 @@
+#!/bin/bash
+
+export SMBPATH="smb.txt"
+
+export SMBID=$RANDOM
+
+echo "welcome to smb"
+
+if [[ ! -f $SMBPATH ]];then
+read -p "Initilize smb in $SMBPATH ? "
+echo "--top--" >> $SMBPATH
+fi
+
+read -p "title your post: " TITLE
+
+mkdir /tmp/smb/$USER/ -p
+vim /tmp/smb/$USER/$SMBID
+if [[ -f "/tmp/smb/$USER/$SMBID" ]];then
+echo "====================================================" >> /tmp/smb/$USER/$SMBID.t
+echo "Title: $TITLE" >> /tmp/smb/$USER/$SMBID.t
+date "+Posted on: %d %b, %Y\\" | tr '\\\\' "\n" >> /tmp/smb/$USER/$SMBID.t
+cat /tmp/smb/$USER/$SMBID >> /tmp/smb/$USER/$SMBID.t
+echo -e "====================================================\n\n" >> /tmp/smb/$USER/$SMBID.t
+sed -i "/--top--/r /tmp/smb/$USER/$SMBID.t" $SMBPATH
+else
+echo "aborting..."
+fi
+
