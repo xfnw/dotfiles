@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 
-import math
+import math, sys
 
 si = input('size append d r c a> ')
-
+print()
 st = si[-1:]
 
-si = float(si[:-1])
+try:
+    si = float(si[:-1])
+except:
+    print('invalid input, please use the format <value><type letter>')
+    sys.exit()
 
 def fromD(di):
     r = di/2
@@ -33,5 +37,11 @@ funcs = {
     'a':fromA
 }
 
-funcs[st](si)
+if st in funcs:
+    funcs[st](si)
+else:
+    print("invalid value type, the options are:")
+    for i in funcs:
+        print(i)
+
 
