@@ -138,6 +138,7 @@ alias stdsize='wc -c | awk '"'"'{print $1/1000"K"}'"'"' '
 expic() { curl -F"file=@$1" http://i.ltcpas.tk/u.php ; }
 ltcpic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
 ltcpst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
+ep() { curl -F"text=<-" https://i.ltcpas.tk/p.php ; }
 
 export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 28)\]\\$ \[$(tput sgr0)\]"
 
