@@ -33,8 +33,8 @@ auenc_format		s16		# s16, float, ..
 audec_format		s16		# s16, float, ..
 
 # Video
-#video_source		v4l2,/dev/video0
-#video_display		x11,nil
+video_source		v4l2,/dev/video0
+video_display		x11,nil
 video_size		352x288
 video_bitrate		500000
 video_fps		25.00
