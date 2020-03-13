@@ -9,10 +9,20 @@
 #
 
 
-"Echo Server" <sip:echo@creytiv.com>
-"ltc" <sip:ltc@mcpsmd.org>;presence=p2p
+
+# tilde.tel contacts
+"echo test" <sip:1101>
+"futel" <sip:1938>
+"conference" <sip:1105>
+
+"login" <sip:2063110>
+"jan6" <sip:2013114>
+"brendo" <sip:2013105>
+"ben" <sip:2013102>
+
+"self" <sip:2113103>
+"lick" <sip:2013116>
 
 # Access rules
 #"Catch All" <sip:*@*>;access=block
-"Good Friend" <sip:good@friend.com>;access=allow
 
