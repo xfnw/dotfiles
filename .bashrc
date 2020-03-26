@@ -116,10 +116,13 @@ alias ll='ls -l'
 
 alias bright="xrandr --output eDP-1 --brightness"
 
+
 alias ffrec="ffmpeg -f pulse -i default -f x11grab -video_size 1366x768 -framerate 24 -i :0.0"
 
+alias ffcheese="ffmpeg -f pulse -i default -f x11grab -video_size 1020x574 -framerate 24 -i :0.0+8,107"
 
 alias fflive='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1366x768 -i :0.0+0,0 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "rtmp://live-jfk.twitch.tv/app/$TW_KEY" -loglevel 24'
+alias fflivecheese='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1020x574 -i :0.0+8,107 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "rtmp://live-jfk.twitch.tv/app/$TW_KEY" -loglevel 24'
 
 ## minecraft version
 #alias fflive='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 854x480 -i :2.0+0,55 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "rtmp://live-jfk.twitch.tv/app/$TW_KEY"'
