@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 28)\]\\$ \[$(tput sgr0)\]"
+    export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -143,5 +143,5 @@ ltcpic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
 ltcpst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
 ep() { curl -F"text=<-" https://i.ltcpas.tk/p.php ; }
 
-export PS1="\[$(tput bold)\]\[$(tput setaf 34)\][\[$(tput setaf 28)\]\u\[$(tput setaf 40)\]@\[$(tput setaf 28)\]\h \[$(tput setaf 40)\]\W\[$(tput setaf 34)\]]\[$(tput setaf 28)\]\\$ \[$(tput sgr0)\]"
+export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
 
