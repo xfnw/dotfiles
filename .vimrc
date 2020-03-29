@@ -13,3 +13,13 @@ command Tmome :r ~/Documents/templates/english.mom
 :command Grofft !p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii > ${p::-4}.txt 
 :command Man !p="%"; groff -man -T ascii ${p::-4}.man > ${p::-4}.txt
 
+
+" nice line numbers
+set number
+set relativenumber
+
+" syntax hilighting
+syntax on
+color pablo
+
+
