@@ -135,6 +135,7 @@ ttmshort() { curl -F"shorten=$1" https://ttm.sh ; }
 
 # argument aliases
 alias mkdir="mkdir -p"
+alias t="topydo"
 
 alias stdsize='wc -c | awk '"'"'{print $1/1000"K"}'"'"' '
 
