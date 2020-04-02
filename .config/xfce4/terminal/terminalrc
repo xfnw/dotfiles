@@ -29,7 +29,7 @@ MiscShowUnsafePasteDialog=FALSE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.280000
 ColorBackground=#000000000000
-FontName=Source Code Pro 9
+FontName=JetBrains Mono 9
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 CellWidthScale=1.050000
 DropdownPosition=75
@@ -38,4 +38,5 @@ DropdownHeight=53
 DropdownAlwaysShowTabs=FALSE
 DropdownAnimationTime=158
 DropdownStatusIcon=FALSE
+FontUseSystem=TRUE
 
