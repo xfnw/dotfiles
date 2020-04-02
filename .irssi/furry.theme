@@ -262,6 +262,6 @@ formats = {
   "fe-common/core" = {
     timestamp = "{timestamp %%H:%%M:%%S} ";
     own_msg = "{ownmsgnick $2 {ownnick $[0]0}}$1";
-    pubmsg = "{pubmsgnick $2 {pubnick \00309$[0]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00350$[0]0}}$1";
   };
 };

@@ -356,11 +356,16 @@ statusbar = {
     window = { placement = "top"; position = "0"; disabled = "yes"; };
     prompt = {
       placement = "bottom";
+      items = { user = { }; input = { priority = "10"; }; act = { }; };
+    };
+    topic = {
       items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
-        input = { priority = "10"; };
-        act = { };
+        topicbarstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
   };
