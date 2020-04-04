@@ -139,7 +139,7 @@ alias t="topydo"
 
 alias stdsize='wc -c | awk '"'"'{print $1/1000"K"}'"'"' '
 
-expic() { curl -F"file=@$1" http://i.ltcpas.tk/u.php ; }
+leetpic() { curl -F"file=@$1" http://lickthe.1337331.xyz/i/u.php ; }
 ltcpic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
 ltcpst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
 ep() { curl -F"text=<-" https://i.ltcpas.tk/p.php ; }
