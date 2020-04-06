@@ -370,3 +370,21 @@ statusbar = {
     };
   };
 };
+hilights = (
+  {
+    text = "lickthecheese";
+    color = "%G";
+    act_color = "%Y";
+    nick = "no";
+    word = "no";
+    regexp = "yes";
+  },
+  {
+    text = "lick";
+    color = "%G";
+    act_color = "%Y";
+    nick = "no";
+    word = "no";
+    regexp = "yes";
+  }
+);
