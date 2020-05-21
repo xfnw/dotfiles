@@ -1,0 +1,8 @@
+#!/bin/bash
+
+awk '$3~"^[+%@&~]?'$1'$"{print $2}' ~/.weechat/logs/* |
+ awk -F ":" '{print $1}' |
+cat - ~/Documents/nums |
+sort | uniq -c | sort -k2 |
+awk '{print $1-1}'
+

@@ -143,7 +143,12 @@ leetpic() { curl -F"file=@$1" http://lickthe.1337331.xyz/i/u.php ; }
 ltcpic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
 ltcpst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
 ep() { curl -F"text=<-" https://i.ltcpas.tk/p.php ; }
-plot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col=1:'$1'] "/tmp/plotuwu" using 0:col title "" with '$2' lw 2 pt 7' ; }
+
+
+plot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col=1:'$1'] "/tmp/plotuwu" using 0:col title "'$3'" with '$2' lw 2 pt 7' ; }
+smoothplot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col=1:'$1'] "/tmp/plotuwu" using 0:col smooth bezier title "'$3'" with '$2' lw 2 pt 7' ; }
+
+
 
 
 export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
