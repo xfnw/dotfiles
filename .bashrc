@@ -143,6 +143,8 @@ leetpic() { curl -F"file=@$1" http://lickthe.1337331.xyz/i/u.php ; }
 ltcpic() { curl -F"file=@$1" https://lickthecheese.fuckup.club/u.php ; }
 ltcpst() { curl -F"text=<-" https://lickthecheese.fuckup.club/p.php ; }
 ep() { curl -F"text=<-" https://i.ltcpas.tk/p.php ; }
+plot() { gnuplot -p -e 'plot "/dev/stdin"'; }
+
 
 export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
 
