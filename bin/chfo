@@ -1,0 +1,8 @@
+#!/bin/bash
+
+chainfo $1 > /tmp/chacha
+
+MACS=$(sort -h /tmp/chacha | tail -n 1)
+
+awk '{print $1/'$MACS'*100}' /tmp/chacha
+
