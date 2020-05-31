@@ -5,7 +5,7 @@
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export PATH=$PATH:/home/ltc/bin
 
-export $TERMINAL="kitty"
+export TERMINAL="kitty"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
