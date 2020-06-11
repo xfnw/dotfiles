@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color|*-color|screen) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,9 +57,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
+    #export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
+    PS1="\$([ \$? -eq 0 ] || printf `tput setaf 0; tput setab 9`'!\e[m ' )$(tput bold; tput setaf 0; tput setab 14) \u \e[m $(tput setaf 0; tput setab 4) \w \e[m "
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}[ \u@\h \w\]$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -151,7 +152,6 @@ smoothplot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangl
 calcpi() { echo "scale=$1; 4*a(1)" | bc -l ; }
 
 
-export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
 
 export EDITOR='vim'
 
