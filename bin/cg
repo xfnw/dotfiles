@@ -1,0 +1,3 @@
+
+TERM=screen-16color
+catgirl $@ config

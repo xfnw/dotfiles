@@ -1,0 +1,10 @@
+host = irc.tilde.chat
+join = #meta,#team,#bots,#share,#radiofreqs,#hamradio,#rscmakerspace,#tildetel,#wilde,#tilderadio,#minecraft,#casino,#tildenet,#brendo,#starlanes,#tildecoin,#envs,#pinebox,#furry,#politics,#counting,#counting-meta,#clubcraft,#services,#archlinux,#lickthecheese,#cminecraft,#windowsloser,#mesh,#kim,#biking,#wppnx,#blender,#arson,#chaos,#thunix,#ipd,#tildexxx,#coffee,#covid19,#cryptocurrency,#finger,#/home/lick,#/,#blamejan6,#crimesmeta,#spaceheater,#gemini,#tildeverse,#kumquat,#jitsi,#water,#beastars,#xfnw,#spacehare,#flamewars,#rpn,#haiku,#python,#choas,#dmv,#spam,#aaa,#irctokens,#ircrobots,#o,#me
+
+nick = lickthecat
+real = lick (he/him)
+cert = cert.pem
+sasl-external
+
+notify = dunstify
+
