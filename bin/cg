@@ -1,3 +1,7 @@
 
+# idk teh 256 colors hurt my eyes
 TERM=screen-16color
-catgirl $@ config
+
+# sorry june but i need my arrow keys lol
+dtach -A ~/.cg_sock catgirl $@ config
+
