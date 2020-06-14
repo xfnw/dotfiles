@@ -3,5 +3,5 @@
 TERM=screen-16color
 
 # sorry june but i need my arrow keys lol
-dtach -A ~/.cg_sock catgirl $@ config
+dtach -A ~/.cg_sock -z catgirl $@ config
 
