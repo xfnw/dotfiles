@@ -1783,7 +1783,7 @@ grml_prompt_pre_default=(
     date              '%F{blue}'
     grml-chroot       '%F{red}'
     history           '%F{green}'
-    host              ''
+    host              '%F{blue}'
     jobs              '%F{cyan}'
     newline           ''
     path              '%B'
@@ -1793,7 +1793,7 @@ grml_prompt_pre_default=(
     sad-smiley        ''
     shell-level       '%F{red}'
     time              '%F{blue}'
-    user              '%B%F{blue}'
+    user              '%B%F{green}'
     vcs               ''
 )
 
@@ -1804,7 +1804,7 @@ grml_prompt_post_default=(
     date              '%f'
     grml-chroot       '%f '
     history           '%f'
-    host              ''
+    host              '%f'
     jobs              '%f'
     newline           ''
     path              '%b'
@@ -2088,7 +2088,7 @@ function grml_prompt_fallback () {
     local p0 p1
 
     p0="${RED}%(?..%? )${WHITE}${debian_chroot:+($debian_chroot)}"
-    p1="${BLUE}%n${NO_COLOR}@%m %40<...<%B%~%b%<< "'${vcs_info_msg_0_}'"%# "
+    p1="${GREEN}%n${NO_COLOR}@%m %40<...<%B%~%b%<< "'${vcs_info_msg_0_}'"%# "
     if (( EUID == 0 )); then
         PROMPT="${BLUE}${p0}${RED}${p1}"
     else
