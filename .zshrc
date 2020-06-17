@@ -40,7 +40,7 @@ function isutfenv () {
 # change directory to home on first invocation of zsh
 # important for rungetty -> autologin
 # Thanks go to Bart Schaefer!
-isgrml && function checkhome () {
+function checkhome () {
     if [[ -z "$ALREADY_DID_CD_HOME" ]] ; then
         export ALREADY_DID_CD_HOME=$HOME
         cd
@@ -186,14 +186,14 @@ zrcautoload is-at-least || function is-at-least () { return 1 }
 setopt append_history
 
 # import new commands from the history file also in other zsh-session
-is4 && setopt share_history
+setopt share_history
 
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
 
 # If a new command line being added to the history list duplicates an older
 # one, the older command is removed from the list
-is4 && setopt histignorealldups
+setopt histignorealldups
 
 # remove command lines from the history list when the first character on the
 # line is a space
@@ -433,18 +433,8 @@ export MAIL=${MAIL:-/var/mail/$USER}
 # color setup for ls:
 check_com -c dircolors && eval $(dircolors -b)
 # color setup for ls on OS X / FreeBSD:
-isdarwin && export CLICOLOR=1
-isfreebsd && export CLICOLOR=1
+export CLICOLOR=1
 
-# do MacPorts setup on darwin
-if isdarwin && [[ -d /opt/local ]]; then
-    # Note: PATH gets set in /etc/zprofile on Darwin, so this can't go into
-    # zshenv.
-    PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-    MANPATH="/opt/local/share/man:$MANPATH"
-fi
-# do Fink setup on darwin
-isdarwin && xsource /sw/bin/init.sh
 
 # load our function and completion directories
 for fdir in /usr/share/grml/zsh/completion /usr/share/grml/zsh/functions; do
@@ -478,17 +468,14 @@ watch=(notme root)
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 
 # Load a few modules
-is4 && \
 for mod in parameter complist deltochar mathfunc ; do
     zmodload -i zsh/${mod} 2>/dev/null || print "Notice: no ${mod} available :("
 done && builtin unset -v mod
 
 # autoload zsh modules when they are referenced
-if is4 ; then
     zmodload -a  zsh/stat    zstat
     zmodload -a  zsh/zpty    zpty
     zmodload -ap zsh/mapfile mapfile
-fi
 
 # completion system
 COMPDUMPFILE=${COMPDUMPFILE:-${ZDOTDIR:-${HOME}}/.zcompdump}
@@ -651,15 +638,9 @@ function grmlcomp () {
     fi
 
     # host completion
-    if is42 ; then
         [[ -r ~/.ssh/config ]] && _ssh_config_hosts=(${${(s: :)${(ps:\t:)${${(@M)${(f)"$(<$HOME/.ssh/config)"}:#Host *}#Host }}}:#*[*?]*}) || _ssh_config_hosts=()
         [[ -r ~/.ssh/known_hosts ]] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
         [[ -r /etc/hosts ]] && : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}} || _etc_hosts=()
-    else
-        _ssh_config_hosts=()
-        _ssh_hosts=()
-        _etc_hosts=()
-    fi
 
     local localname
     if check_com hostname ; then
@@ -1430,8 +1411,6 @@ function command_not_found_handler () {
 
 #v#
 HISTFILE=${HISTFILE:-${ZDOTDIR:-${HOME}}/.zsh_history}
-isgrmlcd && HISTSIZE=500  || HISTSIZE=5000
-isgrmlcd && SAVEHIST=1000 || SAVEHIST=10000 # useful for setopt append_history
 
 # dirstack handling
 
@@ -1489,51 +1468,11 @@ fi
 
 # directory based profiles
 
-if is433 ; then
-
-# chpwd_profiles(): Directory Profiles, Quickstart:
-#
-# In .zshrc.local:
-#
-#   zstyle ':chpwd:profiles:/usr/src/grml(|/|/*)'   profile grml
-#   zstyle ':chpwd:profiles:/usr/src/debian(|/|/*)' profile debian
-#   chpwd_profiles
-#
-# For details see the `grmlzshrc.5' manual page.
-function chpwd_profiles () {
-    local profile context
-    local -i reexecute
-
-    context=":chpwd:profiles:$PWD"
-    zstyle -s "$context" profile profile || profile='default'
-    zstyle -T "$context" re-execute && reexecute=1 || reexecute=0
-
-    if (( ${+parameters[CHPWD_PROFILE]} == 0 )); then
-        typeset -g CHPWD_PROFILE
-        local CHPWD_PROFILES_INIT=1
-        (( ${+functions[chpwd_profiles_init]} )) && chpwd_profiles_init
-    elif [[ $profile != $CHPWD_PROFILE ]]; then
-        (( ${+functions[chpwd_leave_profile_$CHPWD_PROFILE]} )) \
-            && chpwd_leave_profile_${CHPWD_PROFILE}
-    fi
-    if (( reexecute )) || [[ $profile != $CHPWD_PROFILE ]]; then
-        (( ${+functions[chpwd_profile_$profile]} )) && chpwd_profile_${profile}
-    fi
-
-    CHPWD_PROFILE="${profile}"
-    return 0
-}
-
-chpwd_functions=( ${chpwd_functions} chpwd_profiles )
-
-fi # is433
-
 # Prompt setup for grml:
 
 # set colors for use in prompts (modern zshs allow for the use of %F{red}foo%f
 # in prompts to get a red "foo" embedded, but it's good to keep these for
 # backwards compatibility).
-if is437; then
     BLUE="%F{blue}"
     RED="%F{red}"
     GREEN="%F{green}"
@@ -1542,25 +1481,6 @@ if is437; then
     YELLOW="%F{yellow}"
     WHITE="%F{white}"
     NO_COLOR="%f"
-elif zrcautoload colors && colors 2>/dev/null ; then
-    BLUE="%{${fg[blue]}%}"
-    RED="%{${fg_bold[red]}%}"
-    GREEN="%{${fg[green]}%}"
-    CYAN="%{${fg[cyan]}%}"
-    MAGENTA="%{${fg[magenta]}%}"
-    YELLOW="%{${fg[yellow]}%}"
-    WHITE="%{${fg[white]}%}"
-    NO_COLOR="%{${reset_color}%}"
-else
-    BLUE=$'%{\e[1;34m%}'
-    RED=$'%{\e[1;31m%}'
-    GREEN=$'%{\e[1;32m%}'
-    CYAN=$'%{\e[1;36m%}'
-    WHITE=$'%{\e[1;37m%}'
-    MAGENTA=$'%{\e[1;35m%}'
-    YELLOW=$'%{\e[1;33m%}'
-    NO_COLOR=$'%{\e[0m%}'
-fi
 
 # First, the easy ones: PS2..4:
 
@@ -1582,18 +1502,7 @@ PS4='+%N:%i:%_> '
 
 function battery () {
 if [[ $GRML_DISPLAY_BATTERY -gt 0 ]] ; then
-    if islinux ; then
         batterylinux
-    elif isopenbsd ; then
-        batteryopenbsd
-    elif isfreebsd ; then
-        batteryfreebsd
-    elif isdarwin ; then
-        batterydarwin
-    else
-        #not yet supported
-        GRML_DISPLAY_BATTERY=0
-    fi
 fi
 }
 
@@ -1751,11 +1660,6 @@ grml_vcs_coloured_formats=(
 )
 # Change vcs_info formats for the grml prompt. The 2nd format sets up
 # $vcs_info_msg_1_ to contain "zsh: repo-name" used to set our screen title.
-if [[ "$TERM" == dumb ]] ; then
-    grml_vcs_info_set_formats plain
-else
-    grml_vcs_info_set_formats coloured
-fi
 
 
 function grml_prompt_setup () {
@@ -2134,7 +2038,6 @@ else
     function precmd () { (( ${+functions[vcs_info]} )) && vcs_info; }
 fi
 
-if is437; then
     # The prompt themes use modern features of zsh, that require at least
     # version 4.3.7 of the shell. Use the fallback otherwise.
     if [[ $GRML_DISPLAY_BATTERY -gt 0 ]]; then
@@ -2162,10 +2065,6 @@ if is437; then
     else
         prompt grml
     fi
-else
-    grml_prompt_fallback
-    function precmd () { (( ${+functions[vcs_info]} )) && vcs_info; }
-fi
 
 # Terminal-title wizardry
 
@@ -2315,7 +2214,7 @@ fi
 # This lists all the files in the current directory newer than the reference file.
 # You can also specify the reference file inline; note quotes:
 # $ ls -l *(e:'nt ~/.zshenv':)
-is4 && function nt () {
+function nt () {
     if [[ -n $1 ]] ; then
         local NTREF=${~1}
     fi
@@ -2464,7 +2363,7 @@ return 0;;
     done
     shift "$((OPTIND-1))"
     if (( keep > 0 )); then
-        if islinux || isfreebsd; then
+        if islinux ; then
             for to_bk in "$@"; do
                 cp $verbose -a "${to_bk%/}" "${to_bk%/}_$current_date"
                 (( result += $? ))
@@ -2849,3 +2748,4 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
+
