@@ -1757,6 +1757,31 @@ else
     grml_vcs_info_set_formats coloured
 fi
 
+
+function grml_prompt_setup () {
+    emulate -L zsh
+    autoload -Uz vcs_info
+    # The following autoload is disabled for now, since this setup includes a
+    # static version of the ‘add-zsh-hook’ function above. It needs to be
+    # re-enabled as soon as that static definition is removed again.
+    #autoload -Uz add-zsh-hook
+    add-zsh-hook precmd prompt_$1_precmd
+}
+
+function prompt_grml_setup () {
+    grml_prompt_setup grml
+}
+
+function prompt_grml-chroot_setup () {
+    grml_prompt_setup grml-chroot
+}
+
+function prompt_grml-large_setup () {
+    grml_prompt_setup grml-large
+}
+
+
+
 # Now for the fun part: The grml prompt themes in `promptsys' mode of operation
 
 # This actually defines three prompts:
