@@ -5,6 +5,14 @@
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 #zstyle :compinstall filename '/home/ltc/.zshrc'
 
+#
+#[status]
+#        showUntrackedFiles = no
+
+
+
+
+
 #autoload -Uz compinit
 #compinit
 # End of lines added by compinstall
@@ -2651,8 +2659,70 @@ function xtrename () {
     return 0
 }
 
-# Create small urls via http://goo.gl using curl(1).
-# API reference: https://code.google.com/apis/urlshortener/
+
+
+zpst () { curl -F'file=@-' https://ttm.sh }
+
+# upload to ttm
+function zup () {
+    emulate -L zsh
+    setopt extended_glob
+
+    if [[ -z $1 ]]; then
+        print "USAGE: zup <FILE>"
+        return 1
+    fi
+
+    local PN url prog api json contenttype item
+    local -a data
+    PN=$0
+    url=$1
+
+
+    if check_com -c curl; then
+        prog=curl
+    else
+        print "curl is not available, but mandatory for ${PN}. Aborting."
+        return 1
+    fi
+    api='https://ttm.sh/'
+    curl -F"file=@${url}" $api   
+}
+
+# bypass them nasty blocks
+function zpost () {
+    emulate -L zsh
+    setopt extended_glob
+
+    if [[ -z $1 ]]; then
+        print "USAGE: zpost <URL>"
+        return 1
+    fi
+
+    local PN url prog api json contenttype item
+    local -a data
+    PN=$0
+    url=$1
+
+    # Prepend 'http://' to given URL where necessary for later output.
+    if [[ ${url} != http(s|)://* ]]; then
+        url='https://'${url}
+    fi
+
+    if check_com -c curl; then
+        prog=curl
+    else
+        print "curl is not available, but mandatory for ${PN}. Aborting."
+        return 1
+    fi
+    api='https://ttm.sh/'
+    curl -F"url=${url}" $api   
+}
+
+
+
+
+# ttmsh > goo.gl
 function zurl () {
     emulate -L zsh
     setopt extended_glob
