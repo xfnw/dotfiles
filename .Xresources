@@ -50,7 +50,7 @@ xterm*foreground:       #d3d3d3
 xterm*background:       #000000
 
 
-xterm*cursorColor:  #ff0000
+xterm*cursorColor:  #CC3214
 !xterm*cursorColor:  #57fd76
 !xterm*cursorColor:  yellow
 !xterm*cursorColor:      orange
