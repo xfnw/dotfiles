@@ -116,4 +116,14 @@ xterm*color15:          #CCBCBE
 XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
 
+!Ensure that your locale is set up for UTF-8. If you do not use UTF-8, you may need to force xterm to more strictly follow your locale by setting
+
+XTerm.vt100.locale: true
+
+!Make 'Alt' key behave as on other terminal emulators
+
+!The default Alt key behavior in xterm is a modifier to send eight bit input characters e.g. to insert æ by pressing Alt+f. To make Alt instead send a ^[ (escape) key (as in gnome-terminal and konsole), set
+
+XTerm.vt100.metaSendsEscape: true
+
 
