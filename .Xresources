@@ -23,11 +23,11 @@
 
 ! Very surprising that now neglecting to specify font still renders
 ! perfect misc-fixed font. Oh, it’s so lovely.
-xterm*font: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
-xterm*boldFont: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
-xterm*italicFont: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
+!xterm*font: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
+!xterm*boldFont: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
+!xterm*italicFont: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
 
-XTerm.vt100.faceName: JetBrains Mono:size=12:antialias=false
+XTerm.vt100.faceName: JetBrains Mono:size=11:antialias=true
 XTerm.vt100.font: 7x13
 
 !!! Enable copy/paste.
