@@ -9,6 +9,10 @@
 #[status]
 #        showUntrackedFiles = no
 
+plot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col=1:'$1'] "/tmp/plotuwu" using 0:col title "'$3'" with '$2' lw 2 pt 7' ; }
+smoothplot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col=1:'$1'] "/tmp/plotuwu" using 0:col smooth cspline title "'$3'" with '$2' lw 2 pt 7' ; }
+
+calcpi() { echo "scale=$1; 4*a(1)" | bc -l ; }
 
 
 
