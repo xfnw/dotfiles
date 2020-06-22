@@ -1393,6 +1393,9 @@ bind2maps emacs viins vicmd -- -s '\e'${key[Left]}  backward-word
 zrcautoload zmv
 zrcautoload zed
 
+
+
+
 # we don't want to quote/espace URLs on our own...
 # if autoload -U url-quote-magic ; then
 #    zle -N self-insert url-quote-magic
@@ -2806,6 +2809,11 @@ function whatwhen () {
 
 # disable bracketed paste mode for dumb terminals
 [[ "$TERM" == dumb ]] && unset zle_bracketed_paste
+
+
+PATH=$PATH:$HOME/.local/bin
+alias t="topydo"
+
 
 zrclocal
 
