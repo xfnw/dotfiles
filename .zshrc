@@ -2813,7 +2813,7 @@ function whatwhen () {
 
 PATH=$PATH:$HOME/.local/bin
 alias t="topydo"
-
+alias sysu='systemctl --user'
 
 zrclocal
 
