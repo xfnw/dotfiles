@@ -2815,6 +2815,11 @@ PATH=$PATH:$HOME/.local/bin
 alias t="topydo"
 alias sysu='systemctl --user'
 
+
+source ~/.zsh/zsh-autosuggestions.zsh
+
+
+
 zrclocal
 
 ## genrefcard.pl settings
