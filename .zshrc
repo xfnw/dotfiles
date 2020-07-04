@@ -2815,7 +2815,7 @@ PATH=$PATH:$HOME/.local/bin
 alias t="topydo"
 alias sysu='systemctl --user'
 
-
+source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 source ~/.zsh/zsh-autosuggestions.zsh
 
 
