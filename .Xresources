@@ -27,7 +27,7 @@
 !xterm*boldFont: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
 !xterm*italicFont: -*-*-*-*-*-*-*-100-*-*-*-60-iso10646-*
 
-XTerm.vt100.faceName: JetBrains Mono:size=11:antialias=true
+XTerm.vt100.faceName: Fira Code:size=11:antialias=true
 XTerm.vt100.font: 7x13
 
 !!! Enable copy/paste.
@@ -125,5 +125,5 @@ XTerm.vt100.locale: true
 !The default Alt key behavior in xterm is a modifier to send eight bit input characters e.g. to insert æ by pressing Alt+f. To make Alt instead send a ^[ (escape) key (as in gnome-terminal and konsole), set
 
 XTerm.vt100.metaSendsEscape: true
-
+XTerm.termName: xterm-256color
 
