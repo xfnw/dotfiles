@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl "http://wttr.in/$1?m&format=%l:%20%C%20%t%20%h"
+
