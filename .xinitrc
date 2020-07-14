@@ -2,7 +2,7 @@
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 
 export TERMINAL=urxvt
-xfdb -load ~/.Xresources
+xrdb -load ~/.Xresources
 
 exec i3
 
