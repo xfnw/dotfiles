@@ -15,5 +15,5 @@ export LC_ALL="en_US.UTF-8"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 > /dev/null && exec startx
 
-[[ -n "$TMUX" ]] && source .zshrc
+#[[ -n "$TMUX" ]] && source .zshrc
 
