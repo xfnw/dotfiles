@@ -130,7 +130,7 @@ XTerm.vt100.locale: true
 
 XTerm.vt100.metaSendsEscape: true
 XTerm.termName: xterm-256color
-
+URxvt.termName: xterm-256color
 
 xscreensaver.splash: false
 
