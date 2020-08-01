@@ -1,6 +1,9 @@
 
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 
-export TERMINAL=kitty
+export TERMINAL=urxvt
+xrdb -load ~/.Xresources
 
 exec i3
+
+
