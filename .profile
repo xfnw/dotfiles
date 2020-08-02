@@ -38,3 +38,23 @@ export LC_ALL="en_US.UTF-8"
 
 #[[ -n "$TMUX" ]] && source .zshrc
 
+if [ "$TERM" = "linux" ]; then
+    setfont ter-g22b
+    echo -en "\e]P0161510" #black
+    echo -en "\e]P84C4635" #darkgrey
+    echo -en "\e]P1A32810" #darkred
+    echo -en "\e]P9CC3214" #red
+    echo -en "\e]P2727A18" #darkgreen
+    echo -en "\e]PA8E991E" #green
+    echo -en "\e]P3A37720" #brown
+    echo -en "\e]PBCC9528" #yellow
+    echo -en "\e]P43D6266" #darkblue
+    echo -en "\e]PC4C7B7F" #blue
+    echo -en "\e]P57A4955" #darkmagenta
+    echo -en "\e]PD995B6B" #magenta
+    echo -en "\e]P6557A55" #darkcyan
+    echo -en "\e]PE6B996B" #cyan
+    echo -en "\e]P78E8463" #lightgrey
+    echo -en "\e]PFCCBCBE" #white
+    clear #for background artifacting
+fi
