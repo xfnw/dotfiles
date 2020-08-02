@@ -40,6 +40,8 @@ export LC_ALL="en_US.UTF-8"
 
 if [ "$TERM" = "linux" ]; then
     setfont ter-g22b
+    echo -en "\e[?6c"
+    echo -en "\e[?16;14;204c"
     echo -en "\e]P0161510" #black
     echo -en "\e]P84C4635" #darkgrey
     echo -en "\e]P1A32810" #darkred
