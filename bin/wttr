@@ -1,4 +1,54 @@
 #!/bin/bash
 
-curl "http://wttr.in/$1?m&format=%l:%20%C%20%t%20%h"
+case "$1" in
+	"texas")
+		LO='Dallas, Texas'
+		;;
+	"joaq")
+		LO='Spain'
+		;;
+	"ben")
+		LO='Traverse City'
+		;;
+	"gbmor")
+		LO='Atlanta'
+		;;
+	"mspe")
+		LO='Talence, New Aquitaine'
+		;;
+	"jan6")
+		LO='Tallinn, Estonia'
+		;;
+	"xfnw")
+		LO='Gaithersburg, Maryland'
+		;;
+	"cmccabe")
+		LO='McMurdo Station'
+		;;
+	"khuxkm")
+		LO='Falconer, New York'
+		;;
+	"thecomputergeek")
+		LO='Whitehouse, Texas'
+		;;
+	"buttsvill")
+		LO='Missouri'
+		;;
+	"deepend")
+		LO='Alberta, Canada'
+		;;
+	"ubergeek")
+		LO='Buffalo, New York'
+		;;
+	"hackintech")
+		LO="Madison, Wisconsin"
+		;;
+	"kumquat")
+		LO="Bordeaux, France"
+		;;
+	*)
+		LO="$1"
+esac
+
+curl "http://wttr.in/$LO?m&format=%l:%20%C%20%t%20%h"
 
