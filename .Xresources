@@ -132,6 +132,12 @@ XTerm.vt100.metaSendsEscape: true
 XTerm.termName: xterm-256color
 URxvt.termName: xterm-256color
 
+!bell stuff
+URxvt.mapAlert:     true
+URxvt.urgentOnBell: true
+URxvt.visualBell:   true
+
+
 xscreensaver.splash: false
 
 !font settings
