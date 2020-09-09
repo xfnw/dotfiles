@@ -24,6 +24,9 @@ set relativenumber
 syntax on
 color pablo
 
+" vimwiki
+set nocompatible
+filetype plugin on
 
 " vimrc sane defaults
 
