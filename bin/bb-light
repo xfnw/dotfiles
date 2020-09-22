@@ -1074,7 +1074,7 @@ a:hover {
 }
 
 a:visited {
-    color: #acc !important;
+    color: #66c !important;
 }
 
 blockquote {
