@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import argparse
+
+def _hexip(ip: str):
+    parts  = [int(p) for p in ip.split(".")]
+    return ''.join("{:02x}".format(p) for p in parts)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("webchat IP hexlify")
+    parser.add_argument("ip")
+    args = parser.parse_args()
+
+    print(_hexip(args.ip))
+
