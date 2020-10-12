@@ -1,18 +1,12 @@
 #!/bin/bash
 
-# i stole this from lukesmithxyz
-
 # yay scrot time
-rm /tmp/lockscreen.png
-scrot /tmp/lockscreen.png
+rm /tmp/lock.png
+scrot /tmp/lock.png
 
 # imagemagik is fun
-#convert /tmp/lockscreen.png -paint 1 ~/.config/i3/lock.png -gravity center -composite -matte /tmp/lockscreen.png
-convert /tmp/lockscreen.png -paint 1 -blur 8x5 ~/.config/i3/lock.png -gravity center -composite -matte /tmp/lockscreen.png
+convert /tmp/lock.png -paint 1 -blur 8x5 -matte /tmp/lock.png
 
 # hmm i3lock
-i3lock -e -f -c 000000 -i /tmp/lockscreen.png
+i3lock -e -f -c 000000 -i /tmp/lock.png
 
-while [[ $(pgrep -x i3lock) ]]; do
-	sleep 5
-done
