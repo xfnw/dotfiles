@@ -14,7 +14,7 @@ smoothplot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangl
 
 calcpi() { echo "scale=$1; 4*a(1)" | bc -l ; }
 
-
+alias hexcat="catgirl -h chat.freenode.net -n xfnwtest -ec cert.pem -u"
 
 
 #autoload -Uz compinit
