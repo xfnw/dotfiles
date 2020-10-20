@@ -32,7 +32,8 @@ export TZ='America/New_York'
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-
+# start the ssh agent
+[[ -z $SSH_AGENT_PID ]] && eval $(ssh-agent)
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 > /dev/null && exec startx
 
