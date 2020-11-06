@@ -22,8 +22,8 @@ alias hexcat="catgirl -h chat.freenode.net -n xfnwtest -ec cert.pem -u"
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt autocd
 bindkey -v
 # End of lines configured by zsh-newuser-install

@@ -36,6 +36,7 @@ bindsym $mod+apostrophe exec xfce4-terminal --drop-down
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q exec xkill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show combi
