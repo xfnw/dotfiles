@@ -96,7 +96,7 @@ bindsym $mod+space focus mode_toggle
 # take a screenshot
 bindsym --release $mod+s exec "scrot -s -e 'curl -F\\"file=@$f\\" https://ttm.sh/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 bindsym $mod+shift+s exec "scrot -e 'curl -F\\"file=@$f\\" https://ttm.sh/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
-bindsym --release $mod+z exec "scrot -s -e 'curl -F\\"file=@$f\\" https://0x0.st/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
+bindsym --release $mod+z exec "scrot -s -e 'curl -F\\"file=@$f\\" https://foxes.are.allowed.org/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 bindsym --release $mod+x exec "scrot -s -e 'curl -F\\"file=@$f\\" https://xfnw.ttm.sh/u.php | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 
 # show titles
