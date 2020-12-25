@@ -34,6 +34,8 @@ export LC_ALL="en_US.UTF-8"
 
 export CDPATH=:~
 
+export GTK_THEME=Materia-dark
+
 # start the ssh agent
 [[ -z $SSH_AGENT_PID ]] && eval $(ssh-agent)
 
