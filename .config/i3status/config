@@ -11,7 +11,7 @@ general {
         interval = 5
 }
 
-order += "disk /home/"
+order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -49,6 +49,6 @@ cpu_temperature 0 {
 	path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
-disk "/home/" {
+disk "/" {
         format = "%avail"
 }
