@@ -25,6 +25,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt autocd
+unsetopt nomatch
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
