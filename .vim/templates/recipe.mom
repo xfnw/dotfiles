@@ -5,7 +5,6 @@
 .TITLE ""
 .ATTRIBUTE_STRING ""
 .START
-.PP
 .HEADING 1 "Ingredients"
 .LIST BULLET
 .ITEM
