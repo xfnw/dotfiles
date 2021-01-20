@@ -54,6 +54,7 @@ Rxvt.keysym.C-M-f: perl:fullscreen:switch
 
 !!! nobody wants to see your scrollbar
 URxvt.scrollBar: false
+xterm*scrollBar: false
 
 !!! Foreground
 xterm*foreground:       #d3d3d3
