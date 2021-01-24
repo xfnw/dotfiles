@@ -12,9 +12,10 @@ command Tman  :r ~/.vim/templates/man.1
 command Tmh   :r ~/.vim/templates/man.html
 
 " run groff+refer on file
-:command Groff !sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
-:command Grofft !sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
-:command Man !sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
+:command Groff w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
+:command Grofft w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
+:command Man w|!sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
+:command Tex w|!sh -c 'p="%"; pdflatex "$p"'
 
 :command Md !p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf 
 
