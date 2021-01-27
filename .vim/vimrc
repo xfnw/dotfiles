@@ -10,12 +10,14 @@ command Tmome :r ~/.vim/templates/english.mom
 command Tmd   :r ~/.vim/templates/md.html
 command Tman  :r ~/.vim/templates/man.1
 command Tmh   :r ~/.vim/templates/man.html
+command Ttex  :r ~/.vim/templates/general.tex
 
 " run groff+refer on file
 :command Groff w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
 :command Grofft w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
 :command Man w|!sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
 :command Tex w|!sh -c 'p="%"; pdflatex "$p"'
+:command Bib w|!sh -c 'p="%"; biber "${p::-4}"'
 
 :command Md !p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf 
 
