@@ -27,14 +27,14 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export TZ='America/New_York'
-
-
+export GTK_THEME=Materia-dark
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 export CDPATH=:~
 
-export GTK_THEME=Materia-dark
+export EDITOR=vim
+export BROWSER=qutebrowser
 
 # start the ssh agent
 [[ -z $SSH_AGENT_PID ]] && eval $(ssh-agent)
