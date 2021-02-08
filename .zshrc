@@ -16,6 +16,7 @@ calcpi() { echo "scale=$1; 4*a(1)" | bc -l ; }
 
 alias hexcat="catgirl -h chat.freenode.net -n xfnwtest -ec cert.pem -u"
 
+alias warc="wget -rpkm --warc-cdx --warc-file"
 
 #autoload -Uz compinit
 #compinit
