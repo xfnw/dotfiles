@@ -1,11 +1,59 @@
-#!/bin/bash
+#!/bin/zsh
 
+# start the keyboard combination daemon
 sxhkd -c ~/.config/berry/sxhkdrc &
 
+# set the screen resolution if you are in a vm
 xrandr --listmonitors | grep -q 'Virtual-1 1024/271x768/203+0+0' &&
 	xrandr --output Virtual-1 --mode 1360x768
 
+# set the wallpaper
 feh --randomize --bg-fill ~/Pictures/wall
+
+# start the bar
+if which lemonbar
+then
+pkill -x lemonbar
+
+batterysec(){
+GRML_BATTERY_LEVEL=''
+local batteries bat capacity
+batteries=( /sys/class/power_supply/BAT*(N) )
+if (( $#batteries > 0 )) ; then
+    for bat in $batteries ; do
+        if [[ -e $bat/capacity ]]; then
+            capacity=$(< $bat/capacity)
+        else
+            typeset -F energy_full=$(< $bat/energy_full)
+            typeset -F energy_now=$(< $bat/energy_now)
+            typeset -i capacity=$(( 100 * $energy_now / $energy_full))
+        fi
+        case $(< $bat/status) in
+        Charging)
+            GRML_BATTERY_LEVEL+="^"
+            ;;
+        Discharging)
+            if (( capacity < 20 )) ; then
+                GRML_BATTERY_LEVEL+="%{B#AA7766} v"
+            else
+                GRML_BATTERY_LEVEL+="v"
+            fi
+            ;;
+        *) # Full, Unknown
+            GRML_BATTERY_LEVEL+="="
+            ;;
+        esac
+        GRML_BATTERY_LEVEL+="${capacity}%%"
+    done
+fi
+echo "$GRML_BATTERY_LEVEL %{B#292D3E}"
+}
+
+while sleep 1
+do
+	echo ' %{c}'`date -R`' %{r}'`batterysec`' '`uptime | cut -d' ' -f12 | cut -b-4`' '
+done | lemonbar -g x20 -B '#292D3E' -F '#CCCCCC' -f 'Fira Code:size=9:antialias=true' &
+fi
 
 # Set decoration geometry
 berryc border_width       5
@@ -26,3 +74,8 @@ berryc smart_place            "true"
 berryc draw_text              "true"
 berryc edge_lock              "true"
 berryc set_font               "Dina-9"
+
+
+
+
+
