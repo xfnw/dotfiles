@@ -14,7 +14,7 @@
 ! * test-color-words16 — another color-displaying util (worth gist-ing).
 
 !!! urxvt perl modules to load
-URxvt.perl-ext-common:  clipboard,default,matcher,fullscreen
+URxvt.perl-ext-common:  clipboard,default,fullscreen
 
 
 !!! Fonts
@@ -43,7 +43,6 @@ URxvt.keysym.M-v: perl:clipboard:paste
 
 !!! yoink
 URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
 
 URxvt.perl-ext: default,url-select
 URxvt.keysym.C-M-u: perl:url-select:select_next

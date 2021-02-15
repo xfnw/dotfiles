@@ -31,7 +31,7 @@ super + {1-9}
     berryc switch_workspace {0-9}
 
 super + shift + {1-9}
-    berryc send_to_workspace {0-9}
+    IN={0-9} && berryc send_to_workspace "$IN" && berryc switch_workspace "$IN"
 
 super + m
     berryc window_monocle
