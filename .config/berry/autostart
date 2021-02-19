@@ -4,17 +4,17 @@
 sxhkd -c ~/.config/berry/sxhkdrc &
 
 # Set decoration geometry
-berryc border_width       5
-berryc inner_border_width 4
-berryc title_height       20
-berryc top_gap            20
+berryc border_width       0
+berryc inner_border_width 0
+berryc title_height       26
+berryc top_gap            26
 
 # Set decoration colors
 berryc focus_color         292D3E
 berryc unfocus_color       292D3E
 berryc inner_focus_color   56aa79
 berryc inner_unfocus_color 565679
-berryc text_focus_color    ffffff
+berryc text_focus_color    222222
 berryc text_unfocus_color  eeeeee
 
 # Other options
@@ -74,7 +74,7 @@ pkill -x lemonbar || true
 while sleep 1
 do
 	echo ' %{c}'`date -R`' %{r}'`batterysec`' '`uptime | cut -d' ' -f12 | cut -b-4`' '
-done | lemonbar -g x20 -B '#292D3E' -F '#CCCCCC' -f 'Fira Code:size=9:antialias=true' &
+done | lemonbar -g x26 -B '#292D3E' -F '#CCCCCC' -f 'Fira Code:size=9:antialias=true' &
 fi
 
 
