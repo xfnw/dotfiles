@@ -1,5 +1,6 @@
 
 set sort  = reverse-threads
+set message_cachedir=~/.cache/mutt/messages
 
 set pager_stop
 bind pager <up> previous-line
