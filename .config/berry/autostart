@@ -26,7 +26,7 @@ berryc set_font               "Dina-9"
 
 # set the screen resolution if you are in a vm
 xrandr --listmonitors | grep -q 'Virtual-1 1024/271x768/203+0+0' &&
-	xrandr --output Virtual-1 --mode 1360x768
+	xrandr --output Virtual-1 --mode 1366x768
 
 # set the wallpaper
 feh --randomize --bg-fill ~/Pictures/wall
