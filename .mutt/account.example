@@ -1,0 +1,19 @@
+
+set realname      = 'bob'
+set from          = bob@example.com
+
+set smtp_url      = smtps://bob@mail.example.com/
+
+set ssl_force_tls = yes
+set ssl_starttls  = yes
+
+set imap_user     = bob@example.com
+set folder        = imaps://mail.example.com/
+set imap_check_subscribed
+
+# Folder
+set spoolfile     = +INBOX
+set postponed     = +Drafts
+set record        = +Sent
+
+

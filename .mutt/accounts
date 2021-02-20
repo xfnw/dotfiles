@@ -1,0 +1,12 @@
+macro index ir '<sync-mailbox><enter-command>source ~/.mutt/account.net.riseup<enter><change-folder>!<enter>'
+macro index it '<sync-mailbox><enter-command>source ~/.mutt/account.sh.ttm<enter><change-folder>!<enter>'
+macro index if '<sync-mailbox><enter-command>source ~/.mutt/account.org.bellz<enter><change-folder>!<enter>'
+
+
+folder-hook 'account.net.riseup' 'source ~/.mutt/account.net.riseup'
+folder-hook 'account.sh.ttm' 'source ~/.mutt/account.sh.ttm'
+folder-hook 'account.org.bellz' 'source ~/.mutt/account.org.bellz'
+
+source ~/.mutt/account.net.riseup
+
+

@@ -1,5 +1,45 @@
 
+set sort  = reverse-threads
+
+set pager_stop
+bind pager <up> previous-line
+bind pager <down> next-line
+
+bind  index G  imap-fetch-mail
+bind  index g  noop
+macro index gi "<change-folder>=INBOX<enter>"       "Go to Inbox"
+macro index gs "<change-folder>=Spam<enter>"       "Go to Spam"
+macro index gS "<change-folder>=Sent<enter>"       "Go to Sent"
+macro index gd "<change-folder>=Drafts<enter>"       "Go to Drafts"
+macro index gt "<change-folder>=Trash<enter>"       "Go to Trash"
+
+
 source ~/.local/share/mutt/gpg.rc
+source "gpg -d ~/.mutt/passwords.gpg |"
+
+source ~/.mutt/accounts
+
+# c o l o r s
+color normal	white default
+color attachment brightyellow black
+color hdrdefault cyan default
+color indicator black brightgreen
+color markers	brightred default
+color quoted	green default
+color signature cyan default
+color status	brightgreen black
+color tilde	blue default
+color tree	red default
+
+color index	red default ~D
+color index	magenta default ~T
+
+color body	brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# identifies email addresses
+
+color body	brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+# identifies URLs
+#
 
 
 
