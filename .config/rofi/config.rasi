@@ -1,0 +1,7 @@
+configuration {
+	modi: "window,run,ssh,combi";
+	padding: 10;
+	separator-style: "none";
+	color-normal: "#111112,#ede6e3,#222,#eef8d5,#58ce75";
+	color-window: "#111112";
+}
