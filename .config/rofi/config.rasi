@@ -1,7 +1,11 @@
 configuration {
 	modi: "window,run,ssh,combi";
-	padding: 10;
+	padding: 22;
+	line-padding: 4;
 	separator-style: "none";
-	color-normal: "#111112,#ede6e3,#222,#eef8d5,#58ce75";
-	color-window: "#111112";
+	color-normal: "#111112,#ede6e3,#222,#39f,#111";
+	color-window: "#111112,#111112";
+
+	width: 55;
 }
+
