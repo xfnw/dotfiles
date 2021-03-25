@@ -258,10 +258,3 @@ abstracts = {
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "$0$1-%n";
 };
-formats = {
-  "fe-common/core" = {
-    timestamp = "{timestamp %%H:%%M:%%S} ";
-    own_msg = "{ownmsgnick $2 {ownnick $[0]0}}$1";
-    pubmsg = "{pubmsgnick $2 {pubnick \00350$[0]0}}$1";
-  };
-};
