@@ -47,6 +47,7 @@ aliases = {
   WC = "WINDOW CLOSE";
   CLOSE = "WINDOW CLOSE";
   WG = "WINDOW GOTO";
+  G = "WINDOW GOTO";
   WJOIN = "JOIN -window";
   WI = "WHOIS";
   WII = "WHOIS $0 $0";
