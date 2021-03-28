@@ -78,11 +78,11 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
-c.content.notifications = False
+c.content.notifications.enabled = False
 
 # Force `prefers-color-scheme: dark` colors for websites.
 # Type: Bool
-c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.darkmode.enabled = True
 
 #c.fonts.default_family = 'JetBrainsMono Nerd Font'
