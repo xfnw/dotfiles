@@ -123,6 +123,11 @@ alias ffrec="ffmpeg -f pulse -i default -f x11grab -video_size 1366x768 -framera
 alias ffcheese="ffmpeg -f pulse -i default -f x11grab -video_size 1020x574 -framerate 24 -i :0.0+8,107"
 
 alias fflive='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1366x768 -i :0.0+0,0 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "rtmp://live-jfk.twitch.tv/app/$TW_KEY" -loglevel 24'
+alias fflu='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1366x768 -i :0.0+0,0 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "$FFLU_URL" -loglevel 24'
+
+alias ffxeph='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1024x574 -i :1.0+0,0 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "$FFLU_URL" -loglevel 24'
+alias startxeph='Xephyr -br -ac -reset -screen 1024x576 :1 & DISPLAY=:1 berry & DISPLAY=:1 xrdb -load ~/.Xresources'
+
 alias fflivecheese='ffmpeg -f pulse -i default -f x11grab -framerate 24 -video_size 1020x574 -i :0.0+8,107 -c:v libx264 -preset veryfast -maxrate 1984k -bufsize 3968k -vf "format=yuv420p" -g 48 -c:a aac -b:a 128k -ar 44100 -f flv "rtmp://live-jfk.twitch.tv/app/$TW_KEY" -loglevel 24'
 
 ## minecraft version

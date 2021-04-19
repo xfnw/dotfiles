@@ -1414,14 +1414,18 @@ for rh in run-help{,-ip,-openssl,-p4,-sudo,-svk,-svn}; do
 done; unset rh
 
 # command not found handling
+command_not_found_handler() {
+  local pkgs cmd="$1"
 
-(( ${COMMAND_NOT_FOUND} == 1 )) &&
-function command_not_found_handler () {
-    emulate -L zsh
-    if [[ -x ${GRML_ZSH_CNF_HANDLER} ]] ; then
-        ${GRML_ZSH_CNF_HANDLER} $1
-    fi
-    return 1
+  pkgs=(${(f)"$(pkgfile -b -v -- "$cmd" 2>/dev/null)"})
+  if [[ -n "$pkgs" ]]; then
+    printf '%s may be found in the following packages:\n' "$cmd"
+    printf '  %s\n' $pkgs[@]
+  else
+    printf 'zsh: command not found: %s\n' "$cmd"
+  fi 1>&2
+
+  return 127
 }
 
 # history
