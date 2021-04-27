@@ -13,13 +13,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(mail-host-address "ttm.sh")
- '(send-mail-function (quote sendmail-send-it))
- '(smtpmail-local-domain (quote "ttm.sh"))
- '(user-mail-address "xfnw@ttm.sh")
- '(custom-enabled-themes (quote (tsdh-dark)))
+ '(custom-enabled-themes '(tsdh-dark))
  '(initial-buffer-choice "~/.esplash")
-)
+ '(tool-bar-mode nil)
+ '(menu-bar-mode nil))
 
 
 (server-start)
