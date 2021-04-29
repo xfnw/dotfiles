@@ -1,0 +1,18 @@
+#!/bin/sh
+
+TARGET="$1"
+
+mkdir -p $TARGET
+pacstrap $TARGET busybox
+
+cd $TARGET
+
+ln -s bin usr/bin
+tee etc/passwd <<<'root:x:0:0::/root:/bin/sh'
+tee etc/group <<<'root:x:0:root'
+tee etc/profile <<<'export PS1="[\u@\h \W]\$ "'
+
+cd usr/bin
+
+busybox --list | grep -v busybox | xargs -n1 ln -s busybox
+
