@@ -7,7 +7,8 @@ pacstrap $TARGET busybox
 
 cd $TARGET
 
-ln -s bin usr/bin
+ln -s usr/bin bin
+mkdir -p home
 tee etc/passwd <<<'root:x:0:0::/root:/bin/sh'
 tee etc/group <<<'root:x:0:root'
 tee etc/profile <<<'export PS1="[\u@\h \W]\$ "'
