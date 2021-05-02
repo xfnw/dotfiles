@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+mkcp(){
+	mkdir -p ".$(dirname $1)"
+	cp "$1" ".$1"
+}
+export -f mkcp
+
+ldd $(which $1) | awk '{if ($3!="") print $3; else print $1}' | grep '^/' | xargs -I% bash -c 'mkcp %'
