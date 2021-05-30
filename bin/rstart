@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mark $(echo ~/.local/share/catgirl/log/*/*/* | shuf -n1 | xargs grep '>' | shuf -n1 | cut -d' ' -f3) | tr -d "\n"
