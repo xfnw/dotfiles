@@ -131,7 +131,6 @@ module			stun.so
 module			turn.so
 module			ice.so
 module			natpmp.so
-module			pcp.so
 
 # Media encryption modules
 #module			srtp.so
