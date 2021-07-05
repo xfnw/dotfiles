@@ -38,8 +38,13 @@ bindsym $mod+apostrophe exec xfce4-terminal --drop-down
 bindsym $mod+Shift+q kill
 bindsym $mod+q exec xkill
 
+
+
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show combi
+
+# type the date
+bindsym --release $mod+Shift+d exec date -I | xargs xdotool keyup control shift type --delay 1 --clearmodifiers
 
 # other rofi stuff
 bindsym $mod+c exec rofi -show ssh
