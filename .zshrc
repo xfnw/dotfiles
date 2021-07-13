@@ -14,6 +14,8 @@ smoothplot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangl
 
 calcpi() { echo "scale=$1; 16*a(1/5)-4*a(1/239)" | bc -l ; }
 
+base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) }
+
 alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
 alias warc="wget -rpkm --warc-cdx --warc-file"
