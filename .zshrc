@@ -20,6 +20,8 @@ alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
 alias warc="wget -rpkm --warc-cdx --warc-file"
 
+alias sydi="sudo"
+
 #autoload -Uz compinit
 #compinit
 # End of lines added by compinstall
