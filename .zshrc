@@ -19,6 +19,7 @@ base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/
 alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
 alias warc="wget -rpkm --warc-cdx --warc-file"
+alias ytdl="youtube-dl --extract-audio --audio-format mp3"
 
 alias sydi="sudo"
 
