@@ -9,3 +9,4 @@ configuration {
 	width: 55;
 }
 
+@theme "theme"
