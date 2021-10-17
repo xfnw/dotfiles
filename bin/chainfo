@@ -1,8 +1,0 @@
-#!/bin/bash
-
-awk '{print $2}' $1 |
- awk -F ":" '{print $1}' |
-cat - ~/Documents/nums |
-sort | uniq -c | sort -k2 |
-awk '{print $1-1}'
-

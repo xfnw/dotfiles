@@ -1,3 +1,0 @@
-#!/bin/bash
-zbarcam --raw --nodisplay -Sdisable -Scode128.enable
-
