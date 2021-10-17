@@ -11,6 +11,7 @@ command Tmd   :r ~/.vim/templates/md.html
 command Tman  :r ~/.vim/templates/man.1
 command Tmh   :r ~/.vim/templates/man.html
 command Ttex  :r ~/.vim/templates/general.tex
+command Tmit  :r ~/.vim/templates/mit
 
 " run groff+refer on file
 :command Groff w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'

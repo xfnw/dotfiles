@@ -34,7 +34,7 @@ export LC_ALL="en_US.UTF-8"
 export CDPATH=:~
 
 export EDITOR=vim
-export BROWSER=qutebrowser
+export BROWSER=firefox
 
 # start the ssh agent
 [[ -z $SSH_AGENT_PID ]] && eval $(ssh-agent)
