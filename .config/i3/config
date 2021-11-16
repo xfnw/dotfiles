@@ -205,7 +205,7 @@ bindsym $mod+shift+w exec feh --randomize --bg-fill ~/Pictures/wall
 exec feh --randomize --bg-fill ~/Pictures/wall
 
 # autostart stuff
-exec --no-startup-id compton -b
+#exec --no-startup-id picom -b
 exec --no-startup-id dunst
 
 # @lukesmithxyz's unicode picker
