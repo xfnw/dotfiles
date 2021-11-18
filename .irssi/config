@@ -155,6 +155,8 @@ aliases = {
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
   rainbow = "exec -o toilet --irc --gay -f term -- $";
+  nn = "window number";
+  move = "window move";
 };
 
 settings = {
@@ -164,7 +166,12 @@ settings = {
     nick = "xfnw";
   };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { autolog = "yes"; theme = "furry"; };
+  "fe-common/core" = {
+    autolog = "yes";
+    theme = "furry";
+    active_window_ignore_refnum = "no";
+    autoclose_query = "172800";
+  };
   "irc/core" = { cmds_max_at_once = "100"; };
 };
 logs = { };
@@ -183,7 +190,7 @@ statusbar = {
       placement = "bottom";
       items = {
         user = { };
-        input = { priority = "10"; };
+        input = { priority = "100"; };
         lag = { };
         more = { };
         act = { };
