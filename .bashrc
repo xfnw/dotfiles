@@ -58,8 +58,8 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #export PS1='$(tput setaf 34)[ $(tput bold; tput setaf 28)ltc$(tput setaf 40)@$(tput setaf 28)arch$(tput sgr0; tput setaf 34) ] $(tput setaf 46)[ $(tput bold; tput setaf 40)\w$(tput sgr0; tput setaf 46) ]$(DIRY="\w"; printf "%$(($COLUMNS - 9 - 3 - 5 - ${#DIRY} - 12))s")$(tput bold; tput setaf 34)[ \t ]\n$ $(tput sgr0)'
-PS1="\[\$([ \$? -eq 0 ] && tput setaf 14 || tput setaf 9)$(tput setab 14)\]\[$(tput bold; tput setaf 0; tput setab 14)\]\u \[\e[m$(tput setaf 14; tput setab 4)\]\[$(tput setaf 0; tput setab 4)\] \w \[\e[m$(tput setaf 4)\]\[\e[m\] "
-
+    #PS1="\[\$([ \$? -eq 0 ] && tput setaf 14 || tput setaf 9)$(tput setab 14)\]\[$(tput bold; tput setaf 0; tput setab 14)\]\u \[\e[m$(tput setaf 14; tput setab 4)\]\[$(tput setaf 0; tput setab 4)\] \w \[\e[m$(tput setaf 4)\]\[\e[m\] "
+    export PS1="\[\e[1;34m\]┌──\[\$([ \$? -eq 0 ] && tput setaf 2 || tput setaf 9)\] UwU \n\[\e[1;34m\]└╼ \[\e[0;31m\]\w \[\e[1;34m\]\$ \[\e[m\]"
 else
     PS1='${debian_chroot:+($debian_chroot)}[ \u@\h \w\]$ '
 fi
