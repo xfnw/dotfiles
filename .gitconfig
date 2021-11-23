@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+ 	name = xfnw
+ 	email = xfnw@riseup.net
+
+[init]
+	defaultBranch = main
+[sendemail]
+	smtpencryption = tls
+	smtpserver = mail.riseup.net
+	smtpuser = xfnw@riseup.net
+	smtpserverport = 587
+[alias]
+	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+[commit]
+	verbose = true
+[pull]
+	rebase = true
