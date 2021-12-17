@@ -11,13 +11,13 @@
 
 
 # tilde.tel contacts
-"echo test" <sip:1101>
-"futel" <sip:1938>
-"conference" <sip:1105>
+"echo test" <sip:1101@neotilde.tel>
+"futel" <sip:1938@neotilde.tel>
+"conference" <sip:1105@neotilde.tel>
 
-"brendo" <sip:2013105>
-"darcy" <sip:2163101>
-"rawktucc" <sip:2013123>
+"brendo" <sip:2013105@neotilde.tel>
+"iris" <sip:2163101@neotilde.tel>
+"rawktucc" <sip:2013123@neotilde.tel>
 
 
 # Access rules

@@ -97,7 +97,6 @@ _fzf_tab_remove_space() {
     $'\033[38;5;214m' $'\033[38;5;165m' $'\033[38;5;124m' $'\033[38;5;120m'
 }
 (( $+FZF_TAB_OPTS )) || FZF_TAB_OPTS=(
-    --tac
     --ansi   # Enable ANSI color support, necessary for showing groups
     --expect='$continuous_trigger' # For continuous completion
     '--color=hl:$(( $#headers == 0 ? 108 : 255 ))'
