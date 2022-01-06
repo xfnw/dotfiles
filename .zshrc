@@ -22,6 +22,7 @@ alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 alias warc="wget -rpkm --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
 alias ssk="ssh-keygen -l -f ~/.ssh/known_hosts | grep"
+alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -hdd"
 
 alias sydi="sudo"
 
