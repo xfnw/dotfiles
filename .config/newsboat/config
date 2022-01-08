@@ -1,1 +1,9 @@
 feed-sort-order unreadarticlecount
+confirm-mark-feed-read no
+browser "firefox %u"
+auto-reload yes
+reload-time 10
+reload-threads 10
+notify-beep yes
+include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
+
