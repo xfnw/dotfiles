@@ -157,6 +157,9 @@ aliases = {
   rainbow = "exec -o toilet --irc --gay -f term -- $";
   nn = "window number";
   move = "window move";
+  kline = "quote kline";
+  gline = "quote gline";
+  challenge = "quote challenge";
 };
 
 settings = {
@@ -214,16 +217,14 @@ hilights = (
     text = "xfnw";
     color = "%G";
     act_color = "%Y";
-    nick = "no";
-    word = "no";
-    regexp = "yes";
+    word = "yes";
+    full = "yes";
   },
   {
     text = "vulpine";
     color = "%G";
     act_color = "%Y";
-    nick = "no";
-    word = "no";
-    regexp = "yes";
+    word = "yes";
+    full = "yes";
   }
 );
