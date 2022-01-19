@@ -13,7 +13,7 @@ plot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from
 smoothplot() { cat /dev/stdin > /tmp/plotuwu; gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col=1:'$1'] "/tmp/plotuwu" using 0:col smooth cspline title "'$3'" with '$2' lw 2 pt 7' ; }
 
 calcpi() { echo "scale=$1; 16*a(1/5)-4*a(1/239)" | bc -l ; }
-vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):ih*max(640/(iw*sar)\,480/ih)",crop=640:480,setsar=1:1,convolution="-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2",curves="0/0 0.5/0.58 1/1",rgbashift=rh=-1:gh=1 -preset ultrafast -c:a copy "$2" }
+vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):ih*max(640/(iw*sar)\,480/ih)",crop=640:480,setsar=1:1,convolution="-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2",curves="0/0 0.5/0.58 1/1",rgbashift=rh=-1:gh=1 -preset veryfast -c:a copy "$2" }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) }
 
@@ -2682,7 +2682,7 @@ function xtrename () {
 
 
 
-zpst () { curl -F'file=@-' https://ttm.sh }
+zpst () { curl -F'file=@-' https://foxes.are.allowed.org }
 
 # upload to ttm
 function zup () {
@@ -2706,7 +2706,7 @@ function zup () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://ttm.sh/'
+    api='https://foxes.are.allowed.org/'
     curl -F"file=@${url}" $api   
 }
 
@@ -2736,7 +2736,7 @@ function zpost () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://ttm.sh/'
+    api='https://foxes.are.allowed.org/'
     curl -F"url=${url}" $api   
 }
 
@@ -2769,7 +2769,7 @@ function zurl () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://ttm.sh/'
+    api='https://foxes.are.allowed.org/'
     curl -F"shorten=${url}" $api   
 }
 
