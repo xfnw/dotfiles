@@ -1,0 +1,5 @@
+
+tr [[:space:]] '\n' |
+sed 's/.*@//' |
+xargs -I'{}' echo '/kline 1440 *@'{}' :Spam is not welcome on vulpineawoo.|mass listing'
+
