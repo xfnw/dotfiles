@@ -8,5 +8,9 @@ scrot /tmp/lock.png
 convert /tmp/lock.png -paint 1 -blur 8x5 ~/.config/i3/lockfox.png -gravity center -composite -matte /tmp/lock.png
 
 # hmm i3lock
-i3lock -e -f -c 000000 -i /tmp/lock.png
+i3lock -e -f -c 000000 -i /tmp/lock.png &
+
+# lock agents
+command -v keepassxc && keepassxc --lock
+command -v gpgconf && gpgconf --reload gpg-agent
 
