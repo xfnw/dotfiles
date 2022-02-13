@@ -8,6 +8,7 @@ scrot /tmp/lock.png
 convert /tmp/lock.png -paint 1 -blur 8x5 ~/.config/i3/lockfox.png -gravity center -composite -matte /tmp/lock.png
 
 # lock agents
+command -v ratbox-respond && killall -1 ratbox-respond
 command -v keepassxc && keepassxc --lock
 command -v gpgconf && gpgconf --reload gpg-agent
 
