@@ -1,0 +1,24 @@
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+<Multi_key> <period> <backslash>           : "λ"   U03BB  # GREEK SMALL LETTER LAMBDA
+<Multi_key> <o> <1> 	: "①"   U2460 # CIRCLED DIGIT ONE
+<Multi_key> <o> <KP_1> 	: "①"   U2460 # CIRCLED DIGIT ONE
+<Multi_key> <o> <2> 	: "②"   U2461 # CIRCLED DIGIT TWO
+<Multi_key> <o> <KP_Space> 	: "②"   U2461 # CIRCLED DIGIT TWO
+<Multi_key> <o> <KP_2> 	: "②"   U2461 # CIRCLED DIGIT TWO
+<Multi_key> <o> <3> 	: "③"   U2462 # CIRCLED DIGIT THREE
+<Multi_key> <o> <KP_3> 	: "③"   U2462 # CIRCLED DIGIT THREE
+<Multi_key> <o> <4> 	: "④"   U2463 # CIRCLED DIGIT FOUR
+<Multi_key> <o> <KP_4> 	: "④"   U2463 # CIRCLED DIGIT FOUR
+<Multi_key> <o> <5> 	: "⑤"   U2464 # CIRCLED DIGIT FIVE
+<Multi_key> <o> <KP_5> 	: "⑤"   U2464 # CIRCLED DIGIT FIVE
+<Multi_key> <o> <6> 	: "⑥"   U2465 # CIRCLED DIGIT SIX
+<Multi_key> <o> <KP_6> 	: "⑥"   U2465 # CIRCLED DIGIT SIX
+<Multi_key> <o> <7> 	: "⑦"   U2466 # CIRCLED DIGIT SEVEN
+<Multi_key> <o> <KP_7> 	: "⑦"   U2466 # CIRCLED DIGIT SEVEN
+<Multi_key> <o> <8> 	: "⑧"   U2467 # CIRCLED DIGIT EIGHT
+<Multi_key> <o> <KP_8> 	: "⑧"   U2467 # CIRCLED DIGIT EIGHT
+<Multi_key> <o> <9> 	: "⑨"   U2468 # CIRCLED DIGIT NINE
+<Multi_key> <o> <KP_9> 	: "⑨"   U2468 # CIRCLED DIGIT NINE
+<Multi_key> <o> <0> 	: "⓪"   U24EA # CIRCLED DIGIT ZERO
+<Multi_key> <o> <KP_0> 	: "⓪"   U24EA # CIRCLED DIGIT ZERO
