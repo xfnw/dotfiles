@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# script for putting stdin into a minecraft book
+
+
+WDIR=$(mktemp -d)
+
+fold -s -w 20 $1 | split -l 14 - "$WDIR/"
+
+cd "$WDIR"
+sleep 2
+
+ls | while read DONK
+do
+
+	while IFS= read LINE
+	do
+		xdotool type --delay 5 -- "$LINE"
+		xdotool key Return
+	done<"$DONK"
+	sleep 0.01
+	xdotool click 1
+	sleep 0.01
+done
