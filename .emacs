@@ -8,6 +8,10 @@
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
 ;(global-set-key (kbd "C-x M-u") 'redo)
 
+(add-to-list 'package-archives
+             (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
+                                    (if (gnutls-available-p) "s" ""))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -19,8 +23,11 @@
 
 ")
  '(menu-bar-mode nil)
+ '(package-selected-packages '(elpher evil))
  '(tool-bar-mode nil))
 
+(require 'evil)
+(evil-mode 1)
 
 (server-start)
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
