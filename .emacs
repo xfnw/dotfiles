@@ -23,10 +23,12 @@
 
 ")
  '(menu-bar-mode nil)
+ '(evil-want-C-u-scroll t)
  '(package-selected-packages '(elpher evil))
  '(tool-bar-mode nil))
 
 (require 'evil)
+(evil-set-initial-state 'term-mode 'emacs)
 (evil-mode 1)
 
 (server-start)
