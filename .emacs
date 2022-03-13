@@ -17,13 +17,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(tsdh-dark))
+ '(custom-enabled-themes '(wombat))
+ '(evil-want-C-u-scroll t)
  '(initial-scratch-message
    ";; This buffer is for text that is not saved, and for Lisp evaluation.
 
 ")
  '(menu-bar-mode nil)
- '(evil-want-C-u-scroll t)
  '(package-selected-packages '(elpher evil))
  '(tool-bar-mode nil))
 
