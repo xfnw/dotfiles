@@ -6,11 +6,14 @@
 (package-initialize)
 
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
-;(global-set-key (kbd "C-x M-u") 'redo)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 (add-to-list 'package-archives
              (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
                                     (if (gnutls-available-p) "s" ""))))
+(add-to-list 'package-archives
+	     (cons "melpa" (format "http%s://melpa.org/packages/"
+				   (if (gnutls-available-p) "s" ""))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
