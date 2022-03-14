@@ -27,6 +27,7 @@
 
 ")
  '(menu-bar-mode nil)
+ '(org-agenda-files '("."))
  '(package-selected-packages '(elpher evil))
  '(tool-bar-mode nil))
 
@@ -45,3 +46,29 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'org)
+;; support gopher and gemini links for org
+;; https://list.orgmode.org/87k1vsiv7t.fsf@nicolasgoaziou.fr/t/
+(defun org-link-gopher-export-link (link desc format)
+  "Create export version of LINK and DESC to FORMAT."
+  (let ((link (concat "gopher:" link)))
+    (cond
+     ((eq format 'html)
+      (format "<a href=\"%s\">%s</a>" link desc))
+     ((eq format 'latex)
+      (format "\\href{%s}{%s}" link desc))
+     (t
+      (format "[%s](%s)" desc link)))))
+(defun org-link-gemini-export-link (link desc format)
+  "Create export version of LINK and DESC to FORMAT."
+  (let ((link (concat "gemini:" link)))
+    (cond
+     ((eq format 'html)
+      (format "<a href=\"%s\">%s</a>" link desc))
+     ((eq format 'latex)
+      (format "\\href{%s}{%s}" link desc))
+     (t
+      (format "[%s](%s)" desc link)))))
+(org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
+(org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
