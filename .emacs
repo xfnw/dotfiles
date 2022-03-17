@@ -7,6 +7,7 @@
 
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c q") 'auto-fill-mode)
 
 (add-to-list 'package-archives
              (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
@@ -72,3 +73,5 @@
       (format "[%s](%s)" desc link)))))
 (org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
 (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
+
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
