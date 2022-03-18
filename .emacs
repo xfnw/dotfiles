@@ -30,7 +30,8 @@
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
  '(package-selected-packages '(elpher evil))
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))))
 
 (require 'evil)
 (evil-set-initial-state 'term-mode 'emacs)
