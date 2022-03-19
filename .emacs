@@ -21,7 +21,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(wombat))
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
+ '(custom-enabled-themes '(gruvbox-dark-hard))
+ '(custom-safe-themes
+   '("f27c3fcfb19bf38892bc6e72d0046af7a1ded81f54435f9d4d09b3bff9c52fc1" default))
  '(evil-want-C-u-scroll t)
  '(initial-scratch-message
    ";; This buffer is for text that is not saved, and for Lisp evaluation.
@@ -29,9 +34,8 @@
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
- '(package-selected-packages '(elpher evil))
- '(tool-bar-mode nil)
- '(backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))))
+ '(package-selected-packages '(elpher evil gruvbox-theme))
+ '(tool-bar-mode nil))
 
 (require 'evil)
 (evil-set-initial-state 'term-mode 'emacs)
