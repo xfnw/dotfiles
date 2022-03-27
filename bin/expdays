@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dat=$(openssl x509 -noout -enddate | cut -d= -f2)
+
+echo $(( ($(date -d "$dat" '+%s') - $(date '+%s')) / 86400 ))
