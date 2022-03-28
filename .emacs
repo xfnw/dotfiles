@@ -26,7 +26,7 @@
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
-   '("f27c3fcfb19bf38892bc6e72d0046af7a1ded81f54435f9d4d09b3bff9c52fc1" default))
+   '("6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" "f27c3fcfb19bf38892bc6e72d0046af7a1ded81f54435f9d4d09b3bff9c52fc1" default))
  '(evil-want-C-u-scroll t)
  '(initial-scratch-message
    ";; This buffer is for text that is not saved, and for Lisp evaluation.
