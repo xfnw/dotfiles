@@ -2,4 +2,12 @@
 
 dat=$(openssl x509 -noout -enddate | cut -d= -f2)
 
-echo $(( ($(date -d "$dat" '+%s') - $(date '+%s')) / 86400 ))
+if [ "$(uname)" = "OpenBSD" ]
+then
+	echo $(( ($(date -j -f "%b %d %T %Y %z" "$dat" "+%s") - $(date '+%s')) / 86400 ))
+elif [ -h /bin/date ] # date is symlinked, assume its busybox
+then
+	echo $(( ($(date -D "%b %d %T %Y %z" -d "$dat" "+%s") - $(date '+%s')) / 86400 ))
+else
+	echo $(( ($(date -d "$dat" '+%s') - $(date '+%s')) / 86400 ))
+fi
