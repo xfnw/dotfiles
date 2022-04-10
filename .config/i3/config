@@ -104,9 +104,9 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+a focus parent
 
 # take a screenshot
-bindsym --release $mod+s exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://foxes.are.allowed.org/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
-bindsym $mod+shift+s exec "scrot -l mode=edge -e 'curl -F\\"file=@$f\\" https://foxes.are.allowed.org/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
-bindsym --release $mod+z exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://foxes.are.allowed.org/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
+bindsym --release $mod+s exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://va.furryplace.eu/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
+bindsym $mod+shift+s exec "scrot -l mode=edge -e 'curl -F\\"file=@$f\\" https://va.furryplace.eu/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
+bindsym --release $mod+z exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://va.furryplace.eu/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 
 #bindsym --release $mod+x exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://xfnw.ttm.sh/u.php | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 
