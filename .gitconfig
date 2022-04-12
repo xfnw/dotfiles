@@ -12,6 +12,7 @@
 	smtpuser = xfnw@riseup.net
 	smtpserverport = 587
 [alias]
+	psuh = push
 	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 [commit]
 	verbose = true
