@@ -26,6 +26,8 @@ command Md     :w|!sh -c 'p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf
 set number
 set relativenumber
 
+command Nonum :set nonumber norelativenumber
+
 " syntax hilighting
 syntax on
 color pablo
