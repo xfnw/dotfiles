@@ -15,13 +15,12 @@ command Tmit  :r ~/.vim/templates/mit
 command Tuni  :r ~/.vim/templates/uni
 
 " run groff+refer on file
-:command Groff w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
-:command Grofft w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
-:command Man w|!sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
-:command Tex w|!sh -c 'p="%"; pdflatex "$p"'
-:command Bib w|!sh -c 'p="%"; biber "${p::-4}"'
-
-:command Md !p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf 
+command Groff  :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
+command Grofft :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
+command Man    :w|!sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
+command Tex    :w|!sh -c 'p="%"; pdflatex "$p"'
+command Bib    :w|!sh -c 'p="%"; biber "${p::-4}"'
+command Md     :w|!sh -c 'p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf'
 
 " nice line numbers
 set number
@@ -50,5 +49,8 @@ set mouse=a		" Enable mouse usage (all modes)
 " fmt stuffs
 set textwidth=60
 set formatoptions-=t
+
+" 2 space tabbing for nix files
+autocmd Filetype nix setlocal ts=2 sw=2 expandtab
 
 
