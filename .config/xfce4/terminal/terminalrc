@@ -1,7 +1,7 @@
 [Configuration]
 MiscAlwaysShowTabs=FALSE
-MiscBell=FALSE
-MiscBellUrgent=FALSE
+MiscBell=TRUE
+MiscBellUrgent=TRUE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
@@ -27,7 +27,7 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-BackgroundDarkness=0.590000
+BackgroundDarkness=0.800000
 FontName=JetBrainsMono Nerd Font 12
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 DropdownPosition=75
@@ -39,4 +39,6 @@ DropdownStatusIcon=FALSE
 ColorPalette=rgb(21,22,16);rgb(163,40,16);rgb(114,122,24);rgb(163,119,41);rgb(61,98,102);rgb(122,73,85);rgb(85,122,85);rgb(142,132,99);rgb(76,70,53);rgb(204,50,20);rgb(142,153,30);rgb(204,149,40);rgb(76,123,127);rgb(153,91,107);rgb(107,153,107);rgb(204,188,190)
 ColorForeground=#ccccbcbcbebe
 ColorBackground=#161615151010
+MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
+ScrollingUnlimited=TRUE
 
