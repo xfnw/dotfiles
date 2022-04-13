@@ -33,12 +33,9 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 bindsym $mod+apostrophe exec xfce4-terminal --drop-down
 
-
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+q exec xkill
-
-
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show combi
@@ -49,8 +46,6 @@ bindsym --release $mod+Shift+d exec date -I | xargs xdotool keyup control shift 
 # other rofi stuff
 bindsym $mod+c exec rofi -show ssh
 #bindsym $mod+x exec rofi -show combi
-
-
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -216,8 +211,6 @@ bindsym $mod+u exec ~/.config/i3/dmenuunicode
 bindsym $mod+p exec ~/.config/i3/dmenupasta
 
 ### i3-gaps stuff ###
-
-# Necessary for i3-gaps to work properly (pixel can be any value)
 
 # Smart Gaps
 smart_gaps on
