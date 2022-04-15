@@ -53,7 +53,7 @@ set textwidth=60
 set formatoptions-=t
 
 " 2 space tabbing for nix files
-autocmd Filetype nix setlocal ts=2 sw=2 expandtab
+autocmd Filetype nix setlocal ts=2 sw=2 expandtab autoindent
 
 " jump to last position after opening
 if has("autocmd")
