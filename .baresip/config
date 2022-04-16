@@ -141,14 +141,14 @@ module			dtls_srtp.so
 #------------------------------------------------------------------------------
 # Temporary Modules (loaded then unloaded)
 
-module_tmp		uuid.so
-module_tmp		account.so
+module			uuid.so
+module			account.so
 
 
 #------------------------------------------------------------------------------
 # Application Modules
 
-module_app		auloop.so
+#module_app		auloop.so
 #module_app		b2bua.so
 module_app		contact.so
 module_app		debug_cmd.so
@@ -157,11 +157,11 @@ module_app		debug_cmd.so
 module_app		gtk.so
 module_app		menu.so
 #module_app		mwi.so
-#module_app		presence.so
+module_app		presence.so
 #module_app		syslog.so
 #module_app		mqtt.so
 #module_app		ctrl_tcp.so
-module_app		vidloop.so
+#module_app		vidloop.so
 
 
 #------------------------------------------------------------------------------
