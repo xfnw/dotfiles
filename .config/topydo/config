@@ -1,0 +1,8 @@
+[topydo]
+filename=~/Documents/todo.txt
+archive_filename=~/Documents/done.txt
+
+[tags]
+tag_due=d
+tag_star=s
+
