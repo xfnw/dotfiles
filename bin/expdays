@@ -2,7 +2,10 @@
 
 dat=$(openssl x509 -noout -enddate | cut -d= -f2)
 
-if [ "$(uname)" = "OpenBSD" ]
+if [ -z "$dat" ]
+then
+	exit 1
+elif [ "$(uname)" = "OpenBSD" ]
 then
 	echo $(( ($(date -j -f "%b %d %T %Y %z" "$dat" "+%s") - $(date '+%s')) / 86400 ))
 elif [ -h /bin/date ] # date is symlinked, assume its busybox
