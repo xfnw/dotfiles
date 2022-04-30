@@ -974,7 +974,7 @@ create_css() {
     (( ${#css_include[@]} > 0 )) && return || css_include=('main.css' 'blog.css')
     if [[ ! -f blog.css ]]; then 
         # blog.css directives will be loaded after main.css and thus will prevail
-        echo '#title{font-weight: 100;}
+        echo '#title{font-weight: 400;}
         a.ablack{color:#141415 !important;}
         li{margin-bottom:8px;}
         ul,ol{margin-left:24px;margin-right:24px;}
@@ -1048,7 +1048,7 @@ body {
 h3 {
     font-size: 20pt;
     width: 100%;
-    font-weight: 100;
+    font-weight: 400;
     margin-top: 32px;
     margin-bottom: 0;
 }
