@@ -19,12 +19,11 @@
 }
 .splits, .split-last {
 	font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 }
 .split, .split-last {
 	color: #99a;
 	font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
-    background: transparent;
+    background: #000;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .split, .split .split-time {
@@ -32,8 +31,7 @@
 }
 .current-split {
     color: #fff;
-    background: linear-gradient(#00b, #007);
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.65);
+    background: #009;
     border: 0;
     transition: .1s;
 }
@@ -42,7 +40,6 @@
 }
 .current-split .split-time {
 	color: #fff;
-    background: transparent;
 }
 .split, .current-split, .split-title, .split-time, .split-delta, .split-last {
 	padding-top: 2px;
@@ -111,7 +108,6 @@
 .split-last {
     color: #99a;
     border-top: 1px solid #fff;
-    box-shadow: 0px -4px 8px rgba(0,0,0,0.8);
 }
 .split-last .split-time {
     color: #99a;
