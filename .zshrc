@@ -26,6 +26,7 @@ alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -hdd"
 alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"'
 
 alias sydi="sudo"
+alias rn="rm -i"
 
 #autoload -Uz compinit
 #compinit
