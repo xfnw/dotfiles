@@ -46,6 +46,8 @@
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-mode 1)
 
+(display-time-mode 1)
+
 (server-start)
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
