@@ -25,6 +25,7 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(auth-source-save-behavior nil)
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
+ '(browse-url-browser-function 'eww-browse-url)
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
    '("6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" "f27c3fcfb19bf38892bc6e72d0046af7a1ded81f54435f9d4d09b3bff9c52fc1" default))
