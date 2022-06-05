@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for fn in "$@"; do
+    real=$(realpath "$fn" || echo "$fn")
+    printf "/ssh:%s@%s:%s\0" "$USER" "$(echo $SSH_CONNECTION | cut -d' ' -f3-4 | tr ' ' '#')" "$real"
+done | xargs -0 emacsclient -s ~/.sshemacs
