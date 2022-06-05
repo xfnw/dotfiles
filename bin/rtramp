@@ -6,5 +6,5 @@ if [ -S ~/.sshemacs -a -n "$SSH_CONNECTION" ]; then
 	printf "/ssh:%s@%s:%s\0" "$USER" "$(echo $SSH_CONNECTION | cut -d' ' -f3-4 | tr ' ' '#')" "$real"
     done | xargs -0 emacsclient -s ~/.sshemacs
 else
-    emacsclient "$@"
+    emacsclient -a '' "$@"
 fi
