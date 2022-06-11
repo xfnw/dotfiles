@@ -168,7 +168,7 @@ abstracts = {
   # notices
   ownnotice = "[%r$0%K(%R$1-%K)]%n ";
   notice = "%K-%M$*%K-%n ";
-  pubnotice_channel = "%K:%m$*";
+  pubnotice_channel = "";
   pvtnotice_host = "%K(%m$*%K)";
   servernotice = "%g!$*%n ";
 
