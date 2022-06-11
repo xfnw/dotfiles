@@ -21,7 +21,7 @@ info_eol = "false";
 
 # these characters are automatically replaced with specified color
 # (dark grey by default)
-replaces = { "[]=" = "%K$*%n"; };
+replaces = { "[]()=" = "%K$*%n"; };
 
 abstracts = {
   ##
@@ -29,10 +29,10 @@ abstracts = {
   ##
 
   # text to insert at the beginning of each non-message line
-  line_start = "%B-%W!%B-%n ";
+  line_start = "%B--%n ";
 
   # timestamp styling, nothing by default
-  timestamp = "$*";
+  timestamp = "%K$*%n";
 
   # any kind of text that needs hilighting, default is to bold
   hilight = "%_$*%_";
@@ -56,7 +56,7 @@ abstracts = {
   comment = "[$*]";
 
   # reason for something is printed (part, quit, kick, ..)
-  reason = "{comment $*}";
+  reason = "($*)";
 
   # mode change is printed ([+o nick])
   mode = "{comment $*}";
