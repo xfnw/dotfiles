@@ -258,3 +258,11 @@ abstracts = {
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "$0$1-%n";
 };
+formats = {
+  "fe-common/core" = {
+    join_extended = "{channick_hilight $0} {reason $4} {chanhost_hilight $1} has joined {channel $2}";
+    join_extended_account = "{channick_hilight $0} [{hilight $3}] {reason $4} {chanhost_hilight $1} has joined {channel $2}";
+    logged_out = "{channick $0} {chanhost $1} has unidentified";
+    logged_in = "{channick_hilight $0} {chanhost_hilight $1} has identified as {hilight $2}";
+  };
+};
