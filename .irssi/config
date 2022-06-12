@@ -1,7 +1,6 @@
 aliases = {
   ATAG = "WINDOW SERVER";
   ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
-  B = "GO";
   BACK = "AWAY";
   BANS = "BAN";
   BYE = "QUIT";

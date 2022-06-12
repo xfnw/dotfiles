@@ -53,7 +53,7 @@ sub signal_complete_go {
 	my $channel = $window->get_active_name();
 	my $k = Irssi::parse_special('$k');
 
-        return unless ($linestart =~ /^\Q${k}\Ego\b/i);
+        return unless ($linestart =~ /^\Q${k}\Eb\b/i);
 
 	my $re = _make_regexp($word,
 		Irssi::settings_get_bool('go_complete_case_sensitive'),
@@ -98,12 +98,12 @@ sub cmd_go
 	}
 }
 
-Irssi::command_bind("go", "cmd_go");
+Irssi::command_bind("b", "cmd_go");
 Irssi::signal_add_first('complete word', 'signal_complete_go');
-Irssi::settings_add_bool('go', 'go_match_case_sensitive', 1);
-Irssi::settings_add_bool('go', 'go_complete_case_sensitive', 0);
-Irssi::settings_add_bool('go', 'go_match_anchored', 1);
-Irssi::settings_add_bool('go', 'go_complete_anchored', 0);
+Irssi::settings_add_bool('b', 'go_match_case_sensitive', 1);
+Irssi::settings_add_bool('b', 'go_complete_case_sensitive', 0);
+Irssi::settings_add_bool('b', 'go_match_anchored', 1);
+Irssi::settings_add_bool('b', 'go_complete_anchored', 0);
 
 # Changelog
 #
