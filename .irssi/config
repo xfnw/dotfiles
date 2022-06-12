@@ -106,6 +106,7 @@ settings = {
   };
   "irc/core" = { cmds_max_at_once = "1024"; channel_max_who_sync = "64"; };
   "irc/flood" = { flood_max_msgs = "1024"; };
+  "perl/core/scripts" = { go_match_anchored = "no"; };
 };
 logs = { };
 windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
