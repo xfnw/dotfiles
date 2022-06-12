@@ -1,7 +1,7 @@
 aliases = {
   ATAG = "WINDOW SERVER";
   ADDALLCHANS = "SCRIPT EXEC foreach my \\$channel (Irssi::channels()) { Irssi::command(\"CHANNEL ADD -auto \\$channel->{name} \\$channel->{server}->{tag} \\$channel->{key}\")\\;}";
-  B = "WINDOW GOTO";
+  B = "GO";
   BACK = "AWAY";
   BANS = "BAN";
   BYE = "QUIT";
@@ -60,7 +60,15 @@ aliases = {
   move = "window move";
   kline = "quote kline";
   gline = "quote gline";
-  challenge = "quote challenge";
+  challenge = "QUOTE CHALLENGE";
+  ns = "QUOTE NICKSERV";
+  nsi = "QUOTE NICKSERV INFO";
+  csi = "QUOTE CHANSERV INFO";
+  cs = "QUOTE CHANSERV";
+  hs = "QUOTE HOSTSERV";
+  dh = "UMODE -h";
+  h = "UMODE +h";
+  bs = "QUOTE BOTSERV";
 };
 
 settings = {
