@@ -95,7 +95,7 @@ settings = {
     max_command_history = "1000";
     show_nickmode_empty = "no";
     window_number_commands = "yes";
-    activity_hide_level = "JOINS PARTS QUITS NICKS";
+    activity_hide_level = "JOINS PARTS QUITS NICKS MODES";
   };
   "irc/core" = { cmds_max_at_once = "1024"; channel_max_who_sync = "64"; };
   "irc/flood" = { flood_max_msgs = "1024"; };
