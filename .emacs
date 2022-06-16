@@ -38,6 +38,7 @@
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
  '(org-footnote-define-inline t)
+ '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages '(sudo-edit elpher evil gruvbox-theme))
  '(tool-bar-mode nil))
 
