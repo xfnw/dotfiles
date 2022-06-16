@@ -37,6 +37,7 @@
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
+ '(org-footnote-define-inline t)
  '(package-selected-packages '(sudo-edit elpher evil gruvbox-theme))
  '(tool-bar-mode nil))
 
