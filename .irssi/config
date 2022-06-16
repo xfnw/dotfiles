@@ -104,7 +104,11 @@ settings = {
     window_number_commands = "yes";
     activity_hide_level = "JOINS PARTS QUITS NICKS MODES";
   };
-  "irc/core" = { cmds_max_at_once = "1024"; channel_max_who_sync = "64"; };
+  "irc/core" = {
+    cmds_max_at_once = "1024";
+    channel_max_who_sync = "64";
+    max_ctcp_queue = "0";
+  };
   "irc/flood" = { flood_max_msgs = "1024"; };
   "perl/core/scripts" = { go_match_anchored = "no"; };
 };
