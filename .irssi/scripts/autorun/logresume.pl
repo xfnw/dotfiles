@@ -5,7 +5,7 @@
 # - /set logresume_channel_lines (set to 0 to make this script act more like queryresume.pl)
 # - Coloured logs (/set autolog_colors ON) work perfectly well, and are recommended if you want it to look like you never left
 # - bonus feature: /logtail 10 will print the last 10 lines of a log
-# - bonus feature: /logview will open the log in your PAGER, or do e.g. /logview screen vim -R.  You'll need to be using irssi in screen.  Running the program without screen is possible, but you need to ^L to redraw after closing it, and if you look at it too long irssi blocks on output and all your connections will ping out
+# - bonus feature: /logview will open the log in your PAGER, or do e.g. /logview tmux split-window vim -R.  You'll need to be using irssi in screen.  Running the program without screen is possible, but you need to ^L to redraw after closing it, and if you look at it too long irssi blocks on output and all your connections will ping out
 # - behaviour on channel join fail is potentially a little odd.  Unmotivated to test or fix this.
 
 use strict;
@@ -193,7 +193,7 @@ Irssi::command_bind 'logview' => sub {
   return unless defined $log;
 
   my $pager = $ENV{PAGER} || "less";
-  my $program = $_[0] || "screen $pager";
+  my $program = $_[0] || "tmux split-window $pager";
 
   system( split( / /, $program ), $log ) == 0 or do {
     if ( $? == -1 ) {
