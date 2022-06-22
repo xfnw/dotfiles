@@ -13,9 +13,9 @@ plot() { gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behin
 smoothplot() { gnuplot -p -e 'set object rectangle from screen 0,0 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$1'] "< cat -" using '$2':col smooth cspline title "'$4'" with '$3' lw 2 pt 7' ; }
 
 calcpi() { echo "scale=$1; 16*a(1/5)-4*a(1/239)" | bc -l ; }
-vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):ih*max(640/(iw*sar)\,480/ih)",crop=640:480,setsar=1:1,convolution="-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2",curves="0/0 0.5/0.58 1/1",rgbashift=rh=-1:gh=1 -preset veryfast -c:a copy "$2" }
-deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" "$3" "$4"}
-datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" }
+vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):ih*max(640/(iw*sar)\,480/ih)",crop=640:480,setsar=1:1,convolution="-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2",curves="0/0 0.5/0.58 1/1",rgbashift=rh=-1:gh=1 -preset veryfast -c:a copy "$2" ; }
+deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" "$3" "$4" ; }
+datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) }
 
@@ -28,6 +28,7 @@ alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -hdd"
 alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"'
 alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
+alias after="at now +"
 
 alias sydi="sudo"
 alias rn="rm -i"
