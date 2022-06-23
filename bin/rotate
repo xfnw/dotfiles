@@ -1,3 +1,6 @@
 #!/bin/sh
 
-sort -Vr | awk -F. -vOFS=. '{print; $'"$1"'=$'"$1"'+1; print}' | tr '\n' '\0' | xargs -0 -n2 mv
+field="$1"
+shift
+
+printf "%s\n" "$@" | sort -Vr | awk -F. -vOFS=. '{print; $'"$field"'=$'"$field"'+1; print}' | tr '\n' '\0' | xargs -0 -n2 mv
