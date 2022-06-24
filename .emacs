@@ -103,3 +103,4 @@
 (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
