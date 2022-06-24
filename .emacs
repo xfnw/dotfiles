@@ -32,7 +32,7 @@
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
  '(initial-scratch-message
-   ";; This buffer is for text that is not saved, and for Lisp evaluation.
+   ";; Meow! Welcome to the scratching post!
 
 ")
  '(menu-bar-mode nil)
