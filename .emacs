@@ -49,6 +49,16 @@
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-mode 1)
 
+(evil-define-operator evil-fill-justify (beg end)
+  "fill justified text."
+  :move-point nil
+  :type line
+  (save-excursion
+    (condition-case nil
+        (fill-region beg end "fill")
+      (error nil))))
+(define-key evil-normal-state-map "gj" 'evil-fill-justify)
+
 (display-time-mode 1)
 
 (server-start)
