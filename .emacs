@@ -105,3 +105,8 @@
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(defun turn-off-company ()
+  (company-mode -1))
+(add-hook 'term-mode-hook 'turn-off-company)
+(add-hook 'eshell-mode-hook 'turn-off-company)
