@@ -26,6 +26,7 @@
  '(auth-source-save-behavior nil)
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(browse-url-browser-function 'eww-browse-url)
+ '(company-minimum-prefix-length 4)
  '(company-quick-access-modifier 'super)
  '(company-selection-wrap-around t)
  '(company-show-quick-access t)
