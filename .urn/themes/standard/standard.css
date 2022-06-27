@@ -19,11 +19,11 @@
 }
 .splits, .split-last {
 	font-size: 10pt;
+    background: #000;
 }
 .split, .split-last {
 	color: #99a;
 	font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
-    background: #000;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .split, .split .split-time {
@@ -82,7 +82,6 @@
     text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
     color: #4CAF50;
     background: #111;
-    transition: .5s;
 }
 .timer-millis {
     font-size: 12pt;
@@ -95,11 +94,9 @@
 
 .losing {
     color: #4CAF50;
-    transition: .5s;
 }
 .behind {
     color: #F44336;
-    transition: .5s;
 }
 .footer {
     color: #555;
