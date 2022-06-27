@@ -26,20 +26,21 @@
  '(auth-source-save-behavior nil)
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(browse-url-browser-function 'eww-browse-url)
+ '(company-selection-wrap-around t)
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
    '("6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" "f27c3fcfb19bf38892bc6e72d0046af7a1ded81f54435f9d4d09b3bff9c52fc1" default))
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
- '(initial-scratch-message
-   ";; Meow! Welcome to the scratching post!
+ '(global-company-mode t)
+ '(initial-scratch-message ";; Meow! Welcome to the scratching post!
 
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
  '(org-footnote-define-inline t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
- '(package-selected-packages '(sudo-edit elpher evil gruvbox-theme))
+ '(package-selected-packages '(evil elpher gruvbox-theme sudo-edit company))
  '(tool-bar-mode nil))
 
 (setq split-height-threshold nil)
