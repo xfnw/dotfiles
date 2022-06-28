@@ -26,6 +26,7 @@
  '(auth-source-save-behavior nil)
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(browse-url-browser-function 'eww-browse-url)
+ '(c-default-style '((java-mode . "java") (awk-mode . "awk") (other . "bsd")))
  '(company-minimum-prefix-length 4)
  '(company-quick-access-modifier 'super)
  '(company-selection-wrap-around t)
@@ -49,6 +50,7 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
 
+(require 'eww)
 (define-key eww-mode-map "u" 'eww-back-url)
 
 (require 'evil)
