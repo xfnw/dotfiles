@@ -117,3 +117,4 @@
   (company-mode -1))
 (add-hook 'term-mode-hook 'turn-off-company)
 (add-hook 'eshell-mode-hook 'turn-off-company)
+
