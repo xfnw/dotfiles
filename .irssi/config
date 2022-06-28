@@ -57,17 +57,17 @@ aliases = {
   rainbow = "exec -o toilet --irc --gay -f term -- $";
   nn = "window number";
   move = "window move";
-  kline = "quote kline";
-  gline = "quote gline";
+  kline = "QUOTE KLINE";
+  gline = "QUOTE GLINE";
   challenge = "QUOTE CHALLENGE";
   ns = "QUOTE NICKSERV";
   nsi = "QUOTE NICKSERV INFO";
   csi = "QUOTE CHANSERV INFO";
   cs = "QUOTE CHANSERV";
   hs = "QUOTE HOSTSERV";
+  bs = "QUOTE BOTSERV";
   dh = "UMODE -h";
   h = "UMODE +h";
-  bs = "QUOTE BOTSERV";
 };
 
 settings = {
