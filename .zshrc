@@ -28,6 +28,7 @@ alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -hdd"
 alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"'
 alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
+alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
 alias after="at now +"
 
 alias sydi="sudo"
