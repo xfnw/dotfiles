@@ -45,6 +45,7 @@
  '(org-footnote-define-inline t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages '(evil elpher gruvbox-theme sudo-edit company))
+ '(tab-always-indent nil)
  '(tool-bar-mode nil))
 
 (setq split-height-threshold nil)
