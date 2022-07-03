@@ -169,8 +169,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# colors             border backg   text    indicator  clild
-client.focused      #666666 #88ccaa #ffffff #2ef49e    #287755
+# class                 border  bground text    indicator child_border
+client.focused          #5555ff #5555ff #1f1f1f #5555ff   #5555ff
+#client.focused_inactive #ffffff #ffffff #1f1f1f #ffffff   #ffffff
+client.focused_inactive #272727 #383c3e #aaaaaa #484e50   #5f676a
+client.urgent           #2f343a #ff55dd #1f1f1f #ff55dd   #ff55dd
+
 client.background   #333333
 
 # window config
@@ -189,10 +193,10 @@ bar {
         status_command i3status
         colors {
 		background #1f1f1f
-		focused_workspace #66aa77 #66aa77 #ffffff
-		active_workspace #66aa77 #66aa77 #ffffff
+		focused_workspace #5555ff #5555ff #1f1f1f
+		active_workspace #5555ff #5555ff #1f1f1f
 		inactive_workspace #333333 #333333 #888888
-		urgent_workspace #aa7766 #aa7766 #ffffff
+		urgent_workspace #ff55dd #ff55dd #1f1f1f
 		
 	}
 }
