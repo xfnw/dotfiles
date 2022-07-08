@@ -53,6 +53,8 @@
 
 (require 'eww)
 (define-key eww-mode-map "u" 'eww-back-url)
+(define-key eww-mode-map "g" 'eww)
+(define-key eww-mode-map "G" 'eww-reload)
 
 (require 'evil)
 (evil-set-initial-state 'term-mode 'emacs)
