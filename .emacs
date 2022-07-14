@@ -43,6 +43,7 @@
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
  '(org-footnote-define-inline t)
+ '(org-latex-image-default-width "\\linewidth")
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages '(evil elpher gruvbox-theme sudo-edit company))
  '(sudo-edit-indicator-mode t)
