@@ -1045,7 +1045,7 @@ body {
     padding: 10px 0;
 }
 
-h1,h2,h3,h4,h5 {
+.content h1,h2,h3,h4,h5 {
     font-size: 20pt;
     width: 100%;
     font-weight: 400;
