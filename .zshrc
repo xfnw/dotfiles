@@ -26,6 +26,7 @@ alias ytdl="yt-dlp --extract-audio --audio-format mp3"
 alias ssk="ssh-keygen -l -f ~/.ssh/known_hosts | grep"
 alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -hdd"
 alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"'
+alias gitpretty='git log --graph --pretty="%Cred%h%Creset %Cblue%G?%Creset %C(green)%an <%ae> %C(white)%ar%Creset%Cred% D%Creset%n%w(50,1,1)%B"'
 alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
 alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
