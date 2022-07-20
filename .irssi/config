@@ -68,6 +68,7 @@ aliases = {
   bs = "QUOTE BOTSERV";
   dh = "UMODE -h";
   h = "UMODE +h";
+  fuck = "server purge";
 };
 
 settings = {
