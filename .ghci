@@ -1,6 +1,7 @@
 :set prompt "λ "
 
 import Data.Char
+import Control.Monad
 import qualified Data.ByteString.Char8 as P
 import qualified Data.Map as M
 
