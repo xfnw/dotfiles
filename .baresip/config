@@ -68,7 +68,7 @@ module			stdio.so
 #module			httpd.so
 
 # Audio codec Modules (in order)
-#module			opus.so
+module			opus.so
 #module			amr.so
 #module			g7221.so
 #module			g722.so
