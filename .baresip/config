@@ -69,15 +69,15 @@ module			stdio.so
 
 # Audio codec Modules (in order)
 module			opus.so
-#module			amr.so
-#module			g7221.so
-#module			g722.so
-#module			g726.so
+module			amr.so
+module			g7221.so
+module			g722.so
+module			g726.so
 module			g711.so
-#module			gsm.so
-#module			l16.so
-#module			mpa.so
-#module			codec2.so
+module			gsm.so
+module			l16.so
+module			mpa.so
+module			codec2.so
 #module			ilbc.so
 #module			isac.so
 
