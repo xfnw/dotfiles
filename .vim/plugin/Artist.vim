@@ -40,6 +40,29 @@ function! ArtistMode()
   nore! <F10>  ▐
   nore! <F11>  ▄
   nore! <F12>  ▀
+
+  nnore gc9 i<Esc>[0m<Esc>l
+  nnore gc8 i<Esc>[38;5;m<Esc>i
+  nnore gb9 i<Esc>[0m<Esc>l
+  nnore gb8 i<Esc>[38;5;m<Esc>i
+
+  nnore gc0 i<Esc>[30m<Esc>l
+  nnore gc1 i<Esc>[31m<Esc>l
+  nnore gc2 i<Esc>[32m<Esc>l
+  nnore gc3 i<Esc>[33m<Esc>l
+  nnore gc4 i<Esc>[34m<Esc>l
+  nnore gc5 i<Esc>[35m<Esc>l
+  nnore gc6 i<Esc>[36m<Esc>l
+  nnore gc7 i<Esc>[37m<Esc>l
+
+  nnore gb0 i<Esc>[90m<Esc>l
+  nnore gb1 i<Esc>[91m<Esc>l
+  nnore gb2 i<Esc>[92m<Esc>l
+  nnore gb3 i<Esc>[93m<Esc>l
+  nnore gb4 i<Esc>[94m<Esc>l
+  nnore gb5 i<Esc>[95m<Esc>l
+  nnore gb6 i<Esc>[96m<Esc>l
+  nnore gb7 i<Esc>[97m<Esc>l
 endfunction
 
 command! Artist call ArtistMode()
