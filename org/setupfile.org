@@ -38,7 +38,7 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~
 
 #+HTML_HEAD: body {
 #+HTML_HEAD:   font-family:monospace; font-size:12pt;
-#+HTML_HEAD:   width: 72ch; margin: 0px auto;
+#+HTML_HEAD:   max-width: 72ch; margin: 0px auto;
 #+HTML_HEAD: }
 #+HTML_HEAD: @media only print {
 #+HTML_HEAD:   body {

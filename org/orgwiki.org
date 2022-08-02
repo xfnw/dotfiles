@@ -38,7 +38,7 @@ Included via ~#+SETUPFILE:~ in wiki pages
 
 #+HTML_HEAD: body {
 #+HTML_HEAD:   font-family:monospace; font-size:12pt;
-#+HTML_HEAD:   width: 700px; margin: 10px 20px;
+#+HTML_HEAD:   max-width: 700px; margin: 10px 20px;
 #+HTML_HEAD: }
 #+HTML_HEAD: @media only print {
 #+HTML_HEAD:   body {
