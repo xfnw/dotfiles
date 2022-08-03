@@ -211,6 +211,10 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~.
 #+HTML_HEAD:   .timestamp { background-color: #eebbee; }
 #+HTML_HEAD: }
 
+*** footnote
+
+#+HTML_HEAD: .footpara { display: inline; }
+
 *** end style
 
 #+HTML_HEAD: </style>

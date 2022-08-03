@@ -211,12 +211,16 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+HTML_HEAD:   nav { display: none; }
 #+HTML_HEAD: }
 
+*** footnote
+
+#+HTML_HEAD: .footpara { display: inline; }
+
 *** end style
 
 #+HTML_HEAD: </style>
 
 #+HTML_HEAD: <nav>
-#+HTML_HEAD: <a href="index.html">index</a> /
+#+HTML_HEAD: <a href="index.html">home</a> /
 #+HTML_HEAD: <a href="about.html">about</a> /
 #+HTML_HEAD: <a href="sitemap.html">sitemap</a> /
 #+HTML_HEAD: </nav>
