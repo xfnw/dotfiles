@@ -115,6 +115,12 @@
 (org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
 (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
 
+(defun org-export-deterministic-reference (references)
+  (let ((new 0))
+    (while (rassq new references) (setq new (+ new 1)))
+    new))
+(advice-add #'org-export-new-reference :override #'org-export-deterministic-reference)
+
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
