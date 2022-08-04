@@ -164,7 +164,7 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+COMMENT: find better way!
 
 #+HTML_HEAD: @media only screen {
-#+HTML_HEAD:   .FIXME,.fixme { background-color: #ffaaaa; }
+#+HTML_HEAD:   .FIXME,.fixme { background-color: #bb1111; }
 #+HTML_HEAD: }
 
 *** org-center (#+begin_center)
@@ -225,98 +225,4 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+HTML_HEAD: <a href="sitemap.html">sitemap</a> /
 #+HTML_HEAD: </nav>
 
-* Helper Functions
 
-
-#+name: fs-cat-file
-#+begin_src sh :var pathname="" :results output :exports results :wrap example
-cat "$pathname"
-#+end_src
-
-
-#+name: footer
-#+begin_src org :results output :exports results
-,* Famous Last Words
-:PROPERTIES:
-:CUSTOM_ID: famous-last-words
-:END:
-
-,#+BEGIN_EXAMPLE
-
-                                           .-----+-----.
-                         .----+----.       |  The END  |
-                         | Repent! |       | is neigh! |
-                         ·----+----·       ·-----+-----·
-                              |  _    _       _  |
-                              |\°v°  °v°     ò.ó/|
-                                |_|\/|_|)   /|_|
---------------------------------^-^--^-^-----^-^--------------------------------
-,#+END_EXAMPLE
-
-,* The End
-:PROPERTIES:
-:CUSTOM_ID: the-end
-:END:
-#+end_src
-
-
-#+begin_fixme
-The following code scans the file instead of a possibly unsaved buffer,
-so the ~#+BRAIN*~ references may not be up to date on exports from
-unsaved buffers.
-
-If unsure use the ~Makefile~ way to rebuild all exports that are older
-than their ~.org~ sources.
-
-A better solution has to be found, and because currently only file
-references can be correctly exported, it probably needs learning elisp
-first.
-
-ॐ!
-#+end_fixme
-
-
-#+name: navigation
-#+begin_src org :results output :exports results
-,* Navigation
-:PROPERTIES:
-:OFF-UNNUMBERED: notoc
-:CUSTOM_ID: navigation
-:END:
-
-
-,#+BEGIN_SRC awk :var FILE=(buffer-file-name) :results output wrap html :exports results :eval always
-  function splittolinks(c,s   ,n,i,A,sort) {
-      ##
-      ## BASEDIR is global ... ugly.
-      ##
-      if( length(s) ) {
-          print "<b>" c "</b><br>"
-          n=split(s,A," ")
-          sort="sort"
-          for(i=1;i<=n;i++) print " <a href=" BASEDIR A[i] ".html>[" A[i] "]</a>" | sort 
-          close(sort)
-          print "<br>"
-          print "<br>"
-      }
-  }
-
-  BEGIN {
-      ##
-      ## hacky: assume 1 subdir level if not seeing .org-brain-data.el
-      ##
-      c="if test -f .org-brain-data.el ; then echo ./ ; else echo ../ ; fi"
-      c|getline BASEDIR
-      close(c)
-
-      while( getline < FILE ) {
-          if( index($0,"#+BRAIN_PARENTS: ")==1 )
-              splittolinks("Parents",substr($0,18))
-          else if( index($0,"#+BRAIN_FRIENDS: ")==1 )
-              splittolinks("Friends",substr($0,18))
-          else if( index($0,"#+BRAIN_CHILDREN: ")==1 )
-              splittolinks("Children",substr($0,19))
-      }
-  }
-,#+end_src
-#+end_src
