@@ -30,7 +30,7 @@ export TZ='America/New_York'
 export GTK_THEME=Materia-dark
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export ZSTD_CLEVEL=21
+export ZSTD_CLEVEL=19
 
 export CDPATH=:~
 
