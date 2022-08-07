@@ -42,6 +42,7 @@
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
+ '(org-export-with-author nil)
  '(org-footnote-define-inline t)
  '(org-latex-image-default-width "\\linewidth")
  '(org-structure-template-alist
