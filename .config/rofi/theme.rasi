@@ -7,34 +7,34 @@
     blue:                        #39f; 
 
     selected-normal-foreground:  @lightbg;
-    normal-foreground:           @foreground;
+    normal-foreground:           @text-color;
     alternate-normal-background: @lightbg;
     selected-urgent-foreground:  @lightbg;
     urgent-foreground:           @lightbg;
-    alternate-urgent-background: @background;
+    alternate-urgent-background: @background-color;
     active-foreground:           @lightbg;
     selected-active-foreground:  @lightbg;
-    alternate-normal-foreground: @foreground;
+    alternate-normal-foreground: @text-color;
     alternate-active-background: @blue;
-    bordercolor:                 @foreground;
-    normal-background:           @background;
+    bordercolor:                 @text-color;
+    normal-background:           @background-color;
     selected-normal-background:  @blue;
     separatorcolor:              @orange;
     spacing:                     2;
     urgent-background:           @red;
-    alternate-urgent-foreground: @foreground;
+    alternate-urgent-foreground: @text-color;
     selected-urgent-background:  @red;
-    alternate-active-foreground: @foreground;
+    alternate-active-foreground: @text-color;
     selected-active-background:  @blue;
     active-background:           @orange;
 }
 window {
     border:     0;
-    text-color: @foreground;
+    text-color: @text-color;
     background-color: rgba ( 0, 0, 0, 0 % );
     padding:    5;
     text-color: @bordercolor;
-    background-color: @background;
+    background-color: @background-color;
 }
 mainbox {
     border:  0;
@@ -46,7 +46,7 @@ message {
     padding:    2px 0px 0px ;
 }
 textbox {
-    text-color: @foreground;
+    text-color: @text-color;
 }
 listview {
     fixed-height: 0;
@@ -110,7 +110,7 @@ inputbar {
     border: 0px ;
 }
 button normal {
-    text-color: @foreground;
+    text-color: @text-color;
 }
 
 inputbar {
