@@ -1,5 +1,6 @@
 
 tr [[:space:]] '\n' |
 sed 's/.*@//' |
+pee cat "xargs -n1 ngirchash" |
 xargs -I'{}' echo '/gline *@'{}' 604800 :VPN/Proxy. If this as in error please contact support at this domain.'
 
