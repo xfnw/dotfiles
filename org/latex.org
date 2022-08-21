@@ -1,3 +1,4 @@
+#+TITLE: LaTeX setupfile
 #+STARTUP: content noindent
 
 Included via ~#+SETUPFILE:~ in notes meant to be exported to ~LaTeX~
@@ -20,6 +21,10 @@ preamble will not be on the first page.
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \pdfpageattr{/StructParents 0/Tabs/S}
 #+LATEX_HEADER: \captionsetup{labelformat=empty}
+
+** PDF/A export
+
+#+LATEX_HEADER: \usepackage[a-3b]{pdfx}
 
 ** hide todo tokens and tags
 
