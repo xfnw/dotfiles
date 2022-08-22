@@ -18,8 +18,10 @@ command Tuni  :r ~/.vim/templates/uni
 command Groff  :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
 command Grofft :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
 command Man    :w|!sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
-command Tex    :w|!sh -c 'p="%"; pdflatex "$p"'
-command Bib    :w|!sh -c 'p="%"; biber "${p::-4}"'
+command TexCmp :silent !sh -c 'p="%"; pdflatex "$p"'
+command Tex    :w|exe 'TexCmp'|redraw!
+command BibCmp :silent !sh -c 'p="%"; biber "${p::-4}"'
+command Bib    :w|exe 'TexCmp'|exe 'BibCmp'|exe 'TexCmp'|exe 'TexCmp'|redraw!
 command Md     :w|!sh -c 'p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf'
 
 " nice line numbers
