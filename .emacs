@@ -34,6 +34,7 @@
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
    '("6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" "f27c3fcfb19bf38892bc6e72d0046af7a1ded81f54435f9d4d09b3bff9c52fc1" default))
+ '(display-line-numbers 'relative)
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
  '(global-company-mode t)
