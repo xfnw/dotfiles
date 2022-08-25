@@ -143,3 +143,5 @@
 (add-hook 'term-mode-hook 'turn-off-company)
 (add-hook 'eshell-mode-hook 'turn-off-company)
 
+(add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
