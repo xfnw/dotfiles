@@ -11,7 +11,7 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~
 #+OPTIONS: html-scripts:nil                                                                           
 #+OPTIONS: html-self-link-headlines:t                                                                 
                                                                                                       
-#+OPTIONS: toc:t
+#+OPTIONS: toc:nil
 #+OPTIONS: num:t
 #+OPTIONS: H:6
 
@@ -212,4 +212,20 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~
 *** end style
 
 #+HTML_HEAD: </style>
+
+** LaTeX
+
+*** define some packages for accessibility
+
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[letterpaper]{geometry}
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage[tagged, highstructure]{accessibility}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \pdfpageattr{/StructParents 0/Tabs/S}
+#+LATEX_HEADER: \captionsetup{labelformat=empty}
+
+*** PDF/A export
+
+#+LATEX_HEADER: \usepackage[a-3b]{pdfx}
 
