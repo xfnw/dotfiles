@@ -23,6 +23,8 @@ alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
 alias warc="wget -rpkm --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
+alias mpvferret="mpv --config=no --quiet --vo=tct --lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=5:gf=3:rf=1:zoom=1[vo]'"
+alias mpvcqt="mpv --config=no --lavfi-complex='[aid1]asplit[ao][a1];[a1]showcqt=r=25[vo]'"
 alias ssk="ssh-keygen -l -f ~/.ssh/known_hosts | grep"
 alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -hdd"
 alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"'
