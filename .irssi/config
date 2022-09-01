@@ -69,6 +69,7 @@ aliases = {
   dh = "UMODE -h";
   h = "UMODE +h";
   fuck = "server purge";
+  isquiet = "ismuted";
 };
 
 settings = {
