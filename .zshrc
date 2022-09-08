@@ -2107,6 +2107,9 @@ fi
     else
         prompt grml
     fi
+    if [[ "$TERM" == dumb ]] ; then
+        prompt redhat
+    fi
 
 # Terminal-title wizardry
 
