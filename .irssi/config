@@ -105,6 +105,7 @@ settings = {
     show_nickmode_empty = "no";
     window_number_commands = "yes";
     activity_hide_level = "JOINS PARTS QUITS NICKS MODES";
+    autolog_path = "~/irclogs/$tag/$0/%Y-%m-%d.log";
   };
   "irc/core" = {
     cmds_max_at_once = "1024";
