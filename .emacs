@@ -99,9 +99,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
 
-(require 'zone)
-(zone-when-idle 120)
-
 (require 'org)
 ;; support gopher and gemini links for org
 ;; https://list.orgmode.org/87k1vsiv7t.fsf@nicolasgoaziou.fr/t/
