@@ -17,7 +17,8 @@ vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):i
 deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" ; }
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 
-base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) }
+base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
+touch7() { touch "$@" ; chmod 755 "$@" ; }
 
 alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
