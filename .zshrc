@@ -18,7 +18,7 @@ deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
-touch7() { touch "$@" ; chmod 755 "$@" ; }
+tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" }
 
 alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
