@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import argparse
+
+from netaddr import IPNetwork
+
+def _run(cidr: str):
+    net = IPNetwork(cidr)
+    return f"{cidr} starts at {net.network} and ends at {net.broadcast}"
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("compute range from CIDR")
+    parser.add_argument("cidr", type=str)
+    args = parser.parse_args()
+
+    print(_run(args.cidr))
+
