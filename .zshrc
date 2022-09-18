@@ -36,6 +36,7 @@ alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
 alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
 alias after="at now +"
+alias m='eval $(xdotool getmouselocation --shell)'
 
 alias sydi="sudo"
 alias rn="rm -i"
