@@ -44,7 +44,7 @@ function! ArtistMode()
   nnore gc9 i<Esc>[0m<Esc>l
   nnore gc8 i<Esc>[38;5;m<Esc>i
   nnore gb9 i<Esc>[0m<Esc>l
-  nnore gb8 i<Esc>[38;5;m<Esc>i
+  nnore gb8 i<Esc>[48;5;m<Esc>i
 
   nnore gc0 i<Esc>[30m<Esc>l
   nnore gc1 i<Esc>[31m<Esc>l
