@@ -1,8 +1,6 @@
-
-
 " some custom commands
-"
-" insert mom templates
+
+" insert templates
 command Tmomc :r ~/.vim/templates/chapter.mom
 command Tmomg :r ~/.vim/templates/general.mom
 command Tmomr :r ~/.vim/templates/recipe.mom
@@ -11,6 +9,7 @@ command Tmd   :r ~/.vim/templates/md.html
 command Tman  :r ~/.vim/templates/man.1
 command Tmh   :r ~/.vim/templates/man.html
 command Ttex  :r ~/.vim/templates/general.tex
+command Tbib  :r ~/.vim/templates/bib.tex
 command Tmit  :r ~/.vim/templates/mit
 command Tuni  :r ~/.vim/templates/uni
 
