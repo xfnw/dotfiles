@@ -106,6 +106,7 @@ settings = {
     window_number_commands = "yes";
     activity_hide_level = "JOINS PARTS QUITS NICKS MODES";
     autolog_path = "~/irclogs/$tag/$0/%Y-%m-%d.log";
+    autolog_colors = "yes";
   };
   "irc/core" = {
     cmds_max_at_once = "1024";
