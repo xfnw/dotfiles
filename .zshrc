@@ -37,6 +37,7 @@ alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/
 alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
 alias after="at now +"
 alias m='eval $(xdotool getmouselocation --shell)'
+alias tess='tesseract ~/Pictures/scrot/$(ls -t ~/Pictures/scrot | head -n1) -'
 alias ncdu='ncdu --color off'
 
 alias sydi="sudo"
