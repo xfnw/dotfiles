@@ -73,9 +73,7 @@ then
 pkill -x lemonbar || true
 while sleep 1
 do
-	echo ' %{c}'`date -R`' %{r}'`batterysec`' '`uptime | cut -d' ' -f12 | cut -b-4`' '
+	echo ' %{c}'`date -R`' %{r}'`batterysec`' '`uptime | cut -d'g' -f2 | cut -b4-7`' '
 done | lemonbar -g x26 -B '#292D3E' -F '#CCCCCC' -f 'Fira Code:size=9:antialias=true' &
 fi
-
-
 
