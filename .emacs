@@ -44,6 +44,7 @@
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
+ '(org-confirm-babel-evaluate nil)
  '(org-footnote-define-inline t)
  '(org-latex-image-default-width "\\linewidth")
  '(org-structure-template-alist
