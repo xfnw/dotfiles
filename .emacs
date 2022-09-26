@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
+(global-set-key (kbd "<f12>") 'buffer-menu)
 
 (add-to-list 'package-archives
              (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
