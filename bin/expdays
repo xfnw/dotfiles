@@ -8,9 +8,9 @@ then
 elif [ "$(uname)" = "OpenBSD" ]
 then
 	echo $(( ($(date -j -f "%b %d %T %Y %z" "$dat" "+%s") - $(date '+%s')) / 86400 ))
-elif [ -h /bin/date ] # date is symlinked, assume its busybox
-then
-	echo $(( ($(date -D "%b %d %T %Y %n" -d "$dat" "+%s") - $(date '+%s')) / 86400 ))
+elif [ -x /bin/busybox ]
+then # -1 to correct for it rounding up
+	echo $(( ($(busybox date -D "%b %d %T %Y %n" -d "$dat" "+%s") - $(busybox date '+%s')) / 86400 - 1 ))
 else
 	echo $(( ($(date -d "$dat" '+%s') - $(date '+%s')) / 86400 ))
 fi
