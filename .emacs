@@ -44,7 +44,6 @@
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
- '(org-confirm-babel-evaluate nil)
  '(org-footnote-define-inline t)
  '(org-latex-image-default-width "\\linewidth")
  '(org-structure-template-alist
@@ -63,7 +62,8 @@
  '(package-selected-packages '(evil elpher gruvbox-theme sudo-edit company))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(use-short-answers t))
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
