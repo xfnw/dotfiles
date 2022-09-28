@@ -128,6 +128,7 @@
 (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
 
 (defun org-export-deterministic-reference (references)
+  "make org export's html anchor ids deterministic."
   (let ((new 0))
     (while (rassq new references) (setq new (+ new 1)))
     new))
@@ -143,3 +144,14 @@
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+(defvar move-file-default-target "~/Documents/" "move-file's default target")
+
+;; borrowed from https://emacs.stackexchange.com/a/45910/37594
+(defun move-file ()
+  "Move current to another directory, for which you're prompted.
+Directory defaults to the value of 'move-file-default-target'."
+  (interactive)
+  (let ((old  (or (buffer-file-name)  (user-error "Not visiting a file")))
+	(dir  (read-directory-name "Move to: " move-file-default-target)))
+    (write-file (expand-file-name (file-name-nondirectory old) dir) t)
+    (delete-file old)))
