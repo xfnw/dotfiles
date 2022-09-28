@@ -89,7 +89,6 @@
 
 (display-time-mode 1)
 
-(server-start)
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
 (setenv "EDITOR" "emacsclient")
@@ -155,3 +154,5 @@ Directory defaults to the value of 'move-file-default-target'."
 	(dir  (read-directory-name "Move to: " move-file-default-target)))
     (write-file (expand-file-name (file-name-nondirectory old) dir) t)
     (delete-file old)))
+
+(server-start)
