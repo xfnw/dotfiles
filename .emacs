@@ -90,6 +90,9 @@
       (error nil))))
 (define-key evil-normal-state-map "gj" 'evil-fill-justify)
 
+(require 'elisp-mode)
+(define-key lisp-mode-shared-map (kbd "C-c C-c") 'eval-defun)
+
 (display-time-mode 1)
 
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
