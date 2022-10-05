@@ -49,6 +49,7 @@
  '(org-default-notes-file "~/org/notes.org")
  '(org-footnote-define-inline t)
  '(org-latex-image-default-width "\\linewidth")
+ '(org-src-preserve-indentation t)
  '(org-structure-template-alist
    '(("a" . "export ascii")
      ("c" . "center")
