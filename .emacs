@@ -49,6 +49,20 @@
  '(org-agenda-start-on-weekday 0)
  '(org-default-notes-file "~/org/notes.org")
  '(org-footnote-define-inline t)
+ '(org-latex-default-packages-alist
+   '(("AUTO" "inputenc" t
+      ("pdflatex"))
+     ("T1" "fontenc" t
+      ("pdflatex"))
+     ("" "graphicx" t nil)
+     ("" "longtable" nil nil)
+     ("" "wrapfig" nil nil)
+     ("" "rotating" nil nil)
+     ("normalem" "ulem" t nil)
+     ("" "amsmath" t nil)
+     ("" "amssymb" t nil)
+     ("" "capt-of" nil nil)
+     ("pdfa" "hyperref" nil nil)))
  '(org-latex-image-default-width "\\linewidth")
  '(org-src-preserve-indentation t)
  '(org-structure-template-alist
