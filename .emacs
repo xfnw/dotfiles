@@ -46,6 +46,7 @@
 ")
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
+ '(org-agenda-start-on-weekday 0)
  '(org-default-notes-file "~/org/notes.org")
  '(org-footnote-define-inline t)
  '(org-latex-image-default-width "\\linewidth")
