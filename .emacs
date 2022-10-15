@@ -19,6 +19,9 @@
 	     (cons "melpa" (format "http%s://melpa.org/packages/"
 				   (if (gnutls-available-p) "s" ""))))
 
+(add-to-list 'load-path (concat user-emacs-directory
+				(convert-standard-filename "lisp/")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
