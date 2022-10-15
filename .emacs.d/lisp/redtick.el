@@ -66,7 +66,7 @@
 (defcustom redtick-rest-interval (* 60 5)
   "Interval of time you will be resting, in seconds."
   :type 'number)
-(defcustom redtick-history-file (concat user-emacs-directory "~/redtick-history.txt")
+(defcustom redtick-history-file (concat user-emacs-directory "redtick-history.txt")
   "File to store all the completed pomodoros."
   :type 'string)
 (defcustom redtick-popup-header '(format "Working with '%s'" (current-buffer))
