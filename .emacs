@@ -180,4 +180,7 @@ Directory defaults to the value of 'move-file-default-target'."
     (write-file (expand-file-name (file-name-nondirectory old) dir) t)
     (delete-file old)))
 
+(require 'redtick)
+(redtick-mode 1)
+
 (server-start)
