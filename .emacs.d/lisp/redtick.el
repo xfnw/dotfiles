@@ -60,7 +60,7 @@
   :prefix "redtick-")
 
 ;; pomodoro work & rest intervals in seconds
-(defcustom redtick-work-interval (* 60 25)
+(defcustom redtick-work-interval (* 60 10)
   "Interval of time you will be working, in seconds."
   :type 'number)
 (defcustom redtick-rest-interval (* 60 5)
@@ -72,27 +72,27 @@
 (defcustom redtick-popup-header '(format "Working with '%s'" (current-buffer))
   "Header used in popup."
   :type 'sexp)
-(defcustom redtick-play-sound nil
+(defcustom redtick-play-sound t
   "Play sounds when true."
   :type 'boolean)
-(defcustom redtick-sound-volume "0.3"
+(defcustom redtick-sound-volume "100"
   "Sound volume as numeric string (low < 1.0 < high)."
   :type 'string)
 (defcustom redtick-mpv-buffer nil
   "Name of the buffer used for mpv output (p.e. '*mpv-debug*')."
   :type 'string)
 (defcustom redtick-work-sound
-  (expand-file-name "./resources/work.wav"
+  (expand-file-name "./resources/work.ogg"
                     (file-name-directory (or load-file-name buffer-file-name)))
   "Sound file to loop during the work period."
   :type 'string)
 (defcustom redtick-rest-sound
-  (expand-file-name "./resources/rest.wav"
+  (expand-file-name "./resources/rest.ogg"
                     (file-name-directory (or load-file-name buffer-file-name)))
   "Sound file to loop during the rest period."
   :type 'string)
 (defcustom redtick-end-rest-sound
-  (expand-file-name "./resources/end-rest.mp3"
+  (expand-file-name "./resources/end-rest.ogg"
                     (file-name-directory (or load-file-name buffer-file-name)))
   "Sound file to play at the end of the rest period."
   :type 'string)
@@ -149,7 +149,7 @@
       (if (executable-find "mpv")
           (setq redtick--sound-process
                 (apply 'start-process "mpv" redtick-mpv-buffer
-                       "mpv" file "--volume" redtick-sound-volume args))
+                       "mpv" file (concat "--volume=" redtick-sound-volume) args))
         (warn "mpv executable not found"))))
 
 (defun redtick--stop-sound ()
@@ -164,13 +164,13 @@
 
 (defun redtick--play-work-sound ()
   (redtick--stop-sound)
-  (redtick--play-sound-during redtick-work-sound redtick-work-interval))
+  (redtick--play-sound redtick-work-sound))
 
 (add-hook 'redtick-before-work-hook #'redtick--play-work-sound)
 
 (defun redtick--play-rest-sound ()
   (redtick--stop-sound)
-  (redtick--play-sound-during redtick-rest-sound redtick-rest-interval))
+  (redtick--play-sound redtick-rest-sound))
 
 (add-hook 'redtick-before-rest-hook #'redtick--play-rest-sound)
 
