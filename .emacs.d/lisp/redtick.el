@@ -126,18 +126,18 @@
     (,redtick--workbar-interval "▂" "#ff3366")
     (,redtick--workbar-interval "▁" "#ff0066")
     (,redtick--restbar-interval "▇" "#00cc66")
-    (,redtick--restbar-interval "▇" "#33cc66")
-    (,redtick--restbar-interval "▆" "#66cc66")
-    (,redtick--restbar-interval "▅" "#00ff66")
-    (,redtick--restbar-interval "▄" "#33ff66")
-    (,redtick--restbar-interval "▃" "#66ff66")
-    (,redtick--restbar-interval "▂" "#99ff66")
+    (,redtick--restbar-interval "▆" "#33cc66")
+    (,redtick--restbar-interval "▅" "#66cc66")
+    (,redtick--restbar-interval "▄" "#00ff66")
+    (,redtick--restbar-interval "▃" "#33ff66")
+    (,redtick--restbar-interval "▂" "#66ff66")
+    (,redtick--restbar-interval "▁" "#99ff66")
     (,redtick--restbar-interval "▁" "#ccff66")
     (nil "h" "#fabd2f")))
 
 (defun redtick--ended-work-interval-p (redtick--current-bars)
   "Return t when ended work interval based on REDTICK--CURRENT-BARS."
-  (equal `(,redtick--restbar-interval "█")
+  (equal `(,redtick--restbar-interval "▇")
        (butlast (car redtick--current-bars))))
 
 ;; variable that stores the sound process object
