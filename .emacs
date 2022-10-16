@@ -181,6 +181,7 @@ Directory defaults to the value of 'move-file-default-target'."
     (delete-file old)))
 
 (require 'redtick)
+(setq redtick-work-interval 600)
 (redtick-mode 1)
 
 (server-start)
