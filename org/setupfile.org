@@ -205,6 +205,12 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~
 #+HTML_HEAD:   .timestamp { background-color: #221122; }
 #+HTML_HEAD: }
 
+*** anchor targets
+
+#+HTML_HEAD: @media only screen {
+#+HTML_HEAD:   :target { background-color: #222211; }
+#+HTML_HEAD: }
+
 *** footnote
 
 #+HTML_HEAD: .footpara { display: inline; }
