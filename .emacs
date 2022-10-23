@@ -33,6 +33,13 @@
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(browse-url-browser-function 'eww-browse-url)
  '(c-default-style '((java-mode . "java") (awk-mode . "awk") (other . "bsd")))
+ '(circe-default-part-message "ABSOLUTELY PROPRIETARY!")
+ '(circe-default-quit-message "mmmmmmmm lunchtime")
+ '(circe-format-self-say "<{nick}> {body}")
+ '(circe-format-server-netmerge
+   "*** Netjoin: {split}, split {ago} ago (Use /WL to see who's still missing)")
+ '(circe-server-send-unknown-command-p t)
+ '(circe-use-cycle-completion t)
  '(company-minimum-prefix-length 4)
  '(company-quick-access-modifier 'super)
  '(company-selection-wrap-around t)
@@ -81,7 +88,8 @@
      ("v" . "verse")
      ("f" . "fixme")))
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
- '(package-selected-packages '(evil elpher gruvbox-theme sudo-edit company))
+ '(package-selected-packages
+   '(circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
@@ -97,6 +105,7 @@
 
 (require 'evil)
 (evil-set-initial-state 'term-mode 'emacs)
+(evil-set-initial-state 'circe-mode 'insert)
 (evil-mode 1)
 
 (evil-define-operator evil-fill-justify (beg end)
@@ -165,6 +174,7 @@
   (company-mode -1))
 (add-hook 'term-mode-hook 'turn-off-company)
 (add-hook 'eshell-mode-hook 'turn-off-company)
+(add-hook 'circe-mode-hook 'turn-off-company)
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
