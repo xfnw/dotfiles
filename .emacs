@@ -38,6 +38,9 @@
  '(circe-format-self-say "<{nick}> {body}")
  '(circe-format-server-netmerge
    "*** Netjoin: {split}, split {ago} ago (Use /WL to see who's still missing)")
+ '(circe-format-server-quit "*** Quit: {nick} ({userhost}) quit ({reason})")
+ '(circe-format-server-quit-channel "*** Quit: {nick} ({userhost}) quit ({reason})")
+ '(circe-format-server-topic "*** Topic change by {nick} ({userhost}): {topic-diff}")
  '(circe-server-send-unknown-command-p t)
  '(circe-use-cycle-completion t)
  '(company-minimum-prefix-length 4)
@@ -54,6 +57,9 @@
  '(initial-scratch-message ";; Meow! Welcome to the scratching post!
 
 ")
+ '(lui-fill-column 105)
+ '(lui-logging-directory (concat user-emacs-directory "irclogs"))
+ '(lui-logging-flush-delay 2)
  '(menu-bar-mode nil)
  '(org-agenda-files '("."))
  '(org-agenda-start-on-weekday 0)
@@ -105,7 +111,7 @@
 
 (require 'evil)
 (evil-set-initial-state 'term-mode 'emacs)
-(evil-set-initial-state 'circe-mode 'insert)
+(evil-set-initial-state 'circe-mode 'emacs)
 (evil-mode 1)
 
 (evil-define-operator evil-fill-justify (beg end)
@@ -177,6 +183,11 @@
 (add-hook 'circe-mode-hook 'turn-off-company)
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+(defalias 'circe-command-J 'circe-command-JOIN)
+
+(load "lui-logging" nil t)
+(enable-lui-logging-globally)
 
 (defvar move-file-default-target "~/Documents/" "move-file's default target")
 
