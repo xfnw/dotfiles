@@ -23,23 +23,23 @@ function! ArtistMode()
   nore! <F3>  ▓
   nore! <F4>  █
 
-  nnore <F5> r▖
-  nnore <F6> r▗
-  nnore <F7> r▘
-  nnore <F8> r▝
-  nore! <F5>  ▖
-  nore! <F6>  ▗
-  nore! <F7>  ▘
-  nore! <F8>  ▝
+  nnore <F5>  r▌
+  nnore <F6> r▐
+  nnore <F7> r▄
+  nnore <F8> r▀
+  nore! <F5>   ▌
+  nore! <F6>  ▐
+  nore! <F7>  ▄
+  nore! <F8>  ▀
 
-  nnore <F9>  r▌
-  nnore <F10> r▐
-  nnore <F11> r▄
-  nnore <F12> r▀
-  nore! <F9>   ▌
-  nore! <F10>  ▐
-  nore! <F11>  ▄
-  nore! <F12>  ▀
+  nnore <F9> r▖
+  nnore <F10> r▗
+  nnore <F11> r▘
+  nnore <F12> r▝
+  nore! <F9>  ▖
+  nore! <F10>  ▗
+  nore! <F11>  ▘
+  nore! <F12>  ▝
 
   nnore gc9 i<Esc>[0m<Esc>l
   nnore gc8 i<Esc>[38;5;m<Esc>i
