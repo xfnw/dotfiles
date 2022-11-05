@@ -1,17 +1,27 @@
-#!/bin/sh
+#!/bin/bash
 
 TARGET="$1"
 
 mkdir -p $TARGET
-pacstrap $TARGET busybox
 
 cd $TARGET
 
+mkdir -p usr/bin
+cp /bin/busybox usr/bin
+
 ln -s usr/bin bin
-mkdir -p home
-tee etc/passwd <<<'root:x:0:0::/root:/bin/sh'
-tee etc/group <<<'root:x:0:root'
+mkdir -p home/box etc
+tee etc/passwd <<EOF
+root:x:0:0:root:/root:/bin/ash
+box:x:1000:1000:box:/root:/bin/ash
+EOF
+tee etc/group <<EOF
+root:x:0:root
+box:x:1000:
+EOF
 tee etc/profile <<<'export PS1="[\u@\h \W]\$ "'
+
+ldcp busybox
 
 cd usr/bin
 
