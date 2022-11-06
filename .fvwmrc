@@ -75,7 +75,8 @@ Mouse 3	R    	A      	WindowList
 #   for the title bar buttons:
 Mouse 0	1    	A      	Menu Window-Ops2 Close
 Mouse 0	2    	A     	Close
-Mouse 0	4    	A     	Iconify
+Mouse 0	4    	A     	Maximize-Func
+Mouse 0	6    	A     	Iconify
 
 #   for other parts of the window/borders/icons:
 Mouse 1	F	A	Resize-or-Raise
@@ -202,7 +203,7 @@ AddToMenu Module-Popup	"FvwmModules"	Title
 +			"IconBox"	Module	FvwmIconBox
 +                       "IconMan"       Module  FvwmIconMan
 +			""		Nop
-+                       "Form - Rlogin"      Module FvwmForm Rlogin
++                       "Form - Ssh"       Module FvwmForm Ssh
 +                       "Form - MyFvwmTalk"  Module FvwmForm MyFvwmTalk
 +                       "Form - QuitVerify"  Module FvwmForm QuitVerify
 
@@ -261,8 +262,8 @@ AddToFunc PrintReverseFunction  "I" Raise
 AddToFunc Iconify-and-Raise     "I" Iconify
 +                               "I" Raise
 
-# RLOGIN machine fg bg
-AddToFunc RLOGIN "I" Exec xterm -fg $1 -bg $2 -e rlogin $0 -8
+# SSH machine fg bg
+AddToFunc SSH "I" Exec xterm -fg $1 -bg $2 -e ssh $0
 
 # TELNET machine fg bg
 AddToFunc TELNET "I" Exec xterm -fg $1 -bg $2 -e telnet $0
@@ -354,7 +355,7 @@ Key F8		A	M	CirculateDown
 *FvwmPagerFore white
 *FvwmPagerHilight #2d2d2d
 *FvwmPagerGeometry 80x60-1-1
-*FvwmPagerLabel 0 "OpenBSD 6.8"
+*FvwmPagerLabel 0 "OpenBSD"
 *FvwmPagerLabel 1 Maker
 *FvwmPagerLabel 2 Mail
 *FvwmPagerLabel 3 Matlab
@@ -423,43 +424,43 @@ Key F8		A	M	CirculateDown
 #
 *FvwmIconBox            "Fvwm*"         -
 
-# FvwmForm alias - rlogin or telnet to host via xterm
-*RloginWarpPointer
-*RloginFont         *helvetica*m*r*n*12*
-*RloginButtonFont   *helvetica*m*o*n*12*
-*RloginInputFont    *cour*m*r*n*12*
-*RloginFore         Black
-*RloginBack         White
-*RloginItemFore     Yellow
-*RloginItemBack     Wheat
+# FvwmForm alias - ssh or telnet to host via xterm
+*SshWarpPointer
+*SshFont         *helvetica*m*r*n*12*
+*SshButtonFont   *helvetica*m*o*n*12*
+*SshInputFont    *cour*m*r*n*12*
+*SshFore         Black
+*SshBack         White
+*SshItemFore     Black
+*SshItemBack     Wheat
 # begin items
-*RloginLine         center
-*RloginText         "Login to Remote Host"
-*RloginLine         center
-*RloginText         "Host:"
-*RloginInput        HostName  30   ""
-*RloginLine         center
-*RloginSelection    meth single
-*RloginChoice       TN TN off "telnet"
-*RloginChoice       RL RL on "rlogin"
-*RloginSelection    UserSel   single
-#*RloginChoice       Default   Default   on   "same user"
-#*RloginChoice       Custom    Custom    off  "user:"
-*RloginText         "(Userid:"
-*RloginInput        UserName  10   ""
-*RloginText         ")"
-*RloginLine         center
-*RloginText         "FG:"
-*RloginInput        FgColor 15 ""
-*RloginText         "BG:"
-*RloginInput        BgColor 15 ""
-*RloginLine         expand
-*RloginButton       quit "Login" ^M
-*RloginCommand Exec xterm  $(FgColor?-fg $(FgColor)) $(BgColor?-bg $(BgColor)) -T xterm@$(HostName) -e $(RL?rlogin) $(TN?telnet) $(HostName) $(RL?-8 $(UserName?-l $(UserName)))
-*RloginButton       restart   "Clear"
-*RloginCommand Beep
-*RloginButton       quit "Cancel"
-*RloginCommand Nop
+*SshLine         center
+*SshText         "Login to Remote Host"
+*SshLine         center
+*SshText         "Host:"
+*SshInput        HostName  30   ""
+*SshLine         center
+*SshSelection    meth single
+*SshChoice       TN TN off "telnet"
+*SshChoice       RL RL on "ssh"
+*SshSelection    UserSel   single
+#*SshChoice       Default   Default   on   "same user"
+#*SshChoice       Custom    Custom    off  "user:"
+*SshText         "(Userid:"
+*SshInput        UserName  10   ""
+*SshText         ")"
+*SshLine         center
+*SshText         "FG:"
+*SshInput        FgColor 15 ""
+*SshText         "BG:"
+*SshInput        BgColor 15 ""
+*SshLine         expand
+*SshButton       quit "Login" ^M
+*SshCommand Exec xterm  $(FgColor?-fg $(FgColor)) $(BgColor?-bg $(BgColor)) -T xterm@$(HostName) -e $(RL?ssh) $(TN?telnet) $(HostName) $(UserName?-l $(UserName))
+*SshButton       restart   "Clear"
+*SshCommand Beep
+*SshButton       quit "Cancel"
+*SshCommand Nop
 
 # FvwmForm alias - query exit ala mwm
 *QuitVerifyGrabServer
