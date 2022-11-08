@@ -2703,7 +2703,7 @@ function xtrename () {
 
 
 
-zpst () { curl -F'file=@-' https://va.furryplace.eu }
+zpst () { curl -F'file=@-' https://0x0.st }
 
 # upload to ttm
 function zup () {
@@ -2727,7 +2727,7 @@ function zup () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://va.furryplace.eu/'
+    api='https://0x0.st/'
     curl -F"file=@${url}" $api   
 }
 
@@ -2757,7 +2757,7 @@ function zpost () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://va.furryplace.eu/'
+    api='https://0x0.st/'
     curl -F"url=${url}" $api   
 }
 
@@ -2790,7 +2790,7 @@ function zurl () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://va.furryplace.eu/'
+    api='https://0x0.st/'
     curl -F"shorten=${url}" $api   
 }
 
