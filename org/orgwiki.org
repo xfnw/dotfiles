@@ -18,6 +18,8 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+OPTIONS: ^:nil
 #+OPTIONS: tags:nil
 
+#+OPTIONS: author:nil
+
 #+TODO: TODO DELAYED RERUN | DONE
 
 #+HTML_HEAD: <meta charset="UTF-8">
@@ -79,7 +81,7 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+COMMENT: pre is used in src and example blocks
 #+HTML_HEAD: pre {
 #+HTML_HEAD:   font-size:10.5pt;
-#+HTML_HEAD:   width:80ch;
+#+HTML_HEAD:   max-width:80ch;
 #+HTML_HEAD:   border: 1pt dotted #bfbfbf;
 #+HTML_HEAD:   padding:1ch;
 #+HTML_HEAD: }
@@ -98,8 +100,8 @@ Included via ~#+SETUPFILE:~ in wiki pages
 
 #+COMMENT: #+begin_example & #+begin_src
 
-#+HTML_HEAD: .example { white-space:pre-wrap; word-break:break-all; }
-#+HTML_HEAD: .src { white-space:pre-wrap; word-break:break-all; }
+#+HTML_HEAD: .example { white-space:pre-wrap; }
+#+HTML_HEAD: .src { white-space:pre-wrap; }
 #+HTML_HEAD: @media only screen {
 #+HTML_HEAD:    .example { background-color:#222211; }
 #+HTML_HEAD:    .src { background-color:#222211; }
@@ -205,6 +207,12 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+HTML_HEAD:   .timestamp { background-color: #221122; }
 #+HTML_HEAD: }
 
+*** anchor targets
+
+#+HTML_HEAD: @media only screen {
+#+HTML_HEAD:   :target { background-color: #222211; }
+#+HTML_HEAD: }
+
 *** hide nav during printing
 
 #+HTML_HEAD: @media only print {
@@ -225,4 +233,18 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+HTML_HEAD: <a href="sitemap.html">sitemap</a> /
 #+HTML_HEAD: </nav>
 
+** LaTeX
 
+*** define some packages for accessibility
+
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[letterpaper]{geometry}
+#+LATEX_HEADER: \usepackage[english]{babel}
+#+LATEX_HEADER: \usepackage[tagged, highstructure]{accessibility}
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \pdfpageattr{/StructParents 0/Tabs/S}
+#+LATEX_HEADER: \captionsetup{labelformat=empty}
+
+*** PDF/A export
+
+#+LATEX_HEADER: \usepackage[a-3b]{pdfx}
