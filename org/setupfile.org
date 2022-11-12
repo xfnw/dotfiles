@@ -98,8 +98,8 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~
 
 #+COMMENT: #+begin_example & #+begin_src
 
-#+HTML_HEAD: .example { white-space:pre-wrap; word-break:break-all; }
-#+HTML_HEAD: .src { white-space:pre-wrap; word-break:break-all; }
+#+HTML_HEAD: .example { white-space:pre-wrap; word-break:pre-wrap; }
+#+HTML_HEAD: .src { white-space:pre-wrap; word-break:pre-wrap; }
 #+HTML_HEAD: @media only screen {
 #+HTML_HEAD:    .example { background-color:#222211; }
 #+HTML_HEAD:    .src { background-color:#222211; }
