@@ -2,6 +2,7 @@ feed-sort-order unreadarticlecount
 confirm-mark-feed-read no
 browser "firefox %u"
 auto-reload yes
+suppress-first-reload yes
 reload-time 10
 reload-threads 10
 notify-beep yes
