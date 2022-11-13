@@ -114,6 +114,7 @@ AddToMenu RootMenu	"Root Menu"	Title
 +                       "Exit"  Module FvwmForm QuitVerify
 
 AddToMenu Utilities     "Utilities" Title
++			"Systat"	Exec exec xterm -T Systat -n Systat -e systat
 +			"Top"		Exec exec xterm -T Top -n Top -e top
 +			"w3m"		Exec exec xterm -T w3m -n w3m -e w3m google.com
 +			"Lynx"		Exec exec xterm -T Lynx -n Lynx -e lynx google.com
