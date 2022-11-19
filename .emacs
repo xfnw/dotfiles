@@ -111,6 +111,8 @@
 (define-key eww-mode-map "G" 'eww-reload)
 
 (require 'evil)
+(define-key evil-insert-state-map [S-left] nil)
+(define-key evil-insert-state-map [S-right] nil)
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-set-initial-state 'circe-mode 'emacs)
 (evil-mode 1)
