@@ -62,6 +62,8 @@
  '(lui-logging-directory (concat user-emacs-directory "irclogs"))
  '(lui-logging-flush-delay 2)
  '(menu-bar-mode nil)
+ '(nix-nixfmt-bin "nixpkgs-fmt")
+ '(nix-repl-executable-args '("repl" "--file" "<nixpkgs>"))
  '(org-agenda-files '("."))
  '(org-agenda-start-on-weekday 0)
  '(org-default-notes-file "~/org/notes.org")
@@ -96,7 +98,7 @@
      ("f" . "fixme")))
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages
-   '(circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+   '(nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
