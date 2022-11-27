@@ -134,6 +134,8 @@
 
 (display-time-mode 1)
 
+(require 'text-mode)
+(add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
 (setenv "EDITOR" "emacsclient")
