@@ -107,6 +107,25 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
 
+(defvar move-file-default-target "~/Documents/" "move-file's default target")
+
+;; borrowed from https://emacs.stackexchange.com/a/45910/37594
+(defun move-file ()
+  "Move current to another directory, for which you're prompted.
+Directory defaults to the value of 'move-file-default-target'."
+  (interactive)
+  (let ((old  (or (buffer-file-name)  (user-error "Not visiting a file")))
+	(dir  (read-directory-name "Move to: " move-file-default-target)))
+    (write-file (expand-file-name (file-name-nondirectory old) dir) t)
+    (delete-file old)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
+
 (require 'evil)
 (define-key evil-insert-state-map [S-left] nil)
 (define-key evil-insert-state-map [S-right] nil)
@@ -134,13 +153,6 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
 (setenv "EDITOR" "emacsclient")
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
 
 (require 'eww)
 (define-key eww-mode-map "u" 'eww-back-url)
@@ -200,18 +212,6 @@
 
 (load "lui-logging" nil t)
 (enable-lui-logging-globally)
-
-(defvar move-file-default-target "~/Documents/" "move-file's default target")
-
-;; borrowed from https://emacs.stackexchange.com/a/45910/37594
-(defun move-file ()
-  "Move current to another directory, for which you're prompted.
-Directory defaults to the value of 'move-file-default-target'."
-  (interactive)
-  (let ((old  (or (buffer-file-name)  (user-error "Not visiting a file")))
-	(dir  (read-directory-name "Move to: " move-file-default-target)))
-    (write-file (expand-file-name (file-name-nondirectory old) dir) t)
-    (delete-file old)))
 
 (require 'redtick)
 (redtick-mode 1)
