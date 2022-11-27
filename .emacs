@@ -107,11 +107,6 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
 
-(require 'eww)
-(define-key eww-mode-map "u" 'eww-back-url)
-(define-key eww-mode-map "g" 'eww)
-(define-key eww-mode-map "G" 'eww-reload)
-
 (require 'evil)
 (define-key evil-insert-state-map [S-left] nil)
 (define-key evil-insert-state-map [S-right] nil)
@@ -146,6 +141,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
+
+(require 'eww)
+(define-key eww-mode-map "u" 'eww-back-url)
+(define-key eww-mode-map "g" 'eww)
+(define-key eww-mode-map "G" 'eww-reload)
+(define-key eww-mode-map (kbd "C-x w") 'eww-copy-page-url)
+
+(require 'elpher)
+(define-key elpher-mode-map (kbd "C-x w") 'elpher-copy-current-url)
 
 (require 'org)
 ;; support gopher and gemini links for org
@@ -191,6 +195,7 @@
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+(require 'circe)
 (defalias 'circe-command-J 'circe-command-JOIN)
 
 (load "lui-logging" nil t)
