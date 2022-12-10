@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import random
+
+while True:
+    line = input()
+    words = []
+    for word in line.split(' '):
+        if len(word) >= 4:
+            first = word[0]
+            last = word[-1]
+            letters = list(word[1:-1])
+            random.shuffle(letters)
+            word = first+''.join(letters)+last
+        words.append(word)
+    print(' '.join(words))
+
