@@ -98,7 +98,7 @@
      ("f" . "fixme")))
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages
-   '(graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+   '(ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
