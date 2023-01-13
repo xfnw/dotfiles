@@ -1,4 +1,14 @@
 
+(add-to-list 'package-archives
+             (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
+                                    (if (gnutls-available-p) "s" ""))))
+(add-to-list 'package-archives
+	     (cons "melpa" (format "http%s://melpa.org/packages/"
+				   (if (gnutls-available-p) "s" ""))))
+
+(add-to-list 'load-path (concat user-emacs-directory
+				(convert-standard-filename "lisp/")))
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -11,16 +21,6 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 (global-set-key (kbd "<f12>") 'buffer-menu)
-
-(add-to-list 'package-archives
-             (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
-                                    (if (gnutls-available-p) "s" ""))))
-(add-to-list 'package-archives
-	     (cons "melpa" (format "http%s://melpa.org/packages/"
-				   (if (gnutls-available-p) "s" ""))))
-
-(add-to-list 'load-path (concat user-emacs-directory
-				(convert-standard-filename "lisp/")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -124,7 +124,9 @@ Directory defaults to the value of 'move-file-default-target'."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font")))))
+ '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font"))))
+ '(line-number ((t (:background nil :foreground "#7c6f64"))))
+ '(line-number-current-line ((t (:background nil :foreground "#fe8019")))))
 
 (require 'evil)
 (define-key evil-insert-state-map [S-left] nil)
