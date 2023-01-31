@@ -16,7 +16,7 @@ command Tuni  :r ~/.vim/templates/uni
 " run groff+refer on file
 command Groff  :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
 command Grofft :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
-command Man    :w|!sh -c 'p="%"; mandoc -T html "$p" | tail -n +17 | cat ~/.vim/templates/man.html - > "$p".html'
+command Man    :w|!sh -c 'p="%"; mandoc -T html "$p" | awk "f;/<\/style>/{f=1}" | cat ~/.vim/templates/man.html - > "$p".html'
 command TexCmp :silent !sh -c 'p="%"; pdflatex "$p"'
 command Tex    :w|exe 'TexCmp'|redraw!
 command BibCmp :silent !sh -c 'p="%"; biber "${p::-4}"'
