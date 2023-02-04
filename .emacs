@@ -96,6 +96,7 @@
      ("s" . "src")
      ("v" . "verse")
      ("f" . "fixme")))
+ '(org-support-shift-select t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages
    '(ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
