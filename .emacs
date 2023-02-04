@@ -199,6 +199,8 @@ Directory defaults to the value of 'move-file-default-target'."
     new))
 (advice-add #'org-export-new-reference :override #'org-export-deterministic-reference)
 
+(define-key org-mode-map (kbd "C-M-<return>") 'org-meta-return)
+
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
