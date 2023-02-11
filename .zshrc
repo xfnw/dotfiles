@@ -20,6 +20,9 @@ datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" 
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" }
+meili() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/json' --data-binary @- ; }
+meiliset() { curl -X PATCH "http://$1:7700/indexes/$2/settings" -H 'Content-Type: application/json' --data-binary @- ; }
+meilit() { curl "http://$1:7700/tasks/$2" ; }
 
 alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
