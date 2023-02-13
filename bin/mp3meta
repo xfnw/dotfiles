@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import sys, json, hashlib, base64
+from mutagen.id3 import ID3
+from mutagen.mp3 import MP3
+
+args = sys.argv[1:]
+out = []
+
+for item in args:
+    tags = MP3(item, ID3=ID3).tags
+    title = str(tags["TIT2"]) if "TIT2" in tags else None
+    author = str(tags["TPE1"]) if "TPE1" in tags else None
+
+    out.append(
+        {
+            "path": item,
+            "hid": base64.b64encode(
+                hashlib.sha1(bytes(item, "utf-8")).digest(), altchars=b"_-"
+            )
+            .decode("utf-8")
+            .replace("=", ""),
+            "title": title,
+            "author": author,
+        }
+    )
+
+print(json.dumps(out))
+
