@@ -167,9 +167,11 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~HTML~
 #+HTML_HEAD:   .FIXME,.fixme { background-color: #bb1111; }
 #+HTML_HEAD: }
 
-*** org-center (#+begin_center)
+*** org-center (#+begin_center) and text alignment
 
 #+HTML_HEAD: .org-center { text-align:center; }
+#+HTML_HEAD: .org-left { text-align:left; }
+#+HTML_HEAD: .org-right { text-align:right; }
 
 *** table stuff
 
