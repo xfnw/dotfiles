@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# https://stackoverflow.com/a/33226295/9406294
+# FIXME: breaks if spot-on one second
+until_next_second(){
+	sleep "0.$(printf '%04d' $((10000 - 10#$(date +%4N))))"
+}
+
+waittime=${1:-5}
+
+until_next_second
+date +"starting at %s %N" >&2
+echo date -s "@$((waittime+$(date -u '+%s')))"
+
+for i in $(seq $waittime)
+do
+	until_next_second
+	printf "%d " "$((waittime-i))" >&2
+done
+
+echo
+date +"it is now %s %N" >&2
+
