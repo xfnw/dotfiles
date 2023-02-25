@@ -32,11 +32,13 @@ EOF
 
 expr=
 type=
-while getopts 'e:i:t' opt; do
+debug=
+while getopts 'e:i:tg' opt; do
 	case "${opt}" in
 		(e) expr=$OPTARG;;
 		(i) echo "#include <${OPTARG}>" >&3;;
 		(t) type=1;;
+		(g) debug="-fsanitize=address -g";;
 		(?) exit 1;;
 	esac
 done
@@ -115,7 +117,7 @@ fi
 echo '}' >&3
 
 cat >"${temp}/Makefile" <<EOF
-CFLAGS += -Wall -Wextra -Wpedantic
+CFLAGS += -Wall -Wextra -Wpedantic $debug
 EOF
 
 make -s -C "${temp}" run
