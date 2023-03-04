@@ -8,7 +8,7 @@ out = json.load(sys.stdin)
 for item in range(len(out)):
     out[item][field] = (
         base64.b64encode(
-            hashlib.sha1(bytes(out[item][field], "utf-8")).digest(), altchars=b"_-"
+            hashlib.sha1(bytes(out[item][field], "utf-8")).digest(), altchars=b"-_"
         )
         .decode("utf-8")
         .replace("=", "")
