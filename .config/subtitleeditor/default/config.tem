@@ -1,0 +1,185 @@
+[video-player]
+repeat=true
+display=true
+display-translated-subtitle=false
+automatically-open-video=true
+audio-sink=autoaudiosink
+video-sink=ximagesink
+font-desc=Sans 26
+shaded-background=true
+force-aspect-ratio=true
+text-valignment=baseline
+
+skip-short=10
+skip-very-short=3
+
+skip-tiny=500
+
+[waveform]
+scrolling-with-player=true
+scrolling-with-selection=true
+respect-timing=true
+display=true
+
+renderer=cairo
+display-background=false
+display-waveform-fill=true
+
+zoom=8
+
+[interface]
+maximize-window=false
+used-autosave=false
+use-dynamic-keyboard-shortcuts=true
+max-undo=20
+window-x=0
+window-y=20
+window-width=1366
+window-height=726
+paned-main-position=338
+paned-multimedia-position=372
+
+ask-to-save-on-exit=false
+create-backup-copy=false
+autosave-minutes=10
+
+[extension-manager]
+Keyboard Shortcuts=enable
+Document Management=enable
+Style Editor=enable
+Stylize=enable
+Selection=enable
+Move Subtitles=enable
+Best Fit=enable
+Adjust Time=enable
+Remove Subtitle=enable
+Error Checking=enable
+Keyframes Management=enable
+External Video Player=enable
+Timing From Player=enable
+Type Writer=enable
+Scale Subtitles=enable
+Stack Subtitles=enable
+Time Mode Management=enable
+Join Document=enable
+Dialoguize=enable
+Split Document=enable
+Video Player Management=enable
+Apply Translation=enable
+Duplicate Subtitle=enable
+Waveform Management=enable
+Combine Subtitles=enable
+Insert Subtitle=enable
+Minimize Duration=enable
+Clipboard=enable
+About=enable
+Spell Checking=enable
+Text Correction=enable
+Find And Replace=enable
+Command=enable
+Documents Navigation=enable
+Extend Length=enable
+Move After Preceding Subtitle=enable
+Edit Cell=enable
+View Manager=enable
+Italicize=enable
+Plain Text=enable
+Change Framerate=enable
+Insert Subtitle From Keyframe=enable
+Sort Subtitles=enable
+Template Management=enable
+Preferences=enable
+Split Subtitle=enable
+Reverse Text And Translation=enable
+Sami=enable
+SubViewer2=enable
+BITC (Burnt-in timecode)=enable
+MicroDVD=enable
+Adobe Encore DVD (NTSC)=enable
+MPsub=enable
+Avid DS=enable
+Adobe Encore DVD (PAL)=enable
+Spruce STL=enable
+SBV=enable
+Subtitle Editor Project=enable
+SubRip=enable
+DCSubtitle=enable
+Advanced Sub Station Alpha=enable
+Sub Station Alpha=enable
+MPL2=enable
+Plain Text Format=enable
+Timed Text Authoring Format 1.0=enable
+
+[find-and-replace]
+column-text=true
+column-translation=true
+ignore-case=false
+used-regular-expression=false
+
+[encodings]
+encodings=ISO-8859-15;UTF-8
+used-auto-detected=true
+default=UTF-8
+
+[dialog-last-folder]
+dialog-open-document=file:///home/xfnw/Videos/sub
+dialog-open-video=file:///home/xfnw/Videos
+
+dialog-save-document=file:///home/xfnw/Videos/sub
+
+dialog-save-waveform=file:///home/xfnw/Videos/waf
+
+dialog-import-text=file:///home/xfnw/Documents/lyrics
+
+[document]
+format=SubRip
+newline=Unix
+
+[subtitle-view]
+property-alignment-center=false
+show-character-per-line=true
+columns-displayed=number;start;end;duration;text
+enable-rubberband-selection=false
+used-ctrl-enter-to-confirm-change=false
+do-not-disable-actions-during-editing=false
+
+[timing]
+min-display=1000
+min-gap-between-subtitles=100
+min-characters-per-second=5
+max-characters-per-second=25
+do-auto-timing-check=true
+ignore-space=false
+max-characters-per-line=40
+max-line-per-subtitle=4
+
+[waveform-renderer]
+display-subtitle-text=true
+color-background=#4C4C4CFF
+color-wave=#99CC4CFF
+color-wave-fill=#FFFFFFFF
+color-subtitle=#994C1999
+color-subtitle-selected=#E57F4C99
+color-subtitle-invalid=#FFFF00CC
+color-text=#FFFFFFFF
+color-player-position=#FFFFFFFF
+color-keyframe=#4C99FFFF
+
+[dialoguize]
+dash=- 
+dash-escaped=- 
+
+[spell-checker]
+lang=en_US
+
+[external-video-player]
+command=mpv "#video_file" --sub-file="#subtitle_file" --start="#time"
+
+[timing-from-player]
+offset=500
+
+[view-manager]
+Simple=number;start;end;duration;text
+Advanced=number;start;end;duration;style;name;text
+Translation=number;text;translation
+Timing=number;start;end;duration;cps;text
