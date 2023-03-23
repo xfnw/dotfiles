@@ -2,7 +2,7 @@
 
 manifest="${1:-.}"
 
-RUSTFLAGS='-Cinstrument-coverage' LLVM_PROFILE_FILE="test.profraw" cargo test &&
+RUSTFLAGS='-Cinstrument-coverage' cargo test &&
 mkdir -p "$manifest/target/coverage/html" &&
 ~/.cargo/bin/grcov . --binary-path "$manifest/target/debug/deps/" -s . -t html --branch --ignore-not-existing --ignore '../*' --ignore "/*" -o "$manifest/target/coverage/html"
 
