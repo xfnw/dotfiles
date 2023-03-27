@@ -30,7 +30,6 @@ aliases = {
   MUB = "UNBAN *";
   N = "NAMES";
   NMSG = "^MSG";
-  P = "PART";
   Q = "QUERY";
   READ = "SCRIPT EXEC \\$_->activity(0) for Irssi::windows";
   RESET = "SET -default";
@@ -64,10 +63,10 @@ aliases = {
   challenge = "QUOTE CHALLENGE";
   testline = "QUOTE TESTLINE";
   testmask = "QUOTE TESTMASK";
-  oc = "MSG @$C $*"
-  omsg = "MSG @$C $*"
-  vc = "MSG +$C $*"
-  vmsg = "MSG +$C $*"
+  oc = "MSG @$C $*";
+  omsg = "MSG @$C $*";
+  vc = "MSG +$C $*";
+  vmsg = "MSG +$C $*";
   ns = "QUOTE NICKSERV";
   nsi = "QUOTE NICKSERV INFO";
   nst = "QUOTE NICKSERV TAXONOMY";
@@ -131,8 +130,6 @@ settings = {
   "perl/core/scripts" = { go_match_anchored = "no"; };
 };
 logs = { };
-windows = { 1 = { immortal = "yes"; name = "hilight"; level = "ALL"; }; };
-mainwindows = { 1 = { first_line = "1"; lines = "39"; }; };
 ignores = ( );
 statusbar = {
   items = {
@@ -180,3 +177,5 @@ hilights = (
     full = "yes";
   }
 );
+windows = { 1 = { immortal = "yes"; name = "hilight"; level = "ALL"; }; };
+mainwindows = { 1 = { first_line = "1"; lines = "39"; }; };
