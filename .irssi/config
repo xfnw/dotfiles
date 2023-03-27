@@ -131,7 +131,7 @@ settings = {
   "perl/core/scripts" = { go_match_anchored = "no"; };
 };
 logs = { };
-windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
+windows = { 1 = { immortal = "yes"; name = "hilight"; level = "ALL"; }; };
 mainwindows = { 1 = { first_line = "1"; lines = "39"; }; };
 ignores = ( );
 statusbar = {
