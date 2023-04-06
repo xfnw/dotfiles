@@ -18,6 +18,7 @@ vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):i
 deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" ; }
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 dither() { convert "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
+9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" }
