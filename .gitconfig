@@ -15,6 +15,7 @@
 [alias]
 	psuh = push
 	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+	br = !git log --oneline | head
 [commit]
 	verbose = true
 [pull]
