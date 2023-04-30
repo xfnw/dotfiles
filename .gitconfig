@@ -1,10 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
  	name = xfnw
  	email = xfnw@riseup.net
 	signingkey = A75FA9A87E447AE0
-
 [init]
 	defaultBranch = main
 [sendemail]
