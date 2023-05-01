@@ -19,6 +19,7 @@ deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 dither() { convert "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
 9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
+unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","",$1); printf "U+%s %s (%s)\n",$1,$5,$2}' ; }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" }
