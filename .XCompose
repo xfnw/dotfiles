@@ -22,3 +22,4 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <o> <KP_9> 	: "⑨"   U2468 # CIRCLED DIGIT NINE
 <Multi_key> <o> <0> 	: "⓪"   U24EA # CIRCLED DIGIT ZERO
 <Multi_key> <o> <KP_0> 	: "⓪"   U24EA # CIRCLED DIGIT ZERO
+<Multi_key> <p> <o> <o>	: "💩"	U1F4A9 # PILE OF POO
