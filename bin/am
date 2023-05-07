@@ -1,0 +1,5 @@
+#!/bin/sh
+
+py_asciimath from-file "${1:-/dev/stdin}" \
+	from asciimath to "${2:-latex}"
+
