@@ -16,6 +16,7 @@ calcpi() { echo "scale=$1; 16*a(1/5)-4*a(1/239)" | bc -l ; }
 calcbd() { echo "h=sqrt($1*2*l(2))+1; scale=0; h/1" | bc -l ; }
 vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):ih*max(640/(iw*sar)\,480/ih)",crop=640:480,setsar=1:1,convolution="-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2",curves="0/0 0.5/0.58 1/1",rgbashift=rh=-1:gh=1 -preset veryfast -c:a copy "$2" ; }
 deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" ; }
+ffdiff() { ffmpeg -i "$1" -preset ultrafast -tune zerolatency -c:a "${3:-copy}" -filter_complex "color=black,format=yuv410p[color];format=yuva444p,split[diff][out];[diff]tblend=all_expr='if(eq(A,B),0,A)',geq=lum='p(X,Y)':a='if(eq(lum(X,Y)+cb(X,Y)+cr(X,Y),0),0,255)',alphaextract[diff];[out]trim=start_frame=1[out];[out][diff]alphamerge[out];[color][out]scale2ref[color][out];[color][out]overlay=format=auto:shortest=1,setsar=1" -vsync vfr "$2" ; }
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 dither() { convert "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
 9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
