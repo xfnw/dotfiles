@@ -60,3 +60,10 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+nnore gbd o\begin{dialogue}{}<Return>\end{dialogue}<Esc>kf{a
+nnore gbD o\begin{dialogue}[]{}<Return>\end{dialogue}<Esc>kf[a
+nnore gbf o\begin{figure}[]<Return>\end{figure}<Esc>kf[a
+nnore gbv o\begin{verbatim}<Return>\end{verbatim}<Esc>O
+nnore gbc o\begin{center}<Return>\end{center}<Esc>O
+nnore gbi o\begin{itemize}<Return>\end{itemize}<Esc>O
+
