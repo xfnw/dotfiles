@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 WORKDIR="$(mktemp -d)"
 
 cat >"$WORKDIR/math.tex" <<EOF
@@ -26,7 +24,7 @@ cat >>"$WORKDIR/math.tex" <<EOF
 \stop
 EOF
 
-pdflatex --output-directory "$WORKDIR" "$WORKDIR/math.tex" 1>&2
+pdflatex --output-directory "$WORKDIR" "$WORKDIR/math.tex" 1>&2 &&
 pdf2svg "$WORKDIR/math.pdf" "${2:-/dev/stdout}"
 
 rm -r -- "$WORKDIR"
