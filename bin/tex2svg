@@ -3,25 +3,18 @@
 WORKDIR="$(mktemp -d)"
 
 cat >"$WORKDIR/math.tex" <<EOF
-\documentclass[12pt]{article}
+\documentclass[12pt,border=2pt]{standalone}
+\usepackage{varwidth}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
-\thispagestyle{empty}
 \begin{document}
-\hoffset=-0.9in
-\voffset=-0.9in
-\setbox0\hbox{
-EOF
+\begin{varwidth}{\linewidth}
 
-echo "${1:-usage: $0 expression [output]}" >>"$WORKDIR/math.tex"
+${1:-usage: $0 expression [output]}
 
-cat >>"$WORKDIR/math.tex" <<EOF
-}
-\pdfpageheight=\dimexpr\ht0+\dp0+0.2in\relax
-\pdfpagewidth=\dimexpr\wd0+0.2in\relax
-\shipout\box0
-\stop
+\end{varwidth}
+\end{document}
 EOF
 
 pdflatex --output-directory "$WORKDIR" "$WORKDIR/math.tex" 1>&2 &&
