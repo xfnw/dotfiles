@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import argparse, ipaddress
+
+def _decip(ip: str):
+    ipenc = ipaddress.ip_address(ip)
+    return int(ipenc)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("IP declify")
+    parser.add_argument("ip")
+    args = parser.parse_args()
+
+    print(_decip(args.ip))
+
