@@ -3,10 +3,15 @@
 import sys, json, hashlib, base64
 
 field = sys.argv[1]
+if len(sys.argv) > 2:
+    fieldout = sys.argv[2]
+else:
+    fieldout = field
+
 out = json.load(sys.stdin)
 
 for item in range(len(out)):
-    out[item][field] = (
+    out[item][fieldout] = (
         base64.b64encode(
             hashlib.sha1(bytes(out[item][field], "utf-8")).digest(), altchars=b"-_"
         )
