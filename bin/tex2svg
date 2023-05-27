@@ -8,11 +8,10 @@ cat >"$WORKDIR/math.tex" <<EOF
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\newcommand{\ols}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1}}}
 \begin{document}
 \begin{varwidth}{\linewidth}
-
 ${1:-usage: $0 expression [output]}
-
 \end{varwidth}
 \end{document}
 EOF
