@@ -23,14 +23,14 @@ function! ArtistMode()
   nore! <F3>  ▓
   nore! <F4>  █
 
-  nnore <F5>  r▌
-  nnore <F6> r▐
-  nnore <F7> r▄
-  nnore <F8> r▀
-  nore! <F5>   ▌
-  nore! <F6>  ▐
-  nore! <F7>  ▄
-  nore! <F8>  ▀
+  nnore <F5> r▄
+  nnore <F6> r▀
+  nnore <F7> r▌
+  nnore <F8> r▐
+  nore! <F5>  ▄
+  nore! <F6>  ▀
+  nore! <F7>  ▌
+  nore! <F8>  ▐
 
   nnore <F9> r▖
   nnore <F10> r▗
