@@ -3,7 +3,7 @@ confirm-mark-feed-read no
 browser "firefox %u"
 auto-reload yes
 suppress-first-reload yes
-reload-time 10
+reload-time 30
 reload-threads 10
 notify-beep yes
 include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
