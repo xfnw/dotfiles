@@ -9,6 +9,7 @@ cat >"$WORKDIR/math.tex" <<EOF
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \newcommand{\ols}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1}}}
+\newcommand{\trans}[0]{^\mathrm{T}}
 \begin{document}
 \begin{varwidth}{\linewidth}
 ${1:-usage: $0 expression [output]}
