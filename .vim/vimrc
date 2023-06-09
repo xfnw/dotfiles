@@ -62,9 +62,10 @@ endif
 
 nnore gbd o\begin{dialogue}{}<Return>\end{dialogue}<Esc>kf{a
 nnore gbD o\begin{dialogue}[]{}<Return>\end{dialogue}<Esc>kf[a
-nnore gbf o\begin{figure}[]<Return>\end{figure}<Esc>kf[a
 nnore gbe o\begin{enumerate}[]<Return>\end{enumerate}<Esc>kf[a
+nnore gbf o\begin{figure}[]<Return>\end{figure}<Esc>kf[a
 nnore gbv o\begin{verbatim}<Return>\end{verbatim}<Esc>O
-nnore gbc o\begin{center}<Return>\end{center}<Esc>O
+nnore gbm o\begin{bmatrix}<Return>\end{bmatrix}<Esc>O
 nnore gbi o\begin{itemize}<Return>\end{itemize}<Esc>O
+nnore gbc o\begin{center}<Return>\end{center}<Esc>O
 
