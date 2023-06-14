@@ -1,0 +1,7 @@
+--recurse
+--exclude=.git
+--exclude=target
+--exclude=build
+--exclude=d
+--exclude=\*.swp
+--exclude=\*.bak
