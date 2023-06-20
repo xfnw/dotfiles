@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+## adapted from https://serverfault.com/a/1112437
+
+import sys
+
+column = 0
+
+
+def kf(v):
+    """key-function to sort by domain order"""
+    return ".".join(reversed(v.split()[column].split(".")))
+
+
+if len(sys.argv) > 1:
+    column = int(sys.argv[1])
+
+sys.stdout.writelines(sorted(sys.stdin, key=kf))
