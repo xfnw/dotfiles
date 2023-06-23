@@ -18,6 +18,8 @@ def text_to_xml_attr_val: split( "" ) |
 def node_to_xml:
 	if type == "string" then
 		text_to_xml
+	elif type == "number" or type == "boolean" then
+		tostring
 	else
 		(
 			if .attrs then
