@@ -39,8 +39,10 @@ def node_to_xml:
 				as $children |
 			"<" + .name + $attrs + ">" + $children + "</" +
 				.name + ">"
-		else
+		elif .name then
 			"<" + .name + $attrs + "/>"
+		else
+			"<!---->"
 		end
 	end
 ;
