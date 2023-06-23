@@ -34,13 +34,22 @@ def node_to_xml:
 			end
 		) as $attrs |
 
+		(
+			.name[0:1] as $start |
+			if $start and ("1234567890" | contains($start)) then
+				"n" + .name
+			else
+				.name
+			end
+		) as $name |
+
 		if .children and ( .children | length ) > 0 then
 			( .children | map( node_to_xml ) | join( "" ) )
 				as $children |
-			"<" + .name + $attrs + ">" + $children + "</" +
-				.name + ">"
+			"<" + $name + $attrs + ">" + $children + "</" +
+				$name + ">"
 		elif .name then
-			"<" + .name + $attrs + "/>"
+			"<" + $name + $attrs + "/>"
 		else
 			"<!---->"
 		end
