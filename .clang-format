@@ -1,0 +1,5 @@
+---
+BasedOnStyle: LLVM
+UseTab: Always
+IndentWidth: 8
+AllowShortCaseLabelsOnASingleLine: true
