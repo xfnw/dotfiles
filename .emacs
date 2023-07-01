@@ -49,7 +49,7 @@
  '(company-show-quick-access t)
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
-   '("d80952c58cf1b06d936b1392c38230b74ae1a2a6729594770762dc0779ac66b7" default))
+   '("d445c7b530713eac282ecdeea07a8fa59692c83045bf84dd112dd738c7bcad1d" "d80952c58cf1b06d936b1392c38230b74ae1a2a6729594770762dc0779ac66b7" default))
  '(display-line-numbers 'relative)
  '(evil-undo-system 'undo-redo)
  '(evil-want-C-u-scroll t)
