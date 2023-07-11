@@ -19,6 +19,7 @@ deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:
 ffdiff() { ffmpeg -i "$1" -preset ultrafast -tune zerolatency -c:a "${3:-copy}" -filter_complex "color=black,format=yuv410p[color];format=yuva444p,split[diff][out];[diff]tblend=all_expr='if(eq(A,B),0,A)',geq=lum='p(X,Y)':a='if(eq(lum(X,Y)+cb(X,Y)+cr(X,Y),0),0,255)',alphaextract[diff];[out]trim=start_frame=1[out];[out][diff]alphamerge[out];[color][out]scale2ref[color][out];[color][out]overlay=format=auto:shortest=1,setsar=1" -vsync vfr "$2" ; }
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 dither() { convert "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
+ditherc() { convert "$1" -colorspace RGB -filter box -resize 700 -ordered-dither o4x4,2 -colorspace sRGB "$2" ; }
 9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
 unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","",$1); printf "U+%s %s (%s)\n",$1,$5,$2}' ; }
 
