@@ -264,5 +264,6 @@ formats = {
     join_extended_account = "{channick_hilight $0} [{hilight $3}] {reason $4} {chanhost_hilight $1} has joined {channel $2}";
     logged_out = "{channick $0} {chanhost $1} has unidentified";
     logged_in = "{channick_hilight $0} {chanhost_hilight $1} has identified as {hilight $2}";
+    host_changed = "{channick_hilight $0} {chanhost_hilight $2} has changed host to {chanhost_hilight $1}";
   };
 };
