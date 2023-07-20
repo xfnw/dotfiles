@@ -45,6 +45,7 @@ alias gitpretty='git log --graph --pretty="%Cred%h%Creset %Cblue%G?%Creset %C(gr
 alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
 alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
+alias ahex='hexdump -e '"'"'"%4.4_ax:" 8/1 "%3.1X" "\n"'"'"
 alias after="at now +"
 alias ddiff="datediff -f '%d days, %H hours, %M minutes, %S seconds'"
 alias m='eval $(xdotool getmouselocation --shell)'
