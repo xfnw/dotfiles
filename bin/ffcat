@@ -1,9 +1,0 @@
-#!/bin/bash
-
-rm output.$1 -i
-
-printf "file '%s'\n" *.$1 > vidList.txt
-
-ffmpeg -f concat -i vidList.txt -c copy output.mkv
-
-
