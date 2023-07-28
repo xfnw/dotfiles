@@ -1,14 +1,5 @@
 # The following lines were added by compinstall
 
-#zstyle ':completion:*' completer _complete _ignored
-#zstyle ':completion:*' menu select=long
-#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-#zstyle :compinstall filename '/home/ltc/.zshrc'
-
-#
-#[status]
-#        showUntrackedFiles = no
-
 plot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$1'] "< cat -" using '$2':col title "'$4'" with '$3' lw 2 pt 7' ; }
 smoothplot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$1'] "< cat -" using '$2':col smooth cspline title "'$4'" with '$3' lw 2 pt 7' ; }
 
@@ -62,6 +53,8 @@ alias rn="rm -i"
 HISTFILE=~/.zsh_history
 HISTSIZE=10000000
 SAVEHIST=10000000
+WORDCHARS='*?_-.[]~=&#$%^(){}<>' 
+
 setopt autocd
 unsetopt nomatch
 bindkey -v
@@ -69,12 +62,6 @@ bindkey -v
 
 # why wont it run my profile lol
 source ~/.profile
-
-
-
-
-
-
 
 #f1# are we running within an utf environment?
 function isutfenv () {
