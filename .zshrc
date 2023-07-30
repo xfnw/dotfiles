@@ -15,6 +15,7 @@ ditherc() { convert "$1" -colorspace RGB -filter box -resize 700 -ordered-dither
 unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","",$1); printf "U+%s %s (%s)\n",$1,$5,$2}' ; }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
+vid() { echo "VULP$(base64 /dev/urandom | tr -d "\n/+I0Oa-z" | head -c 17)" ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" ; }
 rot13() { tr 'a-zA-Z' 'n-za-mN-ZA-M' ; }
 meili() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/json' --data-binary @- ; }
