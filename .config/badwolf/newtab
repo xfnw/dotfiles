@@ -1,0 +1,25 @@
+<html>
+ <head>
+  <style>
+   html {
+    color-scheme: dark;
+   }
+   input {
+    width: 100%;
+    font-size: 17px;
+   }
+   h1 {
+    margin-top: 2em;
+    text-align: center;
+    font-size: 64px;
+   }
+  </style>
+  <title>new tab</title>
+ </head>
+ <body>
+  <h1>woof</h1>
+  <form action="https://google.com/search">
+   <input name="q" placeholder="search with google" onfocus="this.select()" autofocus>
+  </form>
+ </body>
+</html>
