@@ -915,7 +915,7 @@ make_rss() {
             echo '</title><description><![CDATA[' 
             get_html_file_content 'text' 'entry' $cut_do <"$i"
             echo "]]></description><link>$global_url/${i#./}</link>" 
-            echo "<guid>$global_url/$i</guid>" 
+            echo "<guid>$global_url/${i#./}</guid>" 
             echo "<dc:creator>$(get_post_author "$i")</dc:creator>" 
             echo "<pubDate>$(LC_ALL=C date -r "$i" +"$date_format_full")</pubDate></item>"
     
