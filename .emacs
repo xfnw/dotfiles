@@ -55,15 +55,15 @@
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
  '(global-company-mode t)
- '(initial-scratch-message ";; Meow! Welcome to the scratching post!
-
-")
+ '(initial-scratch-message ";; Meow! Welcome to the scratching post!\12\12")
  '(lui-fill-column 105)
  '(lui-logging-directory (concat user-emacs-directory "irclogs"))
  '(lui-logging-flush-delay 2)
  '(menu-bar-mode nil)
  '(nix-nixfmt-bin "nixpkgs-fmt")
  '(nix-repl-executable-args '("repl" "--file" "<nixpkgs>"))
+ '(nxml-auto-insert-xml-declaration-flag t)
+ '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("."))
  '(org-agenda-start-on-weekday 0)
  '(org-default-notes-file "~/org/notes.org")
