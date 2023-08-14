@@ -5,7 +5,7 @@ from netaddr import IPNetwork
 
 def _run(cidr: str):
     net = IPNetwork(cidr)
-    return f"{cidr} starts at {net.network} and ends at {net.broadcast}"
+    return f"{net.cidr} starts at {net.network} and ends at {net.broadcast} with {net.size}"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("compute range from CIDR")
