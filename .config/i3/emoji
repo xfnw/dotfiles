@@ -115,7 +115,7 @@
 😿 crying cat face; U+1F63F
 😾 pouting cat face; U+1F63E
 🥺👉👈 pleading face right left;
-☭  communism;
+☭  communism; U+262D
 🙈 see-no-evil monkey; U+1F648
 🙉 hear-no-evil monkey; U+1F649
 🙊 speak-no-evil monkey; U+1F64A
@@ -299,6 +299,7 @@
 🤵 man in tuxedo; U+1F935
 👰 bride with veil; U+1F470
 🤰 pregnant woman; U+1F930
+🫃 pregnant man; U+1FAC3
 🤱 breast-feeding; U+1F931
 👼 baby angel; U+1F47C
 🎅 Santa Claus; U+1F385
@@ -1388,7 +1389,7 @@
 🏴 black flag; U+1F3F4
 🏳 white flag; U+1F3F3
 🏳️‍🌈 rainbow flag; U+1F3F3 U+FE0F U+200D U+1F308
-🏳️‍⚧️ trans flag;
+🏳️‍⚧️ trans flag; U+1F3F3 U+FE0F U+200D U+26A7 U+FE0F
 🏴‍☠️ pirate flag; U+1F3F4 U+200D U+2620 U+FE0F
 🇦🇨 flag: Ascension Island; U+1F1E6 U+1F1E8
 🇦🇩 flag: Andorra; U+1F1E6 U+1F1E9
@@ -1651,7 +1652,7 @@
 🏴󠁧󠁢󠁥󠁮󠁧󠁿 flag: England; U+1F3F4 U+E0067 U+E0062 U+E0065 U+E006E U+E0067 U+E007F
 🏴󠁧󠁢󠁳󠁣󠁴󠁿 flag: Scotland; U+1F3F4 U+E0067 U+E0062 U+E0073 U+E0063 U+E0074 U+E007F
 🏴󠁧󠁢󠁷󠁬󠁳󠁿 flag: Wales; U+1F3F4 U+E0067 U+E0062 U+E0077 U+E006C U+E0073 U+E007F
-🦦 otter;
-🧇 waffle;
+🦦 otter; U+1F9A6
+🧇 waffle; U+1F9C7
 ¯\_(ツ)_/¯ shrug;
 ʘ‿ʘ Smile;
