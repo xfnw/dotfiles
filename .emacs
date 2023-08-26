@@ -55,6 +55,7 @@
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
  '(global-company-mode t)
+ '(inferior-lisp-program "ecl")
  '(initial-scratch-message ";; Meow! Welcome to the scratching post!\12\12")
  '(lui-fill-column 105)
  '(lui-logging-directory (concat user-emacs-directory "irclogs"))
@@ -203,6 +204,10 @@ Directory defaults to the value of 'move-file-default-target'."
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(require 'inf-lisp)
+(define-key lisp-mode-map "\C-c\C-c" 'lisp-eval-defun)
+(define-key lisp-mode-map "\C-c\C-e" 'lisp-compile-defun)
 
 (defun turn-off-company ()
   (company-mode -1))
