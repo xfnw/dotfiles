@@ -100,7 +100,7 @@
  '(org-support-shift-select t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages
-   '(ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+   '(slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
@@ -208,6 +208,10 @@ Directory defaults to the value of 'move-file-default-target'."
 (require 'inf-lisp)
 (define-key lisp-mode-map "\C-c\C-c" 'lisp-eval-defun)
 (define-key lisp-mode-map "\C-c\C-e" 'lisp-compile-defun)
+
+(require 'slime)
+(define-key slime-parent-map "\C-\M-x" 'slime-compile-defun)
+(define-key slime-mode-map "\C-c\C-c" 'slime-eval-defun)
 
 (defun turn-off-company ()
   (company-mode -1))
