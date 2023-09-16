@@ -49,7 +49,7 @@ set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 
 " fmt stuffs
-set textwidth=60
+set textwidth=70
 set formatoptions-=t
 
 " 2 space tabbing for nix files
