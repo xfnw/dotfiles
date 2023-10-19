@@ -32,12 +32,14 @@ EOF
 
 expr=
 type=
+decompile=
 debug=
-while getopts 'e:i:tg' opt; do
+while getopts 'e:i:tdg' opt; do
 	case "${opt}" in
 		(e) expr=$OPTARG;;
 		(i) echo "#include <${OPTARG}>" >&3;;
 		(t) type=1;;
+		(d) decompile=1;;
 		(g) debug="-fsanitize=address -g";;
 		(?) exit 1;;
 	esac
@@ -121,4 +123,9 @@ CFLAGS += -Wall -Wextra -Wpedantic $debug
 EOF
 
 make -s -C "${temp}" run
-"${temp}/run"
+
+if [ -n "${decompile}" ]; then
+	objdump -d -Mintel "${temp}/run"
+else
+	"${temp}/run"
+fi
