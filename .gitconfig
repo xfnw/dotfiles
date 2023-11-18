@@ -12,8 +12,9 @@
 	smtpserverport = 587
 [alias]
 	psuh = push
-	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 	br = !git log --oneline | head
+	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+	fetch-notes = !"git fetch ${1:-origin} $2refs/notes/*:refs/notes/* #"
 [commit]
 	verbose = true
 [pull]
