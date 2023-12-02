@@ -19,3 +19,5 @@
 	verbose = true
 [pull]
 	ff = only
+[push]
+	autoSetupRemote = true
