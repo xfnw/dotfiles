@@ -1,17 +1,20 @@
 #!/bin/sh
 
 idiff() {
-	ffmpeg -i ~/screen.png -pattern_type glob -i 'i*.png' -filter_complex '[1]boxblur=1[m];[0][m]blend=all_mode=grainextract' o%03d.png
+	ffmpeg -i /tmp/screen.png -pattern_type glob -i 'i*.png' -filter_complex '[1]boxblur=1[m];[0][m]blend=all_mode=grainextract' o%03d.png
 }
 
 tile() {
 	montage -background black -geometry 683x o*.png m.png
 }
 
-mkdir -p ~/.cache/obv
-cd ~/.cache/obv
+mkdir -p /tmp/obv
+cd /tmp/obv
 
-while inotifywait -e close_write ~/screen.png
+idiff
+tile
+
+while inotifywait -e close_write /tmp/screen.png
 do
 	sleep 0.1
 	idiff

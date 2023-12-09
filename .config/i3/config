@@ -105,8 +105,8 @@ bindsym $mod+space focus mode_toggle
 
 # take a screenshot
 bindsym --release $mod+s exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://0x0.st/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
-bindsym $mod+z exec "scrot -l mode=edge -oF ~/screen.png"
-bindsym $mod+shift+z exec "scrot -l mode=edge -F ~/screen.png -e 'cp $f ~/screen.png'"
+bindsym $mod+z exec "scrot -l mode=edge -oF /tmp/screen.png"
+bindsym $mod+shift+z exec "scrot -l mode=edge -F /tmp/screen.png -e 'cp $f /tmp/screen.png'"
 bindsym $mod+shift+s exec "scrot -l mode=edge -e 'curl -F\\"file=@$f\\" https://0x0.st/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 
 #bindsym --release $mod+x exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://xfnw.ttm.sh/u.php | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
