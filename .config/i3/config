@@ -41,7 +41,8 @@ bindsym $mod+q exec xkill
 bindsym $mod+d exec rofi -show combi
 
 # type the date
-bindsym --release $mod+Shift+d exec date -I | xargs xdotool keyup control shift type --delay 1 --clearmodifiers
+bindsym --release $mod+Shift+d exec date -uI | xargs xdotool keyup control shift type --delay 1 --clearmodifiers
+bindsym --release $mod+Control+Shift+d exec date -u +%FT%TZ | xargs xdotool keyup control shift type --delay 1 --clearmodifiers
 
 # other rofi stuff
 bindsym $mod+c exec rofi -show ssh
