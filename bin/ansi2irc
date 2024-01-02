@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+# from https://git.semisol.dev/ircstuff/bot-data/src/branch/master/foss/bin/ansi2irc
+# SPDX-FileCopyrightText: 2022 RubyServ data contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
+use strict;
+use warnings;
+use IO::Handle;
+use IRC::FromANSI::Tiny;
+#STDOUT->autoflush(1);
+while (<>) {
+    print IRC::FromANSI::Tiny::convert $_;
+}
