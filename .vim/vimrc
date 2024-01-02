@@ -22,6 +22,10 @@ command BibCmp :silent !sh -c 'p="%"; biber "${p::-4}"'
 command Bib    :w|exe 'TexCmp'|exe 'BibCmp'|exe 'TexCmp'|exe 'TexCmp'|redraw!
 command Md     :w|!sh -c 'p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf'
 
+" abbreviations
+iab SPDXcp: SPDX-FileCopyrightText:
+iab SPDXid: SPDX-License-Identifier:
+
 " nice line numbers
 set number
 set relativenumber
