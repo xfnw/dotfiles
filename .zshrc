@@ -43,6 +43,7 @@ alias after="at now +"
 alias ddiff="datediff -f '%d days, %H hours, %M minutes, %S seconds'"
 alias m='eval $(xdotool getmouselocation --shell)'
 alias tess='tesseract ~/Pictures/scrot/$(ls -t ~/Pictures/scrot | head -n1) -'
+alias irclen="tr '\3' 'c' | LC_ALL=C awk '{print length}' | sort -nr | head -n1"
 alias ncdu='ncdu --color off'
 
 alias sydi="sudo"
