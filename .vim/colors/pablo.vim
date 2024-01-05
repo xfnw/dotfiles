@@ -25,4 +25,6 @@ highlight StatusLine ctermfg=11 ctermbg=12 cterm=none guifg=#ffff00 guibg=#0000f
 highlight Normal                                      guifg=#ffffff guibg=#000000
 highlight Search                ctermbg=3                           guibg=#c0c000
 highlight Folded     ctermfg=15 ctermbg=8
+highlight DiffAdd    ctermfg=10 ctermbg=none
+highlight DiffDelete ctermfg=9  ctermbg=none
 
