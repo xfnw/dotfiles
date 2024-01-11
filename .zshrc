@@ -4,7 +4,7 @@ plot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 beh
 smoothplot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$1'] "< cat -" using '$2':col smooth cspline title "'$4'" with '$3' lw 2 pt 7' ; }
 
 calcpi() { echo "scale=$1; 16*a(1/5)-4*a(1/239)" | bc -l ; }
-calcbd() { echo "h=sqrt($1*2*l(2))+1; scale=0; h/1" | bc -l ; }
+calcbd() { echo "h=sqrt($1*l(4))+1; scale=0; h/1" | bc -l ; }
 vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):ih*max(640/(iw*sar)\,480/ih)",crop=640:480,setsar=1:1,convolution="-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2:-2 -1 0 -1 1 1 0 1 2",curves="0/0 0.5/0.58 1/1",rgbashift=rh=-1:gh=1 -preset veryfast -c:a copy "$2" ; }
 deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" ; }
 ffdiff() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "tblend=all_mode=${4:-grainextract},setsar=1" -vsync vfr "$2" ; }
