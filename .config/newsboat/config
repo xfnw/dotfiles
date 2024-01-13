@@ -1,6 +1,6 @@
 feed-sort-order unreadarticlecount
 confirm-mark-feed-read no
-browser "firefox %u"
+browser "${BROWSER:-firefox} %u"
 auto-reload yes
 suppress-first-reload yes
 reload-time 30
