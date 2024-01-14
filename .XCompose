@@ -1,8 +1,10 @@
 include "%L"
 
-<Multi_key> <period> <backslash>           : "λ"   U03BB  # GREEK SMALL LETTER LAMBDA
+<Multi_key> <period> <backslash>		: "λ"   U03BB  # GREEK SMALL LETTER LAMBDA
+<Multi_key> <slash> <exclam> <backslash>	: "⚠"	U26A0 # WARNING SIGN
 <Multi_key> <S>	<i>	: "Σ"	U03A3 # GREEK CAPITAL LETTER SIGMA
 <Multi_key> <s>	<i>	: "σ"	U03C3 # GREEK SMALL LETTER SIGMA
+<Multi_key> <o> <i>	: "ℹ"	U2139 # INFORMATION SIGN
 <Multi_key> <o> <1> 	: "①"   U2460 # CIRCLED DIGIT ONE
 <Multi_key> <o> <KP_1> 	: "①"   U2460 # CIRCLED DIGIT ONE
 <Multi_key> <o> <2> 	: "②"   U2461 # CIRCLED DIGIT TWO
