@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import argparse
+from datetime import date
+
+def _parsedate(inp: str):
+    fst = int(inp[:2])
+    snd = int(inp[2:])
+
+    # week number cannot be more than 53, assume to be the year
+    if snd > 53:
+        year = snd
+        week = fst
+    else:
+        year = fst
+        week = snd
+
+    # assume input is in the past
+    year += 2000
+    if year > date.today().year:
+        year -= 100
+
+    out = date.fromisocalendar(year, week, 1)
+    return out.strftime('%Y-%m-%d %B')
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("year-week parse thing")
+    parser.add_argument("date")
+    args = parser.parse_args()
+
+    print(_parsedate(args.date))
+
