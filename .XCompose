@@ -2,6 +2,7 @@ include "%L"
 
 <Multi_key> <period> <backslash>		: "λ"   U03BB  # GREEK SMALL LETTER LAMBDA
 <Multi_key> <slash> <exclam> <backslash>	: "⚠"	U26A0 # WARNING SIGN
+<Multi_key> <backslash> <o> <slash>		: "🙌"	U1F64C # PERSON RAISING BOTH HANDS IN CELEBRATION
 <Multi_key> <S>	<i>	: "Σ"	U03A3 # GREEK CAPITAL LETTER SIGMA
 <Multi_key> <s>	<i>	: "σ"	U03C3 # GREEK SMALL LETTER SIGMA
 <Multi_key> <o> <i>	: "ℹ"	U2139 # INFORMATION SIGN
