@@ -33,14 +33,15 @@ EOF
 expr=
 type=
 decompile=
-debug=
-while getopts 'e:i:tdg' opt; do
+cflags=
+while getopts 'c:e:i:tdg' opt; do
 	case "${opt}" in
+		(c) cflags=$cflags$OPTARG;;
 		(e) expr=$OPTARG;;
 		(i) echo "#include <${OPTARG}>" >&3;;
 		(t) type=1;;
 		(d) decompile=1;;
-		(g) debug="-fsanitize=address -g";;
+		(g) cflags=$cflags" -fsanitize=address -g";;
 		(?) exit 1;;
 	esac
 done
@@ -119,7 +120,7 @@ fi
 echo '}' >&3
 
 cat >"${temp}/Makefile" <<EOF
-CFLAGS += -Wall -Wextra -Wpedantic $debug
+CFLAGS += -Wall -Wextra -Wpedantic $cflags
 EOF
 
 make -s -C "${temp}" run
