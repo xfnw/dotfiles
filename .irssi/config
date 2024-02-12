@@ -74,7 +74,7 @@ aliases = {
   fuck = "server purge";
   isquiet = "ismuted";
   ne = "me";
-  SYSINFO = "say Irssi $J ($abiversion) | $sysname $sysrelease ($sysarch)";
+  SYSINFO = "say Irssi v$J ($abiversion) | $sysname $sysrelease ($sysarch)";
 };
 
 settings = {
@@ -130,9 +130,17 @@ statusbar = {
     user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}} ";
     lag = " {sb Lag: $0-}";
     act = " {sb Act: $0-}";
+    version = " Irssi v$J - https://irssi.org";
   };
   default = {
-    window = { placement = "top"; position = "0"; disabled = "yes"; };
+    window_inact = { disabled = "yes"; };
+    topic = {
+      items = {
+        time = { priority = "100"; };
+        version = { };
+        act = { priority = "10"; alignment = "right"; };
+      };
+    };
     prompt = {
       placement = "bottom";
       items = {
@@ -142,15 +150,15 @@ statusbar = {
         more = { };
       };
     };
-    topic = {
+    window = {
+      placement = "top";
+      visible = "active";
       items = {
         topicbarstart = { priority = "100"; };
         window = { };
         window_empty = { };
         topic = { };
-        topic_empty = { };
         topicbarend = { priority = "100"; alignment = "right"; };
-        act = { priority = "10"; alignment = "right"; };
       };
     };
   };
