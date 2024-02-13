@@ -76,6 +76,7 @@ aliases = {
   isquiet = "ismuted";
   ne = "me";
   SYSINFO = "say Irssi v$J ($abiversion) | $sysname $sysrelease ($sysarch)";
+  SIZE = "WINDOW SIZE";
 };
 
 settings = {
@@ -182,4 +183,7 @@ hilights = (
 );
 windows = { 1 = { immortal = "yes"; name = "hilight"; level = "ALL"; }; };
 mainwindows = { 1 = { first_line = "1"; lines = "39"; }; };
-keyboard = ( { key = "^F"; id = "command"; data = "cso"; } );
+keyboard = (
+  { key = "^F"; id = "command"; data = "cso"; },
+  { key = "^U"; id = "erase_to_beg_of_line"; data = ""; }
+);
