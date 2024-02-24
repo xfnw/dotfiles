@@ -266,4 +266,5 @@ formats = {
     logged_in = "{channick_hilight $0} {chanhost_hilight $1} has identified as {hilight $2}";
     host_changed = "{channick_hilight $0} {chanhost_hilight $2} has changed host to {chanhost_hilight $1}";
   };
+  "Irssi::Script::adv_windowlist" = { awl_title = ""; };
 };

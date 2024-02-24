@@ -81,7 +81,7 @@ aliases = {
 
 settings = {
   core = {
-    real_name = "we dont play by the rules, whats the caution";
+    real_name = "the path that they provide is paved with violence";
     user_name = "xfnw";
     nick = "xfnw";
     timestamp_format = "%H:%M:%S";
@@ -123,7 +123,11 @@ settings = {
     sasl_disconnect_on_failure = "no";
   };
   "irc/flood" = { flood_max_msgs = "1024"; };
-  "perl/core/scripts" = { go_match_anchored = "no"; };
+  "perl/core/scripts" = {
+    go_match_anchored = "no";
+    tmux_away_message = "knot here...";
+    awl_shared_sbar = "OFF";
+  };
 };
 logs = { };
 ignores = ( );
