@@ -115,12 +115,15 @@ settings = {
     activity_hide_level = "JOINS PARTS QUITS NICKS MODES";
     autolog_path = "~/irclogs/$tag/$0/%Y-%m-%d.log";
     autolog_colors = "yes";
+    hilight_nick_matches_everywhere = "yes";
   };
   "irc/core" = {
     cmds_max_at_once = "1024";
     channel_max_who_sync = "64";
     max_ctcp_queue = "0";
     sasl_disconnect_on_failure = "no";
+    opermode = "+s +CFZbdfkrsuxy";
+    join_auto_chans_on_invite = "no";
   };
   "irc/flood" = { flood_max_msgs = "1024"; };
   "perl/core/scripts" = {
