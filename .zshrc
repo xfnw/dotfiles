@@ -17,6 +17,7 @@ unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
 vid() { echo "VULP$(base64 /dev/urandom | tr -d "\n/+I0Oa-z" | head -c 17)" ; }
+fur() { sed -i 's/\($Fur: \)[[:print:]]*$/\1'"$1 $(date -uIs | cut -c-19)Z $USER $/" "$1" ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" ; }
 rot13() { tr 'a-zA-Z' 'n-za-mN-ZA-M' ; }
 putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "@$fname" "$1$fname" || ls -l -- "$fname" | curl -X PUT --data-binary @- "$1$fname" ; done ; }
