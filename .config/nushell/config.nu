@@ -32,27 +32,27 @@ let dark_theme = {
     block: white
     hints: dark_gray
     search_result: {bg: red fg: white}
-    shape_and: purple_bold
+    shape_and: purple
     shape_binary: purple_bold
     shape_block: blue_bold
     shape_bool: light_cyan
     shape_closure: green_bold
     shape_custom: green
-    shape_datetime: cyan_bold
+    shape_datetime: cyan
     shape_directory: cyan
     shape_external: cyan
-    shape_externalarg: green_bold
-    shape_external_resolved: light_yellow_bold
+    shape_externalarg: green
+    shape_external_resolved: light_yellow
     shape_filepath: cyan
-    shape_flag: blue_bold
-    shape_float: purple_bold
+    shape_flag: blue
+    shape_float: purple
     # shapes are used to change the cli syntax highlighting
     shape_garbage: { fg: white bg: red attr: b}
-    shape_globpattern: cyan_bold
+    shape_globpattern: light_cyan
     shape_int: purple_bold
-    shape_internalcall: cyan_bold
-    shape_keyword: cyan_bold
-    shape_list: cyan_bold
+    shape_internalcall: purple
+    shape_keyword: cyan
+    shape_list: cyan
     shape_literal: blue
     shape_match_pattern: green
     shape_matching_brackets: { attr: u }
