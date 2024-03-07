@@ -20,7 +20,7 @@ vid() { echo "VULP$(base64 /dev/urandom | tr -d "\n/+I0Oa-z" | head -c 17)" ; }
 fur() { sed -i 's/\($Fur: \)[[:print:]]* \$/\1'"$1 $(date -uIs | cut -c-19)Z $USER $/" "$1" ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" ; }
 rot13() { tr 'a-zA-Z' 'n-za-mN-ZA-M' ; }
-putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "@$fname" "$1$fname" || ls -l -- "$fname" | curl -X PUT --data-binary @- "$1$fname" ; done ; }
+putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "@$fname" "$1$fname" || ls -l -- "$fname" | curl -X PUT --data-binary @- "$1$fname/" ; done ; }
 tapemeasure() { du -b "$@" | awk '{printf "%6.2f\t", $1/('"$(du -b "$1" | cut -f1)"')*100; print}' | sort -nr ; }
 meili() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/json' --data-binary @- ; }
 meiliset() { curl -X PATCH "http://$1:7700/indexes/$2/settings" -H 'Content-Type: application/json' --data-binary @- ; }
