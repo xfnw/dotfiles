@@ -11,6 +11,9 @@ let top = $"<!DOCTYPE html>
 <dt>author</dt><dd>($b.author.name | htmlenc) \(($b.author.human_id)\)</dd>
 <dt>created</dt><dd>($b.create_time.time)</dd>
 <dt>active</dt><dd>($b.edit_time.time)</dd>
+<dt>labels</dt><dd>(if ($b.labels | length) > 0 {
+$b.labels | str join ', ' | htmlenc
+} else { '<em>none</em>' })</dd>
 
 <h3>comments \(($b.comments | length)\)</h3>
 "
@@ -19,7 +22,7 @@ $"<small id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.au
 <blockquote>($c.message | htmlenc | str replace -a "\n" "<br>\n")</blockquote>"
 } | str join "<br>"
 
-[$top, $comments] | str join "<br>"
+[$top $comments] | str join "<br>"
 }
 
 # FIXME: no clue why, but this seems to make the thread dir
@@ -39,5 +42,5 @@ $"<a href='thread/($e.id).html'>($e.human_id) [($e.status)] ($e.title | htmlenc)
 <title>bugs - gbstatic</title>
 <h1>bugs</h1>
 <p>static mirror of git-bug, please submit issues via it instead.
-<pre>", $bugs, "</pre>"] | save -f --raw index.html
+<pre>" $bugs "</pre>"] | save -f --raw index.html
 
