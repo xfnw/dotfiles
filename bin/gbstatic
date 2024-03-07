@@ -8,7 +8,7 @@ let top = $"<!DOCTYPE html>
 <title>($b.title | htmlenc) - gbstatic</title>
 <a href='../index.html'>back</a>
 <h1>($b.human_id) [($b.status)] ($b.title | htmlenc)</h1>
-<dt>author</dt><dd>($b.author.name | htmlenc) \(($b.author.human_id)\)</dd>
+<dt>author</dt><dd>($b.author.name | htmlenc) \(($b.author.human_id)\) ($b.author.login | htmlenc)</dd>
 <dt>created</dt><dd>($b.create_time.time)</dd>
 <dt>active</dt><dd>($b.edit_time.time)</dd>
 <dt>labels</dt><dd>(if ($b.labels | length) > 0 {
@@ -18,7 +18,7 @@ $b.labels | str join ', ' | htmlenc
 <h3>comments \(($b.comments | length)\)</h3>
 "
 let comments = $b.comments | each {|c|
-$"<small id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.author.name | htmlenc) \(($c.author.human_id)\)</small>
+$"<small id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.author.name | htmlenc) \(($c.author.human_id)\) ($c.author.login | htmlenc)</small>
 <blockquote>($c.message | htmlenc | str replace -a "\n" "<br>\n")</blockquote>"
 } | str join "<br>"
 
@@ -41,6 +41,6 @@ $"<a href='thread/($e.id).html'>($e.human_id) [($e.status)] ($e.title | htmlenc)
 <style>html{max-width:60em;margin:0 auto}</style>
 <title>bugs - gbstatic</title>
 <h1>bugs</h1>
-<p>static mirror of git-bug, please submit issues via it instead.
+<p>static mirror from git-bug's json export, some context will be missing.
 <pre>" $bugs "</pre>"] | save -f --raw index.html
 
