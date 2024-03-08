@@ -4,25 +4,26 @@ def htmlenc [] { str replace -a "&" "&amp;" | str replace -a "<" "&lt;" }
 def bugpage [id] {
 let b = git bug show -f json $id | from json
 let top = $"<!DOCTYPE html>
-<style>html{max-width:60em;margin:0 auto}:target{background:#aa6}</style>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<style>html{max-width:60em;margin:0 auto;font-family:monospace;font-size:12pt}:target{background:#aa6}pre{white-space:pre-wrap}@media only print{nav{display:none}}</style>
 <title>($b.title | htmlenc) - gbstatic</title>
-<a href='../index.html'>back</a>
+<nav><a href='../index.html'>back</a></nav>
 <h1>($b.human_id) [($b.status)] ($b.title | htmlenc)</h1>
-<dt>author</dt><dd>($b.author.name | htmlenc) \(($b.author.human_id)\) ($b.author.login | htmlenc)</dd>
+<dt>author</dt><dd>($b.author.name | htmlenc) \(($b.author.human_id)\) (if not ($b.author.login | is-empty) { '@' })($b.author.login | htmlenc)</dd>
 <dt>created</dt><dd>($b.create_time.time)</dd>
 <dt>active</dt><dd>($b.edit_time.time)</dd>
-<dt>labels</dt><dd>(if ($b.labels | length) > 0 {
-$b.labels | str join ', ' | htmlenc
-} else { '<em>none</em>' })</dd>
+<dt>labels</dt><dd>(if ($b.labels | is-empty) { '<em>none</em>' }
+else { $b.labels | str join ', ' | htmlenc })</dd>
 
 <h3>comments \(($b.comments | length)\)</h3>
 "
 let comments = $b.comments | each {|c|
-$"<small id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.author.name | htmlenc) \(($c.author.human_id)\) ($c.author.login | htmlenc)</small>
-<blockquote>($c.message | htmlenc | str replace -a "\n" "<br>\n")</blockquote>"
-} | str join "<br>"
+$"<small id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.author.name | htmlenc) \(($c.author.human_id)\) (if not ($b.author.login | is-empty) { '@' })($c.author.login | htmlenc)</small>
+<blockquote><pre>($c.message | htmlenc)</pre></blockquote>"
+} | str join
 
-[$top $comments] | str join "<br>"
+[$top $comments]
 }
 
 # FIXME: no clue why, but this seems to make the thread dir
@@ -38,7 +39,9 @@ $"<a href='thread/($e.id).html'>($e.human_id) [($e.status)] ($e.title | htmlenc)
 } | str join "\n"
 
 ["<!DOCTYPE html>
-<style>html{max-width:60em;margin:0 auto}</style>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<style>html{max-width:60em;margin:0 auto;font-family:monospace;font-size:12pt}pre{white-space:pre-wrap}</style>
 <title>bugs - gbstatic</title>
 <h1>bugs</h1>
 <p>static mirror from git-bug's json export, some context will be missing.
