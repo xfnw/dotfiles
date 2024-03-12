@@ -213,6 +213,11 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key slime-parent-map "\C-\M-x" 'slime-compile-defun)
 (define-key slime-mode-map "\C-c\C-c" 'slime-eval-defun)
 
+(require 'eglot)
+(require 'rust-mode)
+; override the rust-mode stuff because it does not work over tramp >:(
+(define-key rust-mode-map (kbd "C-c C-f") 'eglot-format-buffer)
+
 (defun turn-off-company ()
   (company-mode -1))
 (add-hook 'term-mode-hook 'turn-off-company)
