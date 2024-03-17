@@ -101,6 +101,7 @@
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages
    '(rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+ '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
@@ -135,6 +136,7 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key evil-insert-state-map [S-right] nil)
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-set-initial-state 'circe-mode 'emacs)
+(evil-set-initial-state 'ses-mode 'emacs)
 (evil-mode 1)
 
 (evil-define-operator evil-fill-justify (beg end)
@@ -225,6 +227,10 @@ Directory defaults to the value of 'move-file-default-target'."
 (add-hook 'circe-mode-hook 'turn-off-company)
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+(defun turn-off-line-numbers ()
+  (display-line-numbers-mode 0))
+(add-hook 'ses-mode-hook 'turn-off-line-numbers)
 
 (require 'circe)
 (defalias 'circe-command-J 'circe-command-JOIN)
