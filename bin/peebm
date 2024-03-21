@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+import sys
+from more_itertools import factor
+
+factors = list(factor(8*int(sys.argv[1])))
+
+while len(factors) > 2:
+    x = factors.pop(0)
+    y = factors.pop(0)
+    factors.append(x * y)
+    factors.sort()
+
+x, y = factors
+
+if x&1:
+    x, y = y, x
+
+print(f"P4\n{x} {y}")
