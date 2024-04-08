@@ -19,7 +19,7 @@ set border lw 1 lc rgb "white"
 set xtics textcolor rgb "white"
 set xdata time
 set timefmt "%Y-%m-%d %H:%M:%S"
-set format x "%d"
+set format x "%m-%d"
 set xlabel "day" textcolor rgb "white"
 set ylabel "users" textcolor rgb "white"
 set key textcolor rgb "white"
