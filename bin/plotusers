@@ -22,6 +22,7 @@ set timefmt "%Y-%m-%d %H:%M:%S"
 set format x "%m-%d"
 set xlabel "day" textcolor rgb "white"
 set ylabel "users" textcolor rgb "white"
+set yrange [0:*]
 set key textcolor rgb "white"
 set boxwidth 1
 set style fill solid
