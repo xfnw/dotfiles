@@ -10,7 +10,7 @@ the quick brown fox jumps over the lazy dog
 We are one. We are many. We are all. We are none. We are the singularity.
 We are the collective, we are seven
 We are one. We are many. We are all. We are none. We are the collective.
-set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 3 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "" textcolor rgb "white"; set ylabel "" textcolor rgb "white"; set key textcolor rgb "white"
+set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 1 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "" textcolor rgb "white"; set ylabel "" textcolor rgb "white"; set key textcolor rgb "white"
 set boxwidth 0.5; set style fill solid
 set style histogram cluster gap 1; set style fill solid
 -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0
