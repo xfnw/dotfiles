@@ -97,7 +97,8 @@
      ("q" . "quote")
      ("s" . "src")
      ("v" . "verse")
-     ("f" . "fixme")))
+     ("f" . "fixme")
+     ("d" . "chat")))
  '(org-support-shift-select t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(package-selected-packages
