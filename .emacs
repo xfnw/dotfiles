@@ -51,6 +51,7 @@
  '(custom-safe-themes
    '("d445c7b530713eac282ecdeea07a8fa59692c83045bf84dd112dd738c7bcad1d" "d80952c58cf1b06d936b1392c38230b74ae1a2a6729594770762dc0779ac66b7" default))
  '(display-line-numbers 'relative)
+ '(eldoc-echo-area-use-multiline-p nil)
  '(evil-undo-system 'undo-redo)
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
