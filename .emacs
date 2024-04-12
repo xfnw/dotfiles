@@ -221,6 +221,8 @@ Directory defaults to the value of 'move-file-default-target'."
 (require 'rust-mode)
 ; override the rust-mode stuff because it does not work over tramp >:(
 (define-key rust-mode-map (kbd "C-c C-f") 'eglot-format-buffer)
+(define-key rust-mode-map (kbd "C-c C-r") 'eglot-rename)
+(define-key rust-mode-map (kbd "<mouse-3>") 'eglot-code-actions-at-mouse)
 
 (defun turn-off-company ()
   (company-mode -1))
