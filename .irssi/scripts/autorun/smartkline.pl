@@ -15,6 +15,8 @@ $VERSION = '1.0';
 
 my %REASONS = (
     'coc' => 'You have violated vulpineawoo\'s code of conduct.',
+    'evade' => 'Ban evasion are not permitted on vulpineawoo.',
+    'fyc' => 'Please fix your connection.',
     'spam' => 'Spam is not permitted on vulpineawoo.',
 );
 
