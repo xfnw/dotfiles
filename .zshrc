@@ -9,6 +9,7 @@ vhsify() { ffmpeg -i "$1" -vf fps=24,scale="(iw*sar)*max(640/(iw*sar)\,480/ih):i
 deshake() { ffmpeg -i "$1" -vf "format=rgb24,split[a][b];[a]deshake=rx=64:ry=64:edge=0,colorkey=0x008000:blend=0:similarity=.2[a];[b]drawbox=color=black:t=fill[b];[b][a]overlay" -c:a copy "$2" ; }
 ffdiff() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "tblend=all_mode=${4:-grainextract},setsar=1" -vsync vfr "$2" ; }
 ffdiffb() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "tblend=all_mode=${4:-grainextract},curves=all=0/1 .5/0 1/1,setsar=1" -vsync vfr "$2" ; }
+ffdiffc() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "split[orig][diff];[diff]tblend=all_mode=${4:-grainextract},curves=all=0/1 .5/0 1/1[diff];[orig][diff]blend=all_mode=${5:-grainmerge},setsar=1" -vsync vfr "$2" ; }
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
 dither() { convert "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
 ditherc() { convert "$1" -colorspace RGB -filter box -resize 700 -ordered-dither o4x4,2 -colorspace sRGB "$2" ; }
