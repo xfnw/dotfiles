@@ -1,7 +1,7 @@
 # The following lines were added by compinstall
 
-plot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 1 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$1'] "< cat -" using '$2':col title "'$4'" with '$3' lw 2 pt 7' ; }
-smoothplot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 1 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$1'] "< cat -" using '$2':col smooth cspline title "'$4'" with '$3' lw 2 pt 7' ; }
+plot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 1 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$2'] "'$1'" using '$3':col title "'$5'" with '$4' lw 2 pt 7' ; }
+smoothplot() { gnuplot -p -e 'set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder; set border lw 1 lc rgb "white"; set xtics textcolor rgb "white"; set xlabel "X" textcolor rgb "white"; set ylabel "Y" textcolor rgb "white"; set key textcolor rgb "white"; plot for [col='$2'] "'$1'" using '$3':col smooth cspline title "'$5'" with '$4' lw 2 pt 7' ; }
 
 calcpi() { echo "scale=$1; 16*a(1/5)-4*a(1/239)" | bc -l ; }
 calcbd() { echo "h=sqrt($1*l(4))+1; scale=0; h/1" | bc -l ; }
