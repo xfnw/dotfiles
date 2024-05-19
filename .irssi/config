@@ -89,6 +89,7 @@ settings = {
     quit_message = "Connection reset by queer";
     resolve_prefer_ipv6 = "yes";
     recode_transliterate = "no";
+    log_timestamp = "%H:%M:%S	";
   };
   "fe-text" = {
     actlist_sort = "refnum";
@@ -116,6 +117,7 @@ settings = {
     autolog_path = "~/irclogs/$tag/$0/%Y-%m-%d.log";
     autolog_colors = "yes";
     hilight_nick_matches_everywhere = "yes";
+    log_theme = "plainlog";
   };
   "irc/core" = {
     cmds_max_at_once = "1024";

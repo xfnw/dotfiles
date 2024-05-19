@@ -1,0 +1,117 @@
+# plainlog theme - stop irssi from putting nonsense formatting in logs
+
+default_color = "-1";
+info_eol = "false";
+replaces = { "[]()=" = "$*"; };
+
+abstracts = {
+  line_start = "--\011";
+  timestamp = "$*";
+  hilight = "$*";
+  error = "$*";
+  channel = "$*";
+  nick = "$*";
+  nickhost = "[$*]";
+  server = "$*";
+  comment = "[$*]";
+  reason = "($*)";
+  mode = "{comment $*}";
+
+  channick_hilight = "$*";
+  chanhost_hilight = "{nickhost $*}";
+  channick = "$*";
+  chanhost = "{nickhost $*}";
+  channelhilight = "$*";
+  ban = "$*";
+
+  msgnick = "$0$1-\011";
+  ownmsgnick = "{msgnick $0 $1-}";
+  ownnick = "$*";
+  pubmsgnick = "{msgnick $0 $1-}";
+  pubnick = "$*";
+  pubmsgmenick = "{msgnick $0 $1-}";
+  menick = "$*";
+  pubmsghinick = "{msgnick $1 $2-}";
+  msgchannel = ":$*";
+  privmsg = "[$0($1-)] ";
+  ownprivmsg = "[$0($1-)] ";
+  ownprivmsgnick = "{msgnick  $*}";
+  ownprivnick = "$*";
+  privmsgnick = "{msgnick  $*}";
+
+  action_core = "*\011$*";
+  action = "{action_core $*} ";
+  ownaction = "{action $*}";
+  ownaction_target = "{action_core $0}:$1 ";
+  pvtaction = "*\011$* ";
+  pvtaction_query = "{action $*}";
+  pubaction = "{action $*}";
+
+  # XXX: does not differentiate between
+  # notices and regular messages
+  ownnotice = "$1-\011";
+  notice = "$0\011";
+  pubnotice_channel = "";
+  pvtnotice_host = "";
+  servernotice = "!$*\011";
+  whois = "$[8]0 : $1-";
+  ownctcp = "--\011[$0($1-)] ";
+  ctcp = "--\011$*";
+  wallop = "$*: ";
+  wallop_nick = "$*";
+  wallop_action = "*\011$* ";
+  netsplit = "$*";
+  netjoin = "$*";
+
+  names_prefix = "";
+  names_nick = "[$0$1-] ";
+  names_nick_op = "{names_nick $*}";
+  names_nick_halfop = "{names_nick $*}";
+  names_nick_voice = "{names_nick $*}";
+  names_users = "[$*]";
+  names_channel = "$*";
+
+  dcc = "$*";
+  dccfile = "$*";
+  dccownmsg = "[$0($1-)] ";
+  dccownnick = "$*";
+  dccownquerynick = "$*";
+  dccownaction = "{action $*}";
+  dccownaction_target = "{action_core $0}:$1 ";
+  dccmsg = "[$1-($0)] ";
+  dccquerynick = "$*";
+  dccaction = " (*dcc*) $* ";
+
+  sb_background = "";
+  sb_prompt_bg = "";
+  sb_info_bg = "";
+  sbstart = "";
+  sbend = " ";
+
+  topicsbstart = "{sbstart $*}";
+  topicsbend = "{sbend $*}";
+
+  prompt = "[$*] ";
+
+  sb = "[$*]";
+  sbmode = "(+$*)";
+  sbaway = " (zZzZ)";
+  sbservertag = ":$0";
+  sbnickmode = "$0";
+
+  sb_act_sep = "$*";
+  sb_act_text = "$*";
+  sb_act_msg = "$*";
+  sb_act_hilight = "$*";
+  sb_act_hilight_color = "$1-";
+};
+formats = {
+  "fe-common/core" = {
+    join_extended = "{channick_hilight $0} {reason $4} {chanhost_hilight $1} has joined {channel $2}";
+    join_extended_account = "{channick_hilight $0} [{hilight $3}] {reason $4} {chanhost_hilight $1} has joined {channel $2}";
+    logged_out = "{channick $0} {chanhost $1} has unidentified";
+    logged_in = "{channick_hilight $0} {chanhost_hilight $1} has identified as {hilight $2}";
+    host_changed = "{channick_hilight $0} {chanhost_hilight $2} has changed host to {chanhost_hilight $1}";
+  };
+  "Irssi::Script::adv_windowlist" = { awl_title = ""; };
+};
