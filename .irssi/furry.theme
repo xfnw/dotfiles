@@ -166,10 +166,10 @@ abstracts = {
   whois = "%# $[8]0 : $1-";
 
   # notices
-  ownnotice = "[%r$0%K(%R$1-%K)]%n ";
+  ownnotice = "%K-%R$1-%K-%n ";
   notice = "%K-%M$*%K-%n ";
   pubnotice_channel = "";
-  pvtnotice_host = "%K(%m$*%K)";
+  pvtnotice_host = "";
   servernotice = "%g!$*%n ";
 
   # CTCPs
