@@ -13,7 +13,7 @@ abstracts = {
   nick = "$*";
   nickhost = "[$*]";
   server = "$*";
-  comment = "[$*]";
+  comment = "($*)";
   reason = "($*)";
   mode = "{comment $*}";
 
@@ -68,7 +68,7 @@ abstracts = {
   names_nick_op = "{names_nick $*}";
   names_nick_halfop = "{names_nick $*}";
   names_nick_voice = "{names_nick $*}";
-  names_users = "[$*]";
+  names_users = "($*)";
   names_channel = "$*";
 
   dcc = "$*";
