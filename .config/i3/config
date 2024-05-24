@@ -224,6 +224,7 @@ bindsym $mod+u exec ~/.config/i3/dmenuunicode
 # pasta picker
 bindsym $mod+p exec ~/.config/i3/dmenupasta
 
+bindsym $mod+o exec orca --replace
 bindsym $mod+shift+o exec nerd-dictation begin --continuous --numbers-as-digits
 bindsym $mod+shift+p exec nerd-dictation end
 
