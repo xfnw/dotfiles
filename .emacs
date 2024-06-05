@@ -62,7 +62,7 @@
  '(lui-logging-directory (concat user-emacs-directory "irclogs"))
  '(lui-logging-flush-delay 2)
  '(menu-bar-mode nil)
- '(nix-nixfmt-bin "nixpkgs-fmt")
+ '(nix-nixfmt-bin "nixfmt")
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("."))
