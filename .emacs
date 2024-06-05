@@ -63,7 +63,6 @@
  '(lui-logging-flush-delay 2)
  '(menu-bar-mode nil)
  '(nix-nixfmt-bin "nixpkgs-fmt")
- '(nix-repl-executable-args '("repl" "--file" "<nixpkgs>"))
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("."))
