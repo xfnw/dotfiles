@@ -41,7 +41,7 @@ alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-pa
 alias gitpretty='git log --graph --pretty="%Cred%h%Creset %Cblue%G?%Creset %C(green)%an <%ae> %C(white)%ar%Creset%Cred% D%Creset%n%w(50,1,1)%B"'
 alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
-alias sstripr='sstrip -z target/**/release/^*.d(.)'
+alias sstripr='sstrip -z target/**/release/^*.*(.)'
 alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
 alias ahex='hexdump -e '"'"'"%4.4_ax:" 8/1 "%3.1X" "\n"'"'"
 alias after="at now +"
