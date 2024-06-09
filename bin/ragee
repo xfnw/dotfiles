@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+temp="$(mktemp -p "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}" age.XXXXXX)"
+trap 'rm "$temp"' EXIT
+
+[ -e "$1" ] && rage -d -i "${3:-$HOME/.age/private}" -o "$temp" "$1"
+
+"${EDITOR:-vim}" "$temp"
+
+rage -e -R "${2:-$HOME/.age/default}" -o "$1" "$temp"
+
