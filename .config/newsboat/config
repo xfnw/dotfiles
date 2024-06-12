@@ -1,4 +1,4 @@
-feed-sort-order unreadarticlecount
+feed-sort-order unreadarticlecount-asc
 confirm-mark-feed-read no
 browser "${BROWSER:-firefox} %u"
 auto-reload yes
