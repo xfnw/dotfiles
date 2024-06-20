@@ -223,6 +223,9 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key rust-mode-map (kbd "C-c C-r") 'eglot-rename)
 (define-key rust-mode-map (kbd "<mouse-3>") 'eglot-code-actions-at-mouse)
 
+(require 'company)
+(define-key company-mode-map (kbd "C-<tab>") 'company-complete)
+
 (defun turn-off-company ()
   (company-mode -1))
 (add-hook 'term-mode-hook 'turn-off-company)
