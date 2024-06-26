@@ -1,3 +1,4 @@
+(require 'package)
 
 (add-to-list 'package-archives
              (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
