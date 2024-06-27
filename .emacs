@@ -84,6 +84,7 @@
      ("pdfa" "hyperref" nil nil)))
  '(org-latex-image-default-width "\\linewidth")
  '(org-src-preserve-indentation t)
+ '(org-startup-folded 'content)
  '(org-structure-template-alist
    '(("a" . "export ascii")
      ("c" . "center")
