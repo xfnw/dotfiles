@@ -100,6 +100,7 @@
      ("d" . "chat")))
  '(org-support-shift-select t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
+ '(org-use-sub-superscripts '{})
  '(package-selected-packages
    '(rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(ses-after-entry-functions '(next-line))
