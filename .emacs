@@ -1,11 +1,9 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             (cons "nongnu" (format "http%s://elpa.nongnu.org/nongnu/"
-                                    (if (gnutls-available-p) "s" ""))))
+	     (cons "nongnu" "https://elpa.nongnu.org/nongnu/"))
 (add-to-list 'package-archives
-	     (cons "melpa" (format "http%s://melpa.org/packages/"
-				   (if (gnutls-available-p) "s" ""))))
+	     (cons "melpa" "https://melpa.org/packages/"))
 
 (add-to-list 'load-path (concat user-emacs-directory
 				(convert-standard-filename "lisp/")))
