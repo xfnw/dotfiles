@@ -293,8 +293,6 @@ setopt unset
 NOCOR=${NOCOR:-0}
 NOMENU=${NOMENU:-0}
 NOPRECMD=${NOPRECMD:-0}
-COMMAND_NOT_FOUND=${COMMAND_NOT_FOUND:-0}
-GRML_ZSH_CNF_HANDLER=${GRML_ZSH_CNF_HANDLER:-/usr/share/command-not-found/command-not-found}
 GRML_DISPLAY_BATTERY=${GRML_DISPLAY_BATTERY:-${BATTERY:-0}}
 GRMLSMALL_SPECIFIC=${GRMLSMALL_SPECIFIC:-1}
 ZSH_NO_DEFAULT_LOCALE=${ZSH_NO_DEFAULT_LOCALE:-0}
@@ -1445,21 +1443,6 @@ alias run-help >&/dev/null && unalias run-help
 for rh in run-help{,-ip,-openssl,-p4,-sudo,-svk,-svn}; do
     zrcautoload $rh
 done; unset rh
-
-# command not found handling
-command_not_found_handler() {
-  local pkgs cmd="$1"
-
-  pkgs=(${(f)"$(pkgfile -b -v -- "$cmd" 2>/dev/null)"})
-  if [[ -n "$pkgs" ]]; then
-    printf '%s may be found in the following packages:\n' "$cmd"
-    printf '  %s\n' $pkgs[@]
-  else
-    printf 'zsh: command not found: %s\n' "$cmd"
-  fi 1>&2
-
-  return 127
-}
 
 # history
 
