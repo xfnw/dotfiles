@@ -16,10 +16,10 @@ let top = $"<!DOCTYPE html>
 <dt>labels</dt><dd>(if ($b.labels | is-empty) { '<em>none</em>' }
 else { $b.labels | str join ', ' | htmlenc })</dd>
 
-<h3>comments \(($b.comments | length)\)</h3>
+<h2>comments \(($b.comments | length)\)</h2>
 "
 let comments = $b.comments | each {|c|
-$"<small id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.author.name | htmlenc) \(($c.author.human_id)\) (if not ($b.author.login | is-empty) { '@' })($c.author.login | htmlenc)</small>
+$"<small tabindex=-1 id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</a> by ($c.author.name | htmlenc) \(($c.author.human_id)\) (if not ($b.author.login | is-empty) { '@' })($c.author.login | htmlenc)</small>
 <blockquote><pre>($c.message | htmlenc)</pre></blockquote>"
 } | str join
 
