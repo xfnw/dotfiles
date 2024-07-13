@@ -102,7 +102,7 @@
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
-   '(rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+   '(separedit rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
@@ -223,6 +223,9 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key rust-mode-map (kbd "C-c C-f") 'eglot-format-buffer)
 (define-key rust-mode-map (kbd "C-c C-r") 'eglot-rename)
 (define-key rust-mode-map (kbd "<mouse-3>") 'eglot-code-actions-at-mouse)
+
+(require 'separedit)
+(define-key rust-mode-map (kbd "C-c '") 'separedit)
 
 (require 'company)
 (define-key company-mode-map (kbd "C-<tab>") 'company-complete)
