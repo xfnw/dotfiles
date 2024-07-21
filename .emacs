@@ -67,6 +67,7 @@
  '(org-agenda-files '("."))
  '(org-agenda-start-on-weekday 0)
  '(org-default-notes-file "~/org/notes.org")
+ '(org-export-backends '(ascii html icalendar latex md))
  '(org-footnote-define-inline t)
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t
@@ -83,6 +84,7 @@
      ("" "capt-of" nil nil)
      ("pdfa" "hyperref" nil nil)))
  '(org-latex-image-default-width "\\linewidth")
+ '(org-modules '(ol-bibtex ol-docview ol-doi ol-eww ol-info ol-irc ol-w3m))
  '(org-src-preserve-indentation t)
  '(org-startup-folded 'content)
  '(org-structure-template-alist
