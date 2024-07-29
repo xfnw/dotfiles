@@ -3,7 +3,7 @@
 # version = "0.90.1"
 
 def create_left_prompt [] {
-    let host = (sys).host.hostname
+    let host = (sys host).hostname
     let home = $nu.home-path
 
     # Perform tilde substitution on dir
