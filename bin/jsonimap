@@ -1,26 +1,31 @@
 #!/usr/bin/env python3
 
-import os, sys, ssl, json, imaplib
+import os, sys, ssl, json, imaplib, argparse
 from email.mime.nonmultipart import MIMENonMultipart
 from email.utils import make_msgid, formatdate
 from email.charset import Charset, QP
 from time import time
 
+parser = argparse.ArgumentParser()
+parser.add_argument("user")
+parser.add_argument("mailbox", default="INBOX")
+parser.add_argument("--host", help="override host")
+parser.add_argument("-k", help="use insecure tls", action="store_true")
+args = parser.parse_args()
+
 ctx = ssl.create_default_context()
-if sys.argv[1] == "-k":
+if args.k:
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
-    sys.argv.pop(1)
-[user, host] = sys.argv[1].split("@")
-mailbox = sys.argv[2]
+host = args.host or args.user.split("@")[-1]
 
 c = Charset("utf-8")
 c.body_encoding = QP
 
 con = imaplib.IMAP4_SSL(host=host, ssl_context=ctx)
-con.login(user, os.environ.get("IMAP_PASS", "hunter2"))
-con.create(mailbox=mailbox)
-con.select(mailbox=mailbox)
+con.login(args.user, os.environ.get("IMAP_PASS", "hunter2"))
+con.create(mailbox=args.mailbox)
+con.select(mailbox=args.mailbox)
 
 for line in sys.stdin:
     d = json.loads(line)
@@ -39,7 +44,7 @@ for line in sys.stdin:
     if body := d.get("body"):
         msg.set_payload(body, charset=c)
 
-    con.append(mailbox, "", imaplib.Time2Internaldate(time()), msg.as_bytes())
+    con.append(args.mailbox, "", imaplib.Time2Internaldate(time()), msg.as_bytes())
     print("sent", msg["Message-ID"])
 
 con.close()
