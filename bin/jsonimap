@@ -11,6 +11,7 @@ parser.add_argument("user")
 parser.add_argument("mailbox", default="INBOX")
 parser.add_argument("--host", help="override host")
 parser.add_argument("-k", help="use insecure tls", action="store_true")
+parser.add_argument("-r", help="autoreply to previous line", action="store_true")
 args = parser.parse_args()
 
 ctx = ssl.create_default_context()
@@ -18,6 +19,7 @@ if args.k:
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
 host = args.host or args.user.split("@")[-1]
+prev = None
 
 c = Charset("utf-8")
 c.body_encoding = QP
@@ -37,15 +39,17 @@ for line in sys.stdin:
         msg["To"] = to
     msg["Subject"] = d.get("subject", "(No subject)")
     msg["Message-ID"] = d.get("message-id", make_msgid())
-    if references := d.get("references", d.get("in-reply-to")):
+    if references := d.get("references", d.get("in-reply-to", prev)):
         msg["References"] = references
-    if reply := d.get("in-reply-to"):
+    if reply := d.get("in-reply-to", prev):
         msg["In-Reply-To"] = reply
     if body := d.get("body"):
         msg.set_payload(body, charset=c)
 
     con.append(args.mailbox, "", imaplib.Time2Internaldate(time()), msg.as_bytes())
-    print("sent", msg["Message-ID"])
+    print(msg["Message-ID"])
+    if args.r:
+        prev = msg["Message-ID"]
 
 con.close()
 con.logout()
