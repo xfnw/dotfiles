@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import os, sys, ssl, json, imaplib
+from email.mime.nonmultipart import MIMENonMultipart
+from email.utils import make_msgid, formatdate
+from email.charset import Charset, QP
+from time import time
+
+ctx = ssl.create_default_context()
+if sys.argv[1] == "-k":
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    sys.argv.pop(1)
+[user, host] = sys.argv[1].split("@")
+mailbox = sys.argv[2]
+
+c = Charset("utf-8")
+c.body_encoding = QP
+
+con = imaplib.IMAP4_SSL(host=host, ssl_context=ctx)
+con.login(user, os.environ.get("IMAP_PASS", "hunter2"))
+con.create(mailbox=mailbox)
+con.select(mailbox=mailbox)
+
+for line in sys.stdin:
+    d = json.loads(line)
+
+    msg = MIMENonMultipart("text", "plain")
+    msg["Date"] = d.get("date", formatdate())
+    msg["From"] = d.get("from", "??? <no-email-for-you@example.com>")
+    if to := d.get("to"):
+        msg["To"] = to
+    msg["Subject"] = d.get("subject", "(No subject)")
+    msg["Message-ID"] = d.get("message-id", make_msgid())
+    if references := d.get("references", d.get("in-reply-to")):
+        msg["References"] = references
+    if reply := d.get("in-reply-to"):
+        msg["In-Reply-To"] = reply
+    if body := d.get("body"):
+        msg.set_payload(body, charset=c)
+
+    con.append(mailbox, "", imaplib.Time2Internaldate(time()), msg.as_bytes())
+    print("sent", msg["Message-ID"])
+
+con.close()
+con.logout()
+
