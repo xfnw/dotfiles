@@ -66,6 +66,7 @@
  '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("."))
  '(org-agenda-start-on-weekday 0)
+ '(org-babel-load-languages '((emacs-lisp . t) (shell . t)))
  '(org-default-notes-file "~/org/notes.org")
  '(org-export-backends '(ascii html icalendar latex md))
  '(org-footnote-define-inline t)

@@ -6,7 +6,7 @@ Included via ~#+SETUPFILE:~ in notes meant to be exported to ~LaTeX~
 * latex options
 ** table of contents
 hide table of contents. if we really want it, we can include it at our
-own location with ~#+TOC:~.  without this, unlike ~HTML~ export,
+own location with ~#+TOC:~. without this,
 ~LaTeX~ will force the table of contents to be at the top, meaning the
 preamble will not be on the first page.
 
