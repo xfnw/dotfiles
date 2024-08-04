@@ -105,7 +105,7 @@
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
-   '(separedit rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+   '(emacs-everywhere separedit rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)

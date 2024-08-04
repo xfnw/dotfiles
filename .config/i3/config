@@ -32,6 +32,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 bindsym $mod+apostrophe exec xfce4-terminal --drop-down
+bindsym $mod+Shift+apostrophe exec emacsclient --eval "(emacs-everywhere)"
 
 # kill focused window
 bindsym $mod+Shift+q kill
