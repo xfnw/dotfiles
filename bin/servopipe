@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# annoyed that servo logs to a combination of stdout AND
+# stderr, preventing outputting images easily?
+# have this cursed script, it'll probably break if servo
+# changes how stuff gets logged.
+
+timeout 5 servo -zy2 -o/dev/stdout "$@" |
+# chop off the occational stdout errors logged before the image
+awk '/^\x89PNG/{a=1}{if(a){print}}' |
+# chop off text at the end and optimize
+pngquant -
+

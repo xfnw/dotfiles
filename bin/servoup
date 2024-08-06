@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -ex
+
+mkdir -p /opt/servo
+cd /opt/servo
+
+curl -L https://download.servo.org/nightly/linux/servo-latest.tar.gz |
+tar --strip-components=1 -xzf -
+
+sstrip -z servo
+ln -sf /opt/servo/servo /usr/local/bin
+
