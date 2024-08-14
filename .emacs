@@ -154,7 +154,7 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key evil-normal-state-map "gj" 'evil-fill-justify)
 
 (require 'elisp-mode)
-(define-key lisp-mode-shared-map (kbd "C-c C-c") 'eval-defun)
+(define-key lisp-mode-shared-map (kbd "C-c C-c") 'compile-defun)
 
 (display-time-mode 1)
 
@@ -212,12 +212,7 @@ Directory defaults to the value of 'move-file-default-target'."
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 (require 'inf-lisp)
-(define-key lisp-mode-map "\C-c\C-c" 'lisp-eval-defun)
-(define-key lisp-mode-map "\C-c\C-e" 'lisp-compile-defun)
-
-(require 'slime)
-(define-key slime-parent-map "\C-\M-x" 'slime-compile-defun)
-(define-key slime-mode-map "\C-c\C-c" 'slime-eval-defun)
+(define-key lisp-mode-map "\C-c\C-c" 'lisp-compile-defun)
 
 (require 'eglot)
 (require 'rust-mode)
