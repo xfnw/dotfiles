@@ -1,0 +1,28 @@
+#!/bin/sh
+
+git log --pretty='%ai %aN' | sort |
+awk -F' ' '
+function disp() {
+	graph = ""
+	for (author in commits) {
+		c = commits[author]
+		for (i=0; i<=c; i++) {
+			graph = graph substr(author, 0, 1)
+		}
+	}
+	print year "-" month, graph
+}
+{
+	match($1, /(....)-(..)-../, m)
+	if (year != m[1] || month != m[2]) {
+		disp()
+		year = m[1]
+		month = m[2]
+		delete commits
+	}
+	commits[$4] += 1
+}
+END {
+	disp()
+}
+'
