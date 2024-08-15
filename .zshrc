@@ -25,6 +25,7 @@ putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "
 deldir(){ find "${@:2}" | while IFS= read fname ; do curl -X DELETE "$1$fname" ; done ; }
 tapemeasure() { du -b "$@" | awk '{printf "%6.2f\t", $1/('"$(du -b "$1" | cut -f1)"')*100; print}' | sort -nr ; }
 meili() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/json' --data-binary @- ; }
+meilil() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/x-ndjson' --data-binary @- ; }
 meiliset() { curl -X PATCH "http://$1:7700/indexes/$2/settings" -H 'Content-Type: application/json' --data-binary @- ; }
 meilit() { curl "http://$1:7700/tasks/$2" ; }
 
