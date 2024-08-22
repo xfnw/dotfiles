@@ -1,0 +1,20 @@
+#!/usr/bin/zsh
+
+set -eu
+
+commit="$1"
+remote="${2:-origin}"
+since="$(git show -s --pretty=%at "$commit")"
+msg="$(git show -s --pretty=%s "$commit")"
+
+for revision channel in $(curl 'https://prometheus.nixos.org/api/v1/query?query=channel_revision' | jq -r '.data.result[] | select(.metric.status != "unmaintained") | .metric.revision + "\t" + .metric.channel')
+do
+	git cat-file -e -- "$revision" || git fetch -- "$remote" "$channel"
+	# merge-base --is-ancestor cant handle cherry picks, just grep
+	# the log ourselves and hope nobody squash merges i guess?
+	#git merge-base --is-ancestor -- "$commit" "$revision"
+	git log --pretty=%s --since "$since" "$revision" |
+		grep -Fq -- "$msg" && state=yes || state=no
+	printf '%s %s\n' "$channel" "$state"
+done | column -t -s ' '
+

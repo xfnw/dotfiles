@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import sys
+
+orig = sys.argv[1]
+length = len(orig)
+
+for i in range(1 << length):
+    print(
+        "".join(
+            map(
+                lambda x: x[1].upper() if x[0] == "1" else x[1].lower(),
+                zip(bin(i)[2:].rjust(length), orig),
+            )
+        )
+    )
