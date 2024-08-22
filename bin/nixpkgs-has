@@ -4,6 +4,8 @@ set -eu
 
 commit="$1"
 remote="${2:-origin}"
+yes="${3:-yes}"
+no="${4:-no}"
 since="$(git show -s --pretty=%at "$commit")"
 msg="$(git show -s --pretty=%s "$commit")"
 
@@ -14,7 +16,7 @@ do
 	# the log ourselves and hope nobody squash merges i guess?
 	#git merge-base --is-ancestor -- "$commit" "$revision"
 	git log --pretty=%s --since "$since" "$revision" |
-		grep -Fq -- "$msg" && state=yes || state=no
+		grep -Fq -- "$msg" && state=$yes || state=$no
 	printf '%s %s\n' "$channel" "$state"
-done | column -t -s ' '
+done | column -tl2 -s ' '
 
