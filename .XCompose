@@ -6,6 +6,9 @@ include "%L"
 <Multi_key> <S>	<i>	: "Σ"	U03A3 # GREEK CAPITAL LETTER SIGMA
 <Multi_key> <s>	<i>	: "σ"	U03C3 # GREEK SMALL LETTER SIGMA
 <Multi_key> <o> <i>	: "ℹ"	U2139 # INFORMATION SIGN
+<Multi_key> <E>	<p>	: "Ε"	U0395 # GREEK CAPITAL LETTER EPSILON
+<Multi_key> <e>	<p>	: "ε"	U03B5 # GREEK SMALL LETTER EPSILON
+<Multi_key> <e>	<o>	: "Ɛ"	U0190 # LATIN CAPITAL LETTER OPEN E
 <Multi_key> <o> <1> 	: "①"   U2460 # CIRCLED DIGIT ONE
 <Multi_key> <o> <KP_1> 	: "①"   U2460 # CIRCLED DIGIT ONE
 <Multi_key> <o> <2> 	: "②"   U2461 # CIRCLED DIGIT TWO
