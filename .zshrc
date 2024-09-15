@@ -16,7 +16,7 @@ ditherc() { convert "$1" -colorspace RGB -filter box -resize 700 -ordered-dither
 9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
 unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","",$1); printf "U+%s %s (%s)\n",$1,$5,$2}' ; }
 
-base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.*8+1))%.*}) ; }
+base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.85+1))%.*}) ; }
 vid() { echo "VULP$(base64 /dev/urandom | tr -d "\n/+I0Oa-z" | head -c 17)" ; }
 fur() { sed -i 's/\($Fur: \)[[:print:]]* \$/\1'"$1 $(date -uIs | cut -c-19)Z $USER $/" "$1" ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" ; }
