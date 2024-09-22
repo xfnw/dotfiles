@@ -120,6 +120,7 @@ settings = {
     hilight_nick_matches_everywhere = "yes";
     log_theme = "plainlog";
     autocreate_own_query = "no";
+    windows_auto_renumber = "no";
   };
   "irc/core" = {
     cmds_max_at_once = "1024";
