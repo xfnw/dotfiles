@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+mime="$(file -b --mime-type -- "$1")"
+data="$(base64 -w0 -- "$1")"
+
+echo "data:$mime;base64,$data"
+
