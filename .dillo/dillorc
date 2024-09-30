@@ -1,0 +1,17 @@
+search_url="dd DuckDuckGo https://duckduckgo.com/lite/?q=%s"
+search_url="wikipedia https://www.wikipedia.org/w/index.php?search=%s"
+search_url="archwiki https://wiki.archlinux.org/index.php?search=%s"
+search_url="orgwiki https://xfnw-orgwiki.pgs.sh/%s"
+search_url="dict https://dict.org/bin/Dict?Form=Dict2&Database=*&Query=%s"
+search_url="google https://www.google.com/search?q=%s"
+ui_fg_color=black
+ui_main_bg_color=#c6c6c6
+ui_text_bg_color=#bfdabf
+ui_selection_color=#191970
+ui_button_highlight_color=#a9a9a9
+ui_tab_active_bg_color=#87aca7
+ui_tab_active_fg_color=black
+ui_tab_bg_color=#b7beb7
+focus_new_tab=NO
+show_quit_dialog=NO
+
