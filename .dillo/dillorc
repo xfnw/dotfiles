@@ -1,7 +1,9 @@
 search_url="dd DuckDuckGo https://duckduckgo.com/lite/?q=%s"
+search_url="marginalia https://search.marginalia.nu/search?query=%s"
 search_url="wikipedia https://www.wikipedia.org/w/index.php?search=%s"
 search_url="archwiki https://wiki.archlinux.org/index.php?search=%s"
 search_url="orgwiki https://xfnw-orgwiki.pgs.sh/%s"
+search_url="searpl http://raven/searpl/index.php?q=%s"
 search_url="dict https://dict.org/bin/Dict?Form=Dict2&Database=*&Query=%s"
 search_url="google https://www.google.com/search?q=%s"
 ui_fg_color=black
