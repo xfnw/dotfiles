@@ -15,10 +15,11 @@
 (package-initialize)
 
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
-(global-set-key (kbd "C-x C-a") 'compile)
+(global-set-key (kbd "C-x C-a") 'recompile)
+(global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c t") 'org-capture)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 (global-set-key (kbd "<f12>") 'buffer-menu)
 
