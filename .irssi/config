@@ -144,14 +144,11 @@ statusbar = {
     user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}} ";
     lag = " {sb Lag: $0-}";
     act = " {sb Act: $0-}";
-    version = " Irssi v$J - https://irssi.org";
   };
   default = {
     window_inact = { disabled = "yes"; };
     topic = {
       items = {
-        time = { priority = "100"; };
-        version = { };
         act = { priority = "10"; alignment = "right"; };
       };
     };
