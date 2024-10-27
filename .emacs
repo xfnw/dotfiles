@@ -68,6 +68,13 @@
  '(org-agenda-files '("."))
  '(org-agenda-start-on-weekday 0)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (nix . t)))
+ '(org-capture-templates
+   '(("e" "Entry" entry
+      (file "")
+      "* %?\12%i\12%u\12%a" :empty-lines 1)
+     ("t" "Task" entry
+      (file+olp "" "Tasks")
+      "* TODO %?\12%i\12%u\12%a" :empty-lines 1)))
  '(org-default-notes-file "~/org/notes.org")
  '(org-export-backends '(ascii html icalendar latex md))
  '(org-footnote-define-inline t)
