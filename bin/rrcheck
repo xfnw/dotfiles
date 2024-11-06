@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+port="$1"
+robin="$2"
+
+for ip in $(dig +short "$robin" A "$robin" AAAA); do
+	reverse="$(dig +short -x "$ip")"
+	state="$(nc -z "$ip" "$port" 2>/dev/null && echo up || echo down)"
+	printf '%s\t%s\t%s\n' "$state" "$ip" "$reverse"
+done | column -t
