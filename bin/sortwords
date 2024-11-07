@@ -1,0 +1,10 @@
+#!/bin/sh
+
+c='BEGIN{PROCINFO["sorted_in"]=o}{split($1,c,"");w="";for(i in c)if(substr(w,length(w),1)!=c[i])w=w c[i];if($1==w)print w}'
+
+tr ' ' '\n' |
+pee "awk -v o=@val_str_desc '$c'" "awk -v o=@val_str_asc '$c'" |
+awk '{ print length, $0 }' |
+sort -n |
+cut -d' ' -f2- |
+uniq
