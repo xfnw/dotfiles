@@ -11,8 +11,8 @@ ffdiff() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "tblend=all_mode=${4
 ffdiffb() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "tblend=all_mode=${4:-grainextract},curves=all=0/1 .5/0 1/1,setsar=1" -vsync vfr "$2" ; }
 ffdiffc() { ffmpeg -i "$1" -c:a "${3:-copy}" -filter_complex "split[orig][diff];[diff]tblend=all_mode=${4:-grainextract},curves=all=0/1 .5/0 1/1[diff];[orig][diff]blend=all_mode=${5:-grainmerge},setsar=1" -vsync vfr "$2" ; }
 datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" ; }
-dither() { convert "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
-ditherc() { convert "$1" -colorspace RGB -filter box -resize 700 -ordered-dither o4x4,2 -colorspace sRGB "$2" ; }
+dither() { magick "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
+ditherc() { magick "$1" -colorspace RGB -filter box -resize 700 -ordered-dither o4x4,2 -colorspace sRGB "$2" ; }
 9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
 unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","",$1); printf "U+%s %s (%s)\n",$1,$5,$2}' ; }
 
