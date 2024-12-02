@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="rfc7991bis.rnc"?>
+<!DOCTYPE rfc [
+	<!ENTITY nbsp	"&#160;">
+	<!ENTITY zwsp	"&#8203;">
+	<!ENTITY nbhy	"&#8209;">
+	<!ENTITY wj	"&#8288;">
+]>
+
+<rfc xml:lang="en"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	category="info"
+	docName="draft-00"
+	ipr="trust200902"
+	submissionType="independent"
+	version="3">
+	<front>
+		<title></title>
+		<author fullname="" initials="" surname="">
+			<address>
+				<email></email>
+			</address>
+		</author>
+		<keyword></keyword>
+		<abstract>
+			<t></t>
+		</abstract>
+	</front>
+
+	<middle>
+		<section>
+			<name>Introduction</name>
+			<t></t>
+
+			<section>
+				<name>Requirements Language</name>
+				<t>
+					The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",
+					"SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT
+					RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+					interpreted as described in BCP 14 <xref target="RFC2119"/>
+					<xref target="RFC8174"/> when, and only when, they appear in
+					all capitals, as shown here.
+				</t>
+			</section>
+		</section>
+	</middle>
+
+	<back>
+		<references>
+			<name>References</name>
+			<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+			<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
+		</references>
+	</back>
+</rfc>

@@ -11,6 +11,7 @@ command Ttex  :r ~/.vim/templates/general.tex
 command Tbib  :r ~/.vim/templates/bib.tex
 command Tmit  :r ~/.vim/templates/mit
 command Tuni  :r ~/.vim/templates/uni
+command Trfc  :r ~/.vim/templates/rfc
 
 " run groff+refer on file
 command Groff  :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
