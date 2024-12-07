@@ -44,6 +44,6 @@ $"<a href='thread/($e.id).html'>($e.human_id) [($e.status)] ($e.title | htmlenc)
 <style>html{max-width:60em;margin:0 auto;color-scheme:dark light}pre,html{font-family:monospace,monospace}pre{white-space:pre-wrap}</style>
 <title>bugs - gbstatic</title>
 <h1>bugs</h1>
-<p>static mirror from git-bug's json export, some context will be missing.
+<p>static mirror from git-bug's json export, some context will be missing.</p>
 <pre>" $bugs "</pre>"] | save -f --raw index.html
 
