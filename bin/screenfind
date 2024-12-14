@@ -2,21 +2,24 @@
 
 import cv2, numpy, mss, sys, time
 
-template = cv2.imread(sys.argv[2])
+template = cv2.imread(sys.argv[1])
 sct = mss.mss()
-monitor = sct.monitors[0]
 
 while True:
-    screen = cv2.cvtColor(numpy.array(sct.grab(monitor)), cv2.COLOR_RGBA2RGB)
-    res = cv2.matchTemplate(template, screen, cv2.TM_SQDIFF_NORMED)
-    v, _, loc, _ = cv2.minMaxLoc(res)
+    for mn, monitor in enumerate(sct.monitors):
+        screen = cv2.cvtColor(numpy.array(sct.grab(monitor)), cv2.COLOR_RGBA2RGB)
+        res = cv2.matchTemplate(template, screen, cv2.TM_SQDIFF_NORMED)
+        v, _, loc, _ = cv2.minMaxLoc(res)
 
-    if v < .1:
-        break
+        if v < .1:
+            break
 
-    print("waiting...", file=sys.stderr)
-    time.sleep(1)
+    else:
+        print("waiting...", file=sys.stderr)
+        time.sleep(1)
+        continue
+    break
 
 x, y = loc
 h, w, _ = template.shape
-print(sys.argv[1], x+w//2, y+h//2, *sys.argv[3:])
+print("mousemove --screen", mn, x+w//2, y+h//2, *sys.argv[2:])
