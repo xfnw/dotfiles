@@ -8,7 +8,7 @@ sct = mss.mss()
 while True:
     for mn, monitor in enumerate(sct.monitors):
         screen = cv2.cvtColor(numpy.array(sct.grab(monitor)), cv2.COLOR_RGBA2RGB)
-        res = cv2.matchTemplate(template, screen, cv2.TM_SQDIFF_NORMED)
+        res = cv2.matchTemplate(screen, template, cv2.TM_SQDIFF_NORMED)
         v, _, loc, _ = cv2.minMaxLoc(res)
 
         if v < .1:
