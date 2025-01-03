@@ -143,15 +143,11 @@ statusbar = {
   items = {
     user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}} ";
     lag = " {sb Lag: $0-}";
-    act = " {sb Act: $0-}";
+    act = "{sb Act: $0-}";
   };
   default = {
     window_inact = { disabled = "yes"; };
-    topic = {
-      items = {
-        act = { priority = "10"; alignment = "right"; };
-      };
-    };
+    topic = { items = { act = { }; }; };
     prompt = {
       placement = "bottom";
       items = {
