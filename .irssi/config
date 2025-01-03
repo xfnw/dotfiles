@@ -142,8 +142,8 @@ ignores = ( );
 statusbar = {
   items = {
     user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}} ";
-    lag = " {sb Lag: $0-}";
-    act = "{sb Act: $0-}";
+    lag = " {sb lag: $0-}";
+    act = "{sb act: $0-}";
   };
   default = {
     window_inact = { disabled = "yes"; };
