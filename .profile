@@ -40,8 +40,8 @@ export CDPATH=:~
 export EDITOR=vim
 export BROWSER=firefox
 
-# start the ssh agent
-[[ -z $SSH_AGENT_PID ]] && eval $(ssh-agent)
+# use the ssh agent
+[ -z "$SSH_AUTH_SOCK" -a -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 > /dev/null && exec startx
 
