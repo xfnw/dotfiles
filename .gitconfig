@@ -27,3 +27,5 @@
 	sort = committerdate
 [rerere]
 	enabled = true
+[format]
+	coverFromDescription = auto
