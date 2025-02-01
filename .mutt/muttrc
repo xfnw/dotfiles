@@ -5,6 +5,9 @@ set pager_stop
 bind pager <up> previous-line
 bind pager <down> next-line
 
+set pipe_sep = ""
+set pipe_split
+
 bind  index G  imap-fetch-mail
 bind  index g  noop
 macro index gi "<change-folder>=INBOX<enter>"       "Go to Inbox"
