@@ -1,6 +1,5 @@
-
-set sort  = reverse-threads
-set message_cachedir=~/.cache/mutt/messages
+set sort = threads
+set message_cachedir = ~/.cache/mutt/messages
 
 set pager_stop
 bind pager <up> previous-line
@@ -14,9 +13,6 @@ macro index gS "<change-folder>=Sent<enter>"       "Go to Sent"
 macro index gd "<change-folder>=Drafts<enter>"       "Go to Drafts"
 macro index gt "<change-folder>=Trash<enter>"       "Go to Trash"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF-8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
-
-source ~/.local/share/mutt/gpg.rc
-source "gpg -d ~/.mutt/passwords.gpg |"
 
 source ~/.mutt/accounts
 
@@ -36,11 +32,5 @@ color index	red default ~D
 color index	magenta default ~T
 
 color body	brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
-# identifies email addresses
-
 color body	brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
-# identifies URLs
-#
-
-
 
