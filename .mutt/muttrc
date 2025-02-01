@@ -34,3 +34,7 @@ color index	magenta default ~T
 color body	brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 color body	brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
+color body	red default ^-.*
+color body	green default ^[+].*
+color body	yellow default ^@@.*
+
