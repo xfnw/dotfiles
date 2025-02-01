@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+import os, sys, ssl, json, imaplib, argparse
+from email.parser import BytesParser
+from email.utils import make_msgid, formatdate
+from time import time
+
+parser = argparse.ArgumentParser()
+parser.add_argument("user")
+parser.add_argument("message", nargs="*")
+parser.add_argument("--mailbox", default="INBOX")
+parser.add_argument("--host", help="override host")
+parser.add_argument("--reply", help="set in-reply-to on first message")
+parser.add_argument("-k", help="use insecure tls", action="store_true")
+args = parser.parse_args()
+
+ctx = ssl.create_default_context()
+if args.k:
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+host = args.host or args.user.split("@")[-1]
+prev = None
+if args.reply is not None:
+    args.reply = "<" + args.reply + ">"
+
+con = imaplib.IMAP4_SSL(host=host, ssl_context=ctx)
+con.login(args.user, os.environ.get("IMAP_PASS", "hunter2"))
+con.create(mailbox=args.mailbox)
+con.select(mailbox=args.mailbox)
+
+for path in args.message:
+    d = open(path, 'rb')
+    msg = BytesParser().parse(d)
+    d.close()
+
+    if "Message-ID" not in msg:
+        msg["Message-ID"] = make_msgid()
+    if prev is not None:
+        msg["References"] = prev
+        msg["In-Reply-To"] = prev
+    elif args.reply is not None:
+        msg["References"] = args.reply
+        msg["In-Reply-To"] = args.reply
+
+    con.append(args.mailbox, "", imaplib.Time2Internaldate(time()), msg.as_bytes())
+    print(msg["Message-ID"])
+    if prev is None:
+        prev = msg["Message-ID"]
+
+con.close()
+con.logout()
+
