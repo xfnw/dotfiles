@@ -6,10 +6,9 @@
 [init]
 	defaultBranch = main
 [sendemail]
-	smtpencryption = tls
+	smtpencryption = ssl
 	smtpserver = mail.riseup.net
 	smtpuser = xfnw@riseup.net
-	smtpserverport = 587
 	annotate = true
 [alias]
 	psuh = push
