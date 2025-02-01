@@ -10,6 +10,7 @@
 	smtpserver = mail.riseup.net
 	smtpuser = xfnw@riseup.net
 	smtpserverport = 587
+	annotate = true
 [alias]
 	psuh = push
 	br = !git log --oneline | head
