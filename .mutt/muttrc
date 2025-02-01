@@ -15,6 +15,8 @@ macro index gs "<change-folder>=Spam<enter>"       "Go to Spam"
 macro index gS "<change-folder>=Sent<enter>"       "Go to Sent"
 macro index gd "<change-folder>=Drafts<enter>"       "Go to Drafts"
 macro index gt "<change-folder>=Trash<enter>"       "Go to Trash"
+macro index p  "<tag-pattern>~s \\\\[(RFC\\ )?PATCH"
+macro index L  "<untag-pattern>all<enter><tag-thread><limit>~T<enter><tag-thread>"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF-8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 
 source ~/.mutt/accounts
