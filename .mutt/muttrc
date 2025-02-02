@@ -16,6 +16,8 @@ macro index gS "<change-folder>=Sent<enter>"       "Go to Sent"
 macro index gd "<change-folder>=Drafts<enter>"       "Go to Drafts"
 macro index gt "<change-folder>=Trash<enter>"       "Go to Trash"
 macro index p  "<tag-pattern>~s ^\\\\[(RFC\\ \\|WIP\\ )?PATCH"
+macro index A  "<copy-message>.am.patch<enter><enter><shell-escape>git am .am.patch;rm .am.patch<enter>"
+macro pager A  "<copy-message>.am.patch<enter><enter><shell-escape>git am .am.patch;rm .am.patch<enter>"
 macro index L  "<untag-pattern>all<enter><tag-thread><limit>~T<enter><tag-thread>"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF-8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 
