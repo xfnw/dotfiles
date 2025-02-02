@@ -1,5 +1,6 @@
 set sort = threads
 set message_cachedir = ~/.cache/mutt/messages
+set quote_regexp = "^(>[ \t]*)+"
 
 set pager_stop
 bind pager <up> previous-line
