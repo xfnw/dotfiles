@@ -31,6 +31,15 @@ color hdrdefault cyan default
 color indicator black brightgreen
 color markers	brightred default
 color quoted	green default
+color quoted1	cyan default
+color quoted2	green default
+color quoted3	cyan default
+color quoted4	green default
+color quoted5	cyan default
+color quoted6	green default
+color quoted7	cyan default
+color quoted8	green default
+color quoted9	cyan default
 color signature cyan default
 color status	brightgreen black
 color tilde	blue default
