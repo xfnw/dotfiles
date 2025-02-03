@@ -22,6 +22,7 @@ macro pager A  "<copy-message>.am.patch<enter><enter><shell-escape>git am .am.pa
 macro index L  "<limit>~T<enter><untag-pattern>all<enter>"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF-8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 
+source ~/.local/share/mutt/gpg.rc
 source ~/.mutt/accounts
 
 # c o l o r s
