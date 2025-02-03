@@ -3,6 +3,7 @@ set message_cachedir = ~/.cache/mutt/messages
 set quote_regexp = "^(>[ \t]*)+"
 
 set pager_stop
+set pager_skip_quoted_context = 5
 bind pager <up> previous-line
 bind pager <down> next-line
 
