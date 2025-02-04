@@ -12,6 +12,7 @@ parser.add_argument("--mailbox", default="INBOX")
 parser.add_argument("--host", help="override host")
 parser.add_argument("--reply", help="set in-reply-to on first message")
 parser.add_argument("-k", help="use insecure tls", action="store_true")
+parser.add_argument("-d", help="delete after uploading", action="store_true")
 args = parser.parse_args()
 
 ctx = ssl.create_default_context()
@@ -46,6 +47,9 @@ for path in args.message:
     print(msg["Message-ID"])
     if prev is None:
         prev = msg["Message-ID"]
+
+    if args.d:
+        os.unlink(path)
 
 con.close()
 con.logout()
