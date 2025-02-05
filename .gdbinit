@@ -16,15 +16,21 @@ define src
 end
 
 python
-class FrameSome(gdb.Function):
-	def invoke(self):
-		return gdb.selected_frame().name() is not None
+import re
 
-FrameSome("frame_some")
+class FrameMatches(gdb.Function):
+	def invoke(self, pattern):
+		pat = re.compile(pattern.string())
+		name = gdb.selected_frame().name()
+		if name is None:
+			return False
+		return pat.match(name) is not None
+
+FrameMatches("frame_matches")
 end
 
 define hook-stop
-	while $_thread && $frame_some() && $_any_caller_matches("^__")
+	while $_thread && $frame_matches("^__")
 		up-silently
 	end
 end
