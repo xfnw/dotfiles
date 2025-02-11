@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -eu
+
+zipfile="$(realpath $1)"
+filename="$2"
+temp="$(mktemp -d)"
+trap 'rm -r "${temp}"' EXIT
+cd "$temp"
+
+unzip "$zipfile" "$filename"
+"${EDITOR:-vim}" -- "$filename"
+zip "$zipfile" -- "$filename"
