@@ -1,4 +1,5 @@
 set sort = threads
+set send_charset = us-ascii:utf-8
 set message_cachedir = ~/.cache/mutt/messages
 set quote_regexp = "^(>[ \t]*)+"
 
