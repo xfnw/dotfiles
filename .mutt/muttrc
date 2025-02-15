@@ -23,6 +23,8 @@ macro index gt "<change-folder>=Trash<enter>"       "Go to Trash"
 macro index p  "<tag-pattern>~b \^diff\\ --git\\ a/<enter>"
 macro index A  "<copy-message>.am.patch<enter><enter><shell-escape>git am .am.patch;rm .am.patch<enter>"
 macro pager A  "<copy-message>.am.patch<enter><enter><shell-escape>git am .am.patch;rm .am.patch<enter>"
+macro index X  "<shell-escape>git am --abort<enter>"
+macro pager X  "<shell-escape>git am --abort<enter>"
 macro index L  "<limit>~T<enter><untag-pattern>all<enter>"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF-8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 
