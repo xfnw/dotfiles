@@ -30,3 +30,6 @@
 	enabled = true
 [format]
 	coverFromDescription = auto
+	notes = true
+[notes]
+	rewriteRef = refs/notes/commits
