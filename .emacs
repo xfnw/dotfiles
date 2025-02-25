@@ -16,6 +16,7 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c t") 'org-capture)
+(global-set-key (kbd "C-c m") 'magit)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 (global-set-key (kbd "<f12>") 'buffer-menu)
 
