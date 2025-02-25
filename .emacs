@@ -100,9 +100,8 @@
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
    '(badwolf-theme circe company elpher emacs-everywhere evil
-		   graphviz-dot-mode gruvbox-theme nix-mode
-		   "nyan-mode" nyan-mode ob-nix rust-mode separedit
-		   slime sudo-edit))
+		   graphviz-dot-mode gruvbox-theme nix-mode nyan-mode
+		   ob-nix rust-mode separedit slime sudo-edit))
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
