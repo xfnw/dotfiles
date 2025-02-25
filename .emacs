@@ -29,7 +29,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f"
+    "#f6f3e8"])
  '(auth-source-save-behavior nil)
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(browse-url-browser-function 'eww-browse-url)
@@ -50,7 +51,10 @@
  '(company-show-quick-access t)
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
-   '("8363207a952efb78e917230f5a4d3326b2916c63237c1f61d7e5fe07def8d378" "d445c7b530713eac282ecdeea07a8fa59692c83045bf84dd112dd738c7bcad1d" "d80952c58cf1b06d936b1392c38230b74ae1a2a6729594770762dc0779ac66b7" default))
+   '("8363207a952efb78e917230f5a4d3326b2916c63237c1f61d7e5fe07def8d378"
+     "d445c7b530713eac282ecdeea07a8fa59692c83045bf84dd112dd738c7bcad1d"
+     "d80952c58cf1b06d936b1392c38230b74ae1a2a6729594770762dc0779ac66b7"
+     default))
  '(display-line-numbers 'relative)
  '(eldoc-echo-area-use-multiline-p nil)
  '(evil-undo-system 'undo-redo)
@@ -69,51 +73,36 @@
  '(org-agenda-start-on-weekday 0)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (nix . t)))
  '(org-capture-templates
-   '(("e" "Entry" entry
-      (file "")
-      "* %?\12%i\12%u\12%a" :empty-lines 1)
-     ("t" "Task" entry
-      (file+olp "" "Tasks")
+   '(("e" "Entry" entry (file "") "* %?\12%i\12%u\12%a" :empty-lines 1)
+     ("t" "Task" entry (file+olp "" "Tasks")
       "* TODO %?\12%i\12%u\12%a" :empty-lines 1)))
  '(org-default-notes-file "~/org/notes.org")
  '(org-export-backends '(ascii html icalendar latex md))
  '(org-footnote-define-inline t)
  '(org-latex-default-packages-alist
-   '(("AUTO" "inputenc" t
-      ("pdflatex"))
-     ("T1" "fontenc" t
-      ("pdflatex"))
-     ("" "graphicx" t nil)
-     ("" "longtable" nil nil)
-     ("" "wrapfig" nil nil)
-     ("" "rotating" nil nil)
-     ("normalem" "ulem" t nil)
-     ("" "amsmath" t nil)
-     ("" "amssymb" t nil)
-     ("" "capt-of" nil nil)
+   '(("AUTO" "inputenc" t ("pdflatex")) ("T1" "fontenc" t ("pdflatex"))
+     ("" "graphicx" t nil) ("" "longtable" nil nil)
+     ("" "wrapfig" nil nil) ("" "rotating" nil nil)
+     ("normalem" "ulem" t nil) ("" "amsmath" t nil)
+     ("" "amssymb" t nil) ("" "capt-of" nil nil)
      ("pdfa" "hyperref" nil nil)))
  '(org-latex-image-default-width "\\linewidth")
  '(org-modules '(ol-bibtex ol-docview ol-doi ol-eww ol-info ol-irc ol-w3m))
  '(org-src-preserve-indentation t)
  '(org-startup-folded 'content)
  '(org-structure-template-alist
-   '(("a" . "export ascii")
-     ("c" . "center")
-     ("C" . "comment")
-     ("e" . "example")
-     ("E" . "export")
-     ("h" . "export html")
-     ("l" . "export latex")
-     ("q" . "quote")
-     ("s" . "src")
-     ("v" . "verse")
-     ("f" . "fixme")
-     ("d" . "chat")))
+   '(("a" . "export ascii") ("c" . "center") ("C" . "comment")
+     ("e" . "example") ("E" . "export") ("h" . "export html")
+     ("l" . "export latex") ("q" . "quote") ("s" . "src")
+     ("v" . "verse") ("f" . "fixme") ("d" . "chat")))
  '(org-support-shift-select t)
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
-   '(nyan-mode emacs-everywhere separedit rust-mode slime ob-nix graphviz-dot-mode nix-mode circe badwolf-theme evil elpher gruvbox-theme sudo-edit company))
+   '(badwolf-theme circe company elpher emacs-everywhere evil
+		   graphviz-dot-mode gruvbox-theme nix-mode
+		   "nyan-mode" nyan-mode ob-nix rust-mode separedit
+		   slime sudo-edit))
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
