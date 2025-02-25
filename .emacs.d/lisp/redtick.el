@@ -60,7 +60,7 @@
   :prefix "redtick-")
 
 ;; pomodoro work & rest intervals in seconds
-(defcustom redtick-work-interval (* 60 10)
+(defcustom redtick-work-interval (* 60 25)
   "Interval of time you will be working, in seconds."
   :type 'number)
 (defcustom redtick-rest-interval (* 60 5)
