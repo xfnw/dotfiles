@@ -18,6 +18,7 @@
 (global-set-key (kbd "C-c t") 'org-capture)
 (global-set-key (kbd "C-c m") 'magit)
 (global-set-key (kbd "C-c M") 'magit-file-dispatch)
+(global-set-key (kbd "C-c b") 'bar-to-clipboard)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 (global-set-key (kbd "<f12>") 'buffer-menu)
 
@@ -31,6 +32,7 @@
     "#f6f3e8"])
  '(auth-source-save-behavior nil)
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
+ '(browse-at-remote-prefer-symbolic nil)
  '(browse-url-browser-function 'eww-browse-url)
  '(c-default-style '((java-mode . "java") (awk-mode . "awk") (other . "bsd")))
  '(circe-default-part-message "ABSOLUTELY PROPRIETARY!")
@@ -97,8 +99,8 @@
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
-   '(badwolf-theme circe company elpher emacs-everywhere evil
-		   graphviz-dot-mode gruvbox-theme magit nix-mode
+   '(badwolf-theme browse-at-remote circe company elpher emacs-everywhere
+		   evil graphviz-dot-mode gruvbox-theme magit nix-mode
 		   nyan-mode ob-nix rust-mode separedit slime
 		   sudo-edit))
  '(ses-after-entry-functions '(next-line))
