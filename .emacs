@@ -103,6 +103,7 @@
 		   evil graphviz-dot-mode gruvbox-theme magit nix-mode
 		   nyan-mode ob-nix rust-mode separedit slime
 		   sudo-edit))
+ '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
