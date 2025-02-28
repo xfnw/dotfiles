@@ -61,6 +61,7 @@
  '(evil-want-C-u-scroll t)
  '(eww-search-prefix "https://google.com/search?q=")
  '(global-company-mode t)
+ '(indent-tabs-mode nil)
  '(inferior-lisp-program "ecl")
  '(initial-scratch-message ";; Meow! Welcome to the scratching post!\12\12")
  '(lui-fill-column 105)
@@ -100,9 +101,9 @@
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
    '(badwolf-theme browse-at-remote circe company elpher emacs-everywhere
-		   evil graphviz-dot-mode gruvbox-theme magit nix-mode
-		   nyan-mode ob-nix rust-mode separedit slime
-		   sudo-edit))
+                   evil graphviz-dot-mode gruvbox-theme magit nix-mode
+                   nyan-mode ob-nix rust-mode separedit slime
+                   sudo-edit))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
@@ -124,6 +125,13 @@ Directory defaults to the value of 'move-file-default-target'."
 	(dir  (read-directory-name "Move to: " move-file-default-target)))
     (write-file (expand-file-name (file-name-nondirectory old) dir) t)
     (delete-file old)))
+
+(defvar onlytabs-keymap (make-sparse-keymap) "keymap for onlytabs")
+
+(define-minor-mode onlytabs-mode
+  "make the tab key only emit a literal tab"
+  :lighter " tab" :keymap onlytabs-keymap
+  (define-key onlytabs-keymap (kbd "TAB") 'self-insert-command))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
