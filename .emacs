@@ -126,12 +126,17 @@ Directory defaults to the value of 'move-file-default-target'."
     (write-file (expand-file-name (file-name-nondirectory old) dir) t)
     (delete-file old)))
 
-(defvar onlytabs-keymap (make-sparse-keymap) "keymap for onlytabs")
+(defvar onlytabs-keymap
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "TAB") 'self-insert-command)
+    map))
 
 (define-minor-mode onlytabs-mode
   "make the tab key only emit a literal tab"
   :lighter " tab" :keymap onlytabs-keymap
-  (define-key onlytabs-keymap (kbd "TAB") 'self-insert-command))
+  (setq-local electric-indent-inhibit t)
+  (setq-local indent-line-function 'indent-relative)
+  (setq-local indent-tabs-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
