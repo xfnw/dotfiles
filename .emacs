@@ -171,6 +171,7 @@ Directory defaults to the value of 'move-file-default-target'."
 
 (require 'elisp-mode)
 (define-key lisp-mode-shared-map (kbd "C-c C-c") 'compile-defun)
+(define-key lisp-mode-shared-map (kbd "DEL") 'evil-delete-backward-char-and-join)
 
 (display-time-mode 1)
 
