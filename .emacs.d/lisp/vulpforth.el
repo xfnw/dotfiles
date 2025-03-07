@@ -21,7 +21,7 @@
   (if (get-buffer vulpforth-buffer)
     (progn
       (comint-send-string vulpforth-buffer (concat inp "\n"))
-      (display-buffer vulpforth-buffer))
+      (display-buffer vulpforth-buffer '(nil (inhibit-same-window . t))))
     (message "start vulpforth with M-x vulpforth")))
 
 (defun vulpforth-eval-region ()
