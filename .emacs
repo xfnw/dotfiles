@@ -110,7 +110,10 @@
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
- '(use-short-answers t))
+ '(use-short-answers t)
+ '(whitespace-display-mappings
+   '((space-mark 32 [183] [46]) (space-mark 160 [164] [95])
+     (tab-mark 9 [187 9] [92 9]))))
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
