@@ -45,6 +45,7 @@
  '(circe-format-server-topic "*** Topic change by {nick} ({userhost}): {topic-diff}")
  '(circe-server-send-unknown-command-p t)
  '(circe-use-cycle-completion t)
+ '(column-number-mode t)
  '(company-minimum-prefix-length 4)
  '(company-quick-access-modifier 'super)
  '(company-selection-wrap-around t)
