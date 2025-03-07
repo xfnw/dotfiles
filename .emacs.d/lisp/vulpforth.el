@@ -19,7 +19,9 @@
 (defun vulpforth-eval (inp)
   "send text to vulpforth"
   (if (get-buffer vulpforth-buffer)
-    (comint-send-string vulpforth-buffer (concat inp "\n"))
+    (progn
+      (comint-send-string vulpforth-buffer (concat inp "\n"))
+      (display-buffer vulpforth-buffer))
     (message "start vulpforth with M-x vulpforth")))
 
 (defun vulpforth-eval-region ()
