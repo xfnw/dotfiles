@@ -47,7 +47,6 @@
  '(circe-use-cycle-completion t)
  '(column-number-mode t)
  '(company-minimum-prefix-length 4)
- '(company-quick-access-modifier 'super)
  '(company-selection-wrap-around t)
  '(company-show-quick-access t)
  '(custom-enabled-themes '(gruvbox-dark-hard))
