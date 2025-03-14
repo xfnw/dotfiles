@@ -61,7 +61,6 @@
  '(evil-want-C-u-delete t)
  '(evil-want-C-u-scroll t)
  '(evil-want-minibuffer t)
- '(eww-search-prefix "https://google.com/search?q=")
  '(global-company-mode t)
  '(indent-tabs-mode nil)
  '(inferior-lisp-program "ecl")
