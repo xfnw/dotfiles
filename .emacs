@@ -79,7 +79,7 @@
      ("t" "Task" entry (file+olp "" "Tasks")
       "* TODO %?\12%i\12%u\12%a" :empty-lines 1)))
  '(org-default-notes-file "~/org/notes.org")
- '(org-export-backends '(ascii html icalendar latex md))
+ '(org-export-backends '(ascii html icalendar latex md rfc))
  '(org-footnote-define-inline t)
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t ("pdflatex")) ("T1" "fontenc" t ("pdflatex"))
@@ -103,7 +103,7 @@
  '(package-selected-packages
    '(badwolf-theme browse-at-remote circe company elpher emacs-everywhere
                    evil graphviz-dot-mode gruvbox-theme magit nix-mode
-                   nyan-mode ob-nix rust-mode separedit slime
+                   nyan-mode ob-nix ox-rfc rust-mode separedit slime
                    sudo-edit))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
