@@ -104,7 +104,7 @@
    '(badwolf-theme browse-at-remote circe company elpher emacs-everywhere
                    evil graphviz-dot-mode gruvbox-theme magit nix-mode
                    nyan-mode ob-nix ox-rfc rust-mode separedit slime
-                   sudo-edit))
+                   smog sudo-edit))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
