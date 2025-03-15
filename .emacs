@@ -103,8 +103,8 @@
  '(package-selected-packages
    '(badwolf-theme browse-at-remote circe company elpher emacs-everywhere
                    evil graphviz-dot-mode gruvbox-theme magit nix-mode
-                   nyan-mode ob-nix ox-rfc rust-mode separedit slime
-                   smog sudo-edit))
+                   nyan-mode ob-nix osm ox-rfc rust-mode separedit
+                   slime smog sudo-edit))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(sudo-edit-indicator-mode t)
