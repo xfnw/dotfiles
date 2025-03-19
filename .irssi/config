@@ -128,7 +128,7 @@ settings = {
     max_ctcp_queue = "0";
     sasl_disconnect_on_failure = "no";
     opermode = "+s +CFZbdfkrsuxy";
-    join_auto_chans_on_invite = "no";
+    join_auto_chans_on_invite = "yes";
   };
   "irc/flood" = { flood_max_msgs = "1024"; };
   "perl/core/scripts" = {
