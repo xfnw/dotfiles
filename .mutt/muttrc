@@ -11,6 +11,8 @@ bind pager <down> next-line
 set pipe_sep = ""
 set pipe_split
 
+set crypt_use_gpgme
+
 unignore message-id:
 
 bind  index G  imap-fetch-mail
@@ -28,7 +30,6 @@ macro pager X  "<shell-escape>git am --abort<enter>"
 macro index L  "<limit>~T<enter><untag-pattern>all<enter>"
 macro attach V "<pipe-entry>iconv -c --to-code=UTF-8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
 
-source ~/.local/share/mutt/gpg.rc
 source ~/.mutt/accounts
 
 color normal	white default
