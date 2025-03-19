@@ -164,6 +164,7 @@ statusbar = {
         topicbarstart = { priority = "100"; };
         window = { };
         window_empty = { };
+	usercount = { };
         topic = { };
         topicbarend = { priority = "100"; alignment = "right"; };
       };

@@ -257,6 +257,7 @@ abstracts = {
   sb_act_hilight = "%C$*";
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "$0$1-%n";
+  sb_usercount = "{sb $0}";
 };
 formats = {
   "fe-common/core" = {
