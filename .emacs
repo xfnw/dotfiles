@@ -223,6 +223,12 @@ Directory defaults to the value of 'move-file-default-target'."
     new))
 (advice-add #'org-export-new-reference :override #'org-export-deterministic-reference)
 
+(defun org-timestamp-now ()
+  "insert an inactive timestamp without prompting"
+  (interactive)
+  (org-timestamp-inactive '(16)))
+
+(define-key org-mode-map (kbd "C-c C-1") 'org-timestamp-now)
 (define-key org-mode-map (kbd "C-M-<return>") 'org-meta-return)
 
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
