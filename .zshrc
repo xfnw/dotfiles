@@ -2696,7 +2696,7 @@ function xtrename () {
 
 
 
-zpst () { curl -F'file=@-' https://0x0.st }
+zpst () { curl -F'file=@-' https://x0.at }
 
 # upload to ttm
 function zup () {
@@ -2720,7 +2720,7 @@ function zup () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://0x0.st/'
+    api='https://x0.at/'
     curl -F"file=@${url}" $api   
 }
 
@@ -2750,7 +2750,7 @@ function zpost () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://0x0.st/'
+    api='https://x0.at/'
     curl -F"url=${url}" $api   
 }
 
@@ -2783,7 +2783,7 @@ function zurl () {
         print "curl is not available, but mandatory for ${PN}. Aborting."
         return 1
     fi
-    api='https://0x0.st/'
+    api='https://x0.at/'
     curl -F"shorten=${url}" $api   
 }
 
