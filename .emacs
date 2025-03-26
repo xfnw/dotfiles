@@ -71,7 +71,7 @@
  '(menu-bar-mode nil)
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
- '(org-agenda-files '("."))
+ '(org-agenda-files '("." "~/org"))
  '(org-agenda-start-on-weekday 0)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (nix . t)))
  '(org-capture-templates
