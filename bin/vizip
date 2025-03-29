@@ -4,10 +4,11 @@ set -eu
 
 zipfile="$(realpath $1)"
 filename="$2"
+escname="$(printf '%s' "$filename" | sed 's/^-/[-]/')"
 temp="$(mktemp -d)"
 trap 'rm -r "${temp}"' EXIT
 cd "$temp"
 
-unzip "$zipfile" "$filename"
+unzip "$zipfile" "$escname"
 "${EDITOR:-vim}" -- "$filename"
 zip "$zipfile" -- "$filename"
