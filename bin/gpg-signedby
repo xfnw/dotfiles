@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -eu
+
+fp="${1: -16}"
+
+gpg --with-colons --list-sigs |
+	awk -F: -v fp="$fp" '
+$1 == "fpr" { fingerprint = $10 }
+$1 == "uid" { uid = $10 }
+$1 == "sig" && $5 == fp { print "sig", fingerprint, uid }
+$1 == "rev" && $5 == fp { print "REV", fingerprint, uid }
+' | uniq
