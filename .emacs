@@ -107,6 +107,7 @@
                    slime smog sudo-edit))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
+ '(shr-fill-text nil)
  '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
