@@ -1,4 +1,5 @@
 set confirm off
+set disassembly-flavor intel
 
 # FIXME: find a less fragile way to detect debuginfod support
 if $_shell("[ -e /usr/lib/libdebuginfod.so ]") == 0
