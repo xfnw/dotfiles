@@ -68,13 +68,17 @@ bindsym XF86ScreenSaver exec ~/.config/i3/lock
 bindsym $mod+l exec ~/.config/i3/lock
 bindsym $mod+Shift+l exec ~/.config/i3/freeze
 
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+# move workspaces around
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Down move workspace to output down
+bindsym $mod+Control+Up move workspace to output up
+bindsym $mod+Control+Right move workspace to output right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
