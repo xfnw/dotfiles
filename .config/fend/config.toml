@@ -1,0 +1,11 @@
+[[custom-units]]
+singular = "request"
+plural = "requests"
+definition = "unitless"
+attribute = "allow-long-prefix"
+
+[[custom-units]]
+singular = "req"
+plural = "reqs"
+definition = "1 request"
+attribute = "allow-short-prefix"
