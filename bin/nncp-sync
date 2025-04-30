@@ -6,6 +6,6 @@ node="$1"
 dpath="${2:-/mnt}"
 
 nncp-xfer -progress -rx -- "$dpath"
-nncp-toss -progress -node "$node" -gen-ack || nncp-rm -node "$node" -rx
+nncp-toss -progress -node "$node" -gen-ack || true
 nncp-xfer -progress -keep -tx -mkdir -node "$node" -- "$dpath"
 nncp-rm -node "$node" -ack
