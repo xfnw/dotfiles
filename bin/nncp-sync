@@ -5,7 +5,10 @@ set -eu
 node="$1"
 dpath="${2:-/mnt}"
 
+temp="$(mktemp)"
+trap 'nncp-rm -all -pkt <"$temp"; rm -- "$temp"' EXIT
+
 nncp-xfer -progress -rx -- "$dpath"
-nncp-toss -progress -node "$node" -gen-ack || true
+nncp-ack -progress -node "$node" 4>"$temp"
+nncp-toss -progress || true
 nncp-xfer -progress -keep -tx -mkdir -node "$node" -- "$dpath"
-nncp-rm -node "$node" -ack
