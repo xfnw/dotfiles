@@ -12,6 +12,7 @@ set pipe_sep = ""
 set pipe_split
 
 set crypt_use_gpgme
+set crypt_replysignencrypted
 
 unignore message-id:
 
