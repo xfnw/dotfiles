@@ -26,8 +26,6 @@ $"<small tabindex=-1 id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</
 [$top $comments]
 }
 
-# FIXME: no clue why, but this seems to make the thread dir
-# have 777 permissions?
 mkdir thread
 
 let bugs = git bug bug -f json |
