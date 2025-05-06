@@ -2,7 +2,7 @@
 
 def htmlenc [] { str replace -a "&" "&amp;" | str replace -a "<" "&lt;" }
 def bugpage [id] {
-let b = git bug show -f json $id | from json
+let b = git bug bug show -f json $id | from json
 let top = $"<!DOCTYPE html>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -30,7 +30,7 @@ $"<small tabindex=-1 id='($c.human_id)'><a href='#($c.human_id)'>($c.human_id)</
 # have 777 permissions?
 mkdir thread
 
-let bugs = git bug ls -f json |
+let bugs = git bug bug -f json |
 from json |
 sort-by -r edit_time |
 each {|e|
