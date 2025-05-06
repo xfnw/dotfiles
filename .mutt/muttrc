@@ -13,6 +13,7 @@ set pipe_split
 
 set crypt_use_gpgme
 set crypt_replysignencrypted
+unset pgp_show_unusable
 
 unignore message-id:
 
