@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil -*-
 ;;; redtick.el --- Smallest pomodoro timer (1 char)
 
 ;; Author: F. Febles
@@ -217,7 +218,7 @@
 
 ;; function that updates selected window variable
 (defun redtick--update-selected-window (windows)
-  "WINDOWS parameter avoids error when called before 'pre-redisplay-function'."
+  "WINDOWS parameter avoids error when called before `pre-redisplay-function'."
   (when (not (minibuffer-window-active-p (frame-selected-window)))
     (setq redtick--selected-window (selected-window))))
 
@@ -284,7 +285,7 @@
   :global t)
 
 (defun redtick--default-desc ()
-  "Default pomodoro description: Working with 'current-buffer'..."
+  "Default pomodoro description: Working with `current-buffer'..."
   (concat (eval redtick-popup-header)
           (cond ((which-function)
                  (format ":'%s'" (which-function))))))

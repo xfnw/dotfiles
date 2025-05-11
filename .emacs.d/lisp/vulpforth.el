@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (defgroup vulpforth nil
   "integration for vulpforth"
   :group 'applications
