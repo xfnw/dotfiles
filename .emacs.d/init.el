@@ -10,18 +10,6 @@
 
 (package-initialize)
 
-(global-set-key (kbd "C-x M-r") 'rename-buffer)
-(global-set-key (kbd "C-x C-a") 'recompile)
-(global-set-key (kbd "C-c c") 'compile)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c t") 'org-capture)
-(global-set-key (kbd "C-c m") 'magit)
-(global-set-key (kbd "C-c M") 'magit-file-dispatch)
-(global-set-key (kbd "C-c b") 'bar-to-clipboard)
-(global-set-key (kbd "C-c q") 'auto-fill-mode)
-(global-set-key (kbd "<f12>") 'buffer-menu)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -115,6 +103,20 @@
  '(whitespace-display-mappings
    '((space-mark 32 [183] [46]) (space-mark 160 [164] [95])
      (tab-mark 9 [187 9] [92 9]))))
+
+(package-install-selected-packages)
+
+(global-set-key (kbd "C-x M-r") 'rename-buffer)
+(global-set-key (kbd "C-x C-a") 'recompile)
+(global-set-key (kbd "C-c c") 'compile)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c t") 'org-capture)
+(global-set-key (kbd "C-c m") 'magit)
+(global-set-key (kbd "C-c M") 'magit-file-dispatch)
+(global-set-key (kbd "C-c b") 'bar-to-clipboard)
+(global-set-key (kbd "C-c q") 'auto-fill-mode)
+(global-set-key (kbd "<f12>") 'buffer-menu)
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
