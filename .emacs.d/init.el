@@ -89,10 +89,10 @@
  '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
-   '(badwolf-theme browse-at-remote circe company elpher emacs-everywhere
-                   evil graphviz-dot-mode gruvbox-theme magit nix-mode
-                   nyan-mode ob-nix osm ox-gemini ox-rfc rust-mode
-                   separedit slime smog sudo-edit))
+   '(browse-at-remote circe company elpher emacs-everywhere evil
+                      gruvbox-theme magit nix-mode nyan-mode ob-nix
+                      osm ox-gemini ox-rfc rust-mode separedit slime
+                      smog sudo-edit))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
