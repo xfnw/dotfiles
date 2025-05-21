@@ -41,7 +41,7 @@ while getopts 'c:e:i:tdg' opt; do
 		(i) echo "#include <${OPTARG}>" >&3;;
 		(t) type=1;;
 		(d) decompile=1;;
-		(g) cflags=$cflags" -fsanitize=address -g";;
+		(g) cflags=$cflags" -fsanitize=address,undefined -g";;
 		(?) exit 1;;
 	esac
 done
