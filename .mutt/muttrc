@@ -18,12 +18,6 @@ unset pgp_show_unusable
 unignore message-id:
 
 bind  index G  imap-fetch-mail
-bind  index g  noop
-macro index gi "<change-folder>=INBOX<enter>"       "Go to Inbox"
-macro index gs "<change-folder>=Spam<enter>"       "Go to Spam"
-macro index gS "<change-folder>=Sent<enter>"       "Go to Sent"
-macro index gd "<change-folder>=Drafts<enter>"       "Go to Drafts"
-macro index gt "<change-folder>=Trash<enter>"       "Go to Trash"
 macro index p  "<tag-pattern>~b \^diff\\ --git\\ a/<enter>"
 macro index A  "<decode-copy>.am.patch<enter><enter><shell-escape>awk -f ~/.mutt/cl2rd.awk .am.patch | git am --patch-format mboxrd;rm .am.patch<enter>"
 macro pager A  "<decode-copy>.am.patch<enter><enter><shell-escape>awk -f ~/.mutt/cl2rd.awk .am.patch | git am --patch-format mboxrd;rm .am.patch<enter>"
