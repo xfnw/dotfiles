@@ -1,3 +1,24 @@
 #!/bin/sh
 set -u
-ALL_PROXY=socks5h://127.0.0.1:9050 exec git-remote-"${2%%:*}" "$@"
+tor="${TORPROXY:-127.0.0.1:9050}"
+protocol="${2%%:*}"
+
+if [ "git" = "$protocol" ]; then
+	# some very questionable url "parsing"
+	# should be fine since the git scheme does not use the weirder
+	# url parts... or at least i hope?
+	rest="${2#*:}"
+	rest="${rest#//}"
+	authority="${rest%%/*}"
+	host="${authority%:*}"
+	port="${authority#*:}"
+	rest="${rest#*/}"
+
+	# this will break if you use the weird decimal ipv4 notation
+	# and happen to be using the same port as the your address
+	[ "$host" = "$port" ] && port=9418
+
+	exec git-remote-ext "$1" "nc -x $tor $host $port %G/$rest"
+fi
+
+ALL_PROXY="socks5h://$tor" exec git-remote-"$protocol" "$@"
