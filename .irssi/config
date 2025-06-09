@@ -63,6 +63,7 @@ aliases = {
   csi = "QUOTE CHANSERV INFO";
   csf = "QUOTE CHANSERV FLAGS";
   cso = "QUOTE CHANSERV OP $C";
+  csv = "QUOTE CHANSERV VOICE $C";
   cs = "QUOTE CHANSERV";
   hs = "QUOTE HOSTSERV";
   bs = "QUOTE BOTSERV";
