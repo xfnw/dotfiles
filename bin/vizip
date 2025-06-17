@@ -9,6 +9,6 @@ temp="$(mktemp -d)"
 trap 'rm -r "${temp}"' EXIT
 cd "$temp"
 
-unzip "$zipfile" "$escname"
+unzip "$zipfile" "$escname" || mkdir -p "$(dirname "$filename")"
 "${EDITOR:-vim}" -- "$filename"
 zip "$zipfile" -- "$filename"
