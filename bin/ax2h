@@ -17,7 +17,15 @@ for line in sys.stdin.readlines():
             case "CNAME":
                 aliases.setdefault(val, set()).add(dom)
 
+def walkies(name, m):
+    for h in aliases.get(name, set()):
+        if h in m:
+            continue
+        m.add(h)
+        walkies(h, m)
+
 for a, m in addresses.items():
-    cat = m.union({h for i in m for h in aliases.get(i, set())})
-    print(a + "\t" + " ".join(map(lambda d: d.rstrip("."), cat)))
+    for h in m.copy():
+        walkies(h, m)
+    print(a + "\t" + " ".join(map(lambda d: d.rstrip("."), m)))
 
