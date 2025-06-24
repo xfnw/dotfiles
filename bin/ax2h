@@ -2,7 +2,7 @@
 
 import sys, re
 
-PATTERN = re.compile(r"^([^\t ]+)[\t ]+[0-9]+[\t ]+IN[\t ]+(A|AAAA|CNAME)[\t ]+([^\t ]+)$")
+PATTERN = re.compile(r"^([^\t ]+)[\t ]+(?:[0-9]+[\t ]+)?IN[\t ]+(A|AAAA|CNAME)[\t ]+([^\t ]+)$")
 
 addresses = {}
 aliases = {}
