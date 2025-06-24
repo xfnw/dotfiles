@@ -13,11 +13,11 @@ for line in sys.stdin.readlines():
         (dom, kind, val) = match.groups()
         match kind:
             case "A" | "AAAA":
-                addresses.setdefault(val, []).append(dom)
+                addresses.setdefault(val, set()).add(dom)
             case "CNAME":
-                aliases.setdefault(val, []).append(dom)
+                aliases.setdefault(val, set()).add(dom)
 
 for a, m in addresses.items():
-    cat = m + [h for i in m for h in aliases.get(i, [])]
+    cat = m.union({h for i in m for h in aliases.get(i, set())})
     print(a + "\t" + " ".join(map(lambda d: d.rstrip("."), cat)))
 
