@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import sys, re
+
+PATTERN = re.compile(r"^([^\t ]+)[\t ]+[0-9]+[\t ]+IN[\t ]+(A|AAAA|CNAME)[\t ]+([^\t ]+)$")
+
+addresses = {}
+aliases = {}
+
+for line in sys.stdin.readlines():
+    line = line.strip()
+    if match := PATTERN.match(line):
+        (dom, kind, val) = match.groups()
+        match kind:
+            case "A" | "AAAA":
+                addresses.setdefault(val, []).append(dom)
+            case "CNAME":
+                aliases.setdefault(val, []).append(dom)
+
+for a, m in addresses.items():
+    cat = m + [h for i in m for h in aliases.get(i, [])]
+    print(a + "\t" + " ".join(map(lambda d: d.rstrip("."), cat)))
+
