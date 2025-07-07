@@ -9,8 +9,9 @@ def _run(cidr: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("compute range from CIDR")
-    parser.add_argument("cidr", type=str)
+    parser.add_argument("cidr", nargs='+', type=str)
     args = parser.parse_args()
 
-    print(_run(args.cidr))
+    for cidr in args.cidr:
+        print(_run(cidr))
 
