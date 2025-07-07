@@ -1,0 +1,16 @@
+#!/bin/sh
+
+primary=LVDS-1
+togglable=VGA-1
+
+xrandr --listmonitors | grep -q "$primary" || {
+	echo "you dont have a $primary monitor"
+	exit 1
+}
+
+if xrandr --listmonitors | grep -q "$togglable"; then
+	xrandr --output "$togglable" --off
+else
+	xrandr --output "$togglable" --auto --right-of "$primary"
+fi
+

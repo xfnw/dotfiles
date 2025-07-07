@@ -60,8 +60,9 @@ bindsym XF86AudioPause exec --no-startup-id "playerctl -p rhythmbox,%any play-pa
 bindsym XF86AudioNext exec --no-startup-id "playerctl -p rhythmbox,%any next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl -p rhythmbox,%any previous"
 
-# toggle touchpad
+# toggles
 bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/i3/touchpad
+bindsym XF86Display exec --no-startup-id exec ~/.config/i3/display
 
 # lock stuff
 bindsym XF86ScreenSaver exec ~/.config/i3/lock
