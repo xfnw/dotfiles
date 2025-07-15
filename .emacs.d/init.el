@@ -92,11 +92,10 @@
    '(browse-at-remote circe company elpher emacs-everywhere evil
                       gruvbox-theme magit nix-mode nyan-mode ob-nix
                       osm ox-gemini ox-rfc ox-typst rust-mode
-                      separedit slime smog sudo-edit))
+                      separedit slime smog))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
- '(sudo-edit-indicator-mode t)
  '(tab-always-indent nil)
  '(tool-bar-mode nil)
  '(use-short-answers t)
