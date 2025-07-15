@@ -8,3 +8,4 @@ reload-threads 10
 notify-beep yes
 include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
 
+bind-key O open-all-unread-in-browser
