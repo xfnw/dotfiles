@@ -1,0 +1,31 @@
+#!/bin/sh
+# a mergetool script for rustfmt
+# doesnt do anything fancy, just reformats stuff before merging
+#
+# needs nightly rustfmt
+#
+# git config mergetool.rustfmt.cmd 'rustfmt-mergetool "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
+# git config mergetool.rustfmt.trustExitCode true
+#
+# git mergetool -t rustfmt .
+
+set -eux
+
+# TODO: get the curent edition from cargo or something
+edition=2024
+
+BASE="$1"
+LOCAL="$2"
+REMOTE="$3"
+MERGED="$4"
+
+[ "rs" = "${MERGED##*.}" ]
+
+temp="$(mktemp)"
+trap 'rm "$temp"' EXIT
+
+rustfmt +nightly --unstable-features --skip-children --edition "$edition" -- "$BASE" "$LOCAL" "$REMOTE"
+git merge-file --stdout -- "$BASE" "$LOCAL" "$REMOTE" > "$temp"
+rustfmt +nightly --unstable-features --skip-children --edition "$edition" -- "$temp"
+
+cp -- "$temp" "$MERGED"
