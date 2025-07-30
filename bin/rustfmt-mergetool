@@ -24,7 +24,7 @@ MERGED="$4"
 temp="$(mktemp)"
 trap 'rm "$temp"' EXIT
 
-rustfmt +nightly --unstable-features --skip-children --edition "$edition" -- "$BASE" "$LOCAL" "$REMOTE"
+rustfmt +nightly --unstable-features --skip-children --edition "$edition" --config tab_spaces=0 -- "$BASE" "$LOCAL" "$REMOTE"
 git merge-file --stdout -- "$BASE" "$LOCAL" "$REMOTE" > "$temp"
 rustfmt +nightly --unstable-features --skip-children --edition "$edition" -- "$temp"
 
