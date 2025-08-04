@@ -33,3 +33,6 @@
 	notes = true
 [notes]
 	rewriteRef = refs/notes/commits
+[mergetool "rustfmt"]
+	cmd = rustfmt-mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
