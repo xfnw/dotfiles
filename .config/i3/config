@@ -115,6 +115,7 @@ bindsym --release $mod+s exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" h
 bindsym $mod+z exec "scrot -l mode=edge -ouF /tmp/screen.png"
 bindsym $mod+shift+z exec "scrot -l mode=edge -uF /tmp/screen.png -e 'cp $f /tmp/screen.png'"
 bindsym $mod+shift+s exec "scrot -l mode=edge -e 'curl -F\\"file=@$f\\" https://x0.at/ | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
+bindsym $mod+x exec "scrot -l mode=edge -s -F - | tesseract stdin stdout | xclip -selection clipboard"
 
 #bindsym --release $mod+x exec "scrot -l mode=edge -s -e 'curl -F\\"file=@$f\\" https://xfnw.ttm.sh/u.php | xclip -selection clipboard; mv $f ~/Pictures/scrot/'"
 
