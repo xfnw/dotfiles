@@ -86,7 +86,7 @@
      ("l" . "export latex") ("q" . "quote") ("s" . "src")
      ("v" . "verse") ("f" . "fixme") ("d" . "chat")))
  '(org-support-shift-select t)
- '(org-todo-keywords '((sequence "TODO" "DELAYED" "RERUN" "|" "DONE")))
+ '(org-todo-keywords '((type "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
    '(browse-at-remote circe company elpher emacs-everywhere evil
