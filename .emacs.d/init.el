@@ -103,6 +103,15 @@
    '((space-mark 32 [183] [46]) (space-mark 160 [164] [95])
      (tab-mark 9 [187 9] [92 9]))))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font"))))
+ '(line-number ((t (:background nil :foreground "#7c6f64"))))
+ '(line-number-current-line ((t (:background nil :foreground "#fe8019")))))
+
 (package-install-selected-packages)
 
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
@@ -144,15 +153,6 @@ Directory defaults to the value of 'move-file-default-target'."
   (setq-local electric-indent-inhibit t)
   (setq-local indent-line-function 'indent-relative)
   (setq-local indent-tabs-mode t))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 105 :width normal :foundry "JB" :family "JetBrainsMono Nerd Font"))))
- '(line-number ((t (:background nil :foreground "#7c6f64"))))
- '(line-number-current-line ((t (:background nil :foreground "#fe8019")))))
 
 (require 'evil)
 (define-key evil-insert-state-map [S-left] nil)
