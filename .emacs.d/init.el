@@ -198,7 +198,7 @@ Directory defaults to the value of 'move-file-default-target'."
 ;; support gopher and gemini links for org
 ;; https://list.orgmode.org/87k1vsiv7t.fsf@nicolasgoaziou.fr/t/
 (defun org-link-gopher-export-link (link desc format)
-  "Create export version of LINK and DESC to FORMAT."
+  "Create export of gopher links"
   (let ((link (concat "gopher:" link)))
     (cond
      ((eq format 'html)
@@ -208,7 +208,7 @@ Directory defaults to the value of 'move-file-default-target'."
      (t
       (format "[%s](%s)" desc link)))))
 (defun org-link-gemini-export-link (link desc format)
-  "Create export version of LINK and DESC to FORMAT."
+  "Create export of gemini links"
   (let ((link (concat "gemini:" link)))
     (cond
      ((eq format 'html)
@@ -219,7 +219,7 @@ Directory defaults to the value of 'move-file-default-target'."
       (format "[%s](%s)" desc link)))))
 ;; my cursed abbreviations
 (defun org-link-abbr-export-link (link desc format)
-  "Create export version of LINK and DESC to FORMAT."
+  "Create export of abbreviations"
   (cond
    ((eq format 'html)
     (format "<abbr title=\"%s\">%s</abbr>" link desc))
