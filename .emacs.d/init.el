@@ -87,6 +87,7 @@
      ("v" . "verse") ("f" . "fixme") ("d" . "chat")))
  '(org-support-shift-select t)
  '(org-todo-keywords '((type "TODO" "DELAYED" "RERUN" "|" "DONE")))
+ '(org-todo-repeat-to-state "TODO")
  '(org-use-sub-superscripts '{})
  '(package-selected-packages
    '(browse-at-remote circe company elpher emacs-everywhere evil
