@@ -217,8 +217,18 @@ Directory defaults to the value of 'move-file-default-target'."
       (format "\\href{%s}{%s}" link desc))
      (t
       (format "[%s](%s)" desc link)))))
+;; my cursed abbreviations
+(defun org-link-abbr-export-link (link desc format)
+  "Create export version of LINK and DESC to FORMAT."
+  (cond
+   ((eq format 'html)
+    (format "<abbr title=\"%s\">%s</abbr>" link desc))
+   (t
+    (format "%s (%s)" desc link))))
+
 (org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
 (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
+(org-link-set-parameters "abbr" :export #'org-link-abbr-export-link)
 
 (defun org-export-deterministic-reference (references)
   "make org export's html anchor ids deterministic."
