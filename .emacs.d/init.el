@@ -117,7 +117,7 @@
 
 (global-set-key (kbd "C-x M-r") 'rename-buffer)
 (global-set-key (kbd "C-x C-a") 'recompile)
-(global-set-key (kbd "C-c C-r") 'tramp-revert-buffer-with-sudo)
+(global-set-key (kbd "C-c r") 'tramp-revert-buffer-with-sudo)
 (global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
