@@ -67,7 +67,7 @@
      ("t" "Task" entry (file+olp "" "Tasks")
       "* TODO %?\12%i\12%u\12%a" :empty-lines 1)))
  '(org-default-notes-file "~/org/notes.org")
- '(org-export-backends '(ascii gemini html icalendar latex md rfc typst))
+ '(org-export-backends '(ascii html icalendar latex md rfc typst))
  '(org-footnote-define-inline t)
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t ("pdflatex")) ("T1" "fontenc" t ("pdflatex"))
@@ -92,8 +92,8 @@
  '(package-selected-packages
    '(browse-at-remote circe company elpher emacs-everywhere evil
                       gruvbox-theme magit nix-mode nyan-mode ob-nix
-                      osm ox-gemini ox-rfc ox-typst rust-mode
-                      separedit slime smog))
+                      osm ox-rfc ox-typst rust-mode separedit slime
+                      smog))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
