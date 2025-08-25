@@ -9,3 +9,17 @@ singular = "req"
 plural = "reqs"
 definition = "1 request"
 attribute = "allow-short-prefix"
+
+[[custom-units]]
+singular = "u"
+definition = "1 W"
+attribute = "allow-short-prefix"
+
+[[custom-units]]
+singular = "ld"
+definition = "20 minutes"
+
+[[custom-units]]
+singular = "ud"
+definition = "1 u ld"
+attribute = "allow-short-prefix"
