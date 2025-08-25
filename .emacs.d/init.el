@@ -263,6 +263,7 @@ Directory defaults to the value of 'move-file-default-target'."
 
 (require 'company)
 (define-key company-mode-map (kbd "C-<tab>") 'company-complete)
+(define-key company-mode-map (kbd "<backtab>") 'company-complete)
 (define-key company-active-map (kbd "C-l") 'company-abort)
 (define-key company-active-map (kbd "C-<up>") 'company-abort)
 (define-key company-active-map (kbd "C-<down>") 'company-abort)
