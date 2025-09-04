@@ -4,5 +4,5 @@ manifest="${1:-.}"
 
 CARGO_BUILD_TARGET_DIR="$manifest/target/coverage" RUSTFLAGS='-Cinstrument-coverage' cargo test ${@:2} &&
 mkdir -p "$manifest/target/coverage/html" &&
-~/.cargo/bin/grcov . --binary-path "$manifest/target/coverage/debug/deps/" -s . -t html --branch --ignore-not-existing --ignore '../*' --ignore "/*" -o "$manifest/target/coverage"
+grcov . --binary-path "$manifest/target/coverage/debug/deps/" -s . -t html --branch --ignore-not-existing --ignore '../*' --ignore "/*" -o "$manifest/target/coverage"
 
