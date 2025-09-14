@@ -3,3 +3,13 @@
   (if asdf
     (load asdf)
     (require 'asdf)))
+
+; cursed automatic loading of withPackages stuff
+(let ((reg (sb-ext:posix-getenv "CL_SOURCE_REGISTRY")))
+  (mapcar
+    (lambda (x) (asdf:load-system (subseq x 0 (- (length x) 4))))
+    (mapcar
+      'file-namestring
+      (mapcan
+	(lambda (x) (directory (uiop:strcat x "*.asd")))
+	(uiop:split-string reg :separator ":")))))
