@@ -181,7 +181,6 @@ Directory defaults to the value of 'move-file-default-target'."
 
 (require 'text-mode)
 (add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
-(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
 
 (setenv "EDITOR" "emacsclient")
 
