@@ -1,4 +1,5 @@
-; load nixpkgs-provided asdf if it exists
+; prefer nixpkgs-provided asdf if it exists
 (let ((asdf (sb-ext:posix-getenv "ASDF")))
-  (when asdf
-    (load asdf)))
+  (if asdf
+    (load asdf)
+    (require 'asdf)))
