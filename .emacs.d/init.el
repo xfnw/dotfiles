@@ -51,7 +51,7 @@
  '(evil-want-minibuffer t)
  '(global-company-mode t)
  '(indent-tabs-mode nil)
- '(inferior-lisp-program "ecl")
+ '(inferior-lisp-program "sbcl")
  '(initial-scratch-message ";; Meow! Welcome to the scratching post!\12\12")
  '(lui-fill-column 105)
  '(lui-logging-directory (concat user-emacs-directory "irclogs"))
