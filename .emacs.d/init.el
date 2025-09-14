@@ -250,6 +250,8 @@ Directory defaults to the value of 'move-file-default-target'."
 (require 'inf-lisp)
 (define-key lisp-mode-map "\C-c\C-c" 'lisp-compile-defun)
 
+(add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
+
 (require 'eglot)
 (require 'rust-mode)
 ; override the rust-mode stuff because it does not work over tramp >:(
