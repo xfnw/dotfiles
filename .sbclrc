@@ -11,5 +11,6 @@
     (mapcar
       'file-namestring
       (mapcan
-	(lambda (x) (directory (uiop:strcat x "*.asd")))
+	(lambda (x) (when (> (length x) 0)
+		      (directory (uiop:strcat x "**/*.asd"))))
 	(uiop:split-string reg :separator ":")))))
