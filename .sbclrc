@@ -6,7 +6,7 @@
 
 ; cursed automatic loading of withPackages stuff
 (let ((reg (sb-ext:posix-getenv "CL_SOURCE_REGISTRY")))
-  (mapcar
+  (mapc
     (lambda (x) (asdf:load-system (subseq x 0 (- (length x) 4))))
     (mapcar
       'file-namestring
