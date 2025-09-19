@@ -61,6 +61,8 @@
  '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("." "~/org"))
  '(org-agenda-start-on-weekday 0)
+ '(org-agenda-todo-ignore-deadlines 'far)
+ '(org-agenda-todo-ignore-scheduled 'future)
  '(org-babel-load-languages '((emacs-lisp . t) (shell . t) (nix . t)))
  '(org-capture-templates
    '(("e" "Entry" entry (file "") "* %?\12%i\12%u\12%a" :empty-lines 1)
