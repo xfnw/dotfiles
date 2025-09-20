@@ -19,6 +19,7 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f"
     "#f6f3e8"])
  '(auth-source-save-behavior nil)
+ '(auto-save-file-name-transforms `((".*" ,(concat user-emacs-directory "backups/&") t)))
  '(backup-directory-alist `(("." \, (concat user-emacs-directory "backups"))))
  '(browse-at-remote-prefer-symbolic nil)
  '(browse-url-browser-function 'eww-browse-url)
