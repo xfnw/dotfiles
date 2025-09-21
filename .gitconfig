@@ -18,6 +18,7 @@
 	fetch-notes = !"git fetch ${1:-origin} $2refs/notes/*:refs/notes/* #"
 	bundle-most = !git for-each-ref --include-root-refs --exclude REBASE_HEAD --exclude ORIG_HEAD --exclude refs/stash --exclude refs/remotes --format '%(refname)' | git bundle create
 	cov = branch --edit-description
+	diffv = !"git diff $@ ':(exclude)*/.cargo-checksum.json' ':(exclude)*/Cargo.lock' ':(exclude)*/.cargo_vcs_info.json' #"
 [commit]
 	verbose = true
 [pull]
