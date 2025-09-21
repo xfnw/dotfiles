@@ -45,7 +45,7 @@ alias gitpretty='git log --graph --pretty="%Cred%h%Creset %Cblue%G?%Creset %C(gr
 alias raged="rage -i ~/.age/private -d"
 alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server"
 alias sstripr='sstrip -z target/**/release/^*.*(.)'
-alias installr='sudo install target/**/release/^*.*(.) /usr/local/bin'
+alias installr='sudo install target/release/^*.*(.) /usr/local/bin'
 alias rdoc="cargo doc --open && rustup doc --std"
 alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
 alias ahex='hexdump -e '"'"'"%4.4_ax:" 8/1 "%3.1X" "\n"'"'"
