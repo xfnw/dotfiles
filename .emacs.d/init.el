@@ -47,6 +47,7 @@
  '(display-line-numbers 'relative)
  '(eldoc-echo-area-use-multiline-p nil)
  '(evil-undo-system 'undo-redo)
+ '(evil-want-C-i-jump nil)
  '(evil-want-C-u-delete t)
  '(evil-want-C-u-scroll t)
  '(evil-want-minibuffer t)
