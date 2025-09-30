@@ -1,0 +1,41 @@
+#!/bin/sh
+
+pass_noskip="$(vancouver check --output json | jq .total_passed)"
+fail_noskip="$(vancouver check --output json | jq .total_failed)"
+pass="$(vancouver check --output json --ignore-exempts | jq .total_passed)"
+total="$((pass_noskip + fail_noskip))"
+pass_exempts="$((pass_noskip - pass))"
+fails="$((total - pass_noskip))"
+
+# based on the gnuplot sectors demo
+# http://www.gnuplot.info/demo/sectors.html
+gnuplot <<EOF
+\$data <<EOD
+"audited" $pass
+"exempted" $pass_exempts
+"unaudited" $fails
+EOD
+
+stats \$data u 2 noout
+fac = 360.0/STATS_sum
+
+set table \$data2
+plot r=0 \$data u (stringcolumn(1)):2:(r):(dr=\$2*fac,r=r+dr,dr) with table
+unset table
+
+set object rectangle from screen -1,-1 to screen 1,1 behind fillcolor rgb "black" fillstyle solid noborder
+set polar
+set angles degree
+set theta top cw
+set xrange [-10:10]
+set yrange [-10:10]
+set size ratio -1
+set term png size 621,621 font "monospace"
+unset border
+unset tics
+unset key
+unset raxis
+
+plot \$data2 u 3:(4):4:(3):(\$0+2) with sectors lc variable fill solid noborder, \\
+'' u (\$3+\$4/2):(9):(sprintf("%d\\n%s", \$2, stringcolumn(1))) with labels textcolor "white"
+EOF
