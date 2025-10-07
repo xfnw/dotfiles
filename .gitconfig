@@ -37,3 +37,5 @@
 [mergetool "rustfmt"]
 	cmd = rustfmt-mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
+[protocol "ssh"]
+	allow = user
