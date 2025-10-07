@@ -1,8 +1,8 @@
 #!/bin/sh
 
-pass_noskip="$(vancouver check --output json | jq .total_passed)"
-fail_noskip="$(vancouver check --output json | jq .total_failed)"
-pass="$(vancouver check --output json --ignore-exempts | jq .total_passed)"
+pass_noskip="$(vancouver check --output json "$@" | jq .total_passed)"
+fail_noskip="$(vancouver check --output json "$@" | jq .total_failed)"
+pass="$(vancouver check --output json --ignore-exempts "$@" | jq .total_passed)"
 total="$((pass_noskip + fail_noskip))"
 pass_exempts="$((pass_noskip - pass))"
 fails="$((total - pass_noskip))"
