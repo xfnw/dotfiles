@@ -1,0 +1,23 @@
+#!/bin/sh
+# git cherry but only shows stuff that would cleanly apply
+
+set -eu
+
+origwd="$PWD"
+upstream="$1"
+
+temp="$(mktemp -d)"
+git worktree add "$temp" "$upstream" >/dev/null 2>&1 || {
+	echo 'could not add worktree, you are in a git repo right?'
+	rmdir "$temp"
+	exit 1
+}
+cd "$temp"
+trap 'git -C "$origwd" worktree remove "$temp"' EXIT
+
+for commit in $(git -C "$origwd" cherry "$@" | grep '^+' | cut -c3-); do
+	if git format-patch --stdout --pretty=mboxrd -1 "$commit" | git apply --check 2>/dev/null; then
+		git show -s --pretty='%h %s' "$commit"
+	fi
+done
+
