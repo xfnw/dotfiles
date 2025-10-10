@@ -88,8 +88,8 @@
  '(org-structure-template-alist
    '(("a" . "export ascii") ("c" . "center") ("C" . "comment")
      ("e" . "example") ("E" . "export") ("h" . "export html")
-     ("l" . "export latex") ("q" . "quote") ("s" . "src")
-     ("v" . "verse") ("f" . "fixme") ("d" . "chat")))
+     ("l" . "export latex") ("t" . "export typst") ("q" . "quote")
+     ("s" . "src") ("v" . "verse") ("f" . "fixme") ("d" . "chat")))
  '(org-support-shift-select t)
  '(org-todo-keywords '((type "TODO" "DELAYED" "RERUN" "|" "DONE")))
  '(org-todo-repeat-to-state "TODO")
