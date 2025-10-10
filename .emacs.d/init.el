@@ -277,6 +277,7 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key company-active-map (kbd "C-<down>") 'company-abort)
 (define-key company-active-map (kbd "C-<left>") 'company-abort)
 (define-key company-active-map (kbd "C-<right>") 'company-abort)
+(define-key company-active-map (kbd "<escape>") 'company-abort)
 (define-key company-active-map (kbd "C-j") 'company-select-next-or-abort)
 (define-key company-active-map (kbd "C-k") 'company-select-previous-or-abort)
 
