@@ -10,6 +10,7 @@ NS = {"xhtml": "http://www.w3.org/1999/xhtml"}
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", default="ocrx_word")
 parser.add_argument("-t", action="store_true")
+parser.add_argument("-C", action="store_true")
 args = parser.parse_args()
 
 root = etree.fromstring(sys.stdin.buffer.read())
@@ -25,11 +26,12 @@ for doc in root.xpath('//xhtml:div[@class="ocr_page"]', namespaces=NS):
 
     for e in doc.xpath('//*[@class="{}"]'.format(args.c), namespaces=NS):
         [x1, y1, x2, y2] = map(lambda x: int(x), re.search(BBOX, e.xpath('string(@title)')).groups())
-        text = e.xpath('string()')
+        text = ' '.join(e.xpath('string()').split())
         tw, th = textsize(text)
         timg = Image.new(mode="RGBA", color=(0, 0, 0, 255) if args.t else (0, 0, 0, 0), size=(tw, th))
         draw = ImageDraw.Draw(timg)
-        draw.text((0, 0), text, (255, 255, 255, 255), font=font)
+        if not args.C:
+            draw.text((0, 0), text, (255, 255, 255, 255), font=font)
         timg = timg.resize((x2-x1, y2-y1))
         img.alpha_composite(timg, (x1, y1))
 
