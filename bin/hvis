@@ -2,10 +2,15 @@
 
 from lxml import etree
 from PIL import Image, ImageDraw, ImageFont
-import re, sys
+import re, sys, argparse
 
 BBOX = re.compile(r"bbox ([0-9]+) ([0-9]+) ([0-9]+) ([0-9]+)")
 NS = {"xhtml": "http://www.w3.org/1999/xhtml"}
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", default="ocrx_word")
+parser.add_argument("-t", action="store_true")
+args = parser.parse_args()
 
 root = etree.fromstring(sys.stdin.buffer.read())
 font = ImageFont.load_default(size = 16)
@@ -16,13 +21,13 @@ def textsize(text):
 
 for doc in root.xpath('//xhtml:div[@class="ocr_page"]', namespaces=NS):
     [_, _, w, h] = re.search(BBOX, doc.xpath('string(@title)')).groups()
-    img = Image.new(mode="RGBA", color=(0, 0, 0, 255), size=(int(w), int(h)))
+    img = Image.new(mode="RGBA", color=(0, 0, 0, 0) if args.t else (0, 0, 0, 255), size=(int(w), int(h)))
 
-    for e in doc.xpath('//xhtml:span[@class="ocrx_word"]', namespaces=NS):
+    for e in doc.xpath('//*[@class="{}"]'.format(args.c), namespaces=NS):
         [x1, y1, x2, y2] = map(lambda x: int(x), re.search(BBOX, e.xpath('string(@title)')).groups())
         text = e.xpath('string()')
         tw, th = textsize(text)
-        timg = Image.new(mode="RGBA", size=(tw, th))
+        timg = Image.new(mode="RGBA", color=(0, 0, 0, 255) if args.t else (0, 0, 0, 0), size=(tw, th))
         draw = ImageDraw.Draw(timg)
         draw.text((0, 0), text, (255, 255, 255, 255), font=font)
         timg = timg.resize((x2-x1, y2-y1))
