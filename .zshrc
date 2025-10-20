@@ -32,7 +32,7 @@ meilit() { curl "http://$1:7700/tasks/$2" ; }
 
 alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
-alias warc="wget -rpm --warc-cdx --warc-file"
+alias warc="wget -pm --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
 alias mpvferret="mpv --config=no --quiet --vo=tct --lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=5:gf=3:rf=1:mirror=y:zoom=1[vo]'"
 alias mpvcqt="mpv --config=no --lavfi-complex='[aid1]asplit[ao][a1];[a1]showcqt=r=25[vo]'"
