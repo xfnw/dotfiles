@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Usage: temp_throttle.sh max_temp
 # USE CELSIUS TEMPERATURES.
