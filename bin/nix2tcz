@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -eu
+
+tczify() {
+	local path="$1"
+	local name="$(basename "$path")"
+
+	if [ -e "$name.tcz" ]; then
+		return
+	fi
+
+	mksquashfs "$path" "$name.tcz" -b 4096 -noappend -no-strip
+	md5sum -- "$name.tcz" > "$name.tcz.md5.txt"
+
+	nix-store -q --references -- "$path" | while IFS= read -r ref; do
+		if [ "$path" != "$ref" ]; then
+			printf '%s.tcz\n' "$(basename "$ref")" >> "$name.tcz.dep"
+			tczify "$ref"
+		fi
+	done
+}
+
+out="$1"
+if [ -e "$out" ]; then
+	echo "$out already exists"
+	exit 1
+fi
+shift
+mkdir -p -- "$out/usr/local/"{bin,share}
+truncate --size 0 -- "$out.tcz.dep"
+
+if [[ "$@" == *cacert* ]]; then
+	mkdir -p -- "$out/etc/ssl/certs"
+	ln -sf /usr/local/etc/ssl/certs/ca-bundle.crt "$out/etc/ssl/certs/ca-bundle.crt"
+	ln -sf ca-bundle.crt "$out/etc/ssl/certs/ca-certificates.crt"
+fi
+
+nix build --no-link --print-out-paths -- "$@" | while IFS= read -r inp; do
+	if [ -d "$inp" ]; then
+		cp -srf --no-preserve mode "$inp/." "$out/usr/local"
+	fi
+	printf '%s.tcz\n' "$(basename "$inp")" >> "$out.tcz.dep"
+	tczify "$inp"
+done
+
+mksquashfs "$out" "$out.tcz" -b 4096 -noappend
+md5sum -- "$out.tcz" > "$out.tcz.md5.txt"
+
+rm -r -- "$out"
