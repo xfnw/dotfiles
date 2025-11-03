@@ -36,7 +36,7 @@ if [[ "$@" == *cacert* ]]; then
 	ln -sf ca-bundle.crt "$out/etc/ssl/certs/ca-certificates.crt"
 fi
 
-nix build --no-link --print-out-paths -- "$@" | while IFS= read -r inp; do
+nix build --no-link --print-out-paths "$@" | while IFS= read -r inp; do
 	if [ -d "$inp" ]; then
 		cp -srf --no-preserve mode "$inp/." "$out/usr/local"
 	fi
