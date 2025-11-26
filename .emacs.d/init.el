@@ -304,4 +304,5 @@ Directory defaults to the value of 'move-file-default-target'."
 (require 'redtick)
 (redtick-mode 1)
 
-(server-start)
+(when (not (and (boundp 'server-process) server-process))
+  (server-start))
