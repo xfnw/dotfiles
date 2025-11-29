@@ -300,6 +300,8 @@ Directory defaults to the value of 'move-file-default-target'."
 (load "lui-logging" nil t)
 (enable-lui-logging-globally)
 
+(define-key lui-mode-map (kbd "C-u") 'lui-kill-to-beginning-of-line)
+
 (require 'vulpforth)
 (require 'redtick)
 (redtick-mode 1)
