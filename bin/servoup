@@ -5,7 +5,7 @@ set -ex
 mkdir -p /opt/servo
 cd /opt/servo
 
-curl -L https://download.servo.org/nightly/linux/servo-latest.tar.gz |
+curl -L https://download.servo.org/nightly/linux/servo-x86_64-linux-gnu.tar.gz |
 tar --strip-components=1 -xzf -
 
 sstrip -z servo
