@@ -301,6 +301,7 @@ Directory defaults to the value of 'move-file-default-target'."
 (enable-lui-logging-globally)
 
 (define-key lui-mode-map (kbd "C-u") 'lui-kill-to-beginning-of-line)
+(define-key lui-mode-map (kbd "C-w") 'evil-delete-backward-word)
 
 (require 'vulpforth)
 (require 'redtick)
