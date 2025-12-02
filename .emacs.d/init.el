@@ -303,6 +303,15 @@ Directory defaults to the value of 'move-file-default-target'."
 (load "lui-logging" nil t)
 (enable-lui-logging-globally)
 
+(defun circe-tls ()
+  (interactive)
+  (circe (read-string "host: ")
+         :port (read-number "port: " 6697)
+         :use-tls t))
+(let ((cert (expand-file-name (concat user-emacs-directory "irc.pem"))))
+  (when (file-exists-p cert)
+    (setq-default circe-tls-keylist (list (list cert cert)))))
+
 (defun chanserv-op ()
   (interactive)
   (irc-send-raw (circe-server-process)
