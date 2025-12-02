@@ -297,6 +297,7 @@ Directory defaults to the value of 'move-file-default-target'."
 (add-hook 'ses-mode-hook 'turn-off-line-numbers)
 
 (require 'circe)
+(defalias 'circe-command-AA 'circe-command-GAWAY)
 (defalias 'circe-command-J 'circe-command-JOIN)
 
 (load "lui-logging" nil t)
