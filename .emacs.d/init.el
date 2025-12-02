@@ -303,6 +303,11 @@ Directory defaults to the value of 'move-file-default-target'."
 (load "lui-logging" nil t)
 (enable-lui-logging-globally)
 
+(defun chanserv-op ()
+  (interactive)
+  (irc-send-raw (circe-server-process)
+                (format "CHANSERV :op %s" circe-chat-target)))
+(define-key lui-mode-map (kbd "C-f") 'chanserv-op)
 (define-key lui-mode-map (kbd "C-u") 'lui-kill-to-beginning-of-line)
 (define-key lui-mode-map (kbd "C-w") 'evil-delete-backward-word)
 
