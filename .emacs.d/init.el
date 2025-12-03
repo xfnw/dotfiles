@@ -268,6 +268,9 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key rust-mode-map (kbd "C-c C-r") 'eglot-rename)
 (define-key rust-mode-map (kbd "<mouse-3>") 'eglot-code-actions-at-mouse)
 
+(require 'flymake)
+(define-key flymake-mode-map (kbd "C-x `") 'flymake-goto-next-error)
+
 (require 'separedit)
 (define-key rust-mode-map (kbd "C-c '") 'separedit)
 
