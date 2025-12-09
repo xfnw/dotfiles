@@ -72,7 +72,7 @@
      ("t" "Task" entry (file+olp "" "Tasks")
       "* TODO %?\12%i\12%u\12%a" :empty-lines 1)))
  '(org-default-notes-file "~/org/notes.org")
- '(org-export-backends '(ascii html icalendar latex md rfc typst))
+ '(org-export-backends '(ascii html icalendar latex md rfc texinfo typst))
  '(org-footnote-define-inline t)
  '(org-latex-default-packages-alist
    '(("AUTO" "inputenc" t ("pdflatex")) ("T1" "fontenc" t ("pdflatex"))
