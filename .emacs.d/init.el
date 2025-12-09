@@ -166,6 +166,8 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key evil-normal-state-map (kbd "M-.") nil)
 (define-key evil-normal-state-map "f" 'evil-find-char)
 (define-key evil-motion-state-map "f" nil)
+(define-key evil-normal-state-map (kbd "RET") 'evil-ret)
+(define-key evil-motion-state-map (kbd "RET") nil)
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-set-initial-state 'circe-mode 'emacs)
 (evil-set-initial-state 'ses-mode 'emacs)
