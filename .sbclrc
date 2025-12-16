@@ -4,20 +4,12 @@
     (load asdf)
     (require 'asdf)))
 
-; cursed automatic loading of withPackages stuff
 #-quicklisp
-(let ((reg (sb-ext:posix-getenv "CL_SOURCE_REGISTRY")))
-  (if reg
-    (mapc
-      (lambda (x) (asdf:load-system (subseq x 0 (- (length x) 4))))
-      (mapcar
-        #'file-namestring
-        (mapcan (lambda (x) (when (> (length x) 0)
-                              (directory (uiop:strcat x "**/*.asd")))) (uiop:split-string reg :separator ":"))))
-    (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
-                                           (user-homedir-pathname))))
-      (when (probe-file quicklisp-init)
-        (load quicklisp-init)))))
+(when (not (sb-ext:posix-getenv "CL_SOURCE_REGISTRY"))
+  (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                         (user-homedir-pathname))))
+    (when (probe-file quicklisp-init)
+      (load quicklisp-init))))
 
 (require 'sb-posix)
 (defmacro save-lisp-and-fork (&rest args)
