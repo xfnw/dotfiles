@@ -32,6 +32,7 @@
  '(circe-format-server-quit "*** Quit: {nick} ({userhost}) quit ({reason})")
  '(circe-format-server-quit-channel "*** Quit: {nick} ({userhost}) quit ({reason})")
  '(circe-format-server-topic "*** Topic change by {nick} ({userhost}): {topic-diff}")
+ '(circe-server-max-reconnect-attempts 1)
  '(circe-server-send-unknown-command-p t)
  '(circe-use-cycle-completion t)
  '(column-number-mode t)
