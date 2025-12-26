@@ -292,7 +292,7 @@ sub analyze
 							$ip = parse_ip($ip);
 							for my $h(@$host)
 							{
-								if(!($h =~ /:/) == $is_v4)
+								if(($h =~ /:/) != $is_v4)
 								{
 									my $last;
 									eval
