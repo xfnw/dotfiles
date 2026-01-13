@@ -71,7 +71,6 @@ WORDCHARS='*?_-.[]~=&#$%^(){}<>'
 setopt autocd
 unsetopt nomatch
 bindkey -v
-# End of lines configured by zsh-newuser-install
 
 # why wont it run my profile lol
 source ~/.profile
