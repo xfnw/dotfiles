@@ -1548,34 +1548,6 @@ function info_print () {
     printf '%s' "${esc_end}"
 }
 
-function grml_reset_screen_title () {
-    # adjust title of xterm
-    # see http://www.faqs.org/docs/Linux-mini/Xterm-Title.html
-    [[ ${NOTITLE:-} -gt 0 ]] && return 0
-    case $TERM in
-        (xterm*|rxvt*)
-            set_title ${(%):-"%n@%m: %~"}
-            ;;
-    esac
-}
-
-function grml_maintain_name () {
-    local localname
-    localname="$(uname -n)"
-
-    # set hostname if not running on local machine
-    if [[ -n "$HOSTNAME" ]] && [[ "$HOSTNAME" != "${localname}" ]] ; then
-       NAME="@$HOSTNAME"
-    fi
-}
-
-function grml_control_xterm_title () {
-    case $TERM in
-        (xterm*|rxvt*)
-            set_title "${(%):-"%n@%m:"}" "$2"
-            ;;
-    esac
-}
 # do we have GNU ls with color-support?
 if [[ "$TERM" != dumb ]]; then
     #a1# List files with colors (\kbd{ls \ldots})
