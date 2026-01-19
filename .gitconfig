@@ -39,3 +39,5 @@
 	trustExitCode = true
 [protocol "ssh"]
 	allow = user
+[am]
+	threeWay = true
