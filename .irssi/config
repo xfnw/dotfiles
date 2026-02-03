@@ -132,6 +132,7 @@ settings = {
     sasl_disconnect_on_failure = "no";
     opermode = "+s +CFZbdfkrsuxy";
     join_auto_chans_on_invite = "yes";
+    part_message = "i said i'm leaving today";
   };
   "irc/flood" = { flood_max_msgs = "1024"; };
   "perl/core/scripts" = {
