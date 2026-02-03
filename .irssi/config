@@ -168,7 +168,7 @@ statusbar = {
         topicbarstart = { priority = "100"; };
         window = { };
         window_empty = { };
-	usercount = { };
+        usercount = { };
         topic = { };
         topicbarend = { priority = "100"; alignment = "right"; };
       };
@@ -195,7 +195,7 @@ windows = { 1 = { immortal = "yes"; name = "hilight"; level = "ALL"; }; };
 mainwindows = { 1 = { first_line = "1"; lines = "39"; }; };
 keyboard = (
   { key = "^F"; id = "command"; data = "cso"; },
-  { key = "^U"; id = "erase_to_beg_of_line"; data = ""; }
-  { key = "meta-h"; id = "command"; data = "read"; }
+  { key = "^U"; id = "erase_to_beg_of_line"; data = ""; },
+  { key = "meta-h"; id = "command"; data = "read"; },
   { key = "meta-/"; id = "command"; data = "window last"; }
 );
