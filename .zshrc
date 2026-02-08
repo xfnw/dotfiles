@@ -14,30 +14,19 @@ datamosh() { ffmpeg -i "$1" -c copy -bsf:v noise=drop='gt(pts/tb\,30)*key' "$2" 
 dither() { magick "$1" -filter box -resize 700 -ordered-dither o4x4,2 "$2" ; }
 ditherc() { magick "$1" -colorspace RGB -filter box -resize 700 -ordered-dither o4x4,2 -colorspace sRGB "$2" ; }
 9serve() { socat TCP-LISTEN:"$1",reuseaddr,fork SYSTEM:"9pex $2" ; }
-unidec() { echo -n "$@" | uniname -bcpe | tail -n +2 | awk -F'  ' '{gsub("^0*","",$1); printf "U+%s %s (%s)\n",$1,$5,$2}' ; }
 
 base58gen() { echo $(base64 /dev/urandom | tr -d "\n/+Il0O$2" | head -c ${$(($1/5.85+1))%.*}) ; }
 vid() { echo "VULP$(base64 /dev/urandom | tr -d "\n/+I0Oa-z" | head -c 17)" ; }
 fur() { sed -i 's/\($Fur: \)[[:print:]]* \$/\1'"$1 $(date -uIs | cut -c-19)Z $USER $/" "$1" ; }
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" ; }
 rot13() { tr 'a-zA-Z' 'n-za-mN-ZA-M' ; }
-putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "@$fname" "$1$fname" || ls -l -- "$fname" | curl -X PUT --data-binary @- "$1$fname/" ; done ; }
-unputdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT "$1$fname" ; done ; }
-deldir(){ find "${@:2}" | while IFS= read fname ; do curl -X DELETE "$1$fname" ; done ; }
 tapemeasure() { du -b "$@" | awk '{printf "%6.2f\t", $1/('"$(du -b "$1" | cut -f1)"')*100; print}' | sort -nr ; }
-meili() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/json' --data-binary @- ; }
-meilil() { curl -X POST "http://$1:7700/indexes/$2?$3" -H 'Content-Type: application/x-ndjson' --data-binary @- ; }
-meiliset() { curl -X PATCH "http://$1:7700/indexes/$2/settings" -H 'Content-Type: application/json' --data-binary @- ; }
-meilit() { curl "http://$1:7700/tasks/$2" ; }
-
-alias hexcat="catgirl -h irc.libera.chat -n xfnwtest -ec cert.pem -u"
 
 alias warc="wget --delete-after --no-directories --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
 alias mpvferret="mpv --config=no --quiet --vo=tct --lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=5:gf=3:rf=1:mirror=y:zoom=1[vo]'"
 alias mpvcqt="mpv --config=no --lavfi-complex='[aid1]asplit[ao][a1];[a1]showcqt=r=25[vo]'"
 alias mpvscope="mpv --config=no --background=color --lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:mirror=y:draw=line:zoom=1[vo]'"
-alias mpvscopedot="mpv --config=no --background=color --lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:mirror=y:zoom=1[vo]'"
 alias ssk="ssh-keygen -lf ~/.ssh/known_hosts | grep"
 alias qqemu="qemu-system-x86_64 -display gtk,zoom-to-fit=on -nic user -enable-kvm"
 alias gitversion='printf "r%s.%s\n" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"'
