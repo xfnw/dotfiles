@@ -36,7 +36,7 @@
  '(circe-server-send-unknown-command-p t)
  '(circe-use-cycle-completion t)
  '(column-number-mode t)
- '(company-minimum-prefix-length 4)
+ '(company-idle-delay nil)
  '(company-selection-wrap-around t)
  '(company-show-quick-access t)
  '(custom-enabled-themes '(gruvbox-dark-hard))
