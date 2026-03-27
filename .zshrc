@@ -21,6 +21,9 @@ fur() { sed -i 's/\($Fur: \)[[:print:]]* \$/\1'"$1 $(date -uIs | cut -c-19)Z $US
 tuch() { touch "$@" ; chmod 755 "$@" ; ${EDITOR:-vim} "$@" ; }
 rot13() { tr 'a-zA-Z' 'n-za-mN-ZA-M' ; }
 tapemeasure() { du -b "$@" | awk '{printf "%6.2f\t", $1/('"$(du -b "$1" | cut -f1)"')*100; print}' | sort -nr ; }
+putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "@$fname" "$1$fname" || ls -l -- "$fname" | curl -X PUT --data-binary @- "$1$fname/" ; done ; }
+unputdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT "$1$fname" ; done ; }
+deldir(){ find "${@:2}" | while IFS= read fname ; do curl -X DELETE "$1$fname" ; done ; }
 
 alias warc="wget --delete-after --no-directories --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
