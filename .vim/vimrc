@@ -57,6 +57,7 @@ set mouse=a		" Enable mouse usage (all modes)
 " fmt stuffs
 set textwidth=70
 set formatoptions-=t
+set nomodeline
 
 " 2 space tabbing for nix files
 autocmd Filetype nix setlocal ts=2 sw=2 expandtab autoindent
