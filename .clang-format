@@ -1,6 +1,6 @@
 ---
 BasedOnStyle: LLVM
-UseTab: Always
+UseTab: ForIndentation
 IndentWidth: 8
 AllowShortCaseLabelsOnASingleLine: true
 AlignEscapedNewlines: DontAlign
