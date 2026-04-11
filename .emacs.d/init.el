@@ -47,6 +47,7 @@
      default))
  '(display-line-numbers 'relative)
  '(eldoc-echo-area-use-multiline-p nil)
+ '(elpher-gemini-max-fill-width 75)
  '(evil-undo-system 'undo-redo)
  '(evil-want-C-i-jump nil)
  '(evil-want-C-u-delete t)
