@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -eu
+
+zipfile="$(realpath "$1")"
+inner="$2"
+temp="$(mktemp -d)"
+trap 'rm -r "$temp"' EXIT
+
+mkdir -p "$temp/$(dirname "$inner")"
+cat - > "$temp/$inner"
+
+cd "$temp"
+zip "$zipfile" "./$inner" "${@:3}"
