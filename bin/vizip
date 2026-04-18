@@ -6,9 +6,10 @@ zipfile="$(realpath $1)"
 filename="$2"
 escname="$(printf '%s' "$filename" | sed 's/^-/[-]/')"
 temp="$(mktemp -d)"
-trap 'rm -r "${temp}"' EXIT
 cd "$temp"
 
 unzip "$zipfile" "$escname" || mkdir -p "$(dirname "$filename")"
 "${EDITOR:-vim}" -- "$filename"
 zip "$zipfile" -- "$filename"
+
+rm -r "${temp}"
