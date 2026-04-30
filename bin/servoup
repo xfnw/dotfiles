@@ -8,6 +8,6 @@ cd /opt/servo
 curl -L https://download.servo.org/nightly/linux/servo-x86_64-linux-gnu.tar.gz |
 tar --strip-components=1 -xzf -
 
-sstrip -z servo
-ln -sf /opt/servo/servo /usr/local/bin
+sstrip -z servoshell
+ln -sf /opt/servo/servoshell /usr/local/bin
 
