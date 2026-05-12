@@ -39,7 +39,7 @@ alias sshemacs="ssh -R ~/.sshemacs:${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/
 alias sstripr='sstrip -z target/**/release/^*.*(.)'
 alias installr='sudo install target/release/^*.*(.) /usr/local/bin'
 alias rdoc="cargo doc --open && rustup doc --std"
-alias cch="cppcheck --enable=all --suppress=missingIncludeSystem ."
+alias cch="cppcheck --enable=all --suppress=missingIncludeSystem --suppress=shadowVariable --suppress=shadowFunction ."
 alias ahex='hexdump -e '"'"'"%4.4_ax:" 8/1 "%3.1X" "\n"'"'"
 alias after="at now +"
 alias ddiff="datediff -f '%d days, %H hours, %M minutes, %S seconds'"
