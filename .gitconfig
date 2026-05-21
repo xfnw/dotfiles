@@ -1,14 +1,9 @@
 # This is Git's per-user configuration file.
-[user]
- 	name = xfnw
- 	email = xfnw@riseup.net
-	signingkey = A75FA9A87E447AE0
+[include]
+	path = .gitconfig-user
 [init]
 	defaultBranch = main
 [sendemail]
-	smtpencryption = ssl
-	smtpserver = mail.riseup.net
-	smtpuser = xfnw@riseup.net
 	annotate = true
 [alias]
 	psuh = push
