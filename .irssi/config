@@ -139,6 +139,7 @@ settings = {
     go_match_anchored = "no";
     tmux_away_message = "knot here...";
     awl_shared_sbar = "OFF";
+    awl_hide_data = "1";
   };
 };
 logs = { };
