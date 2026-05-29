@@ -80,6 +80,8 @@ aliases = {
   ne = "me";
   SYSINFO = "say Irssi v$J ($abiversion) | $sysname $sysrelease ($sysarch)";
   SIZE = "WINDOW SIZE";
+  SHOW = "WINDOW SHOW";
+  HIDE = "WINDOW HIDE";
 };
 
 settings = {
