@@ -140,6 +140,7 @@ settings = {
   "perl/core/scripts" = {
     go_match_anchored = "no";
     tmux_away_message = "knot here...";
+    tmux_away_window = "0";
     awl_shared_sbar = "OFF";
     awl_hide_data = "1";
   };
