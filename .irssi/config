@@ -143,6 +143,7 @@ settings = {
     tmux_away_window = "0";
     awl_shared_sbar = "OFF";
     awl_hide_data = "1";
+    resize_num_window_actonly = "1";
   };
 };
 logs = { };
