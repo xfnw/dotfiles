@@ -24,6 +24,8 @@ tapemeasure() { du -b "$@" | awk '{printf "%6.2f\t", $1/('"$(du -b "$1" | cut -f
 putdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT --data-binary "@$fname" "$1$fname" || ls -l -- "$fname" | curl -X PUT --data-binary @- "$1$fname/" ; done ; }
 unputdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT "$1$fname" ; done ; }
 deldir(){ find "${@:2}" | while IFS= read fname ; do curl -X DELETE "$1$fname" ; done ; }
+cshow(){ diff -Nru /var/empty ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$2 | less ; }
+cdiff(){ diff -Nru ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$2 ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$3 | less ; }
 
 alias warc="wget --delete-after --no-directories --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
