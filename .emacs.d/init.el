@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'package)
 
 (add-to-list 'package-archives
@@ -145,7 +147,7 @@
 ;; borrowed from https://emacs.stackexchange.com/a/45910/37594
 (defun move-file ()
   "Move current to another directory, for which you're prompted.
-Directory defaults to the value of 'move-file-default-target'."
+Directory defaults to the value of `move-file-default-target'."
   (interactive)
   (let ((old  (or (buffer-file-name)  (user-error "Not visiting a file")))
 	(dir  (read-directory-name "Move to: " move-file-default-target)))
@@ -154,23 +156,23 @@ Directory defaults to the value of 'move-file-default-target'."
 
 (defvar onlytabs-keymap
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "TAB") 'self-insert-command)
+    (define-key map (kbd "TAB") #'self-insert-command)
     map))
 
 (define-minor-mode onlytabs-mode
   "make the tab key only emit a literal tab"
   :lighter " tab" :keymap onlytabs-keymap
   (setq-local electric-indent-inhibit t)
-  (setq-local indent-line-function 'indent-relative)
+  (setq-local indent-line-function #'indent-relative)
   (setq-local indent-tabs-mode t))
 
 (require 'evil)
 (define-key evil-insert-state-map [S-left] nil)
 (define-key evil-insert-state-map [S-right] nil)
 (define-key evil-normal-state-map (kbd "M-.") nil)
-(define-key evil-normal-state-map "f" 'evil-find-char)
+(define-key evil-normal-state-map "f" #'evil-find-char)
 (define-key evil-motion-state-map "f" nil)
-(define-key evil-normal-state-map (kbd "RET") 'evil-ret)
+(define-key evil-normal-state-map (kbd "RET") #'evil-ret)
 (define-key evil-motion-state-map (kbd "RET") nil)
 (evil-set-initial-state 'term-mode 'emacs)
 (evil-set-initial-state 'circe-mode 'emacs)
@@ -185,11 +187,11 @@ Directory defaults to the value of 'move-file-default-target'."
     (condition-case nil
         (fill-region beg end "fill")
       (error nil))))
-(define-key evil-normal-state-map "gj" 'evil-fill-justify)
+(define-key evil-normal-state-map "gj" #'evil-fill-justify)
 
 (require 'elisp-mode)
-(define-key lisp-mode-shared-map (kbd "C-c C-c") 'compile-defun)
-(define-key lisp-mode-shared-map (kbd "DEL") 'evil-delete-backward-char-and-join)
+(define-key lisp-mode-shared-map (kbd "C-c C-c") #'compile-defun)
+(define-key lisp-mode-shared-map (kbd "DEL") #'evil-delete-backward-char-and-join)
 
 (display-time-mode 1)
 
@@ -199,13 +201,13 @@ Directory defaults to the value of 'move-file-default-target'."
 (setenv "EDITOR" "emacsclient")
 
 (require 'eww)
-(define-key eww-mode-map "u" 'eww-back-url)
-(define-key eww-mode-map "g" 'eww)
-(define-key eww-mode-map "G" 'eww-reload)
-(define-key eww-mode-map (kbd "C-x w") 'eww-copy-page-url)
+(define-key eww-mode-map "u" #'eww-back-url)
+(define-key eww-mode-map "g" #'eww)
+(define-key eww-mode-map "G" #'eww-reload)
+(define-key eww-mode-map (kbd "C-x w") #'eww-copy-page-url)
 
 (require 'elpher)
-(define-key elpher-mode-map (kbd "C-x w") 'elpher-copy-current-url)
+(define-key elpher-mode-map (kbd "C-x w") #'elpher-copy-current-url)
 
 (require 'org)
 ;; support gopher and gemini links for org
@@ -248,37 +250,37 @@ Directory defaults to the value of 'move-file-default-target'."
   (let ((new 0))
     (while (rassq new references) (setq new (+ new 1)))
     new))
-(advice-add #'org-export-new-reference :override #'org-export-deterministic-reference)
+(advice-add 'org-export-new-reference :override #'org-export-deterministic-reference)
 
 (defun org-timestamp-now ()
   "insert an inactive timestamp without prompting"
   (interactive)
   (org-timestamp-inactive '(16)))
 
-(define-key org-mode-map (kbd "C-c C-1") 'org-timestamp-now)
-(define-key org-mode-map (kbd "C-M-<return>") 'org-meta-return)
-(define-key org-mode-map (kbd "C-c M-,") 'org-insert-structure-template)
+(define-key org-mode-map (kbd "C-c C-1") #'org-timestamp-now)
+(define-key org-mode-map (kbd "C-M-<return>") #'org-meta-return)
+(define-key org-mode-map (kbd "C-c M-,") #'org-insert-structure-template)
 
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook #'turn-on-auto-fill)
+(add-hook 'text-mode-hook #'turn-on-auto-fill)
 
 (require 'inf-lisp)
-(define-key lisp-mode-map "\C-c\C-c" 'lisp-compile-defun)
+(define-key lisp-mode-map "\C-c\C-c" #'lisp-compile-defun)
 
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
 
 (require 'eglot)
 (require 'rust-mode)
 ; override the rust-mode stuff because it does not work over tramp >:(
-(define-key rust-mode-map (kbd "C-c C-f") 'eglot-format-buffer)
-(define-key rust-mode-map (kbd "C-c C-r") 'eglot-rename)
-(define-key rust-mode-map (kbd "<mouse-3>") 'eglot-code-actions-at-mouse)
+(define-key rust-mode-map (kbd "C-c C-f") #'eglot-format-buffer)
+(define-key rust-mode-map (kbd "C-c C-r") #'eglot-rename)
+(define-key rust-mode-map (kbd "<mouse-3>") #'eglot-code-actions-at-mouse)
 
 (require 'flymake)
-(define-key flymake-mode-map (kbd "C-x `") 'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "C-x `") #'flymake-goto-next-error)
 
 (require 'separedit)
-(define-key rust-mode-map (kbd "C-c '") 'separedit)
+(define-key rust-mode-map (kbd "C-c '") #'separedit)
 
 (require 'paredit)
 (define-key paredit-mode-map (kbd "C-<left>") nil)
@@ -287,33 +289,33 @@ Directory defaults to the value of 'move-file-default-target'."
 (define-key paredit-mode-map (kbd "M-<right>") #'paredit-forward-slurp-sexp)
 
 (require 'company)
-(define-key company-mode-map (kbd "C-<tab>") 'company-complete)
-(define-key company-mode-map (kbd "<backtab>") 'company-complete)
-(define-key company-active-map (kbd "C-l") 'company-abort)
-(define-key company-active-map (kbd "C-<up>") 'company-abort)
-(define-key company-active-map (kbd "C-<down>") 'company-abort)
-(define-key company-active-map (kbd "C-<left>") 'company-abort)
-(define-key company-active-map (kbd "C-<right>") 'company-abort)
-(define-key company-active-map (kbd "<escape>") 'company-abort)
-(define-key company-active-map (kbd "C-j") 'company-select-next-or-abort)
-(define-key company-active-map (kbd "C-k") 'company-select-previous-or-abort)
+(define-key company-mode-map (kbd "C-<tab>") #'company-complete)
+(define-key company-mode-map (kbd "<backtab>") #'company-complete)
+(define-key company-active-map (kbd "C-l") #'company-abort)
+(define-key company-active-map (kbd "C-<up>") #'company-abort)
+(define-key company-active-map (kbd "C-<down>") #'company-abort)
+(define-key company-active-map (kbd "C-<left>") #'company-abort)
+(define-key company-active-map (kbd "C-<right>") #'company-abort)
+(define-key company-active-map (kbd "<escape>") #'company-abort)
+(define-key company-active-map (kbd "C-j") #'company-select-next-or-abort)
+(define-key company-active-map (kbd "C-k") #'company-select-previous-or-abort)
 
 (defun turn-off-company ()
   (company-mode -1))
-(add-hook 'term-mode-hook 'turn-off-company)
-(add-hook 'eshell-mode-hook 'turn-off-company)
-(add-hook 'circe-mode-hook 'turn-off-company)
-(add-hook 'org-mode-hook 'turn-off-company)
+(add-hook 'term-mode-hook #'turn-off-company)
+(add-hook 'eshell-mode-hook #'turn-off-company)
+(add-hook 'circe-mode-hook #'turn-off-company)
+(add-hook 'org-mode-hook #'turn-off-company)
 
-(add-hook 'doc-view-mode-hook 'auto-revert-mode)
+(add-hook 'doc-view-mode-hook #'auto-revert-mode)
 
 (defun turn-off-line-numbers ()
   (display-line-numbers-mode 0))
-(add-hook 'ses-mode-hook 'turn-off-line-numbers)
+(add-hook 'ses-mode-hook #'turn-off-line-numbers)
 
 (require 'circe)
-(defalias 'circe-command-AA 'circe-command-GAWAY)
-(defalias 'circe-command-J 'circe-command-JOIN)
+(defalias 'circe-command-AA #'circe-command-GAWAY)
+(defalias 'circe-command-J #'circe-command-JOIN)
 
 (load "lui-logging" nil t)
 (enable-lui-logging-globally)
@@ -331,9 +333,9 @@ Directory defaults to the value of 'move-file-default-target'."
   (interactive)
   (irc-send-raw (circe-server-process)
                 (format "CHANSERV :op %s" circe-chat-target)))
-(define-key lui-mode-map (kbd "C-f") 'chanserv-op)
-(define-key lui-mode-map (kbd "C-u") 'lui-kill-to-beginning-of-line)
-(define-key lui-mode-map (kbd "C-w") 'evil-delete-backward-word)
+(define-key lui-mode-map (kbd "C-f") #'chanserv-op)
+(define-key lui-mode-map (kbd "C-u") #'lui-kill-to-beginning-of-line)
+(define-key lui-mode-map (kbd "C-w") #'evil-delete-backward-word)
 
 (require 'vulpforth)
 (require 'redtick)
