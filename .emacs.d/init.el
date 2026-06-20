@@ -288,6 +288,12 @@ Directory defaults to the value of `move-file-default-target'."
 (define-key paredit-mode-map (kbd "M-<left>") #'paredit-forward-barf-sexp)
 (define-key paredit-mode-map (kbd "M-<right>") #'paredit-forward-slurp-sexp)
 
+(defun enable-paredit-mode ()
+  (paredit-mode 1))
+(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook #'enable-paredit-mode)
+
 (require 'company)
 (define-key company-mode-map (kbd "C-<tab>") #'company-complete)
 (define-key company-mode-map (kbd "<backtab>") #'company-complete)
