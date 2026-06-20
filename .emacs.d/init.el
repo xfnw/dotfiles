@@ -101,8 +101,8 @@
  '(package-selected-packages
    '(browse-at-remote circe company elpher emacs-everywhere evil geiser
                       geiser-guile gruvbox-theme magit nix-mode
-                      nyan-mode ob-nix osm ox-rfc ox-typst rust-mode
-                      separedit slime smog))
+                      nyan-mode ob-nix osm ox-rfc ox-typst paredit
+                      rust-mode separedit slime smog))
  '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
@@ -279,6 +279,12 @@ Directory defaults to the value of 'move-file-default-target'."
 
 (require 'separedit)
 (define-key rust-mode-map (kbd "C-c '") 'separedit)
+
+(require 'paredit)
+(define-key paredit-mode-map (kbd "C-<left>") nil)
+(define-key paredit-mode-map (kbd "C-<right>") nil)
+(define-key paredit-mode-map (kbd "M-<left>") #'paredit-forward-barf-sexp)
+(define-key paredit-mode-map (kbd "M-<right>") #'paredit-forward-slurp-sexp)
 
 (require 'company)
 (define-key company-mode-map (kbd "C-<tab>") 'company-complete)
