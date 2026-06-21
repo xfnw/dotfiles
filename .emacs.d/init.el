@@ -57,6 +57,7 @@
  '(evil-want-C-u-delete t)
  '(evil-want-C-u-scroll t)
  '(evil-want-minibuffer t)
+ '(geiser-debug-jump-to-debug nil)
  '(global-company-mode t)
  '(indent-tabs-mode nil)
  '(inferior-lisp-program "sbcl")
