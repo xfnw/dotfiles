@@ -287,6 +287,7 @@ Directory defaults to the value of `move-file-default-target'."
 (define-key paredit-mode-map (kbd "C-<right>") nil)
 (define-key paredit-mode-map (kbd "M-<left>") #'paredit-forward-barf-sexp)
 (define-key paredit-mode-map (kbd "M-<right>") #'paredit-forward-slurp-sexp)
+(define-key paredit-mode-map (kbd "M-c") #'paredit-convolute-sexp)
 
 (defun enable-paredit-mode ()
   (paredit-mode 1))
