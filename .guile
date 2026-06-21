@@ -1,2 +1,16 @@
-(use-modules (srfi srfi-1) (ice-9 readline))
+(use-modules (ice-9 readline))
 (activate-readline)
+
+(define (foldl op cum lst)
+  (if (null? lst)
+      cum
+      (foldl op (op (car lst) cum) (cdr lst))))
+
+(define (foldl1 op lst)
+  (when (not (null? lst))
+    (foldl op (car lst) (cdr lst))))
+
+(define (foldr op in lst)
+  (if (null? lst)
+      in
+      (op (car lst) (foldr op in (cdr lst)))))
