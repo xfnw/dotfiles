@@ -14,3 +14,7 @@
   (if (null? lst)
       in
       (op (car lst) (foldr op in (cdr lst)))))
+
+(define (fix f)
+  (letrec ((x (f (delay x))))
+    x))
