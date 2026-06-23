@@ -339,29 +339,35 @@ Directory defaults to the value of `move-file-default-target'."
   (display-line-numbers-mode 0))
 (add-hook 'ses-mode-hook #'turn-off-line-numbers)
 
-(require 'circe)
-(defalias 'circe-command-AA #'circe-command-GAWAY)
-(defalias 'circe-command-J #'circe-command-JOIN)
+(use-package circe
+  :commands circe
+  :after evil
+  :config
+  (defalias 'circe-command-AA #'circe-command-GAWAY)
+  (defalias 'circe-command-J #'circe-command-JOIN)
 
-(load "lui-logging" nil t)
-(enable-lui-logging-globally)
+  ;; XXX: i do not remember why this needs to be loaded in such an odd way
+  ;; can this be put into a separate use-package?
+  (load "lui-logging" nil t)
+  (enable-lui-logging-globally)
+
+  (let ((cert (expand-file-name (concat user-emacs-directory "irc.pem"))))
+    (when (file-exists-p cert)
+      (setq-default circe-tls-keylist (list (list cert cert)))))
+
+  (defun chanserv-op ()
+    (interactive)
+    (irc-send-raw (circe-server-process)
+                  (format "CHANSERV :op %s" circe-chat-target)))
+  (define-key lui-mode-map (kbd "C-f") #'chanserv-op)
+  (define-key lui-mode-map (kbd "C-u") #'lui-kill-to-beginning-of-line)
+  (define-key lui-mode-map (kbd "C-w") #'evil-delete-backward-word))
 
 (defun circe-tls ()
   (interactive)
   (circe (read-string "host: ")
          :port (read-number "port: " 6697)
          :use-tls t))
-(let ((cert (expand-file-name (concat user-emacs-directory "irc.pem"))))
-  (when (file-exists-p cert)
-    (setq-default circe-tls-keylist (list (list cert cert)))))
-
-(defun chanserv-op ()
-  (interactive)
-  (irc-send-raw (circe-server-process)
-                (format "CHANSERV :op %s" circe-chat-target)))
-(define-key lui-mode-map (kbd "C-f") #'chanserv-op)
-(define-key lui-mode-map (kbd "C-u") #'lui-kill-to-beginning-of-line)
-(define-key lui-mode-map (kbd "C-w") #'evil-delete-backward-word)
 
 (use-package vulpforth
   :commands vulpforth
