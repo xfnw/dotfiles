@@ -58,7 +58,6 @@
  '(evil-want-minibuffer t)
  '(geiser-debug-jump-to-debug nil)
  '(indent-tabs-mode nil)
- '(inferior-lisp-program "sbcl")
  '(initial-scratch-message ";; Meow! Welcome to the scratching post!\12\12")
  '(lui-fill-column 105)
  '(lui-logging-directory (concat user-emacs-directory "irclogs"))
@@ -281,15 +280,14 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package bytecomp
   :commands compile-defun)
 
-(use-package inf-lisp
-  :commands lisp-compile-defun)
-
 (use-package lisp-mode
   :mode ("\\.cl\\'" . lisp-mode)
-  :bind (:map lisp-mode-map
-         ("\C-c\C-c" . lisp-compile-defun)
-         :map lisp-mode-shared-map
-         ("C-c C-c" . compile-defun)))
+  :bind (:map lisp-mode-shared-map
+         ("C-c C-c" . compile-defun))
+  :config
+  ;; deferring loading inf-lisp seems to make it ignore
+  ;; the value of inferior-lisp-program in custom :(
+  (setq inferior-lisp-program "sbcl"))
 
 (use-package eglot
   :commands (eglot
