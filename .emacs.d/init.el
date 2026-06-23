@@ -223,57 +223,58 @@ Directory defaults to the value of `move-file-default-target'."
 (require 'elpher)
 (define-key elpher-mode-map (kbd "C-x w") #'elpher-copy-current-url)
 
-(require 'org)
-;; support gopher and gemini links for org
-;; https://list.orgmode.org/87k1vsiv7t.fsf@nicolasgoaziou.fr/t/
-(defun org-link-gopher-export-link (link desc format)
-  "Create export of gopher links"
-  (let ((link (concat "gopher:" link)))
+(use-package org
+  :bind (:map org-mode-map
+         ("C-c C-1" . org-timestamp-now)
+         ("C-M-<return>" . org-meta-return)
+         ("C-c M-," . org-insert-structure-template))
+  :config
+  ;; support gopher and gemini links for org
+  ;; https://list.orgmode.org/87k1vsiv7t.fsf@nicolasgoaziou.fr/t/
+  (defun org-link-gopher-export-link (link desc format)
+    "Create export of gopher links"
+    (let ((link (concat "gopher:" link)))
+      (cond
+       ((eq format 'html)
+        (format "<a href=\"%s\">%s</a>" link desc))
+       ((eq format 'latex)
+        (format "\\href{%s}{%s}" link desc))
+       (t
+        (format "[%s](%s)" desc link)))))
+  (defun org-link-gemini-export-link (link desc format)
+    "Create export of gemini links"
+    (let ((link (concat "gemini:" link)))
+      (cond
+       ((eq format 'html)
+        (format "<a href=\"%s\">%s</a>" link desc))
+       ((eq format 'latex)
+        (format "\\href{%s}{%s}" link desc))
+       (t
+        (format "[%s](%s)" desc link)))))
+  ;; my cursed abbreviations
+  (defun org-link-abbr-export-link (link desc format)
+    "Create export of abbreviations"
     (cond
      ((eq format 'html)
-      (format "<a href=\"%s\">%s</a>" link desc))
-     ((eq format 'latex)
-      (format "\\href{%s}{%s}" link desc))
+      (format "<abbr title=\"%s\">%s</abbr>" link desc))
      (t
-      (format "[%s](%s)" desc link)))))
-(defun org-link-gemini-export-link (link desc format)
-  "Create export of gemini links"
-  (let ((link (concat "gemini:" link)))
-    (cond
-     ((eq format 'html)
-      (format "<a href=\"%s\">%s</a>" link desc))
-     ((eq format 'latex)
-      (format "\\href{%s}{%s}" link desc))
-     (t
-      (format "[%s](%s)" desc link)))))
-;; my cursed abbreviations
-(defun org-link-abbr-export-link (link desc format)
-  "Create export of abbreviations"
-  (cond
-   ((eq format 'html)
-    (format "<abbr title=\"%s\">%s</abbr>" link desc))
-   (t
-    (format "%s (%s)" desc link))))
+      (format "%s (%s)" desc link))))
 
-(org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
-(org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
-(org-link-set-parameters "abbr" :export #'org-link-abbr-export-link)
+  (org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
+  (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
+  (org-link-set-parameters "abbr" :export #'org-link-abbr-export-link)
 
-(defun org-export-deterministic-reference (references)
-  "make org export's html anchor ids deterministic."
-  (let ((new 0))
-    (while (rassq new references) (setq new (+ new 1)))
-    new))
-(advice-add 'org-export-new-reference :override #'org-export-deterministic-reference)
+  (defun org-export-deterministic-reference (references)
+    "make org export's html anchor ids deterministic."
+    (let ((new 0))
+      (while (rassq new references) (setq new (+ new 1)))
+      new))
+  (advice-add 'org-export-new-reference :override #'org-export-deterministic-reference)
 
-(defun org-timestamp-now ()
-  "insert an inactive timestamp without prompting"
-  (interactive)
-  (org-timestamp-inactive '(16)))
-
-(define-key org-mode-map (kbd "C-c C-1") #'org-timestamp-now)
-(define-key org-mode-map (kbd "C-M-<return>") #'org-meta-return)
-(define-key org-mode-map (kbd "C-c M-,") #'org-insert-structure-template)
+  (defun org-timestamp-now ()
+    "insert an inactive timestamp without prompting"
+    (interactive)
+    (org-timestamp-inactive '(16))))
 
 (use-package bytecomp
   :commands compile-defun)
