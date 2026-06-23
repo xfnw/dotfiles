@@ -285,18 +285,21 @@ Directory defaults to the value of `move-file-default-target'."
 
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
 
-(require 'eglot)
-(require 'rust-mode)
-; override the rust-mode stuff because it does not work over tramp >:(
-(define-key rust-mode-map (kbd "C-c C-f") #'eglot-format-buffer)
-(define-key rust-mode-map (kbd "C-c C-r") #'eglot-rename)
-(define-key rust-mode-map (kbd "<mouse-3>") #'eglot-code-actions-at-mouse)
+(use-package eglot)
+
+(use-package separedit)
+
+(use-package rust-mode
+  :after (eglot separedit)
+  :bind (:map rust-mode-map
+         ; override the rust-mode stuff because it does not work over tramp >:(
+         ("C-c C-f" . eglot-format-buffer)
+         ("C-c C-r" . eglot-rename)
+         ("<mouse-3>" . eglot-code-actions-at-mouse)
+         ("C-c '" . separedit)))
 
 (require 'flymake)
 (define-key flymake-mode-map (kbd "C-x `") #'flymake-goto-next-error)
-
-(require 'separedit)
-(define-key rust-mode-map (kbd "C-c '") #'separedit)
 
 (use-package paredit
   :bind (:map paredit-mode-map
