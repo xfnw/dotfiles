@@ -179,7 +179,9 @@ Directory defaults to the value of `move-file-default-target'."
   :bind (("C-c b" . bar-to-clipboard)))
 
 (use-package simple
-  :bind (("C-c q" . auto-fill-mode)))
+  :bind (("C-c q" . auto-fill-mode))
+  :hook ((org-mode . turn-on-auto-fill)
+         (text-mode . turn-on-auto-fill)))
 
 (use-package buff-menu
   :bind (("<f12>" . buffer-menu)))
@@ -272,9 +274,6 @@ Directory defaults to the value of `move-file-default-target'."
 (define-key org-mode-map (kbd "C-c C-1") #'org-timestamp-now)
 (define-key org-mode-map (kbd "C-M-<return>") #'org-meta-return)
 (define-key org-mode-map (kbd "C-c M-,") #'org-insert-structure-template)
-
-(add-hook 'org-mode-hook #'turn-on-auto-fill)
-(add-hook 'text-mode-hook #'turn-on-auto-fill)
 
 (use-package bytecomp
   :commands compile-defun)
