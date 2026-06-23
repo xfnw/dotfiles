@@ -207,10 +207,6 @@ Directory defaults to the value of `move-file-default-target'."
       (error nil))))
 (define-key evil-normal-state-map "gj" #'evil-fill-justify)
 
-(require 'elisp-mode)
-(define-key lisp-mode-shared-map (kbd "C-c C-c") #'compile-defun)
-(define-key lisp-mode-shared-map (kbd "DEL") #'evil-delete-backward-char-and-join)
-
 (require 'text-mode)
 (add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
 
@@ -280,10 +276,18 @@ Directory defaults to the value of `move-file-default-target'."
 (add-hook 'org-mode-hook #'turn-on-auto-fill)
 (add-hook 'text-mode-hook #'turn-on-auto-fill)
 
-(require 'inf-lisp)
-(define-key lisp-mode-map "\C-c\C-c" #'lisp-compile-defun)
+(use-package bytecomp
+  :commands compile-defun)
 
-(add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
+(use-package inf-lisp
+  :commands lisp-compile-defun)
+
+(use-package lisp-mode
+  :mode ("\\.cl\\'" . lisp-mode)
+  :bind (:map lisp-mode-map
+         ("\C-c\C-c" . lisp-compile-defun)
+         :map lisp-mode-shared-map
+         ("C-c C-c" . compile-defun)))
 
 (use-package eglot
   :commands (eglot
