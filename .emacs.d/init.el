@@ -364,8 +364,8 @@ Directory defaults to the value of `move-file-default-target'."
   :commands vulpforth
   :mode ("\\.vf\\'" . vulpforth-mode))
 
-(require 'redtick)
-(redtick-mode 1)
+(use-package redtick
+  :hook (after-init . redtick-mode))
 
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
