@@ -214,11 +214,12 @@ Directory defaults to the value of `move-file-default-target'."
 (require 'text-mode)
 (add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
 
-(require 'eww)
-(define-key eww-mode-map "u" #'eww-back-url)
-(define-key eww-mode-map "g" #'eww)
-(define-key eww-mode-map "G" #'eww-reload)
-(define-key eww-mode-map (kbd "C-x w") #'eww-copy-page-url)
+(use-package eww
+  :bind (:map eww-mode-map
+         ("u" . eww-back-url)
+         ("g" . eww)
+         ("G" . eww-reload)
+         ("C-x w" . eww-copy-page-url)))
 
 (use-package elpher
   :bind (:map elpher-mode-map
