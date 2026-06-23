@@ -220,8 +220,9 @@ Directory defaults to the value of `move-file-default-target'."
 (define-key eww-mode-map "G" #'eww-reload)
 (define-key eww-mode-map (kbd "C-x w") #'eww-copy-page-url)
 
-(require 'elpher)
-(define-key elpher-mode-map (kbd "C-x w") #'elpher-copy-current-url)
+(use-package elpher
+  :bind (:map elpher-mode-map
+         ("C-x w" . elpher-copy-current-url)))
 
 (use-package org
   :bind (:map org-mode-map
