@@ -114,7 +114,8 @@
  '(use-short-answers t)
  '(whitespace-display-mappings
    '((space-mark 32 [183] [46]) (space-mark 160 [164] [95])
-     (tab-mark 9 [187 9] [92 9]))))
+     (tab-mark 9 [187 9] [92 9])))
+ '(xterm-mouse-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
