@@ -128,19 +128,6 @@
 
 (package-install-selected-packages)
 
-(global-set-key (kbd "C-x M-r") 'rename-buffer)
-(global-set-key (kbd "C-x C-a") 'recompile)
-(global-set-key (kbd "C-c r") 'tramp-revert-buffer-with-sudo)
-(global-set-key (kbd "C-c c") 'compile)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c t") 'org-capture)
-(global-set-key (kbd "C-c m") 'magit)
-(global-set-key (kbd "C-c M") 'magit-file-dispatch)
-(global-set-key (kbd "C-c b") 'bar-to-clipboard)
-(global-set-key (kbd "C-c q") 'auto-fill-mode)
-(global-set-key (kbd "<f12>") 'buffer-menu)
-
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
 
@@ -167,6 +154,34 @@ Directory defaults to the value of `move-file-default-target'."
   (setq-local electric-indent-inhibit t)
   (setq-local indent-line-function #'indent-relative)
   (setq-local indent-tabs-mode t))
+
+(use-package emacs
+  :bind ("C-x M-r" . rename-buffer))
+
+(use-package compile
+  :bind (("C-c c" . compile)
+         ("C-x C-a" . recompile)))
+
+(use-package tramp
+  :bind (("C-c r" . tramp-revert-buffer-with-sudo)))
+
+(use-package org
+  :bind (("C-c a" . org-agenda)
+         ("C-c l" . org-store-link)
+         ("C-c t" . org-capture)))
+
+(use-package magit
+  :bind (("C-c m" . magit)
+         ("C-c M" . magit-file-dispatch)))
+
+(use-package browse-at-remote
+  :bind (("C-c b" . bar-to-clipboard)))
+
+(use-package simple
+  :bind (("C-c q" . auto-fill-mode)))
+
+(use-package buff-menu
+  :bind (("<f12>" . buffer-menu)))
 
 (require 'evil)
 (define-key evil-insert-state-map [S-left] nil)
