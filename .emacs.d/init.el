@@ -332,7 +332,8 @@ Directory defaults to the value of `move-file-default-target'."
   (add-hook 'circe-mode-hook #'turn-off-company)
   (add-hook 'org-mode-hook #'turn-off-company))
 
-(add-hook 'doc-view-mode-hook #'auto-revert-mode)
+(use-package autorevert
+  :hook (doc-view-mode . auto-revert-mode))
 
 (defun turn-off-line-numbers ()
   (display-line-numbers-mode 0))
