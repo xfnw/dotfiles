@@ -302,8 +302,9 @@ Directory defaults to the value of `move-file-default-target'."
          ("<mouse-3>" . eglot-code-actions-at-mouse)
          ("C-c '" . separedit)))
 
-(require 'flymake)
-(define-key flymake-mode-map (kbd "C-x `") #'flymake-goto-next-error)
+(use-package flymake
+  :bind (:map flymake-mode-map
+         ("C-x `" . flymake-goto-next-error)))
 
 (use-package paredit
   :bind (:map paredit-mode-map
