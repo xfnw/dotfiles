@@ -211,8 +211,8 @@ Directory defaults to the value of `move-file-default-target'."
       (error nil))))
 (define-key evil-normal-state-map "gj" #'evil-fill-justify)
 
-(require 'text-mode)
-(add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
+(use-package text-mode
+  :mode "\\.gm\\'")
 
 (use-package eww
   :bind (:map eww-mode-map
