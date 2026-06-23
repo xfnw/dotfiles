@@ -285,12 +285,16 @@ Directory defaults to the value of `move-file-default-target'."
 
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . lisp-mode))
 
-(use-package eglot)
+(use-package eglot
+  :commands (eglot
+             eglot-code-actions-at-mouse
+             eglot-format-buffer
+             eglot-rename))
 
-(use-package separedit)
+(use-package separedit
+  :commands separedit)
 
 (use-package rust-mode
-  :after (eglot separedit)
   :bind (:map rust-mode-map
          ; override the rust-mode stuff because it does not work over tramp >:(
          ("C-c C-f" . eglot-format-buffer)
