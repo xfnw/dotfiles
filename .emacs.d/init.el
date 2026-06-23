@@ -360,7 +360,10 @@ Directory defaults to the value of `move-file-default-target'."
 (define-key lui-mode-map (kbd "C-u") #'lui-kill-to-beginning-of-line)
 (define-key lui-mode-map (kbd "C-w") #'evil-delete-backward-word)
 
-(require 'vulpforth)
+(use-package vulpforth
+  :commands vulpforth
+  :mode ("\\.vf\\'" . vulpforth-mode))
+
 (require 'redtick)
 (redtick-mode 1)
 
