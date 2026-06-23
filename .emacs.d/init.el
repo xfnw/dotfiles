@@ -335,9 +335,11 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package autorevert
   :hook (doc-view-mode . auto-revert-mode))
 
-(defun turn-off-line-numbers ()
-  (display-line-numbers-mode 0))
-(add-hook 'ses-mode-hook #'turn-off-line-numbers)
+(use-package display-line-numbers
+  :config
+  (defun turn-off-line-numbers ()
+    (display-line-numbers-mode 0))
+  (add-hook 'ses-mode-hook #'turn-off-line-numbers))
 
 (use-package circe
   :commands circe
