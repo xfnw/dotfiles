@@ -132,6 +132,8 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
 
+(setenv "EDITOR" "emacsclient")
+
 (defvar move-file-default-target "~/Documents/" "move-file's default target")
 
 ;; borrowed from https://emacs.stackexchange.com/a/45910/37594
@@ -211,8 +213,6 @@ Directory defaults to the value of `move-file-default-target'."
 
 (require 'text-mode)
 (add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
-
-(setenv "EDITOR" "emacsclient")
 
 (require 'eww)
 (define-key eww-mode-map "u" #'eww-back-url)
