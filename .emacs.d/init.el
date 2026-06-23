@@ -50,6 +50,7 @@
  '(dired-auto-revert-buffer 'dired-directory-changed-p)
  '(dired-listing-switches "-alt")
  '(display-line-numbers 'relative)
+ '(display-time-mode t)
  '(eldoc-echo-area-use-multiline-p nil)
  '(elpher-gemini-max-fill-width 75)
  '(evil-undo-system 'undo-redo)
@@ -209,8 +210,6 @@ Directory defaults to the value of `move-file-default-target'."
 (require 'elisp-mode)
 (define-key lisp-mode-shared-map (kbd "C-c C-c") #'compile-defun)
 (define-key lisp-mode-shared-map (kbd "DEL") #'evil-delete-backward-char-and-join)
-
-(display-time-mode 1)
 
 (require 'text-mode)
 (add-to-list 'auto-mode-alist '("\\.gm\\'" . text-mode))
