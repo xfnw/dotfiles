@@ -298,18 +298,16 @@ Directory defaults to the value of `move-file-default-target'."
 (require 'separedit)
 (define-key rust-mode-map (kbd "C-c '") #'separedit)
 
-(require 'paredit)
-(define-key paredit-mode-map (kbd "C-<left>") nil)
-(define-key paredit-mode-map (kbd "C-<right>") nil)
-(define-key paredit-mode-map (kbd "M-<left>") #'paredit-forward-barf-sexp)
-(define-key paredit-mode-map (kbd "M-<right>") #'paredit-forward-slurp-sexp)
-(define-key paredit-mode-map (kbd "M-c") #'paredit-convolute-sexp)
-
-(defun enable-paredit-mode ()
-  (paredit-mode 1))
-(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook #'enable-paredit-mode)
+(use-package paredit
+  :bind (:map paredit-mode-map
+         ("C-<left>" . nil)
+         ("C-<right>" . nil)
+         ("M-<left>" . paredit-forward-barf-sexp)
+         ("M-<right>" . paredit-forward-slurp-sexp)
+         ("M-c" . paredit-convolute-sexp))
+  :hook ((emacs-lisp-mode . paredit-mode)
+         (lisp-mode . paredit-mode)
+         (scheme-mode . paredit-mode)))
 
 (use-package company
   :bind (:map company-mode-map
