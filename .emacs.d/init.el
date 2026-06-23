@@ -37,7 +37,6 @@
  '(circe-server-max-reconnect-attempts 1)
  '(circe-server-send-unknown-command-p t)
  '(circe-use-cycle-completion t)
- '(column-number-mode t)
  '(company-idle-delay nil)
  '(company-selection-wrap-around t)
  '(company-show-quick-access t)
@@ -50,7 +49,6 @@
  '(dired-auto-revert-buffer 'dired-directory-changed-p)
  '(dired-listing-switches "-alt")
  '(display-line-numbers 'relative)
- '(display-time-mode t)
  '(eldoc-echo-area-use-multiline-p nil)
  '(elpher-gemini-max-fill-width 75)
  '(evil-undo-system 'undo-redo)
@@ -59,7 +57,6 @@
  '(evil-want-C-u-scroll t)
  '(evil-want-minibuffer t)
  '(geiser-debug-jump-to-debug nil)
- '(global-company-mode t)
  '(indent-tabs-mode nil)
  '(inferior-lisp-program "sbcl")
  '(initial-scratch-message ";; Meow! Welcome to the scratching post!\12\12")
@@ -107,7 +104,6 @@
                       geiser-guile gruvbox-theme magit nix-mode
                       nyan-mode ob-nix osm ox-rfc ox-typst paredit
                       rust-mode separedit slime smog))
- '(save-place-mode t)
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
  '(tab-always-indent nil)
@@ -115,8 +111,7 @@
  '(use-short-answers t)
  '(whitespace-display-mappings
    '((space-mark 32 [183] [46]) (space-mark 160 [164] [95])
-     (tab-mark 9 [187 9] [92 9])))
- '(xterm-mouse-mode t))
+     (tab-mark 9 [187 9] [92 9]))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -182,7 +177,8 @@ Directory defaults to the value of `move-file-default-target'."
 
 (use-package simple
   :bind (("C-c q" . auto-fill-mode))
-  :hook ((org-mode . turn-on-auto-fill)
+  :hook ((after-init . column-number-mode)
+         (org-mode . turn-on-auto-fill)
          (text-mode . turn-on-auto-fill)))
 
 (use-package buff-menu
@@ -340,6 +336,7 @@ Directory defaults to the value of `move-file-default-target'."
          ("<escape>" . company-abort)
          ("C-j" . company-select-next-or-abort)
          ("C-k" . company-select-previous-or-abort))
+  :hook (after-init . global-company-mode)
   :config
   (defun turn-off-company ()
     (company-mode -1))
@@ -393,6 +390,15 @@ Directory defaults to the value of `move-file-default-target'."
 
 (use-package redtick
   :hook (after-init . redtick-mode))
+
+(use-package save-place-mode
+  :hook (after-init . save-place-mode))
+
+(use-package time
+  :hook (after-init . display-time-mode))
+
+(use-package xt-mouse
+  :hook (after-init . xterm-mouse-mode))
 
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
