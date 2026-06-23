@@ -188,28 +188,32 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package buff-menu
   :bind (("<f12>" . buffer-menu)))
 
-(require 'evil)
-(define-key evil-insert-state-map [S-left] nil)
-(define-key evil-insert-state-map [S-right] nil)
-(define-key evil-normal-state-map (kbd "M-.") nil)
-(define-key evil-normal-state-map "f" #'evil-find-char)
-(define-key evil-motion-state-map "f" nil)
-(define-key evil-normal-state-map (kbd "RET") #'evil-ret)
-(define-key evil-motion-state-map (kbd "RET") nil)
-(evil-set-initial-state 'term-mode 'emacs)
-(evil-set-initial-state 'circe-mode 'emacs)
-(evil-set-initial-state 'ses-mode 'emacs)
-(evil-mode 1)
+(use-package evil
+  :bind (:map evil-insert-state-map
+         ([S-left] . nil)
+         ([S-right] . nil)
+         :map evil-normal-state-map
+         ("M-." . nil)
+         ("f" . evil-find-char)
+         ("RET" . evil-ret)
+         :map evil-motion-state-map
+         ("f" . nil)
+         ("RET" . nil))
+  :hook (after-init . evil-mode)
+  :config
+  (evil-set-initial-state 'term-mode 'emacs)
+  (evil-set-initial-state 'circe-mode 'emacs)
+  (evil-set-initial-state 'ses-mode 'emacs)
 
-(evil-define-operator evil-fill-justify (beg end)
-  "fill justified text."
-  :move-point nil
-  :type line
-  (save-excursion
-    (condition-case nil
-        (fill-region beg end "fill")
-      (error nil))))
-(define-key evil-normal-state-map "gj" #'evil-fill-justify)
+  (evil-define-operator evil-fill-justify (beg end)
+    "fill justified text."
+    :move-point nil
+    :type line
+    (save-excursion
+      (condition-case nil
+          (fill-region beg end "fill")
+        (error nil))))
+  (define-key evil-normal-state-map "gj" #'evil-fill-justify))
 
 (use-package text-mode
   :mode "\\.gm\\'")
