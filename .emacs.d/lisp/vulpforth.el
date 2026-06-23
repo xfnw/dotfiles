@@ -15,6 +15,7 @@
   "buffer name for vulpforth"
   :type 'string)
 
+;;;###autoload
 (defun vulpforth ()
   "start vulpforth"
   (interactive)
