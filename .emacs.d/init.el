@@ -195,6 +195,7 @@ Directory defaults to the value of `move-file-default-target'."
          ("f" . nil)
          ("RET" . nil))
   :hook (after-init . evil-mode)
+  :functions evil-fill-justify
   :config
   (evil-set-initial-state 'term-mode 'emacs)
   (evil-set-initial-state 'circe-mode 'emacs)
@@ -229,6 +230,13 @@ Directory defaults to the value of `move-file-default-target'."
          ("C-c C-1" . org-timestamp-now)
          ("C-M-<return>" . org-meta-return)
          ("C-c M-," . org-insert-structure-template))
+  :functions (org-link-gopher-export-link
+              org-link-gemini-export-link
+              org-link-abbr-export-link
+              org-export-deterministic-reference
+              org-link-set-parameters
+              org-timestamp-inactive
+              org-timestamp-now)
   :config
   ;; support gopher and gemini links for org
   ;; https://list.orgmode.org/87k1vsiv7t.fsf@nicolasgoaziou.fr/t/
@@ -335,6 +343,7 @@ Directory defaults to the value of `move-file-default-target'."
          ("C-j" . company-select-next-or-abort)
          ("C-k" . company-select-previous-or-abort))
   :hook (after-init . global-company-mode)
+  :functions turn-off-company
   :config
   (defun turn-off-company ()
     (company-mode -1))
@@ -347,6 +356,7 @@ Directory defaults to the value of `move-file-default-target'."
   :hook (doc-view-mode . auto-revert-mode))
 
 (use-package display-line-numbers
+  :functions turn-off-line-numbers
   :config
   (defun turn-off-line-numbers ()
     (display-line-numbers-mode 0))
@@ -355,6 +365,12 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package circe
   :commands circe
   :after evil
+  :functions (lui-kill-to-beginning-of-line
+              chanserv-op
+              circe-server-process
+              irc-send-raw
+              circe-command-JOIN
+              circe-command-GAWAY)
   :config
   (defalias 'circe-command-AA #'circe-command-GAWAY)
   (defalias 'circe-command-J #'circe-command-JOIN)
