@@ -198,6 +198,7 @@ Directory defaults to the value of `move-file-default-target'."
   (evil-set-initial-state 'term-mode 'emacs)
   (evil-set-initial-state 'circe-mode 'emacs)
   (evil-set-initial-state 'ses-mode 'emacs)
+  (evil-set-initial-state 'Info-mode 'emacs)
 
   (evil-define-operator evil-fill-justify (beg end)
     "fill justified text."
