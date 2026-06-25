@@ -3,8 +3,6 @@
 (require 'package)
 
 (add-to-list 'package-archives
-	     (cons "nongnu" "https://elpa.nongnu.org/nongnu/"))
-(add-to-list 'package-archives
 	     (cons "melpa" "https://melpa.org/packages/"))
 
 (add-to-list 'load-path (concat user-emacs-directory
