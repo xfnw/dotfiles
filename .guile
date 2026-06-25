@@ -16,5 +16,4 @@
       (op (car lst) (foldr op in (cdr lst)))))
 
 (define (fix f)
-  (letrec ((x (f (delay x))))
-    x))
+  (f (delay (fix f))))
