@@ -7,6 +7,7 @@
 	annotate = true
 [alias]
 	psuh = push
+	ff = merge --ff-only
 	br = !git log --oneline | head
 	has = merge-base --is-ancestor
 	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
