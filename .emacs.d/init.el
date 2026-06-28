@@ -413,5 +413,12 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package xt-mouse
   :hook (after-init . xterm-mouse-mode))
 
+(use-package htmlfontify
+  :commands htmlfontify-buffer
+  :config
+  (defun hfy-family (family)
+    (list (cons "font-family"
+                (format "\"%s\", monospace" (string-replace "\"" "\\\\\"" family))))))
+
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
