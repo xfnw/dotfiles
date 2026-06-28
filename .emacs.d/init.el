@@ -160,11 +160,6 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package tramp
   :bind (("C-c r" . tramp-revert-buffer-with-sudo)))
 
-(use-package org
-  :bind (("C-c a" . org-agenda)
-         ("C-c l" . org-store-link)
-         ("C-c t" . org-capture)))
-
 (use-package magit
   :bind (("C-c m" . magit)
          ("C-c M" . magit-file-dispatch)))
@@ -225,7 +220,10 @@ Directory defaults to the value of `move-file-default-target'."
          ("C-x w" . elpher-copy-current-url)))
 
 (use-package org
-  :bind (:map org-mode-map
+  :bind (("C-c a" . org-agenda)
+         ("C-c l" . org-store-link)
+         ("C-c t" . org-capture)
+         :map org-mode-map
          ("C-c C-1" . org-timestamp-now)
          ("C-M-<return>" . org-meta-return)
          ("C-c M-," . org-insert-structure-template))
