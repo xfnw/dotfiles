@@ -425,6 +425,7 @@ Directory defaults to the value of `move-file-default-target'."
          ("p" . yank)
          ("u" . undo)
          ("y" . kill-ring-save)
+         :map ses-mode-edit-map
          ("M-S-<mouse-3>" . ses-insert-curcell-click))
   :functions (ses-insert-curcell-click ses--curcell)
   :config
