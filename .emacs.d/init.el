@@ -424,7 +424,17 @@ Directory defaults to the value of `move-file-default-target'."
          ("P" . ses-read-cell-printer)
          ("p" . yank)
          ("u" . undo)
-         ("y" . kill-ring-save)))
+         ("y" . kill-ring-save)
+         ("M-S-<mouse-3>" . ses-insert-curcell-click))
+  :functions (ses-insert-curcell-click ses--curcell)
+  :config
+  (defun ses-insert-curcell-click (event)
+    (interactive "*e")
+    (mouse-set-point event)
+    (let (x)
+      (with-current-buffer (window-buffer minibuffer-scroll-window)
+        (setq x (prin1-to-string (ses--curcell))))
+      (insert x))))
 
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
