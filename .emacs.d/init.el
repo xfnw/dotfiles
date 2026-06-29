@@ -168,6 +168,7 @@ Directory defaults to the value of `move-file-default-target'."
   :bind (("C-c b" . bar-to-clipboard)))
 
 (use-package simple
+  :commands (yank undo kill-ring-save)
   :bind (("C-c q" . auto-fill-mode))
   :hook ((after-init . column-number-mode)
          (org-mode . turn-on-auto-fill)
@@ -417,6 +418,13 @@ Directory defaults to the value of `move-file-default-target'."
   (defun hfy-family (family)
     (list (cons "font-family"
                 (format "\"%s\", monospace" (string-replace "\"" "\\\\\"" family))))))
+
+(use-package ses
+  :bind (:map ses-mode-print-map
+         ("P" . ses-read-cell-printer)
+         ("p" . yank)
+         ("u" . undo)
+         ("y" . kill-ring-save)))
 
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
