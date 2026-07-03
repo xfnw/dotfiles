@@ -178,6 +178,7 @@ Directory defaults to the value of `move-file-default-target'."
   :bind (("<f12>" . buffer-menu)))
 
 (use-package evil
+  :commands evil-delete-backwards-word
   :bind (:map evil-insert-state-map
          ([S-left] . nil)
          ([S-right] . nil)
@@ -362,7 +363,6 @@ Directory defaults to the value of `move-file-default-target'."
 
 (use-package circe
   :commands circe
-  :after evil
   :functions (lui-kill-to-beginning-of-line
               chanserv-op
               circe-server-process
