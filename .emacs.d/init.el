@@ -100,7 +100,7 @@
    '(browse-at-remote circe company elpher emacs-everywhere evil geiser
                       geiser-guile gruvbox-theme magit nix-mode
                       nyan-mode ob-nix osm ox-rfc ox-typst paredit
-                      rust-mode separedit slime smog))
+                      rust-mode separedit slime smog z3-mode))
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
  '(tab-always-indent nil)
@@ -436,6 +436,9 @@ Directory defaults to the value of `move-file-default-target'."
       (with-current-buffer (window-buffer minibuffer-scroll-window)
         (setq x (prin1-to-string (ses--curcell))))
       (insert x))))
+
+(use-package z3-mode
+  :mode "\\.smt2\\'")
 
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
