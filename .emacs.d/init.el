@@ -440,5 +440,13 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package z3-mode
   :mode "\\.smt2\\'")
 
+(use-package slime
+  :defer t
+  :functions turn-off-slime
+  :config
+  (defun turn-off-slime ()
+    (slime-mode -1))
+  (add-hook 'z3-mode-hook #'turn-off-slime))
+
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
