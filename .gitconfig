@@ -39,5 +39,3 @@
 	threeWay = true
 [tar "tar.zst"]
 	command = zstd
-[tar "tar.xz"]
-	command = xz
