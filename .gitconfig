@@ -38,4 +38,4 @@
 [am]
 	threeWay = true
 [tar "tar.zst"]
-	command = zstd
+	command = zstd -19
