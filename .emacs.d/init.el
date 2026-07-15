@@ -64,7 +64,6 @@
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
  '(org-agenda-files '("." "~/org"))
- '(org-agenda-start-on-weekday 0)
  '(org-agenda-todo-ignore-deadlines 'far)
  '(org-agenda-todo-ignore-scheduled 'future)
  '(org-agenda-todo-ignore-timestamp 'future)
