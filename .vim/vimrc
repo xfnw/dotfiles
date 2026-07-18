@@ -27,6 +27,9 @@ command Ty     :w|!typst compile --pdf-standard a-3b -- "%"
 " abbreviations
 iab SPDXcp: SPDX-FileCopyrightText:
 iab SPDXid: SPDX-License-Identifier:
+iab <!dh> <!DOCTYPE html>
+iab <metavp> <meta name=viewport content="width=device-width, initial-scale=1">
+iab <metacs> <meta name=color-scheme content="dark light">
 
 " nice line numbers
 set number
