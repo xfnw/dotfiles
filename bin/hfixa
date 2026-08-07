@@ -22,10 +22,12 @@ class Rewriter:
                 else self.dirname + "/" + link
             )
             if not (os.path.isfile(link) or link.endswith("/")):
-                if os.path.isdir(link):
+                if os.path.exists(link + "/index.html"):
                     link = link + "/"
                 elif os.path.exists(link + ".html"):
                     link = link + ".html"
+                elif os.path.isdir(link):
+                    link = link + "/"
             link = link.removeprefix(self.curdir)
 
         return "#".join([link] + anchorstuff)
