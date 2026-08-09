@@ -53,11 +53,9 @@ alias ncdu='ncdu --color off'
 alias sydi="sudo"
 alias rn="rm -i"
 
-#autoload -Uz compinit
-#compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
+typeset +x HISTFILE
+
 HISTSIZE=10000000
 SAVEHIST=10000000
 WORDCHARS='*?_-.[]~=&#$%^(){}<>' 
