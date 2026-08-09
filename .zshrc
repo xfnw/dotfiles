@@ -63,7 +63,9 @@ WORDCHARS='*?_-.[]~=&#$%^(){}<>'
 
 setopt autocd
 unsetopt nomatch
-bindkey -v
+
+bindkey -e
+bindkey "^U" backward-kill-line
 
 # why wont it run my profile lol
 source ~/.profile
@@ -725,9 +727,6 @@ function grmlcomp () {
 #
 #     - zle-line-init():      zle-smkx
 #     - zle-line-finish():    zle-rmkx
-
-# Use emacs-like key bindings by default:
-bindkey -e
 
 # Custom widgets:
 
