@@ -227,8 +227,8 @@ zrcautoload is-at-least || function is-at-least () { return 1 }
 # append history after every command
 setopt inc_append_history
 
-# history sharing is annoying, just exec zsh if you need a command
-# used in a different shell
+# history sharing is annoying, just exec zsh or fc -RI if you need a
+# command used in a different shell
 unsetopt share_history
 
 # save each command's beginning timestamp and the duration to the history file
