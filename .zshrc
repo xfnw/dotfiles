@@ -58,6 +58,7 @@ typeset +x HISTFILE
 
 HISTSIZE=10000000
 SAVEHIST=10000000
+
 WORDCHARS='*?_-.[]~=&#$%^(){}<>' 
 
 setopt autocd
@@ -223,12 +224,12 @@ zrcautoload is-at-least || function is-at-least () { return 1 }
 
 # set some important options (as early as possible)
 
-# append history list to the history file; this is the default but we make sure
-# because it's required for share_history.
-setopt append_history
+# append history after every command
+setopt inc_append_history
 
-# import new commands from the history file also in other zsh-session
-setopt share_history
+# history sharing is annoying, just exec zsh if you need a command
+# used in a different shell
+unsetopt share_history
 
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
@@ -1438,11 +1439,6 @@ alias run-help >&/dev/null && unalias run-help
 for rh in run-help{,-ip,-openssl,-p4,-sudo,-svk,-svn}; do
     zrcautoload $rh
 done; unset rh
-
-# history
-
-#v#
-HISTFILE=${HISTFILE:-${ZDOTDIR:-${HOME}}/.zsh_history}
 
 # dirstack handling
 
