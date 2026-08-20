@@ -403,7 +403,7 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package redtick
   :hook (after-init . redtick-mode))
 
-(use-package save-place-mode
+(use-package saveplace
   :hook (after-init . save-place-mode))
 
 (use-package time
