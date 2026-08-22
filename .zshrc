@@ -26,7 +26,7 @@ unputdir(){ find "${@:2}" | while IFS= read fname ; do curl -X PUT "$1$fname" ; 
 deldir(){ find "${@:2}" | while IFS= read fname ; do curl -X DELETE "$1$fname" ; done ; }
 cshow(){ diff -Nru /var/empty ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$2 | less ; }
 cdiff(){ diff -Nru ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$2 ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$3 | less ; }
-cbins(){ grep -rIL . ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$2 ; }
+cbins(){ grep -rIL '' ~/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/$1-$2 ; }
 
 alias warc="wget --delete-after --no-directories --warc-cdx --warc-file"
 alias ytdl="yt-dlp --extract-audio --audio-format mp3"
