@@ -197,6 +197,9 @@ Directory defaults to the value of `move-file-default-target'."
   (evil-set-initial-state 'ses-mode 'emacs)
   (evil-set-initial-state 'Info-mode 'emacs)
 
+  (evil-set-initial-state 'minibuffer-mode 'insert)
+  (evil-set-initial-state 'minibuffer-inactive-mode 'insert)
+
   (evil-define-operator evil-fill-justify (beg end)
     "fill justified text."
     :move-point nil
