@@ -27,6 +27,7 @@ command Ty     :w|!typst compile --pdf-standard a-3b -- "%"
 " abbreviations
 iab SPDXcp: SPDX-FileCopyrightText:
 iab SPDXid: SPDX-License-Identifier:
+iab Cob: Co-authored-by:
 iab <!dh> <!DOCTYPE html>
 iab <metach> <meta charset=UTF-8>
 iab <metavp> <meta name=viewport content="width=device-width, initial-scale=1">
