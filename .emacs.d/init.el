@@ -286,7 +286,7 @@ Directory defaults to the value of `move-file-default-target'."
       (format "%s (%s)" desc link))))
 
   (org-link-set-parameters "gopher" :follow #'elpher-go :export #'org-link-gopher-export-link :store #'org-elpher-store-link)
-  (org-link-set-parameters "gemini" :follow #'elpher-go-gemini :export #'org-link-gemini-export-link :store #'org-elpher-store-link)
+  (org-link-set-parameters "gemini" :follow #'elpher-go-gemini :export #'org-link-gemini-export-link)
   (org-link-set-parameters "abbr" :export #'org-link-abbr-export-link)
 
   (defun org-export-deterministic-reference (references)
