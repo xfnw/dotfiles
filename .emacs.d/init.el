@@ -223,12 +223,19 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package elpher
   :bind (:map elpher-mode-map
          ("C-x w" . elpher-copy-current-url))
-  :commands (elpher elpher-go elpher-go-gemini)
+  :commands (elpher elpher-go elpher-go-gemini org-elpher-store-link)
   :config
   (defun elpher-go-gemini (urlish)
     (elpher-go (if (string-prefix-p "gemini:" urlish)
                  urlish
-                 (concat "gemini:" urlish)))))
+                 (concat "gemini:" urlish))))
+  (defun org-elpher-store-link ()
+    (when (eq major-mode 'elpher-mode)
+      (let* ((address (elpher-page-address elpher-current-page))
+             (url (elpher-address-to-url address)))
+        (org-link-store-props
+         :type "elpher"
+         :link url)))))
 
 (use-package org
   :bind (("C-c a" . org-agenda)
@@ -238,6 +245,7 @@ Directory defaults to the value of `move-file-default-target'."
          ("C-c C-1" . org-timestamp-now)
          ("C-M-<return>" . org-meta-return)
          ("C-c M-," . org-insert-structure-template))
+  :commands org-link-store-props
   :functions (org-link-gopher-export-link
               org-link-gemini-export-link
               org-link-abbr-export-link
@@ -277,8 +285,8 @@ Directory defaults to the value of `move-file-default-target'."
      (t
       (format "%s (%s)" desc link))))
 
-  (org-link-set-parameters "gopher" :follow #'elpher-go :export #'org-link-gopher-export-link)
-  (org-link-set-parameters "gemini" :follow #'elpher-go-gemini :export #'org-link-gemini-export-link)
+  (org-link-set-parameters "gopher" :follow #'elpher-go :export #'org-link-gopher-export-link :store #'org-elpher-store-link)
+  (org-link-set-parameters "gemini" :follow #'elpher-go-gemini :export #'org-link-gemini-export-link :store #'org-elpher-store-link)
   (org-link-set-parameters "abbr" :export #'org-link-abbr-export-link)
 
   (defun org-export-deterministic-reference (references)
