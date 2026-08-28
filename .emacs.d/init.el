@@ -222,7 +222,13 @@ Directory defaults to the value of `move-file-default-target'."
 
 (use-package elpher
   :bind (:map elpher-mode-map
-         ("C-x w" . elpher-copy-current-url)))
+         ("C-x w" . elpher-copy-current-url))
+  :commands (elpher elpher-go elpher-go-gemini)
+  :config
+  (defun elpher-go-gemini (urlish)
+    (elpher-go (if (string-prefix-p "gemini:" urlish)
+                 urlish
+                 (concat "gemini:" urlish)))))
 
 (use-package org
   :bind (("C-c a" . org-agenda)
@@ -271,8 +277,8 @@ Directory defaults to the value of `move-file-default-target'."
      (t
       (format "%s (%s)" desc link))))
 
-  (org-link-set-parameters "gopher" :export #'org-link-gopher-export-link)
-  (org-link-set-parameters "gemini" :export #'org-link-gemini-export-link)
+  (org-link-set-parameters "gopher" :follow #'elpher-go :export #'org-link-gopher-export-link)
+  (org-link-set-parameters "gemini" :follow #'elpher-go-gemini :export #'org-link-gemini-export-link)
   (org-link-set-parameters "abbr" :export #'org-link-abbr-export-link)
 
   (defun org-export-deterministic-reference (references)
