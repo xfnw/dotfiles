@@ -95,7 +95,7 @@ sub tmux_away {
     if ($away_status == 0) {
       # display init message at first time
 	my $grace = Irssi::settings_get_int($IRSSI{'name'} . '_grace');
-	$grace = ", $grace seconds grace" if $grace;
+	my $grace = ", $grace seconds grace" if $grace;
       Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'tmux_away_crap',
         "activating $IRSSI{'name'} (interval: " . Irssi::settings_get_int($IRSSI{'name'} . '_repeat') . " seconds$grace)");
       $away_status = 2;
