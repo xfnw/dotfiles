@@ -10,7 +10,7 @@ out = []
 for item in args:
     tags = MP3(item, ID3=ID3).tags
     title = str(tags["TIT2"]) if "TIT2" in tags else None
-    author = str(tags["TPE1"]) if "TPE1" in tags else None
+    artist = str(tags["TPE1"]) if "TPE1" in tags else None
 
     out.append(
         {
@@ -21,7 +21,7 @@ for item in args:
             .decode("utf-8")
             .replace("=", ""),
             "title": title,
-            "author": author,
+            "artist": artist,
         }
     )
 
