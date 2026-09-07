@@ -11,6 +11,9 @@ for item in args:
     tags = MP3(item, ID3=ID3).tags
     title = str(tags["TIT2"]) if "TIT2" in tags else None
     artist = str(tags["TPE1"]) if "TPE1" in tags else None
+    album = str(tags["TALB"]) if "TALB" in tags else None
+    description = str(tags["TXXX:description"]) if "TXXX:description" in tags else None
+    comment = str(tags["TXXX:comment"]) if "TXXX:comment" in tags else None
 
     out.append(
         {
@@ -22,6 +25,9 @@ for item in args:
             .replace("=", ""),
             "title": title,
             "artist": artist,
+            "album": album,
+            "description": description,
+            "comment": comment,
         }
     )
 
