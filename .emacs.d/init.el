@@ -47,6 +47,7 @@
  '(dired-auto-revert-buffer 'dired-directory-changed-p)
  '(dired-listing-switches "-alt")
  '(display-line-numbers 'relative)
+ '(eglot-code-action-indications nil)
  '(eldoc-echo-area-use-multiline-p nil)
  '(elpher-gemini-max-fill-width 75)
  '(enable-local-variables nil)
