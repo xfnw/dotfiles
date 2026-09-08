@@ -166,8 +166,8 @@ abstracts = {
   whois = "%# $[8]0 : $1-";
 
   # notices
-  ownnotice = "%K-%R$1-%K-%n ";
-  notice = "%K-%M$*%K-%n ";
+  ownnotice = "%K-%W$1-%K-%n ";
+  notice = "%K-%n$*%K-%n ";
   pubnotice_channel = "";
   pvtnotice_host = "";
   servernotice = "%g!$*%n ";
