@@ -166,7 +166,13 @@ Directory defaults to the value of `move-file-default-target'."
          ("C-c M" . magit-file-dispatch)))
 
 (use-package browse-at-remote
-  :bind (("C-c b" . bar-to-clipboard)))
+  :bind (("C-c b" . bar-to-clipboard))
+  :config
+  (dolist (i '((:host "^codeberg\\.org$" :type "gitea")
+               (:host "^gitea\\.arpa\\.li$" :type "gitea")
+               (:host "^git\\.h\\.wer\\.ee$" :type "gitea")
+               (:host "^tildegit\\.org$" :type "gitea")))
+    (add-to-list 'browse-at-remote-remote-type-regexps i)))
 
 (use-package simple
   :commands (yank undo kill-ring-save)
