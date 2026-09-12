@@ -39,7 +39,6 @@ aliases = {
   WQUERY = "QUERY -window";
   WW = "WHOWAS";
   rainbow = "exec -o toilet --irc --gay -f term -- $";
-  nn = "window number";
   move = "window move";
   kline = "QUOTE KLINE";
   unkline = "QUOTE UNKLINE";
