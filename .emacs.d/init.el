@@ -231,6 +231,7 @@ Directory defaults to the value of `move-file-default-target'."
   :bind (:map elpher-mode-map
          ("C-x w" . elpher-copy-current-url))
   :commands (elpher elpher-go elpher-go-gemini org-elpher-store-link)
+  :functions (elpher-page-address elpher-address-to-url)
   :config
   (defun elpher-go-gemini (urlish)
     (elpher-go (if (string-prefix-p "gemini:" urlish)
