@@ -171,6 +171,7 @@ Directory defaults to the value of `move-file-default-target'."
   (dolist (i '((:host "^codeberg\\.org$" :type "gitea")
                (:host "^gitea\\.arpa\\.li$" :type "gitea")
                (:host "^git\\.h\\.wer\\.ee$" :type "gitea")
+               (:host "^git-ssh\\.h\\.wer\\.ee$" :actual-host "git.h.wer.ee" :type "gitea")
                (:host "^tildegit\\.org$" :type "gitea")))
     (add-to-list 'browse-at-remote-remote-type-regexps i)))
 
