@@ -101,7 +101,7 @@
    '(browse-at-remote circe company elpher emacs-everywhere evil geiser
                       geiser-guile gruvbox-theme magit nix-mode
                       nyan-mode ob-nix osm ox-rfc ox-typst paredit
-                      rust-mode separedit slime smog z3-mode))
+                      rust-mode separedit smog z3-mode))
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
  '(tab-always-indent nil)
@@ -465,14 +465,6 @@ Directory defaults to the value of `move-file-default-target'."
 
 (use-package z3-mode
   :mode "\\.smt2\\'")
-
-(use-package slime
-  :defer t
-  :functions turn-off-slime
-  :config
-  (defun turn-off-slime ()
-    (slime-mode -1))
-  (add-hook 'z3-mode-hook #'turn-off-slime))
 
 (when (not (and (boundp 'server-process) server-process))
   (server-start))
