@@ -316,11 +316,7 @@ Directory defaults to the value of `move-file-default-target'."
 (use-package lisp-mode
   :mode ("\\.cl\\'" . lisp-mode)
   :bind (:map lisp-mode-shared-map
-         ("C-c C-c" . compile-defun))
-  :config
-  ;; deferring loading inf-lisp seems to make it ignore
-  ;; the value of inferior-lisp-program in custom :(
-  (setq inferior-lisp-program "sbcl"))
+         ("C-c C-c" . compile-defun)))
 
 (use-package eglot
   :commands (eglot
