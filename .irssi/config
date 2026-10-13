@@ -128,15 +128,14 @@ settings = {
     emphasis = "no";
   };
   "irc/core" = {
-    cmds_max_at_once = "1024";
     channel_max_who_sync = "64";
     max_ctcp_queue = "0";
     sasl_disconnect_on_failure = "no";
     opermode = "+s +CFZbdfkrsuxy";
     join_auto_chans_on_invite = "yes";
     part_message = "every choice becomes a corridor conforming to the shape of my mistakes";
+    cmd_queue_speed = "1s";
   };
-  "irc/flood" = { flood_max_msgs = "1024"; };
   "perl/core/scripts" = {
     go_match_anchored = "no";
     tmux_away_message = "knot here...";
