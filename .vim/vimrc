@@ -1,27 +1,11 @@
 " some custom commands
 
-" insert templates
-command Tmomc :r ~/.vim/templates/chapter.mom
-command Tmomg :r ~/.vim/templates/general.mom
-command Tmomr :r ~/.vim/templates/recipe.mom
-command Tmome :r ~/.vim/templates/english.mom
-command Tman  :r ~/.vim/templates/man.1
-command Tmh   :r ~/.vim/templates/man.html
-command Ttex  :r ~/.vim/templates/general.tex
-command Tbib  :r ~/.vim/templates/bib.tex
-command Tmit  :r ~/.vim/templates/mit
-command Tuni  :r ~/.vim/templates/uni
-command Trfc  :r ~/.vim/templates/rfc
-
 " run groff+refer on file
-command Groff  :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -Tpdf > ${p::-4}.pdf'
-command Grofft :w|!sh -c 'p="%"; refer -PS -e -p ~/Documents/bib ${p::-4}.mom | groff -mom -T ascii | sed -b "s/\x1b[^m]*m//g" > ${p::-4}.txt'
 command Man    :w|!sh -c 'p="%"; mandoc -T html -O man=\%N.\%S.html "$p" | awk "f;/<\/style>/{f=1}" | cat ~/.vim/templates/man.html - > "$p".html'
 command TexCmp :silent !sh -c 'p="%"; pdflatex "$p"'
 command Tex    :w|exe 'TexCmp'|redraw!
 command BibCmp :silent !sh -c 'p="%"; biber "${p::-4}"'
 command Bib    :w|exe 'TexCmp'|exe 'BibCmp'|exe 'TexCmp'|exe 'TexCmp'|redraw!
-command Md     :w|!sh -c 'p="%"; cmark --unsafe ${p::-3}.md | h2p - ${p::-3}.pdf'
 command Ty     :w|!typst compile --pdf-standard a-3b -- "%"
 
 " abbreviations
@@ -39,25 +23,22 @@ set relativenumber
 
 command Nonum :set nonumber norelativenumber
 
-" syntax hilighting
 syntax on
 color pablo
 
-" vimwiki
 set nocompatible
-filetype plugin on
 
 " vimrc sane defaults
 
 filetype plugin indent on
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+set showcmd
+set showmatch
+set ignorecase
+set smartcase
+set incsearch
+set autowrite
+set hidden
+set mouse=a
 set backspace=indent,eol,start
 
 " fmt stuffs
@@ -65,23 +46,8 @@ set textwidth=70
 set formatoptions-=t
 set nomodeline
 
-" 2 space tabbing for nix files
-autocmd Filetype nix setlocal ts=2 sw=2 expandtab autoindent
-
-autocmd Filetype lisp setlocal expandtab
+au Filetype nix setlocal ts=2 sw=2 expandtab autoindent
+au Filetype lisp setlocal expandtab
 
 " jump to last position after opening
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-nnore gbd o\begin{dialogue}{}<Return>\end{dialogue}<Esc>kf{a
-nnore gbm o\begin{multicols}{}<Return>\end{multicols}<Esc>kf{a
-nnore gbD o\begin{dialogue}[]{}<Return>\end{dialogue}<Esc>kf[a
-nnore gbe o\begin{enumerate}[]<Return>\end{enumerate}<Esc>kf[a
-nnore gbf o\begin{figure}[]<Return>\end{figure}<Esc>kf[a
-nnore gbv o\begin{verbatim}<Return>\end{verbatim}<Esc>O
-nnore gbM o\begin{bmatrix}<Return>\end{bmatrix}<Esc>O
-nnore gbi o\begin{itemize}<Return>\end{itemize}<Esc>O
-nnore gbc o\begin{center}<Return>\end{center}<Esc>O
-
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
