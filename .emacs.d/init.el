@@ -103,6 +103,7 @@
                       geiser-guile gruvbox-theme magit nix-mode
                       nyan-mode ob-nix osm ox-rfc ox-typst paredit
                       rust-mode separedit smog z3-mode))
+ '(sentence-end-double-space nil)
  '(ses-after-entry-functions '(next-line))
  '(shr-fill-text nil)
  '(tab-always-indent nil)
