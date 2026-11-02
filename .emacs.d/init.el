@@ -38,6 +38,9 @@
  '(company-idle-delay nil)
  '(company-selection-wrap-around t)
  '(company-show-quick-access t)
+ '(compilation-always-kill t)
+ '(compilation-filter-hook '(ansi-color-compilation-filter))
+ '(compilation-scroll-output t)
  '(custom-enabled-themes '(gruvbox-dark-hard))
  '(custom-safe-themes
    '("8ca212d6ef076ad444f44bf6e57a9841930cbeb0c3f7d7525a21e20a57a3d7f6"
