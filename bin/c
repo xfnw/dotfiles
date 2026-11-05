@@ -36,12 +36,12 @@ decompile=
 cflags=
 while getopts 'c:e:i:tdg' opt; do
 	case "${opt}" in
-		(c) cflags=$cflags$OPTARG;;
-		(e) expr=$OPTARG;;
+		(c) cflags="$cflags $OPTARG";;
+		(e) expr="$OPTARG";;
 		(i) echo "#include <${OPTARG}>" >&3;;
 		(t) type=1;;
 		(d) decompile=1;;
-		(g) cflags=$cflags" -fsanitize=address,undefined -g";;
+		(g) cflags="$cflags -fsanitize=address,undefined -g";;
 		(?) exit 1;;
 	esac
 done
