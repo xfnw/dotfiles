@@ -142,7 +142,6 @@ settings = {
     tmux_away_window = "";
     awl_shared_sbar = "OFF";
     awl_hide_data = "1";
-    resize_num_window_actonly = "1";
   };
 };
 logs = { };
@@ -154,8 +153,7 @@ statusbar = {
     act = "{sb act: $0-}";
   };
   default = {
-    window_inact = { disabled = "yes"; };
-    topic = { items = { act = { }; }; };
+    topic = { disabled = "yes"; };
     prompt = {
       placement = "bottom";
       items = {
@@ -169,12 +167,20 @@ statusbar = {
       placement = "top";
       visible = "active";
       items = {
-        topicbarstart = { priority = "100"; };
         window = { };
         window_empty = { };
         usercount = { };
         topic = { };
-        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    window_inact = {
+      placement = "top";
+      visible = "inactive";
+      items = {
+        window = { };
+        window_empty = { };
+        usercount = { };
+        act = { };
       };
     };
   };
