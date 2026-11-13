@@ -226,8 +226,8 @@ exec feh --randomize --bg-fill ~/Pictures/wall
 #exec --no-startup-id picom -b
 exec --no-startup-id dunst
 
-# @lukesmithxyz's unicode picker
-bindsym $mod+u exec ~/.config/i3/dmenuunicode
+# rofi-emoji
+bindsym $mod+u exec rofi -modi emoji -show emoji -emoji-mode copy
 
 bindsym $mod+o exec orca --replace
 bindsym $mod+shift+o exec nerd-dictation begin --continuous --numbers-as-digits
