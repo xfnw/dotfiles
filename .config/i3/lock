@@ -9,6 +9,7 @@ convert /tmp/lock.png -paint 1 -blur 8x5 ~/.config/i3/lockfox.png -gravity cente
 
 # lock agents
 command -v keepassxc && keepassxc --lock &
+command -v ChiPass && ChiPass --lock &
 command -v ratbox-respond && killall -1 ratbox-respond
 command -v gpgconf && gpgconf --reload gpg-agent
 
