@@ -67,7 +67,6 @@ bindsym XF86Display exec --no-startup-id exec ~/.config/i3/display
 # lock stuff
 bindsym XF86ScreenSaver exec ~/.config/i3/lock
 bindsym $mod+l exec ~/.config/i3/lock
-bindsym $mod+Shift+l exec ~/.config/i3/freeze
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -229,9 +228,6 @@ exec --no-startup-id dunst
 
 # @lukesmithxyz's unicode picker
 bindsym $mod+u exec ~/.config/i3/dmenuunicode
-
-# pasta picker
-bindsym $mod+p exec ~/.config/i3/dmenupasta
 
 bindsym $mod+o exec orca --replace
 bindsym $mod+shift+o exec nerd-dictation begin --continuous --numbers-as-digits
