@@ -1,4 +1,4 @@
 keycode 105 = Control_R Multi_key Control_R NoSymbol Control_R Control_R
 keycode 135 = Multi_key NoSymbol Menu NoSymbol Menu Menu
-keycode 166 = Page_Down XF86Back XF86Back NoSymbol XF86Back XF86Back
-keycode 167 = Page_Up XF86Forward XF86Forward NoSymbol XF86Forward XF86Forward
+keycode 166 = Page_Up XF86Back XF86Back NoSymbol XF86Back XF86Back
+keycode 167 = Page_Down XF86Forward XF86Forward NoSymbol XF86Forward XF86Forward
